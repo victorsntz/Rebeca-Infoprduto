@@ -90,12 +90,20 @@ def head(left, right=""):
 # ---------------------------------------------------------------------------
 page(f'''
 <div class="frame"></div>
-<div class="kicker">Caderno prático · corpo, alma e espírito</div>
-<h1>De Tola a <em>Virtuosa</em></h1>
-<p class="sub">{e(C.SUBTITULO)}</p>
-<div class="tag">Quatro provas de dez dias pra virar a mulher que Deus já disse que você é</div>
-<p class="verse">“{e(C.VERSICULO_CAPA["texto"])}”<span class="verse-ref">{e(C.VERSICULO_CAPA["ref"])}</span></p>
-<div class="autora">{FLAME_HEART}<span>por {e(C.AUTORA)}</span></div>
+<div class="cv-top">
+  <div class="kicker">Caderno prático</div>
+  <div class="kicker sub">Corpo · alma · espírito</div>
+</div>
+<div class="cv-mid">
+  <h1><span class="l1">De Tola</span><span class="l2">a <em>Virtuosa</em></span></h1>
+  <div class="orn"><span class="ln"></span>{FLAME_HEART}<span class="ln"></span></div>
+  <p class="sub">{e(C.SUBTITULO)}</p>
+  <div class="tag">Quatro provas de dez dias</div>
+</div>
+<div class="cv-bot">
+  <p class="verse">“{e(C.VERSICULO_CAPA["texto"])}”<span class="verse-ref">{e(C.VERSICULO_CAPA["ref"])}</span></p>
+  <div class="autora">por {e(C.AUTORA)}</div>
+</div>
 ''', cls="cover", foot=False)
 
 # Este caderno é de + compromisso -------------------------------------------
