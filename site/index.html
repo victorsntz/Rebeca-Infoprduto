@@ -1,0 +1,361 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>De Tola a Virtuosa · 40 dias no deserto</title>
+<meta name="description" content="Um caderno prático de 40 dias pra cuidar do corpo, da alma e do espírito e virar a mulher que Deus já disse que você é. Por Rebeca Fortunato.">
+<meta property="og:title" content="De Tola a Virtuosa · 40 dias no deserto">
+<meta property="og:description" content="Menina chora. Mulher entende o que precisa fazer e quer melhorar. Quatro provas de dez dias, com a Rebeca Fortunato.">
+<meta property="og:image" content="assets/img/capa.png">
+<link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/brand.css">
+<style>
+  /* ===== Landing page ===== */
+  .wrap { width: min(1120px, 100% - 2.5rem); margin: 0 auto; }
+  section { padding: clamp(3.5rem, 8vw, 6.5rem) 0; }
+  .on-dark { background: var(--rubi-profundo); color: var(--creme); }
+  .on-rubi { background: var(--rubi-escuro); color: var(--creme); }
+  .on-sand { background: var(--areia); }
+  .lead { font-size: 1.15rem; line-height: 1.6; max-width: 60ch; }
+  .center { text-align: center; }
+  .center .lead, .center .eyebrow { margin-left: auto; margin-right: auto; }
+  .grid { display: grid; gap: 1.4rem; }
+  .g2 { grid-template-columns: repeat(2, 1fr); }
+  .g3 { grid-template-columns: repeat(3, 1fr); }
+  .g4 { grid-template-columns: repeat(4, 1fr); }
+  @media (max-width: 900px) { .g3, .g4 { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 600px) { .g2, .g3, .g4 { grid-template-columns: 1fr; } }
+
+  /* nav */
+  nav.top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20; background: rgba(63,16,25,0.92); backdrop-filter: blur(10px); color: var(--creme); border-bottom: 1px solid rgba(249,245,238,0.1); }
+  nav.top .wrap { display: flex; align-items: center; justify-content: space-between; height: 66px; }
+  nav.top .links { display: flex; gap: 1.4rem; align-items: center; font-size: 0.9rem; }
+  nav.top .links a { text-decoration: none; opacity: 0.85; }
+  nav.top .links a:hover { opacity: 1; }
+  @media (max-width: 760px) { nav.top .links a.hide-m { display: none; } }
+
+  /* hero */
+  .hero { position: relative; overflow: hidden; padding: clamp(3rem, 7vw, 6rem) 0 0; }
+  .hero .wrap { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 3rem; align-items: center; }
+  @media (max-width: 900px) { .hero .wrap { grid-template-columns: 1fr; } }
+  .hero h1 { margin-bottom: 1.2rem; }
+  .hero .lead { color: rgba(249,245,238,0.85); }
+  .hero .cta { display: flex; gap: 0.8rem; flex-wrap: wrap; margin-top: 1.8rem; align-items: center; }
+  .hero .small { font-size: 0.85rem; color: rgba(249,245,238,0.65); margin-top: 1rem; }
+  .hero .frame { position: absolute; inset: 14px; border: 1px solid rgba(249,245,238,0.12); pointer-events: none; }
+  .mock { position: relative; padding: 1rem 0 2.5rem; }
+  .mock img { border-radius: 8px; box-shadow: var(--shadow); border: 1px solid rgba(255,255,255,0.08); }
+  .mock .a { width: 88%; transform: rotate(-3deg); }
+  .mock .b { width: 74%; position: absolute; right: 0; bottom: 0; transform: rotate(3deg) translateY(8%); }
+  .mock .tag { position: absolute; left: 0; bottom: 0.4rem; background: var(--dourado); color: var(--rubi-profundo); border-radius: 999px; padding: 0.4rem 0.9rem; font-size: 0.75rem; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 500; }
+  .hero .verse-strip { margin-top: clamp(2.5rem, 6vw, 4.5rem); border-top: 1px solid rgba(249,245,238,0.12); padding: 1.6rem 0; text-align: center; }
+
+  /* dor */
+  .dor .list { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.6rem 2rem; margin: 2rem 0; }
+  @media (max-width: 700px) { .dor .list { grid-template-columns: 1fr; } }
+  .dor .list div { display: flex; gap: 0.8rem; align-items: flex-start; padding: 0.75rem 0; border-bottom: 1px solid var(--linha); }
+  .dor .list .box { flex: 0 0 auto; width: 20px; height: 20px; border: 1.5px solid var(--rubi); border-radius: 5px; margin-top: 3px; }
+  .callout { border-left: 4px solid var(--rubi); padding: 1rem 1.4rem; background: #fff; border-radius: 0 var(--radius) var(--radius) 0; }
+
+  /* método */
+  .pilar { border-top: 5px solid var(--accent); }
+  .pilar .eyebrow { color: var(--accent); }
+  .pilar ul { list-style: none; padding: 0; margin: 0.8rem 0 0; color: var(--cinza); font-size: 0.95rem; }
+  .pilar li { padding: 0.2rem 0; }
+
+  /* travessia */
+  .prova { border-radius: var(--radius); padding: 1.6rem 1.5rem; color: var(--creme); display: flex; flex-direction: column; min-height: 300px; background: var(--accent); position: relative; overflow: hidden; }
+  .prova .n { position: absolute; right: 0.6rem; top: -0.4rem; font-family: var(--serif); font-size: 6rem; font-weight: 300; opacity: 0.16; line-height: 1; }
+  .prova .eyebrow { color: rgba(249,245,238,0.8); }
+  .prova h3 { font-size: 2rem; }
+  .prova .v { font-family: var(--serif); font-style: italic; font-size: 1.2rem; margin: 0.2rem 0 0.8rem; }
+  .prova p { font-size: 0.93rem; color: rgba(249,245,238,0.9); }
+  .prova .w { margin-top: auto; padding-top: 0.9rem; border-top: 1px solid rgba(249,245,238,0.3); font-size: 0.85rem; }
+  .prova .w b { font-family: var(--serif); font-size: 1.15rem; font-weight: 500; display: block; }
+
+  /* um dia */
+  .dia .wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
+  @media (max-width: 900px) { .dia .wrap { grid-template-columns: 1fr; } }
+  .dia img { border-radius: 8px; box-shadow: var(--shadow); }
+  .steps { list-style: none; padding: 0; margin: 1.5rem 0 0; counter-reset: s; }
+  .steps li { display: flex; gap: 1rem; padding: 0.9rem 0; border-bottom: 1px solid var(--linha); }
+  .steps li::before { counter-increment: s; content: counter(s, decimal-leading-zero); font-family: var(--serif); font-size: 1.6rem; color: var(--rubi); line-height: 1; flex: 0 0 2.4rem; }
+  .steps b { display: block; font-weight: 500; }
+  .steps span { color: var(--cinza); font-size: 0.95rem; }
+
+  /* entrega */
+  .item { display: flex; gap: 1rem; align-items: flex-start; }
+  .item .ic { flex: 0 0 auto; width: 46px; height: 46px; border-radius: 12px; background: var(--rubi-claro); display: grid; place-items: center; color: var(--rubi); }
+  .item .ic svg { width: 22px; height: 22px; }
+  .item b { display: block; font-weight: 500; font-size: 1.05rem; }
+  .item span { color: var(--cinza); font-size: 0.95rem; }
+
+  /* pra quem */
+  .quem { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
+  @media (max-width: 900px) { .quem { grid-template-columns: repeat(2, 1fr); } }
+  .quem div { background: rgba(249,245,238,0.06); border: 1px solid rgba(249,245,238,0.15); border-radius: var(--radius); padding: 1.3rem; }
+  .quem b { font-family: var(--serif); font-size: 1.5rem; font-weight: 500; display: block; margin-bottom: 0.3rem; }
+  .quem span { font-size: 0.93rem; color: rgba(249,245,238,0.8); }
+
+  /* sobre */
+  .sobre .wrap { display: grid; grid-template-columns: 0.8fr 1.2fr; gap: 3rem; align-items: center; }
+  @media (max-width: 800px) { .sobre .wrap { grid-template-columns: 1fr; } }
+  .foto { aspect-ratio: 4 / 5; border-radius: var(--radius); background: linear-gradient(160deg, var(--areia-escura), var(--dourado-claro)); display: grid; place-items: center; color: var(--rubi); text-align: center; padding: 1.5rem; box-shadow: var(--shadow); }
+  .foto small { display: block; font-size: 0.75rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--cinza); margin-top: 0.6rem; }
+
+  /* oferta */
+  .oferta .box { background: #fff; border-radius: 22px; box-shadow: var(--shadow); overflow: hidden; display: grid; grid-template-columns: 1.1fr 0.9fr; }
+  @media (max-width: 860px) { .oferta .box { grid-template-columns: 1fr; } }
+  .oferta .left { padding: 2.4rem; }
+  .oferta .right { background: var(--rubi-escuro); color: var(--creme); padding: 2.4rem; display: flex; flex-direction: column; justify-content: center; }
+  .oferta ul { list-style: none; padding: 0; margin: 1.2rem 0 0; }
+  .oferta li { display: flex; gap: 0.7rem; padding: 0.45rem 0; align-items: flex-start; }
+  .oferta li::before { content: ""; flex: 0 0 auto; width: 18px; height: 18px; border-radius: 50%; background: var(--rubi); margin-top: 4px; -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23000' d='M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z'/%3E%3C/svg%3E") center / contain no-repeat; mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23000' d='M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z'/%3E%3C/svg%3E") center / contain no-repeat; }
+  .price { font-family: var(--serif); font-size: 3.6rem; line-height: 1; margin: 0.4rem 0; }
+  .price small { font-size: 1.2rem; vertical-align: top; margin-right: 0.2rem; }
+  .price-note { font-size: 0.85rem; color: rgba(249,245,238,0.7); }
+  .strike { text-decoration: line-through; opacity: 0.6; font-size: 1rem; }
+  .garantia { display: flex; gap: 0.9rem; align-items: center; margin-top: 1.5rem; padding-top: 1.2rem; border-top: 1px solid rgba(249,245,238,0.2); font-size: 0.88rem; color: rgba(249,245,238,0.85); }
+  .garantia svg { width: 34px; height: 34px; flex: 0 0 auto; color: var(--dourado-vivo); }
+
+  /* faq */
+  details { border-bottom: 1px solid var(--linha); padding: 0.4rem 0; }
+  summary { cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; padding: 0.9rem 0; font-family: var(--serif); font-size: 1.3rem; }
+  summary::-webkit-details-marker { display: none; }
+  summary::after { content: "+"; font-family: var(--sans); color: var(--rubi); font-size: 1.4rem; }
+  details[open] summary::after { content: "–"; }
+  details p { color: var(--cinza); padding-bottom: 0.8rem; }
+
+  footer { background: var(--rubi-profundo); color: rgba(249,245,238,0.7); padding: 2.5rem 0; font-size: 0.85rem; }
+  footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem; align-items: center; }
+  footer a { text-decoration: none; }
+</style>
+</head>
+<body>
+
+<nav class="top on-dark">
+  <div class="wrap">
+    <a class="logo" href="#"><img src="assets/logo.svg" alt=""><span>De Tola a Virtuosa<small>Rebeca Fortunato</small></span></a>
+    <div class="links">
+      <a href="#metodo" class="hide-m">O método</a>
+      <a href="#travessia" class="hide-m">A travessia</a>
+      <a href="#entrega" class="hide-m">O que você recebe</a>
+      <a href="app/" class="hide-m">Entrar</a>
+      <a class="btn gold sm" href="#oferta">Quero começar</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero on-dark">
+  <div class="frame"></div>
+  <div class="wrap">
+    <div>
+      <span class="eyebrow">Caderno prático · 40 dias no deserto</span>
+      <h1>Menina chora.<br>Mulher entende o que <em class="gold">precisa fazer.</em></h1>
+      <p class="lead">Quatro provas de dez dias pra cuidar do corpo, da alma e do espírito ao mesmo tempo. Um minuto por dia pra marcar. Uma travessia inteira pra sair de tola e chegar em virtuosa.</p>
+      <div class="cta">
+        <a class="btn gold" href="#oferta">Começar minha travessia</a>
+        <a class="btn ghost" href="#dia">Ver como funciona</a>
+      </div>
+      <p class="small">Impresso ou online. Você escolhe. Com aula inaugural da Rebeca Fortunato.</p>
+    </div>
+    <div class="mock">
+      <img class="a" src="assets/img/capa.png" alt="Capa do caderno De Tola a Virtuosa">
+      <img class="b" src="assets/img/dia.png" alt="Página do dia 1 do caderno">
+      <span class="tag">A5 · pra imprimir</span>
+    </div>
+  </div>
+  <div class="verse-strip wrap">
+    <p class="verse">“Mulher virtuosa, quem a achará? O seu valor muito excede o de rubis.”<span class="verse-ref">Provérbios 31:10</span></p>
+  </div>
+</header>
+
+<!-- DOR -->
+<section class="dor">
+  <div class="wrap">
+    <span class="eyebrow">Você conhece essa mulher?</span>
+    <h2>Ela sabe o que devia fazer.<br>E não faz.</h2>
+    <div class="list">
+      <div><span class="box"></span><span>Espera ter vontade pra começar. A vontade não vem.</span></div>
+      <div><span class="box"></span><span>Dorme com o celular na mão e acorda já cansada.</span></div>
+      <div><span class="box"></span><span>Se compara com o feed e termina o dia se sentindo atrasada.</span></div>
+      <div><span class="box"></span><span>Quer mudar tudo em uma semana e desiste na quarta.</span></div>
+      <div><span class="box"></span><span>Reage no tom que veio e pede desculpa depois.</span></div>
+      <div><span class="box"></span><span>Separa fé de vida: Deus no domingo, ansiedade na segunda.</span></div>
+      <div><span class="box"></span><span>Não sabe pra onde o dinheiro foi nem onde o tempo passou.</span></div>
+      <div><span class="box"></span><span>Chora. E para.</span></div>
+    </div>
+    <div class="callout">
+      <p class="verse" style="font-size:1.2rem">“Toda mulher sábia edifica a sua casa; mas a tola derruba-a com as suas próprias mãos.”<span class="verse-ref">Provérbios 14:1</span></p>
+      <p style="margin:0.8rem 0 0">Tola aqui não é xingamento. É diagnóstico. A tola de Provérbios não é burra. É distraída de si mesma, do que fala, do que come, de quem deixa entrar. Todas nós começamos tolas em alguma área. A diferença é quem decide sair.</p>
+    </div>
+  </div>
+</section>
+
+<!-- MÉTODO -->
+<section class="on-sand" id="metodo">
+  <div class="wrap">
+    <div class="center">
+      <span class="eyebrow">O método</span>
+      <h2>Corpo, alma e espírito.<br>Tudo ao mesmo tempo.</h2>
+      <p class="lead" style="margin-top:1rem">A gente vive separando: fé é domingo, corpo é academia, cabeça é terapia. A Bíblia não separa. Dormir mal vira irritação. Irritação vira palavra dura. Palavra dura vira distância de quem você ama e de Deus. Um só hábito derruba os três. Um só hábito, feito com fidelidade, levanta os três.</p>
+    </div>
+    <div class="grid g3" style="margin-top:2.5rem">
+      <div class="card pilar c-salvia"><span class="eyebrow">Corpo</span><h3>Templo do Espírito Santo</h3><p class="muted" style="margin-top:0.5rem">Você cuida dele porque não é seu.</p><ul><li>2 litros de água</li><li>Sono de verdade</li><li>Comida de verdade e uma fruta</li><li>Corpo em movimento</li></ul></div>
+      <div class="card pilar c-dourado"><span class="eyebrow">Alma</span><h3>Mente, vontade e emoções</h3><p class="muted" style="margin-top:0.5rem">Renova-se pensando diferente.</p><ul><li>Primeira hora sem tela</li><li>Leitura todo dia</li><li>Frear um pensamento ruim</li><li>Domínio próprio</li></ul></div>
+      <div class="card pilar c-rubi"><span class="eyebrow">Espírito</span><h3>Onde Deus fala com você</h3><p class="muted" style="margin-top:0.5rem">Exercita-se em piedade.</p><ul><li>Oração no mesmo horário</li><li>Leitura bíblica guiada</li><li>Obedecer em uma coisa por dia</li><li>Caráter</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<!-- TRAVESSIA -->
+<section id="travessia">
+  <div class="wrap">
+    <div class="center">
+      <span class="eyebrow">A travessia</span>
+      <h2>Por que 40 dias?</h2>
+      <p class="lead" style="margin-top:1rem">Porque na Bíblia o deserto dura 40. Jesus, Moisés, Elias, o dilúvio, Nínive. Deserto não é castigo. É o lugar onde Deus fala, forma e prepara pra promessa. E Daniel pediu dez dias pra provar que obedecer funciona. Aqui são quatro provas de dez. Cada uma com um lugar, uma virtude e uma mulher da Bíblia que já passou por ali.</p>
+    </div>
+    <div class="grid g4" style="margin-top:2.5rem">
+      <div class="prova c-salvia"><span class="n">01</span><span class="eyebrow">Dias 1 a 10</span><h3>Saída</h3><div class="v">Temperança</div><p>Largar o Egito: os hábitos que te escravizam sem você perceber. Celular na cama, comida por ansiedade, boca sem freio.</p><div class="w"><b>Rute</b>Deixou tudo o que conhecia pra seguir Deus sem garantia.</div></div>
+      <div class="prova c-dourado"><span class="n">02</span><span class="eyebrow">Dias 11 a 20</span><h3>Sinai</h3><div class="v">Fé</div><p>Ouvir quem você é. Parar de se definir pelo que sente de manhã e passar a se definir pelo que Deus falou.</p><div class="w"><b>Maria</b>Ouviu o impossível e disse: eis aqui a serva do Senhor.</div></div>
+      <div class="prova c-rubi"><span class="n">03</span><span class="eyebrow">Dias 21 a 30</span><h3>Deserto</h3><div class="v">Fidelidade</div><p>Continuar quando cansa. Fazer no dia 25 com a mesma seriedade do dia 5. Aqui separa quem fez dieta de quem mudou de vida.</p><div class="w"><b>Ana</b>Orou anos até Deus responder. E cumpriu o que prometeu.</div></div>
+      <div class="prova c-ameixa"><span class="n">04</span><span class="eyebrow">Dias 31 a 40</span><h3>Jordão</h3><div class="v">Coragem</div><p>Entrar na promessa. A conversa adiada, o projeto parado, o propósito que você vem fingindo que não sabe qual é.</p><div class="w"><b>Ester</b>Entrou na sala do rei tremendo. Entrou mesmo assim.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- UM DIA -->
+<section class="dia on-sand" id="dia">
+  <div class="wrap">
+    <div><img src="assets/img/dia.png" alt="Página do dia: leitura, desafio, checklist e espaço pra marcar como você se sentiu"></div>
+    <div>
+      <span class="eyebrow">Um dia no caderno</span>
+      <h2>Um minuto pra marcar. Escrever é bônus.</h2>
+      <p class="lead" style="margin-top:1rem">A página deitada divide em duas metades. Esquerda é o que o caderno te dá. Direita é o que você devolve. Nos dias sem fôlego, você só circula. Nos dias com fôlego, escreve.</p>
+      <ol class="steps">
+        <li><div><b>Leitura de hoje</b><span>Um trecho curto da Bíblia, ligado à virtude da prova.</span></div></li>
+        <li><div><b>Desafio do dia</b><span>Uma ação concreta. Não é sugestão, é tarefa.</span></div></li>
+        <li><div><b>Checklist corpo, mente e espírito</b><span>Dez caixinhas. Marque à noite, com honestidade.</span></div></li>
+        <li><div><b>Como me senti e o que pesou</b><span>Circule. Grata, ansiosa, cansada. Tela, língua, comparação.</span></div></li>
+        <li><div><b>Maior dificuldade</b><span>A pergunta mais importante. Ela mostra onde Deus está trabalhando.</span></div></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- ENTREGA -->
+<section id="entrega">
+  <div class="wrap">
+    <div class="center">
+      <span class="eyebrow">O que você recebe</span>
+      <h2>Do jeito que você preferir usar</h2>
+    </div>
+    <div class="grid g2" style="margin-top:2.5rem">
+      <div class="item"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 3h9l5 5v13a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z"/><path d="M14 3v6h6"/></svg></div><div><b>O caderno em PDF, pronto pra imprimir</b><span>68 páginas em A5 deitado, só frente. Imprime em casa ou na gráfica, encaderna com espiral e escreve de canetinha sem medo. Quer maior? Imprime em A4, é a mesma proporção.</span></div></div>
+      <div class="item"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M9 18h6"/></svg></div><div><b>A versão online, pelo celular</b><span>Não quer imprimir? A mesma travessia numa área de membros: marca o dia, salva o que escreveu, vê a prova avançar. Seu progresso fica guardado.</span></div></div>
+      <div class="item"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="14" height="14" rx="2"/><path d="m17 10 4-2v8l-4-2z"/></svg></div><div><b>Aula inaugural com a Rebeca</b><span>Qual é o propósito da travessia, como ela usa o caderno no dia a dia e o que esperar de cada prova. Pra começar com direção.</span></div></div>
+      <div class="item"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 9V3h12v6"/><rect x="3" y="9" width="18" height="8" rx="2"/><path d="M6 14h12v7H6z"/></svg></div><div><b>Vídeo: como imprimir e encadernar</b><span>Papel, gramatura, espiral, onde pedir. E outro vídeo mostrando o site funcionando pra quem prefere a tela.</span></div></div>
+      <div class="item"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 4h16v16H4z"/><path d="m4 4 8 8 8-8"/></svg></div><div><b>Carta pro futuro e retrato do dia 1 e do dia 40</b><span>Você escreve pra mulher que vai abrir a página daqui a 40 dias. E compara, com números, onde Deus trabalhou.</span></div></div>
+      <div class="item"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg></div><div><b>Identidade, propósito, limites e regras</b><span>As páginas de preparação que a maioria pula e que decidem tudo: quem Deus diz que você é, pra que você foi chamada, o que você aceita e o que não aceita mais.</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- PRA QUEM -->
+<section class="on-dark">
+  <div class="wrap">
+    <span class="eyebrow">Pra quem é</span>
+    <h2 style="margin-bottom:1.6rem">Pra mulheres. Em qualquer fase.</h2>
+    <div class="quem">
+      <div><b>Solteira</b><span>Mora com os pais, está na escola ou na faculdade, e quer chegar no próximo capítulo já sendo quem Deus chamou.</span></div>
+      <div><b>Noiva</b><span>Preparando um casamento e percebendo que a casa que vai construir começa em você.</span></div>
+      <div><b>Casada</b><span>Lidando com casa, marido, trabalho e consigo mesma, e querendo fazer isso com força e dignidade.</span></div>
+      <div><b>Mãe</b><span>Cansada de verdade, mas sabendo que os filhos aprendem mais com o que veem do que com o que ouvem.</span></div>
+    </div>
+    <p class="lead" style="margin-top:2rem;color:rgba(249,245,238,0.8)">Cada fase tem seus desafios. O chamado é o mesmo. O caderno dá a estrutura, você adapta à sua vida.</p>
+  </div>
+</section>
+
+<!-- SOBRE -->
+<section class="sobre">
+  <div class="wrap">
+    <div class="foto"><div><img src="assets/logo.svg" alt="" style="width:54px;margin:0 auto 0.8rem"><span class="serif" style="font-size:1.6rem">Rebeca Fortunato</span><small>Foto da Rebeca aqui</small></div></div>
+    <div>
+      <span class="eyebrow">Quem fez</span>
+      <h2>Feito por uma mulher que também já foi tola.</h2>
+      <p class="lead" style="margin-top:1rem">Eu não escrevi este caderno de cima de um pedestal. Escrevi da pia da cozinha, do treino que eu não queria fazer, da conversa que eu adiei por meses. Cada desafio aqui eu fiz antes de pedir pra você fazer.</p>
+      <p class="lead">O que eu descobri é simples: virtude não é sentimento, é prática. E prática se aprende com repetição, num caderno amassado, com marca de café e letra feia. Quero atravessar esses 40 dias com você.</p>
+      <p class="muted" style="font-size:0.9rem"><em>Texto de exemplo na voz da Rebeca. Ela ajusta com a história dela.</em></p>
+    </div>
+  </div>
+</section>
+
+<!-- OFERTA -->
+<section class="oferta on-sand" id="oferta">
+  <div class="wrap">
+    <div class="box">
+      <div class="left">
+        <span class="eyebrow">Sua travessia começa hoje</span>
+        <h2>De Tola a Virtuosa</h2>
+        <p class="muted" style="margin-top:0.5rem">40 dias no deserto · corpo, alma e espírito</p>
+        <ul>
+          <li>Caderno em PDF (A5, pronto pra imprimir)</li>
+          <li>Área de membros com a versão online</li>
+          <li>Aula inaugural com a Rebeca Fortunato</li>
+          <li>Vídeos: como imprimir e como usar o site</li>
+          <li>40 leituras bíblicas e 40 desafios práticos</li>
+          <li>Páginas de identidade, propósito, limites e regras</li>
+          <li>Carta pro futuro, retrato do dia 1 e do dia 40</li>
+        </ul>
+      </div>
+      <div class="right">
+        <span class="strike">de R$ 197</span>
+        <div class="price"><small>R$</small>97</div>
+        <span class="price-note">ou 12x de R$ 9,70 · acesso imediato</span>
+        <a class="btn gold block" style="margin-top:1.4rem" href="#checkout" id="btn-checkout">Quero começar agora</a>
+        <div class="garantia"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2 4 5v6c0 5 3.5 9.5 8 11 4.5-1.5 8-6 8-11V5z"/><path d="m9 12 2 2 4-4"/></svg><span>7 dias de garantia. Se não for pra você, devolvemos tudo. Sem pergunta.</span></div>
+      </div>
+    </div>
+    <p class="center muted" style="font-size:0.85rem;margin-top:1.2rem">Preço e parcelamento são exemplo. Troque pelo valor real e aponte o botão pro link do checkout.</p>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section>
+  <div class="wrap" style="max-width:820px">
+    <span class="eyebrow">Perguntas frequentes</span>
+    <h2 style="margin-bottom:1.5rem">O que você ainda quer saber</h2>
+    <details><summary>Preciso imprimir?</summary><p>Não. Você recebe o PDF e o acesso à versão online. Muita gente imprime porque escrever à mão muda a relação com o hábito, mas dá pra fazer a travessia inteira pelo celular.</p></details>
+    <details><summary>Quanto custa imprimir?</summary><p>São 68 páginas em A5, só frente, o que dá 34 folhas de A4. Numa gráfica de bairro, com espiral, costuma sair barato. No vídeo de como imprimir a Rebeca mostra papel, gramatura e o que pedir.</p></details>
+    <details><summary>E se eu perder um dia?</summary><p>Marca o X e vira a página. Não compensa, não desiste, não recomeça do zero. Não existe 40 dias perfeitos. Existe 40 dias vividos.</p></details>
+    <details><summary>Sou casada e mãe. Dá tempo?</summary><p>A página do dia foi feita pra ser marcada em um minuto. Escrever é bônus pros dias com fôlego. Os desafios cabem numa rotina cheia, e vários deles são com a sua casa e as suas pessoas.</p></details>
+    <details><summary>Quanto tempo tenho de acesso?</summary><p>O PDF é seu pra sempre. A área de membros fica disponível pelo período informado no checkout.</p></details>
+    <details><summary>Posso fazer mais de uma vez?</summary><p>Sim, e a ideia é essa. No dia 40 você decide a próxima travessia, com novas metas, novas regras e uma amiga junto.</p></details>
+  </div>
+</section>
+
+<section class="on-rubi center" style="padding-top:4rem;padding-bottom:4rem">
+  <div class="wrap">
+    <p class="verse" style="font-size:1.6rem">“Não existe 40 dias perfeitos. Existe 40 dias vividos.”</p>
+    <a class="btn gold" style="margin-top:1.6rem" href="#oferta">Começar minha travessia</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <a class="logo" href="#"><img src="assets/logo.svg" alt=""><span style="color:var(--creme)">De Tola a Virtuosa<small>por Rebeca Fortunato</small></span></a>
+    <div>Corpo, alma e espírito · 40 dias no deserto · <a href="app/">Área de membros</a></div>
+  </div>
+</footer>
+
+<script>
+  // Aponte o botão pro checkout real (Hotmart, Kiwify, Eduzz...).
+  var CHECKOUT_URL = "";
+  var b = document.getElementById("btn-checkout");
+  if (CHECKOUT_URL) b.href = CHECKOUT_URL; else b.addEventListener("click", function (e) { e.preventDefault(); alert("Coloque a URL do checkout em CHECKOUT_URL no final do index.html."); });
+</script>
+</body>
+</html>
