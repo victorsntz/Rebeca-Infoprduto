@@ -213,10 +213,10 @@ table.tracker td.na { background: repeating-linear-gradient(45deg, transparent 0
 .inactive .card p { color: rgba(249,245,238,0.8); }
 .danger { color: var(--rubi); }
 
-.mockstack { position: relative; width: min(420px, 92%); aspect-ratio: 210 / 148; margin: 1.6rem 0 0.6rem; }
+.mockstack { position: relative; width: min(380px, 84%); aspect-ratio: 210 / 148; margin: 1.6rem 0 2.6rem 0.6rem; }
 .mockstack img { position: absolute; inset: 0; width: 100%; border-radius: 8px; box-shadow: var(--shadow); border: 1px solid rgba(255,255,255,0.08); transform-origin: 50% 100%; }
-.mockstack img:nth-child(1) { transform: rotate(-9deg) translate(-6%, -4%); opacity: 0.85; }
+.mockstack img:nth-child(1) { transform: rotate(-8deg) translate(-4%, -3%); opacity: 0.85; }
 .mockstack img:nth-child(2) { transform: rotate(-4deg) translate(-2%, -2%); opacity: 0.92; }
 .mockstack img:nth-child(3) { transform: rotate(3deg) translate(3%, 0); }
-.mockstack img:nth-child(4) { transform: rotate(7deg) translate(7%, 3%); }
-.mockcap { font-size: 0.82rem; color: rgba(249,245,238,0.7); max-width: 40ch; margin: 0.4rem 0 0; }
+.mockstack img:nth-child(4) { transform: rotate(6deg) translate(5%, 2%); }
+.mockcap { font-size: 0.82rem; color: rgba(249,245,238,0.7); max-width: 40ch; margin: 0.8rem 0 0; position: relative; }
