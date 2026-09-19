@@ -465,7 +465,7 @@ def prova_review(b):
     <div class="label">Cumpri a meta pessoal?</div><div class="chips" style="margin-bottom:3mm">{"".join(f'<span class="chip">{x}</span>' for x in ["Sim","Em parte","Não"])}</div>
     <div class="label">Nota de 1 a 5</div>
     <div class="notas">{notas}</div>
-    <div class="card fill" style="margin-top:auto"><div class="eyebrow" style="color:var(--accent)">{e(b["mulher"])} diria</div><p class="serif" style="font-size:8.6pt;font-style:italic;margin:0">{e(b["virtuosa"].capitalize())}</p></div>
+    <div class="card fill" style="margin-top:auto"><div class="eyebrow" style="color:var(--accent)">{e(b["mulher"])} diria</div><p class="serif" style="font-size:8.6pt;font-style:italic;margin:0">{e(b["virtuosa"][:1].upper() + b["virtuosa"][1:])}</p></div>
   </div>
   <div class="r">{"".join(field(q, n, cls="tight") for q, n in rv["perguntas"])}</div>
 </div>
@@ -491,7 +491,7 @@ page(f'''
     {field(rt["mudou_40"], 6)}
     {field(rt["deus_40"], 6)}
   </div>
-  <div class="r">{fill_field("Oração de chegada", "o que eu quero dizer a Deus ao terminar")}</div>
+  <div class="r">{fill_field("Oração de chegada", "o que eu quero dizer a Deus agora que terminei")}</div>
 </div>
 ''', cls="c-ameixa", section="Fechamento")
 
@@ -507,8 +507,8 @@ page(f'''
   </div>
   <div class="r">
     <div class="card accent c-ameixa" style="flex:1;display:flex;flex-direction:column">
-      <div class="eyebrow" style="color:var(--ameixa)">Minha próxima travessia começa em ___/___/______</div>
-      {"".join(field(q, 2, cls="tight") for q in fc["proximos"])}
+      <div class="eyebrow" style="color:var(--ameixa)">Pra levar daqui</div>
+      {"".join(field(q, 5) for q in fc["proximos"])}
     </div>
   </div>
 </div>
