@@ -132,7 +132,7 @@ DESAFIOS = [
     "Escolha um horário fixo pra dormir e cumpra hoje. Deitar de verdade, não deitar com o celular.",
     "Diga não a uma coisa hoje. Pequena. Só pra lembrar que você consegue.",
     "Passe o dia inteiro sem reclamar em voz alta. Se escapar, recomece a contagem.",
-    "Anote no bloco de notas do celular cada gasto de hoje, na hora, até o cafezinho. À noite marque: necessidade ou impulso?",
+    "Faça a lista de compras da semana antes de ir ao mercado. Vá sem fome e compre só o que está na lista.",
     "Separe uma sacola com o que você não usa há um ano: roupa, sapato, bolsa. Doe esta semana. Largar o Egito começa pelo armário.",
     # Prova 2: Sinai · Fé
     "Escreva três versículos sobre quem você é e cole no espelho do banheiro.",
