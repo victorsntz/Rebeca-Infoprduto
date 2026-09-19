@@ -72,7 +72,7 @@
         <a class="logo" href="../"><img src="../assets/logo.svg" alt=""><span>De Tola a Virtuosa<small>Rebeca Fortunato</small></span></a>
         <div>
           <span class="eyebrow" style="color:var(--dourado-vivo)">Área de membros · 40 dias no deserto</span>
-          <h1>Menina chora.<br>Mulher <em class="gold">atravessa.</em></h1>
+          <h1>A imatura espera ter vontade.<br>A <em class="gold">sábia</em> começa.</h1>
           <img class="mock" src="../assets/img/dia.png" alt="">
         </div>
         ${verse(C.versiculo_capa.texto, C.versiculo_capa.ref)}
