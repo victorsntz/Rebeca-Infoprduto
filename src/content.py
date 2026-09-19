@@ -133,7 +133,7 @@ DESAFIOS = [
     "Diga não a uma coisa hoje. Pequena. Só pra lembrar que você consegue.",
     "Passe o dia inteiro sem reclamar em voz alta. Se escapar, recomece a contagem.",
     "Anote tudo o que gastou hoje. Cada centavo. Só olhar, sem julgar.",
-    "Faça o treino que você vem adiando. Dez minutos já contam.",
+    "Separe uma sacola com o que você não usa há um ano: roupa, sapato, bolsa. Doe esta semana. Largar o Egito começa pelo armário.",
     # Prova 2: Sinai · Fé
     "Escreva três versículos sobre quem você é e cole no espelho do banheiro.",
     "Ore em voz alta hoje, mesmo que só por dois minutos. Ouvir a própria voz falando com Deus muda alguma coisa.",
