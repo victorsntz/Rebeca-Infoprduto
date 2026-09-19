@@ -366,6 +366,11 @@ table.tracker thead th { background: var(--accent-claro); font-weight: 700; heig
 .mural.livre { display: block; }
 .mural.livre .dica { border: 0; }
 .mural .dica { position: absolute; left: 0; right: 0; top: 40%; text-align: center; font-family: var(--serif); font-style: italic; font-size: 13pt; color: var(--rubi); opacity: 0.25; pointer-events: none; }
+.mural .recorte { position: absolute; width: 52mm; background: #fff; border: 0.2mm solid var(--linha); padding: 4mm 4mm 3mm; font-family: var(--serif); font-style: italic; font-size: 8pt; line-height: 1.35; color: var(--rubi-escuro); box-shadow: 0 1mm 2.5mm rgba(62,16,25,0.12); }
+.mural .recorte small { display: block; font-family: var(--sans); font-style: normal; font-size: 6.2pt; letter-spacing: 0.14em; text-transform: uppercase; color: var(--cinza); margin-top: 1.5mm; }
+.mural .recorte .tape { position: absolute; left: 50%; top: -2.2mm; margin-left: -7mm; width: 14mm; height: 4.5mm; background: rgba(232,194,122,0.6); transform: rotate(-3deg); }
+.mural .recorte.r1 { left: 7mm; top: 8mm; transform: rotate(-2.5deg); }
+.mural .recorte.r2 { right: 7mm; bottom: 8mm; transform: rotate(2deg); }
 .mural .pin { position: absolute; font-size: 7pt; letter-spacing: 0.12em; text-transform: uppercase; color: var(--rubi); opacity: 0.45; border: 0.2mm dashed rgba(142,42,58,0.4); padding: 1mm 2.5mm; border-radius: 1mm; }
 .mural .pin.p1 { left: 6mm; top: 6mm; transform: rotate(-3deg); }
 .mural .pin.p2 { right: 8mm; top: 9mm; transform: rotate(2deg); }
