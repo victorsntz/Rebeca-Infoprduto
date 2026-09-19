@@ -277,7 +277,7 @@ page(f'''
 <div class="split even">
   <div class="l">
     <h1>Quadro dos sonhos</h1>
-    <p style="font-size:9pt;line-height:1.5">Meta que fica só na cabeça vira desejo vago. Meta que você vê todo dia vira direção. Quando o que você quer é concreto, dá pra medir e está na sua frente, a disciplina cresce sozinha, porque você sabe pra onde está indo. É por isso que Deus mandou Habacuque escrever a visão em tábuas grandes, legíveis pra quem passa correndo. E Ele preparou coisas que olho nenhum viu (1 Coríntios 2:9). Sonhar grande é fé. Este quadro é a sua tábua.</p>
+    <p style="font-size:9pt;line-height:1.5">Meta que fica só na cabeça vira desejo vago. Meta que você vê todo dia vira direção. Quando o que você quer é concreto, dá pra medir e está na sua frente, a disciplina cresce sozinha, porque você sabe pra onde está indo. É por isso que Deus mandou Habacuque escrever a visão em tábuas grandes, legíveis pra quem passa correndo. Este quadro é a sua tábua.</p>
     <p style="font-size:9pt;line-height:1.5">Dois passos. Nesta página, escreva metas que cabem em 40 dias e que dá pra medir: "treinar 3 vezes por semana", "guardar 300 reais", "fazer as pazes com minha irmã". Nas duas páginas seguintes, monte o mural: fotos do lugar que você quer conhecer, da vida saudável que quer viver, do que espera de Deus, um versículo que segura você ("sê forte e corajosa"), palavras, cores, recortes. Cole, desenhe, escreva. Passe da moldura. Mural bonito é mural usado.</p>
     {verse_box("Escreve a visão e torna bem legível sobre tábuas, para que a possa ler o que correndo passa.", "Habacuque 2:2")}
     <div style="margin-top:auto">{field("Minha frase de 40 dias", 2, "a que resume tudo", "tight")}</div>
