@@ -368,6 +368,6 @@ FECHAMENTO = {
         "Olhe o retrato do dia 1 e o do dia 40 lado a lado. Não só os números. Veja como você responde, como dorme, como fala com Deus e com as pessoas. Isso é o que Ele fez, com a sua mão na dele.",
         "O que virou hábito fica. O que ainda não virou entra na próxima travessia. Porque sim, existe uma próxima. A mulher virtuosa não é a que chegou. É a que não para.",
     ],
-    "proximos": ["As três coisas que viraram hábito:", "A virtude que preciso treinar de novo:", "Uma mulher que vou convidar pra próxima travessia:"],
+    "proximos": ["As três coisas que viraram hábito:", "A virtude que preciso treinar de novo:", "O que clareou sobre o meu propósito e sobre o que eu quero da vida:", "Quem vou chamar pra fazer comigo:"],
     "comunidade": "Você não foi feita pra caminhar sozinha. Conte o que mudou. Convide uma amiga. Virtude se espalha por contágio.",
 }

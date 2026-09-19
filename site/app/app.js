@@ -397,7 +397,7 @@
     shell(`<div class="page-head"><div><span class="eyebrow">Versão impressa</span><h1>Imprimir o caderno</h1></div></div>
       <div class="two">
         <div class="stack">
-          <div class="card"><img src="../assets/img/capa.png" alt="" style="border-radius:8px;box-shadow:var(--shadow-sm)"><a class="btn block" style="margin-top:1rem" href="${esc(CFG.PDF_URL || "#")}" download>Baixar o PDF (A5, 68 páginas)</a><p class="muted" style="font-size:0.85rem;margin:0.8rem 0 0">Só frente. Quer maior? Imprima em A4, é a mesma proporção.</p></div>
+          <div class="card"><img src="../assets/img/capa.png" alt="" style="border-radius:8px;box-shadow:var(--shadow-sm)"><a class="btn block" style="margin-top:1rem" href="${esc(CFG.PDF_URL || "#")}" download>Baixar o PDF (A5, 72 páginas)</a><p class="muted" style="font-size:0.85rem;margin:0.8rem 0 0">Só frente. Quer maior? Imprima em A4, é a mesma proporção.</p></div>
         </div>
         <div class="card"><span class="eyebrow">Como pedir na gráfica</span><ul class="tips">
           <li>Tamanho A5 deitado (21 x 15 cm), impressão colorida, só frente.</li>

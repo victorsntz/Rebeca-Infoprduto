@@ -4,7 +4,7 @@ Infoproduto da Rebeca Fortunato pra mulheres: um caderno prático de corpo, alma
 
 | Peça | Onde | O que é |
 |---|---|---|
-| Caderno (PDF) | `dist/de-tola-a-virtuosa.pdf` | 68 páginas em A5 deitado, só frente, pra imprimir e encadernar |
+| Caderno (PDF) | `dist/de-tola-a-virtuosa.pdf` | 72 páginas em A5 deitado, só frente, pra imprimir e encadernar |
 | Landing page | `site/index.html` | Página de vendas que a cliente abre antes do checkout |
 | Área de membros | `site/app/` | Versão online do caderno, com login, dia a dia e progresso salvo |
 
