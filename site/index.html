@@ -65,14 +65,23 @@
   .pilar li { padding: 0.2rem 0; }
 
   /* travessia */
-  .prova { border-radius: var(--radius); padding: 1.6rem 1.5rem; color: var(--creme); display: flex; flex-direction: column; min-height: 300px; background: var(--accent); position: relative; overflow: hidden; }
-  .prova .n { position: absolute; right: 0.6rem; top: -0.4rem; font-family: var(--serif); font-size: 6rem; font-weight: 300; opacity: 0.16; line-height: 1; }
-  .prova .eyebrow { color: rgba(249,245,238,0.8); }
-  .prova h3 { font-size: 2rem; }
-  .prova .v { font-family: var(--serif); font-style: italic; font-size: 1.2rem; margin: 0.2rem 0 0.8rem; }
-  .prova p { font-size: 0.93rem; color: rgba(249,245,238,0.9); }
-  .prova .w { margin-top: auto; padding-top: 0.9rem; border-top: 1px solid rgba(249,245,238,0.3); font-size: 0.85rem; }
-  .prova .w b { font-family: var(--serif); font-size: 1.15rem; font-weight: 500; display: block; }
+  .why { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 2.2rem 0 2.4rem; }
+  @media (max-width: 760px) { .why { grid-template-columns: 1fr; } }
+  .why > div { border-top: 2px solid var(--rubi); padding-top: 0.9rem; }
+  .why b { font-size: 1.9rem; font-weight: 500; display: block; color: var(--rubi-escuro); line-height: 1; margin-bottom: 0.4rem; }
+  .why span { color: var(--cinza); font-size: 0.95rem; display: block; max-width: 34ch; }
+  .trail { display: flex; gap: 6px; margin: 0 0 0.9rem; }
+  .trail .seg { flex: 1; height: 10px; border-radius: 999px; background: var(--accent); position: relative; }
+  .trail .seg i, .trail .seg em { position: absolute; top: 14px; font-style: normal; font-size: 0.7rem; letter-spacing: 0.1em; color: var(--cinza); }
+  .trail .seg i { left: 0; } .trail .seg em { right: 0; }
+  .provas { margin-top: 2rem; }
+  .prova { border-radius: var(--radius); padding: 1.3rem 1.3rem 1.2rem; color: var(--creme); background: var(--accent); display: grid; grid-template-rows: auto auto auto 1fr auto; gap: 0.35rem; min-height: 280px; }
+  .prova .ph { display: flex; justify-content: space-between; font-size: 0.68rem; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(249,245,238,0.8); padding-bottom: 0.7rem; border-bottom: 1px solid rgba(249,245,238,0.25); margin-bottom: 0.4rem; }
+  .prova h3 { font-size: 2.1rem; line-height: 1; }
+  .prova .v { font-family: var(--serif); font-style: italic; font-size: 1.2rem; color: rgba(249,245,238,0.95); }
+  .prova p { font-size: 0.92rem; color: rgba(249,245,238,0.9); margin: 0.5rem 0 0; }
+  .prova .w { padding-top: 0.8rem; border-top: 1px solid rgba(249,245,238,0.25); font-size: 0.85rem; color: rgba(249,245,238,0.85); align-self: end; }
+  .prova .w b { font-family: var(--serif); font-size: 1.15rem; font-weight: 500; display: block; color: var(--creme); }
 
   /* um dia */
   .dia .wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
@@ -216,13 +225,21 @@
     <div class="center">
       <span class="eyebrow">A travessia</span>
       <h2>Por que 40 dias?</h2>
-      <p class="lead" style="margin-top:1rem">Porque na Bíblia o deserto dura 40. Jesus, Moisés, Elias, o dilúvio, Nínive. Deserto não é castigo. É o lugar onde Deus fala, forma e prepara pra promessa. E Daniel pediu dez dias pra provar que obedecer funciona. Aqui são quatro provas de dez. Cada uma com um lugar, uma virtude e uma mulher da Bíblia que já passou por ali.</p>
+      <p class="lead" style="margin-top:1rem">Porque na Bíblia o deserto dura 40. E deserto não é castigo: é onde Deus fala, forma e prepara pra promessa.</p>
     </div>
-    <div class="grid g4" style="margin-top:2.5rem">
-      <div class="prova c-salvia"><span class="n">01</span><span class="eyebrow">Dias 1 a 10</span><h3>Saída</h3><div class="v">Temperança</div><p>Largar o Egito: os hábitos que te escravizam sem você perceber. Celular na cama, comida por ansiedade, boca sem freio.</p><div class="w"><b>Rute</b>Deixou tudo o que conhecia pra seguir Deus sem garantia.</div></div>
-      <div class="prova c-dourado"><span class="n">02</span><span class="eyebrow">Dias 11 a 20</span><h3>Sinai</h3><div class="v">Fé</div><p>Ouvir quem você é. Parar de se definir pelo que sente de manhã e passar a se definir pelo que Deus falou.</p><div class="w"><b>Maria</b>Ouviu o impossível e disse: eis aqui a serva do Senhor.</div></div>
-      <div class="prova c-rubi"><span class="n">03</span><span class="eyebrow">Dias 21 a 30</span><h3>Deserto</h3><div class="v">Fidelidade</div><p>Continuar quando cansa. Fazer no dia 25 com a mesma seriedade do dia 5. Aqui separa quem fez dieta de quem mudou de vida.</p><div class="w"><b>Ana</b>Orou anos até Deus responder. E cumpriu o que prometeu.</div></div>
-      <div class="prova c-ameixa"><span class="n">04</span><span class="eyebrow">Dias 31 a 40</span><h3>Jordão</h3><div class="v">Coragem</div><p>Entrar na promessa. A conversa adiada, o projeto parado, o propósito que você vem fingindo que não sabe qual é.</p><div class="w"><b>Ester</b>Entrou na sala do rei tremendo. Entrou mesmo assim.</div></div>
+    <div class="why">
+      <div><b class="serif">40 dias</b><span>Jesus no deserto. Moisés no Sinai. Elias até Horebe. O dilúvio. Nínive. O número da preparação.</span></div>
+      <div><b class="serif">4 provas de 10</b><span>Daniel pediu dez dias pra provar que obedecer funciona (Daniel 1:12). Aqui são quatro, uma atrás da outra.</span></div>
+      <div><b class="serif">1 mulher por prova</b><span>Rute, Maria, Ana e Ester. Cada uma passou pelo lugar que você vai passar.</span></div>
+    </div>
+    <div class="trail" aria-hidden="true">
+      <span class="seg c-salvia"><i>1</i></span><span class="seg c-dourado"><i>11</i></span><span class="seg c-rubi"><i>21</i></span><span class="seg c-ameixa"><i>31</i><em>40</em></span>
+    </div>
+    <div class="grid g4 provas">
+      <div class="prova c-salvia"><div class="ph"><span>Prova 01</span><span>dias 1 a 10</span></div><h3>Saída</h3><div class="v">Temperança</div><p>Largar o Egito. Os hábitos que te escravizam sem você perceber.</p><div class="w"><b>Rute</b>Deixou tudo o que conhecia pra seguir Deus.</div></div>
+      <div class="prova c-dourado"><div class="ph"><span>Prova 02</span><span>dias 11 a 20</span></div><h3>Sinai</h3><div class="v">Fé</div><p>Ouvir quem você é. Se definir pelo que Deus falou, não pelo que sente.</p><div class="w"><b>Maria</b>Ouviu o impossível e disse: eis aqui a serva.</div></div>
+      <div class="prova c-rubi"><div class="ph"><span>Prova 03</span><span>dias 21 a 30</span></div><h3>Deserto</h3><div class="v">Fidelidade</div><p>Continuar quando cansa. O dia 25 com a mesma seriedade do dia 5.</p><div class="w"><b>Ana</b>Orou anos até Deus responder. E cumpriu.</div></div>
+      <div class="prova c-ameixa"><div class="ph"><span>Prova 04</span><span>dias 31 a 40</span></div><h3>Jordão</h3><div class="v">Coragem</div><p>Entrar na promessa. A conversa adiada, o projeto parado, o propósito.</p><div class="w"><b>Ester</b>Entrou na sala do rei tremendo. Entrou.</div></div>
     </div>
   </div>
 </section>

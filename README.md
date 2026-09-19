@@ -52,7 +52,7 @@ Na landing, troque o preço de exemplo e coloque a URL do checkout em `CHECKOUT_
 src/content.py           todo o texto do caderno (provas, desafios, leituras, páginas)
 src/build.py             monta o HTML do caderno e exporta o content.json
 src/styles.css           estilo de impressão do caderno (A5 paisagem)
-fonts/                   Cormorant Garamond e Jost (licença OFL)
+fonts/                   Libre Caslon Display e Text (licença OFL)
 dist/                    HTML e PDF gerados
 site/index.html          landing page
 site/assets/brand.css    identidade compartilhada (cores, fontes, botões, chips)
@@ -73,7 +73,7 @@ build.sh                 gera tudo
 | Ameixa (prova 4) | `#4B2C3C` |
 | Creme (fundo) | `#F9F5EE` |
 
-Títulos em Cormorant Garamond, texto em Jost. O ícone é um coração em chamas, em vetor, nas cores rubi e dourado.
+Títulos em Libre Caslon (Display nos grandes, Text nos demais), texto corrido em Times New Roman. O ícone é um coração em chamas, em vetor, nas cores rubi e dourado.
 
 ## Pendências pra Rebeca
 

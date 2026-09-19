@@ -1,9 +1,9 @@
 /* De Tola a Virtuosa: estilo de impressão (A5 paisagem, 210 x 148 mm, só frente) */
 
-@font-face { font-family: "Cormorant"; src: url("../fonts/CormorantGaramond.ttf") format("truetype"); font-weight: 300 700; font-style: normal; }
-@font-face { font-family: "Cormorant"; src: url("../fonts/CormorantGaramond-Italic.ttf") format("truetype"); font-weight: 300 700; font-style: italic; }
-@font-face { font-family: "Jost"; src: url("../fonts/Jost.ttf") format("truetype"); font-weight: 100 900; font-style: normal; }
-@font-face { font-family: "Jost"; src: url("../fonts/Jost-Italic.ttf") format("truetype"); font-weight: 100 900; font-style: italic; }
+@font-face { font-family: "Caslon Display"; src: url("../fonts/LibreCaslonDisplay-Regular.ttf") format("truetype"); font-weight: 400; font-style: normal; }
+@font-face { font-family: "Caslon"; src: url("../fonts/LibreCaslonText-Regular.ttf") format("truetype"); font-weight: 400; font-style: normal; }
+@font-face { font-family: "Caslon"; src: url("../fonts/LibreCaslonText-Italic.ttf") format("truetype"); font-weight: 400; font-style: italic; }
+@font-face { font-family: "Caslon"; src: url("../fonts/LibreCaslonText-Bold.ttf") format("truetype"); font-weight: 700; font-style: normal; }
 
 :root {
   --rubi: #8E2A3A;
@@ -21,8 +21,9 @@
   --ameixa-claro: #E3D5DC;
   --rubi-claro: #EBD3D6;
   --linha: #CFC4B5;
-  --serif: "Cormorant", "Liberation Serif", Georgia, serif;
-  --sans: "Jost", "Liberation Sans", Arial, sans-serif;
+  --serif: "Caslon", "Times New Roman", "Liberation Serif", Times, serif;
+  --display: "Caslon Display", "Caslon", "Times New Roman", serif;
+  --sans: "Times New Roman", "Liberation Serif", Times, serif;
 }
 
 @page { size: 210mm 148mm; margin: 0; }
@@ -58,16 +59,17 @@ body {
 .c-ameixa { --accent: var(--ameixa); --accent-claro: var(--ameixa-claro); }
 
 /* Tipografia */
-h1, h2, h3, .serif { font-family: var(--serif); font-weight: 500; letter-spacing: 0.005em; }
-h1 { font-size: 20pt; line-height: 1.05; margin: 0 0 1.5mm; color: var(--rubi-escuro); }
-h2 { font-size: 14pt; line-height: 1.1; margin: 0 0 1.2mm; color: var(--carvao); }
-h3 { font-size: 10.5pt; margin: 0 0 1mm; color: var(--carvao); }
+h1, h2, h3, .serif { font-family: var(--serif); font-weight: 400; letter-spacing: 0; }
+h1 { font-family: var(--display); }
+h1 { font-size: 17pt; line-height: 1.05; margin: 0 0 1.5mm; color: var(--rubi-escuro); }
+h2 { font-size: 12.5pt; line-height: 1.1; margin: 0 0 1.2mm; color: var(--carvao); }
+h3 { font-size: 9.5pt; margin: 0 0 1mm; color: var(--carvao); }
 p { margin: 0 0 1.8mm; }
 .small { font-size: 6.6pt; }
 .tiny { font-size: 5.8pt; }
 .muted { color: var(--cinza); }
 .eyebrow { font-size: 5.8pt; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent, var(--rubi)); font-weight: 500; margin-bottom: 1.2mm; }
-.verse { font-family: var(--serif); font-style: italic; font-size: 9.5pt; line-height: 1.25; color: var(--rubi-escuro); margin: 0; }
+.verse { font-family: var(--serif); font-style: italic; font-size: 8.4pt; line-height: 1.25; color: var(--rubi-escuro); margin: 0; }
 .verse-ref { font-family: var(--sans); font-style: normal; font-size: 5.6pt; letter-spacing: 0.12em; text-transform: uppercase; color: var(--cinza); margin-top: 0.8mm; display: block; }
 .verse-box { border-left: 0.9mm solid var(--accent, var(--rubi)); padding: 1.2mm 0 1.2mm 3mm; margin: 1.5mm 0 2.5mm; }
 .verse-box.center { border-left: none; text-align: center; padding: 1.5mm 6mm; }
@@ -89,7 +91,7 @@ p { margin: 0 0 1.8mm; }
 .field.grow { flex: 1; display: flex; flex-direction: column; min-height: 0; }
 .label { font-size: 5.8pt; letter-spacing: 0.14em; text-transform: uppercase; color: var(--carvao); font-weight: 500; margin: 0 0 0.6mm; }
 .label .hint { text-transform: none; letter-spacing: 0; color: var(--cinza); font-weight: 400; }
-.q { font-family: var(--serif); font-size: 9.5pt; margin: 0 0 0.5mm; color: var(--carvao); }
+.q { font-family: var(--serif); font-size: 8.6pt; margin: 0 0 0.5mm; color: var(--carvao); }
 
 /* Checkbox e chips */
 .check { display: flex; align-items: flex-start; gap: 1.5mm; margin: 0 0 1.1mm; font-size: 7pt; line-height: 1.2; }
@@ -109,7 +111,7 @@ p { margin: 0 0 1.8mm; }
 
 /* Tabela tola / virtuosa */
 .contrast { width: 100%; border-collapse: collapse; margin: 1.5mm 0; }
-.contrast th { font-family: var(--serif); font-size: 11pt; font-weight: 500; text-align: left; padding: 0.5mm 2mm 1mm; border-bottom: 0.3mm solid var(--carvao); }
+.contrast th { font-family: var(--serif); font-size: 10pt; font-weight: 400; text-align: left; padding: 0.5mm 2mm 1mm; border-bottom: 0.3mm solid var(--carvao); }
 .contrast th.v { color: var(--rubi); }
 .contrast td { padding: 2.2mm 2mm; border-bottom: 0.2mm solid var(--linha); vertical-align: top; font-size: 8.2pt; width: 50%; }
 .contrast td.t { color: var(--cinza); }
@@ -137,21 +139,21 @@ table.tracker thead th { background: var(--accent-claro); font-weight: 500; heig
 .cover .kicker.sub { color: rgba(249,245,238,0.6); letter-spacing: 0.3em; margin-top: 1.6mm; font-size: 5.6pt; }
 .cover .cv-top, .cover .cv-bot { flex: 0 0 auto; }
 .cover .cv-mid { flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center; }
-.cover h1 { font-size: 44pt; line-height: 1; color: var(--creme); font-weight: 400; margin: 0; display: flex; flex-direction: column; gap: 1.5mm; }
+.cover h1 { font-family: var(--display); font-size: 36pt; line-height: 1.02; color: var(--creme); font-weight: 400; margin: 0; display: flex; flex-direction: column; gap: 1.5mm; }
 .cover h1 .l1 { letter-spacing: 0.02em; }
-.cover h1 .l2 { font-size: 46pt; }
+.cover h1 .l2 { font-size: 38pt; }
 .cover h1 em { font-style: italic; color: var(--dourado); }
 .cover .orn { display: flex; align-items: center; gap: 4mm; margin: 6mm 0 5mm; width: 70mm; }
 .cover .orn .ln { flex: 1; height: 0.2mm; background: linear-gradient(to right, transparent, var(--dourado)); }
 .cover .orn .ln:last-child { background: linear-gradient(to left, transparent, var(--dourado)); }
 .cover .orn svg { width: 5.5mm; height: 5.5mm; flex: 0 0 auto; color: var(--dourado); }
-.cover .sub { font-family: var(--serif); font-size: 17pt; font-style: italic; margin: 0 0 3mm; color: var(--creme); letter-spacing: 0.01em; }
+.cover .sub { font-family: var(--serif); font-size: 14pt; font-style: italic; margin: 0 0 3mm; color: var(--creme); letter-spacing: 0.01em; }
 .cover .tag { font-size: 5.8pt; letter-spacing: 0.32em; text-transform: uppercase; color: rgba(249,245,238,0.6); }
 .cover .verse { color: rgba(249,245,238,0.85); font-size: 8.5pt; max-width: 120mm; margin: 0 auto 4mm; line-height: 1.35; }
 .cover .verse-ref { color: var(--dourado); margin-top: 1.2mm; }
 .cover .autora { font-size: 6.4pt; letter-spacing: 0.3em; text-transform: uppercase; color: var(--dourado); }
 .back { background: var(--rubi-escuro); color: var(--creme); justify-content: center; align-items: center; text-align: center; }
-.back .frase { font-family: var(--serif); font-size: 16pt; font-style: italic; max-width: 125mm; color: var(--creme); line-height: 1.3; margin: 0 auto 6mm; }
+.back .frase { font-family: var(--serif); font-size: 13.5pt; font-style: italic; max-width: 125mm; color: var(--creme); line-height: 1.3; margin: 0 auto 6mm; }
 .back .autora { white-space: nowrap; display: flex; align-items: center; justify-content: center; gap: 2.5mm; font-size: 6.8pt; letter-spacing: 0.3em; text-transform: uppercase; color: var(--dourado); margin-bottom: 14mm; }
 .back .verse { color: rgba(249,245,238,0.85); font-size: 9pt; max-width: 110mm; }
 .back .verse-ref { color: var(--dourado); }
@@ -166,7 +168,7 @@ table.tracker thead th { background: var(--accent-claro); font-weight: 500; heig
 
 /* Página do dia */
 .day .head { border-bottom: 0.4mm solid var(--accent); align-items: flex-end; margin-bottom: 2mm; }
-.day .daynum { font-family: var(--serif); font-size: 28pt; line-height: 0.85; font-weight: 400; color: var(--accent); display: flex; align-items: baseline; gap: 2mm; }
+.day .daynum { font-family: var(--display); font-size: 24pt; line-height: 0.85; font-weight: 400; color: var(--accent); display: flex; align-items: baseline; gap: 2mm; }
 .day .daynum small { font-size: 6pt; letter-spacing: 0.16em; text-transform: uppercase; font-family: var(--sans); color: var(--cinza); font-weight: 500; }
 .day .meta { text-align: right; }
 .day .meta .virt { font-family: var(--serif); font-size: 11pt; line-height: 1; }
@@ -175,8 +177,8 @@ table.tracker thead th { background: var(--accent-claro); font-weight: 500; heig
 .day .date span { display: inline-block; border-bottom: 0.25mm solid var(--carvao); width: 6mm; margin: 0 0.4mm; }
 .day .box { border: 0.25mm solid var(--linha); border-radius: 1.2mm; padding: 1.6mm 2.4mm; background: #fff; margin-bottom: 2mm; }
 .day .box.ch { border-left: 1mm solid var(--accent); }
-.day .box .txt { font-family: var(--serif); font-size: 9.5pt; line-height: 1.18; }
-.day .reading .txt { font-size: 11pt; color: var(--rubi-escuro); }
+.day .box .txt { font-family: var(--serif); font-size: 8.6pt; line-height: 1.18; }
+.day .reading .txt { font-size: 10pt; color: var(--rubi-escuro); }
 .day .pillars { display: flex; gap: 2.2mm; }
 .day .pillars > div { flex: 1; border-top: 0.5mm solid var(--pc); padding-top: 1.2mm; }
 .day .pillars .eyebrow { color: var(--pc); margin-bottom: 1mm; }
@@ -196,13 +198,13 @@ table.tracker thead th { background: var(--accent-claro); font-weight: 500; heig
 /* Abertura de prova */
 .prova-open { background: var(--accent); color: var(--creme); }
 .prova-open .eyebrow { color: rgba(249,245,238,0.75); }
-.prova-open .big { font-family: var(--serif); font-size: 40pt; line-height: 0.9; font-weight: 400; color: var(--creme); margin: 1mm 0 1mm; }
-.prova-open .virt { font-family: var(--serif); font-size: 15pt; font-style: italic; color: var(--creme); margin-bottom: 2mm; }
+.prova-open .big { font-family: var(--display); font-size: 32pt; line-height: 0.9; font-weight: 400; color: var(--creme); margin: 1mm 0 1mm; }
+.prova-open .virt { font-family: var(--serif); font-size: 12.5pt; font-style: italic; color: var(--creme); margin-bottom: 2mm; }
 .prova-open p { color: rgba(249,245,238,0.92); font-size: 7.6pt; }
 .prova-open .verse { color: var(--creme); }
 .prova-open .verse-ref { color: rgba(249,245,238,0.75); }
 .prova-open .verse-box { border-color: rgba(249,245,238,0.6); }
-.prova-open .num { font-family: var(--serif); font-size: 95pt; line-height: 0.8; font-weight: 300; color: rgba(249,245,238,0.14); position: absolute; right: 8mm; top: 4mm; }
+.prova-open .num { font-family: var(--display); font-size: 85pt; line-height: 0.8; font-weight: 300; color: rgba(249,245,238,0.14); position: absolute; right: 8mm; top: 4mm; }
 .prova-open .woman { border: 0.25mm solid rgba(249,245,238,0.5); border-radius: 1.2mm; padding: 2.2mm 2.8mm; margin-top: auto; }
 .prova-open .woman b { font-family: var(--serif); font-size: 12pt; font-weight: 500; display: block; color: var(--creme); }
 .prova-open .woman span { font-size: 7pt; color: rgba(249,245,238,0.9); display: block; }
@@ -224,7 +226,7 @@ table.tracker thead th { background: var(--accent-claro); font-weight: 500; heig
 .map { display: flex; gap: 2.5mm; flex: 1; }
 .map .m { flex: 1; border-radius: 1.2mm; padding: 2.5mm 3mm; color: var(--creme); display: flex; flex-direction: column; }
 .map .m .eyebrow { color: rgba(249,245,238,0.8); }
-.map .m h3 { color: var(--creme); font-size: 14pt; margin: 0; }
+.map .m h3 { color: var(--creme); font-size: 13pt; margin: 0; }
 .map .m .v { font-family: var(--serif); font-style: italic; font-size: 9.5pt; color: rgba(249,245,238,0.95); }
 .map .m .w { font-size: 6.6pt; color: rgba(249,245,238,0.85); margin-top: 1mm; }
 .map .m .box { width: 3.2mm; height: 3.2mm; border: 0.3mm solid rgba(249,245,238,0.9); border-radius: 0.5mm; margin-top: auto; }
