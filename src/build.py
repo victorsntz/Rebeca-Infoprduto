@@ -431,6 +431,11 @@ def day_page(d):
     <div class="box ch"><div class="eyebrow">Desafio do dia</div><div class="txt">{e(C.DESAFIOS[d-1])}</div></div>
     <div class="pillars">{pil}</div>
     <p class="verse lverse">“{e(b["versiculo"])}”<span class="verse-ref">{e(b["ref"])}</span></p>
+    <div class="bottom">
+      <div class="grp">Energia {scale5()}</div>
+      <div class="grp"><span class="progress"><i style="width:{d * 2.5}%"></i></span></div>
+      <div class="skip"><span class="box"></span> Pulei</div>
+    </div>
   </div>
   <div class="r">
     <div class="row" style="display:flex;justify-content:space-between;align-items:baseline"><div class="label" style="margin:0">Hoje</div><div class="date">Data <span></span>/<span></span>/<span></span></div></div>
@@ -442,11 +447,6 @@ def day_page(d):
     <div class="row"><div class="label">Hoje eu oro por <span class="hint">uma pessoa, pelo nome</span></div>{lines(1, "tight")}</div>
     <div class="row"><div class="label">Uma linha pra Deus</div>{lines(1, "tight")}</div>
     <div class="row"><div class="label">Amanhã eu vou <span class="hint">uma coisa só</span></div>{lines(1, "tight")}</div>
-    <div class="bottom">
-      <div class="grp">Energia {scale5()}</div>
-      <div class="grp"><span class="progress"><i style="width:{d * 2.5}%"></i></span></div>
-      <div class="skip"><span class="box"></span> Pulei</div>
-    </div>
   </div>
 </div>
 ''', cls=f"day c-{b['cor']}", section=sec)

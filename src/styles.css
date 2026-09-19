@@ -387,3 +387,6 @@ table.tracker thead th { background: var(--accent-claro); font-weight: 700; heig
 .day .lines.tight { --lh: 5mm; }
 .day .row { margin-bottom: 1.6mm; }
 .day .bottom { margin-top: 2mm; }
+
+.day .l .bottom { margin-top: 3mm; border-top: 0.25mm solid var(--linha); padding-top: 2mm; }
+.day .lverse { margin-top: auto; }
