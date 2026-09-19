@@ -96,6 +96,22 @@
         </form>
       </div></div>
     </div>`;
+    startFan();
+  }
+
+  // Leque de páginas na tela de entrada: a de trás vem pra frente a cada poucos segundos.
+  let fanTimer = null;
+  function startFan() {
+    clearInterval(fanTimer);
+    const stack = app.querySelector(".mockstack");
+    if (!stack || (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches)) return;
+    fanTimer = setInterval(() => {
+      const s = app.querySelector(".mockstack");
+      if (!s) { clearInterval(fanTimer); return; }
+      const first = s.firstElementChild;
+      first.classList.add("out");
+      setTimeout(() => { s.appendChild(first); first.classList.remove("out"); }, 500);
+    }, 3200);
   }
 
   function renderInactive() {
