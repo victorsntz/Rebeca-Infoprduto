@@ -73,7 +73,13 @@
         <div>
           <span class="eyebrow" style="color:var(--dourado-vivo)">Área de membros · 40 dias no deserto</span>
           <h1>A imatura espera ter vontade.<br>A <em class="gold">sábia</em> começa.</h1>
-          <img class="mock" src="../assets/img/dia.png" alt="">
+          <div class="mockstack" aria-hidden="true">
+            <img src="../assets/img/mural.png" alt="">
+            <img src="../assets/img/prova.png" alt="">
+            <img src="../assets/img/travessia.png" alt="">
+            <img src="../assets/img/dia.png" alt="">
+          </div>
+          <p class="mockcap">Página do dia, mapa dos 40 dias, abertura de prova e mural: tudo do caderno impresso, aqui no celular.</p>
         </div>
         ${verse(C.versiculo_capa.texto, C.versiculo_capa.ref)}
       </div>
