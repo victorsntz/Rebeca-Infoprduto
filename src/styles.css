@@ -33,8 +33,8 @@ html, body { margin: 0; padding: 0; background: #fff; }
 body {
   font-family: var(--sans);
   color: var(--carvao);
-  font-size: 7.6pt;
-  line-height: 1.35;
+  font-size: 8.4pt;
+  line-height: 1.4;
   -webkit-print-color-adjust: exact;
   print-color-adjust: exact;
 }
@@ -69,7 +69,7 @@ p { margin: 0 0 1.8mm; }
 .tiny { font-size: 5.8pt; }
 .muted { color: var(--cinza); }
 .eyebrow { font-size: 5.8pt; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent, var(--rubi)); font-weight: 500; margin-bottom: 1.2mm; }
-.verse { font-family: var(--serif); font-style: italic; font-size: 8.4pt; line-height: 1.25; color: var(--rubi-escuro); margin: 0; }
+.verse { font-family: var(--serif); font-style: italic; font-size: 9pt; line-height: 1.25; color: var(--rubi-escuro); margin: 0; }
 .verse-ref { font-family: var(--sans); font-style: normal; font-size: 5.6pt; letter-spacing: 0.12em; text-transform: uppercase; color: var(--cinza); margin-top: 0.8mm; display: block; }
 .verse-box { border-left: 0.9mm solid var(--accent, var(--rubi)); padding: 1.2mm 0 1.2mm 3mm; margin: 1.5mm 0 2.5mm; }
 .verse-box.center { border-left: none; text-align: center; padding: 1.5mm 6mm; }
@@ -91,7 +91,7 @@ p { margin: 0 0 1.8mm; }
 .field.grow { flex: 1; display: flex; flex-direction: column; min-height: 0; }
 .label { font-size: 5.8pt; letter-spacing: 0.14em; text-transform: uppercase; color: var(--carvao); font-weight: 500; margin: 0 0 0.6mm; }
 .label .hint { text-transform: none; letter-spacing: 0; color: var(--cinza); font-weight: 400; }
-.q { font-family: var(--serif); font-size: 8.6pt; margin: 0 0 0.5mm; color: var(--carvao); }
+.q { font-family: var(--serif); font-size: 9.6pt; margin: 0 0 0.5mm; color: var(--carvao); }
 
 /* Checkbox e chips */
 .check { display: flex; align-items: flex-start; gap: 1.5mm; margin: 0 0 1.1mm; font-size: 7pt; line-height: 1.2; }
@@ -113,15 +113,15 @@ p { margin: 0 0 1.8mm; }
 .contrast { width: 100%; border-collapse: collapse; margin: 1.5mm 0; }
 .contrast th { font-family: var(--serif); font-size: 10pt; font-weight: 400; text-align: left; padding: 0.5mm 2mm 1mm; border-bottom: 0.3mm solid var(--carvao); }
 .contrast th.v { color: var(--rubi); }
-.contrast td { padding: 2.2mm 2mm; border-bottom: 0.2mm solid var(--linha); vertical-align: top; font-size: 8.2pt; width: 50%; }
+.contrast td { padding: 2.6mm 2mm; border-bottom: 0.2mm solid var(--linha); vertical-align: top; font-size: 9pt; width: 50%; }
 .contrast td.t { color: var(--cinza); }
 .contrast td.v { color: var(--carvao); font-weight: 500; }
 .contrast td::before { content: "A tola "; font-style: italic; color: var(--cinza); font-weight: 400; }
 .contrast td.v::before { content: "A virtuosa "; color: var(--rubi); }
 
 /* Escalas */
-.scale { display: flex; gap: 0.9mm; align-items: center; }
-.scale .dot { width: 3.4mm; height: 3.4mm; border: 0.25mm solid var(--carvao); border-radius: 50%; font-size: 4.8pt; display: flex; align-items: center; justify-content: center; color: var(--cinza); }
+.scale { display: flex; gap: 1.3mm; align-items: center; }
+.scale .dot { width: 4.4mm; height: 4.4mm; border: 0.25mm solid var(--carvao); border-radius: 50%; font-size: 5.6pt; display: flex; align-items: center; justify-content: center; color: var(--cinza); }
 .scale5 { display: inline-flex; gap: 1.1mm; }
 .scale5 .dot { width: 3mm; height: 3mm; border: 0.25mm solid var(--carvao); border-radius: 50%; }
 
@@ -233,31 +233,31 @@ table.tracker thead th { background: var(--accent-claro); font-weight: 500; heig
 .map .m .dt { font-size: 5.6pt; color: rgba(249,245,238,0.8); margin-top: 1.5mm; letter-spacing: 0.06em; }
 
 /* Identidade */
-.idgrid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2mm 3mm; }
-.idgrid .id { border-left: 0.8mm solid var(--rubi); padding: 0.4mm 0 0.4mm 2mm; }
-.idgrid .id b { font-size: 5.6pt; letter-spacing: 0.14em; text-transform: uppercase; color: var(--rubi); display: block; font-weight: 500; }
-.idgrid .id span { font-family: var(--serif); font-size: 8.4pt; font-style: italic; line-height: 1.15; display: block; }
-.idgrid .id i { font-style: normal; font-size: 5pt; color: var(--cinza); letter-spacing: 0.08em; text-transform: uppercase; }
+.idgrid { display: grid; grid-template-columns: 1fr 1fr; gap: 3.5mm 4mm; margin-top: 3mm; }
+.idgrid .id { border-left: 0.8mm solid var(--rubi); padding: 0.6mm 0 0.6mm 2.5mm; }
+.idgrid .id b { font-size: 6.2pt; margin-bottom: 0.6mm; letter-spacing: 0.14em; text-transform: uppercase; color: var(--rubi); display: block; font-weight: 500; }
+.idgrid .id span { font-family: var(--serif); font-size: 9.6pt; font-style: italic; line-height: 1.25; display: block; margin-bottom: 0.6mm; }
+.idgrid .id i { font-style: normal; font-size: 5.6pt; color: var(--cinza); letter-spacing: 0.08em; text-transform: uppercase; }
 
 /* Passos e rituais */
 .steps { counter-reset: s; list-style: none; padding: 0; margin: 0; }
-.steps li { display: flex; gap: 2mm; padding: 1.1mm 0; border-bottom: 0.2mm solid var(--linha); }
-.steps li::before { counter-increment: s; content: counter(s, decimal-leading-zero); font-family: var(--serif); font-size: 12pt; line-height: 1; color: var(--rubi); flex: 0 0 6mm; }
-.steps li b { display: block; font-weight: 500; font-size: 7.4pt; }
-.steps li span { font-size: 6.6pt; color: var(--cinza); }
-.rituais ol { margin: 0; padding-left: 3.5mm; font-size: 7pt; }
-.rituais li { padding: 0.5mm 0; }
+.steps li { display: flex; gap: 2.5mm; padding: 2.6mm 0; border-bottom: 0.2mm solid var(--linha); align-items: flex-start; }
+.steps li::before { counter-increment: s; content: counter(s, decimal-leading-zero); font-family: var(--display); font-size: 15pt; line-height: 0.9; color: var(--rubi); flex: 0 0 8mm; }
+.steps li b { display: block; font-weight: 700; font-size: 9pt; line-height: 1.25; }
+.steps li span { font-size: 7.8pt; color: var(--cinza); line-height: 1.35; }
+.rituais ol { margin: 0; padding-left: 4mm; font-size: 8.2pt; }
+.rituais li { padding: 1mm 0; }
 .rituais > div { border-top: 0.5mm solid var(--rubi); padding-top: 1.2mm; }
 
 /* Retrato */
-.retrato-row { display: flex; align-items: center; gap: 2mm; padding: 0.7mm 0; border-bottom: 0.2mm solid var(--linha); }
-.retrato-row .nm { flex: 0 0 26mm; font-size: 6.8pt; }
+.retrato-row { display: flex; align-items: center; gap: 2.5mm; padding: 2mm 0; border-bottom: 0.2mm solid var(--linha); }
+.retrato-row .nm { flex: 0 0 30mm; font-size: 9pt; }
 .retrato-row .lbl { font-size: 4.8pt; color: var(--cinza); letter-spacing: 0.08em; text-transform: uppercase; width: 8mm; white-space: nowrap; }
 
 /* Regras e sonhos */
 .rules { list-style: none; padding: 0; margin: 0; }
-.rules li { display: flex; gap: 1.6mm; padding: 1mm 0; border-bottom: 0.2mm solid var(--linha); font-size: 7pt; }
-.rules li .box { flex: 0 0 auto; width: 3mm; height: 3mm; border: 0.28mm solid var(--rubi); border-radius: 0.5mm; margin-top: 0.2mm; }
+.rules li { display: flex; gap: 2.2mm; padding: 2.2mm 0; border-bottom: 0.2mm solid var(--linha); font-size: 9pt; }
+.rules li .box { flex: 0 0 auto; width: 3.6mm; height: 3.6mm; border: 0.28mm solid var(--rubi); border-radius: 0.5mm; margin-top: 0.2mm; }
 .dreams { display: grid; grid-template-columns: 1fr 1fr; gap: 2mm; flex: 1; }
 .dreams .d { border: 0.25mm solid var(--linha); border-radius: 1.2mm; padding: 1.6mm 2.4mm; background: #fff; border-top: 1mm solid var(--accent); }
 .dreams .d h3 { font-size: 10pt; margin-bottom: 0.6mm; }
@@ -283,3 +283,59 @@ table.tracker thead th { background: var(--accent-claro); font-weight: 500; heig
 .prova-open .woman { margin-top: auto; }
 
 .back .autora svg { width: 4.2mm; height: 4.2mm; flex: 0 0 auto; }
+
+/* Capa florida */
+.cover .floral { position: absolute; inset: 0; width: 100%; height: 100%; }
+.cover .spray { position: absolute; width: 58mm; height: 58mm; }
+.cover .spray.tl { left: 9mm; top: 8mm; transform: scaleY(-1) rotate(90deg); }
+.cover .spray.br { right: 9mm; bottom: 8mm; transform: rotate(-90deg); }
+.cover .frame, .cover .cv-top, .cover .cv-mid, .cover .cv-bot { position: relative; }
+.cover .frame { position: absolute; }
+
+.assin { display: flex; align-items: center; gap: 2mm; margin-top: 6mm; padding-top: 2.5mm; border-top: 0.25mm solid var(--linha); }
+.assin .nome { font-family: var(--display); font-size: 14pt; color: var(--rubi-escuro); }
+.assin .fh svg { width: 4mm; height: 4mm; display: block; }
+.assin .cargo { font-size: 5.8pt; letter-spacing: 0.16em; text-transform: uppercase; color: var(--cinza); margin-left: auto; }
+
+/* Corpo, alma e espírito */
+.cae-top { display: flex; gap: 6mm; align-items: flex-start; margin-bottom: 3mm; }
+.cae-top > div:first-child { flex: 1.25; }
+.cae-top > div:last-child { flex: 1; }
+.pilares { display: flex; gap: 4mm; flex: 1; min-height: 0; }
+.pilar { flex: 1; background: #fff; border: 0.25mm solid var(--linha); border-radius: 1.5mm; display: flex; flex-direction: column; overflow: hidden; }
+.pilar .band { background: var(--accent); color: var(--creme); padding: 2.2mm 3mm; display: flex; align-items: baseline; gap: 2mm; }
+.pilar .band .n { font-family: var(--display); font-size: 14pt; line-height: 1; opacity: 0.7; }
+.pilar .band .nm { font-family: var(--display); font-size: 13pt; line-height: 1; }
+.pilar .fr { font-family: var(--serif); font-size: 10pt; line-height: 1.3; padding: 3mm 3mm 0; margin: 0 0 2mm; }
+.pilar .itens { display: flex; flex-wrap: wrap; gap: 1.2mm; padding: 0 3mm; }
+.pilar .itens .chip { border-color: var(--accent); color: var(--carvao); font-size: 7pt; }
+.pilar .verse { margin: auto 3mm 3mm; padding-top: 2.5mm; border-top: 0.25mm solid var(--linha); font-size: 8.2pt; }
+.virtudes { display: flex; gap: 4mm; align-items: flex-start; margin-top: 3.5mm; padding-top: 2.5mm; border-top: 0.3mm solid var(--carvao); }
+.virtudes .eyebrow { flex: 0 0 26mm; padding-top: 0.8mm; }
+.virtudes .vi { flex: 1; }
+.virtudes .vi b { font-family: var(--serif); font-size: 10pt; font-weight: 400; display: block; line-height: 1.1; }
+.virtudes .vi span { font-size: 7.4pt; display: block; }
+.virtudes .vi i { font-style: normal; font-size: 5.4pt; letter-spacing: 0.1em; text-transform: uppercase; color: var(--cinza); }
+
+/* Moodboard */
+.mb-head { display: flex; gap: 5mm; align-items: stretch; margin-bottom: 3mm; }
+.mb-head > div:first-child { flex: 1; }
+.frame-img { position: relative; border: 0.35mm dashed var(--accent, var(--rubi)); border-radius: 1mm; background: rgba(255,255,255,0.6); display: flex; align-items: center; justify-content: center; text-align: center; padding: 2mm; }
+.frame-img .hint { font-size: 5.8pt; letter-spacing: 0.12em; text-transform: uppercase; color: var(--cinza); max-width: 30mm; line-height: 1.35; }
+.frame-img .tape { position: absolute; top: -2mm; left: 50%; width: 12mm; height: 4mm; margin-left: -6mm; background: rgba(232,194,122,0.55); transform: rotate(-3deg); }
+.frame-img.wide { flex: 0 0 72mm; min-height: 22mm; }
+.mb-grid { display: flex; gap: 4mm; flex: 1; min-height: 0; }
+.mb-col { flex: 1; display: flex; flex-direction: column; }
+.mb-col .frame-img { flex: 1; min-height: 34mm; margin-bottom: 2mm; }
+.mb-col .frame-img .hint { max-width: 22mm; }
+.mb-label { font-family: var(--display); font-size: 12pt; color: var(--accent); margin-bottom: 1mm; border-bottom: 0.4mm solid var(--accent); padding-bottom: 0.6mm; }
+.mb-frase { display: flex; align-items: flex-end; gap: 4mm; margin-top: 3mm; }
+.mb-frase .lines { flex: 1; }
+
+.retrato-row.cmp { padding: 1.2mm 0; gap: 2mm; }
+.retrato-row.cmp .nm { flex: 0 0 34mm; font-size: 8.4pt; }
+.retrato-row.cmp .lbl { width: 9mm; font-size: 5.2pt; }
+.retrato-row.cmp .scale { gap: 1mm; }
+.retrato-row.cmp .scale .dot { width: 4mm; height: 4mm; font-size: 5.2pt; }
+.mb-col .frame-img { min-height: 28mm; }
+.mb-grid { margin-bottom: 1mm; }

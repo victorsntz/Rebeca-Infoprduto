@@ -88,7 +88,18 @@ def head(left, right=""):
 # ---------------------------------------------------------------------------
 # Capa
 # ---------------------------------------------------------------------------
+DECO = '''<svg class="floral" viewBox="0 0 210 148" preserveAspectRatio="none" aria-hidden="true">
+  <defs>
+    <pattern id="fl" width="32" height="32" patternUnits="userSpaceOnUse" patternTransform="rotate(-8)"><g fill="none" stroke="#E8C27A" stroke-width="0.32" stroke-linecap="round" stroke-linejoin="round" opacity="0.28"><path d="M2 31 C 8 21, 14 18, 23 7"/><path d="M8 22 c 3 -4.5 6.5 -4.5 7.5 -1 c -3.5 3 -6.5 2.5 -7.5 1 z"/><path d="M14 15.5 c 4 -3 7 -2 7.5 1 c -4 2 -7 1 -7.5 -1 z"/><path d="M11 18 c -4.5 -1 -6.5 -4.5 -4.5 -7 c 3 1.5 5 4 4.5 7 z"/><path d="M5 27 c -3.5 -0.5 -5 -3 -3.5 -5 c 2.5 1 3.8 3 3.5 5 z"/><g transform="translate(25.5 5) scale(1)"><ellipse rx="1.6" ry="2.8" cy="-3" transform="rotate(0)"/><ellipse rx="1.6" ry="2.8" cy="-3" transform="rotate(72)"/><ellipse rx="1.6" ry="2.8" cy="-3" transform="rotate(144)"/><ellipse rx="1.6" ry="2.8" cy="-3" transform="rotate(216)"/><ellipse rx="1.6" ry="2.8" cy="-3" transform="rotate(288)"/><circle r="0.9" fill="#E8C27A" stroke="none"/></g><g transform="translate(28 25) scale(0.75)"><ellipse rx="1.6" ry="2.8" cy="-3" transform="rotate(0)"/><ellipse rx="1.6" ry="2.8" cy="-3" transform="rotate(72)"/><ellipse rx="1.6" ry="2.8" cy="-3" transform="rotate(144)"/><ellipse rx="1.6" ry="2.8" cy="-3" transform="rotate(216)"/><ellipse rx="1.6" ry="2.8" cy="-3" transform="rotate(288)"/><circle r="0.9" fill="#E8C27A" stroke="none"/></g><path d="M28 25 c -2 3 -6 4 -9 3"/><path d="M21 27.5 c 1.5 -2.5 4.5 -2.5 5.5 -0.5 c -2.5 2 -5 1.5 -5.5 0.5 z"/><circle cx="18" cy="30" r="0.7" fill="#E8C27A" stroke="none"/><circle cx="16.3" cy="28.6" r="0.6" fill="#E8C27A" stroke="none"/><circle cx="19.6" cy="28.4" r="0.55" fill="#E8C27A" stroke="none"/></g></pattern>
+    <radialGradient id="vig" cx="50%" cy="52%" r="46%"><stop offset="0" stop-color="#5E1A26" stop-opacity="0.96"/><stop offset="0.7" stop-color="#5E1A26" stop-opacity="0.8"/><stop offset="1" stop-color="#5E1A26" stop-opacity="0"/></radialGradient>
+  </defs>
+  <rect width="210" height="148" fill="url(#fl)"/>
+  <rect width="210" height="148" fill="url(#vig)"/>
+</svg>
+<svg class="spray tl" viewBox="0 0 60 60" aria-hidden="true"><g fill="none" stroke="#E8C27A" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round" opacity="0.85"><path d="M4 58 C 14 40, 22 30, 44 10"/><path d="M24 30 C 30 32, 38 30, 46 34"/><path d="M15 43 C 8 42, 4 38, 2 32"/><path d="M12 46 c 4 -7 10 -7 12 -2 c -5 5 -10 4 -12 2 z"/><path d="M20 36 c 6 -4 11 -2 11 2 c -6 3 -10 1 -11 -2 z"/><path d="M17 40 c -7 -1 -10 -6 -8 -10 c 5 2 8 6 8 10 z"/><path d="M30 24 c 6 -5 12 -3 12 1 c -6 4 -11 2 -12 -1 z"/><path d="M27 27 c -6 -3 -8 -9 -5 -12 c 4 3 6 8 5 12 z"/><path d="M38 17 c -4 -5 -3 -11 1 -12 c 2 5 1 9 -1 12 z"/><g transform="translate(47 8) scale(1.9)"><ellipse rx="1.6" ry="2.8" cy="-3" transform="rotate(0)"/><ellipse rx="1.6" ry="2.8" cy="-3" transform="rotate(72)"/><ellipse rx="1.6" ry="2.8" cy="-3" transform="rotate(144)"/><ellipse rx="1.6" ry="2.8" cy="-3" transform="rotate(216)"/><ellipse rx="1.6" ry="2.8" cy="-3" transform="rotate(288)"/><circle r="0.9" fill="#E8C27A" stroke="none"/></g><g transform="translate(48 35) scale(1.4)"><ellipse rx="1.6" ry="2.8" cy="-3" transform="rotate(0)"/><ellipse rx="1.6" ry="2.8" cy="-3" transform="rotate(72)"/><ellipse rx="1.6" ry="2.8" cy="-3" transform="rotate(144)"/><ellipse rx="1.6" ry="2.8" cy="-3" transform="rotate(216)"/><ellipse rx="1.6" ry="2.8" cy="-3" transform="rotate(288)"/><circle r="0.9" fill="#E8C27A" stroke="none"/></g><g transform="translate(3 31) scale(1.1)"><ellipse rx="1.6" ry="2.8" cy="-3" transform="rotate(0)"/><ellipse rx="1.6" ry="2.8" cy="-3" transform="rotate(72)"/><ellipse rx="1.6" ry="2.8" cy="-3" transform="rotate(144)"/><ellipse rx="1.6" ry="2.8" cy="-3" transform="rotate(216)"/><ellipse rx="1.6" ry="2.8" cy="-3" transform="rotate(288)"/><circle r="0.9" fill="#E8C27A" stroke="none"/></g><circle cx="34" cy="21" r="1" fill="#E8C27A" stroke="none"/><circle cx="36.5" cy="23.5" r="0.8" fill="#E8C27A" stroke="none"/><circle cx="10" cy="52" r="0.9" fill="#E8C27A" stroke="none"/></g></svg>
+<svg class="spray br" viewBox="0 0 60 60" aria-hidden="true"><g fill="none" stroke="#E8C27A" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round" opacity="0.85"><path d="M4 58 C 14 40, 22 30, 44 10"/><path d="M24 30 C 30 32, 38 30, 46 34"/><path d="M15 43 C 8 42, 4 38, 2 32"/><path d="M12 46 c 4 -7 10 -7 12 -2 c -5 5 -10 4 -12 2 z"/><path d="M20 36 c 6 -4 11 -2 11 2 c -6 3 -10 1 -11 -2 z"/><path d="M17 40 c -7 -1 -10 -6 -8 -10 c 5 2 8 6 8 10 z"/><path d="M30 24 c 6 -5 12 -3 12 1 c -6 4 -11 2 -12 -1 z"/><path d="M27 27 c -6 -3 -8 -9 -5 -12 c 4 3 6 8 5 12 z"/><path d="M38 17 c -4 -5 -3 -11 1 -12 c 2 5 1 9 -1 12 z"/><g transform="translate(47 8) scale(1.9)"><ellipse rx="1.6" ry="2.8" cy="-3" transform="rotate(0)"/><ellipse rx="1.6" ry="2.8" cy="-3" transform="rotate(72)"/><ellipse rx="1.6" ry="2.8" cy="-3" transform="rotate(144)"/><ellipse rx="1.6" ry="2.8" cy="-3" transform="rotate(216)"/><ellipse rx="1.6" ry="2.8" cy="-3" transform="rotate(288)"/><circle r="0.9" fill="#E8C27A" stroke="none"/></g><g transform="translate(48 35) scale(1.4)"><ellipse rx="1.6" ry="2.8" cy="-3" transform="rotate(0)"/><ellipse rx="1.6" ry="2.8" cy="-3" transform="rotate(72)"/><ellipse rx="1.6" ry="2.8" cy="-3" transform="rotate(144)"/><ellipse rx="1.6" ry="2.8" cy="-3" transform="rotate(216)"/><ellipse rx="1.6" ry="2.8" cy="-3" transform="rotate(288)"/><circle r="0.9" fill="#E8C27A" stroke="none"/></g><g transform="translate(3 31) scale(1.1)"><ellipse rx="1.6" ry="2.8" cy="-3" transform="rotate(0)"/><ellipse rx="1.6" ry="2.8" cy="-3" transform="rotate(72)"/><ellipse rx="1.6" ry="2.8" cy="-3" transform="rotate(144)"/><ellipse rx="1.6" ry="2.8" cy="-3" transform="rotate(216)"/><ellipse rx="1.6" ry="2.8" cy="-3" transform="rotate(288)"/><circle r="0.9" fill="#E8C27A" stroke="none"/></g><circle cx="34" cy="21" r="1" fill="#E8C27A" stroke="none"/><circle cx="36.5" cy="23.5" r="0.8" fill="#E8C27A" stroke="none"/><circle cx="10" cy="52" r="0.9" fill="#E8C27A" stroke="none"/></g></svg>'''
 page(f'''
+{DECO}
 <div class="frame"></div>
 <div class="cv-top">
   <div class="kicker">Caderno prático</div>
@@ -141,10 +152,11 @@ half = (len(cw["paragrafos"]) + 1) // 2
 page(f'''
 {head("Carta de boas-vindas")}
 <h1>{e(cw["titulo"])}</h1>
-<div class="cols" style="font-size:7.7pt;line-height:1.45">
+<div class="cols" style="font-size:9.4pt;line-height:1.55;margin-top:2mm">
   <div>{"".join(f"<p>{e(p)}</p>" for p in cw["paragrafos"][:half])}</div>
   <div>{"".join(f"<p>{e(p)}</p>" for p in cw["paragrafos"][half:])}
-    <p class="serif" style="font-size:12pt;font-style:italic;color:var(--rubi);margin-top:2mm">{e(cw["assinatura"])}</p></div>
+    <p class="serif" style="font-size:12pt;font-style:italic;color:var(--rubi);margin-top:2mm">{e(cw["assinatura"])}</p>
+    <div class="assin"><span class="nome">{e(C.AUTORA)}</span><span class="fh" style="color:var(--rubi)">{FLAME_HEART}</span><span class="cargo">Autora de De Tola a Virtuosa</span></div></div>
 </div>
 ''', section="Início")
 
@@ -174,7 +186,7 @@ page(f'''
   <div class="l">
     <h1>{e(tv["titulo"])}</h1>
     {verse_box(tv["versiculo"], tv["ref"])}
-    <p style="font-size:7.8pt">{e(tv["intro"])}</p>
+    <p style="font-size:9pt;line-height:1.5">{e(tv["intro"])}</p>
     <div style="margin-top:auto">{field(tv["pergunta"], 3)}</div>
   </div>
   <div class="r">
@@ -193,7 +205,7 @@ page(f'''
 <div class="split even">
   <div class="l">
     <h1>{e(idn["titulo"])}</h1>
-    <p style="font-size:7.6pt">{e(idn["intro"])}</p>
+    <p style="font-size:9pt;line-height:1.5">{e(idn["intro"])}</p>
     <div class="idgrid">{"".join(f'<div class="id"><b>{e(t)}</b><span>“{e(v)}”</span><i>{e(r)}</i></div>' for t, v, r in idn["versiculos"])}</div>
   </div>
   <div class="r">
@@ -205,23 +217,20 @@ page(f'''
 
 # Corpo, alma e espírito ----------------------------------------------------
 cae = C.CORPO_ALMA_ESPIRITO
-pil = "".join(f'''<div class="card accent" style="--accent:var(--{cor})">
-  <div class="eyebrow" style="color:var(--{cor})">{e(n)}</div>
-  <p class="serif" style="font-size:9pt;line-height:1.15;margin-bottom:1mm">{e(fr)}</p>
-  <p class="tiny muted" style="margin-bottom:1.2mm">{e(it)}</p>
-  <p class="verse" style="font-size:7.6pt">“{e(v)}”<span class="verse-ref">{e(r)}</span></p></div>''' for n, cor, fr, it, v, r in cae["pilares"])
-virt = "".join(f'<div><b class="serif" style="font-size:9.5pt;font-weight:500">{e(n)}</b><br><span style="font-size:6.8pt">{e(d)}</span><br><span class="tiny muted" style="letter-spacing:0.08em;text-transform:uppercase">{e(r)}</span></div>' for n, d, r in cae["virtudes"])
+pil = "".join(f'''<div class="pilar c-{cor}">
+  <div class="band"><span class="n">{i+1}</span><span class="nm">{e(n)}</span></div>
+  <p class="fr">{e(fr)}</p>
+  <div class="itens">{"".join(f'<span class="chip">{e(x.strip())}</span>' for x in it.split("·"))}</div>
+  <p class="verse">“{e(v)}”<span class="verse-ref">{e(r)}</span></p></div>''' for i, (n, cor, fr, it, v, r) in enumerate(cae["pilares"]))
+virt = "".join(f'<div class="vi"><b>{e(n)}</b><span>{e(d)}</span><i>{e(r)}</i></div>' for n, d, r in cae["virtudes"])
 page(f'''
 {head("Tudo está ligado")}
-<h1>{e(cae["titulo"])}</h1>
-<div class="cols">
+<div class="cae-top">
+  <div><h1>{e(cae["titulo"])}</h1><p style="font-size:9pt;line-height:1.5;margin:0">{e(cae["intro"])}</p></div>
   <div>{verse_box(cae["versiculo"], cae["ref"])}</div>
-  <div><p style="font-size:7.6pt;margin-top:1.5mm">{e(cae["intro"])}</p></div>
 </div>
-<div class="cols tight" style="margin:1mm 0 3mm">{pil}</div>
-<div class="eyebrow">{e(cae["virtudes_titulo"])}</div>
-<div class="cols tight" style="border-top:0.25mm solid var(--linha);padding-top:1.5mm">{virt}</div>
-<div style="margin-top:auto">{verse_box(cae["fruto"], cae["fruto_ref"], "center")}</div>
+<div class="pilares">{pil}</div>
+<div class="virtudes"><div class="eyebrow" style="margin:0">{e(cae["virtudes_titulo"])}</div>{virt}</div>
 ''', cls="c-rubi", section="Início")
 
 # Propósito e limites -------------------------------------------------------
@@ -237,7 +246,6 @@ page(f'''
     <h1>Propósito</h1>
     <p style="font-size:7.4pt">{e(pl["prop_intro"])}</p>
     {"".join(f'<div class="field"><div class="q" style="font-size:8.6pt">{e(q)}</div>{lines(4, "tight")}</div>' for q in pl["prop_perguntas"])}
-    <div class="card fill c-dourado" style="margin-top:auto"><div class="label">{e(pl["prop_frase"])}</div>{lines(2, "tight")}</div>
   </div>
   <div class="r">
     <h1>Limites</h1>
@@ -245,26 +253,40 @@ page(f'''
     {lim}
   </div>
 </div>
+<div class="card fill c-dourado" style="margin-top:3mm"><div class="label">{e(pl["prop_frase"])}</div>{lines(2, "tight")}</div>
 ''', cls="c-rubi", section="Início")
 
-# Regras e quadro dos sonhos ------------------------------------------------
+# Regras -------------------------------------------------------------------
 rs = C.REGRAS_SONHOS
-dreams = "".join(f'<div class="d c-{cor}"><h3>{e(n)}</h3><div class="label">Meta que dá pra medir</div>{lines(2, "tight")}<div class="label" style="margin-top:1mm">Como vou saber que cheguei</div>{lines(1, "tight")}</div>' for n, cor in rs["areas"])
 page(f'''
-{head("Inegociáveis e visão")}
+{head("Inegociáveis")}
 <div class="split even">
   <div class="l">
     <h1>As regras</h1>
-    <p class="small muted">{e(rs["regras_intro"])}</p>
+    <p style="font-size:9pt;line-height:1.5">{e(rs["regras_intro"])}</p>
     <ul class="rules">{"".join(f'<li><span class="box"></span><span>{e(r)}</span></li>' for r in rs["regras"])}</ul>
-    <div style="margin-top:auto">{field("Minhas regras", 4, "as que eu não negocio por 40 dias", "tight")}</div>
   </div>
   <div class="r">
-    <h1>Quadro dos sonhos</h1>
-    <p class="small muted">{e(rs["sonhos_intro"])} <i class="serif" style="color:var(--rubi)">“{e(rs["sonhos_versiculo"])}”</i> {e(rs["sonhos_ref"])}</p>
-    <div class="dreams">{dreams}</div>
+    <div class="field grow"><div class="label">Minhas regras <span class="hint">as que eu não negocio por 40 dias</span></div>{lines_fill()}</div>
   </div>
 </div>
+''', cls="c-rubi", section="Início")
+
+# Quadro dos sonhos (moodboard) ---------------------------------------------
+frames = "".join(f'''<div class="mb-col c-{cor}">
+  <div class="frame-img"><span class="tape"></span><span class="hint">cole aqui uma imagem</span></div>
+  <div class="mb-label">{e(n)}</div>
+  <div class="label">Meta que dá pra medir</div>{lines(2, "tight")}
+  <div class="label" style="margin-top:1mm">Como vou saber que cheguei</div>{lines(1, "tight")}
+</div>''' for n, cor in rs["areas"])
+page(f'''
+{head("Escreve a visão", "Habacuque 2:2")}
+<div class="mb-head">
+  <div><h1>Quadro dos sonhos</h1><p style="font-size:8.6pt;line-height:1.45;margin:0">Cole fotos, recortes, palavras, cores. Um moodboard de 40 dias: só cabe aqui o que dá pra medir e cabe em 40 dias. {e(rs["sonhos_intro"].split(". ",1)[1] if ". " in rs["sonhos_intro"] else "")}</p></div>
+  <div class="frame-img wide"><span class="tape"></span><span class="hint">a imagem que resume a mulher que eu quero ser no dia 40</span></div>
+</div>
+<div class="mb-grid">{frames}</div>
+<div class="mb-frase"><span class="label" style="margin:0;white-space:nowrap">Minha frase de 40 dias</span>{lines(1, "tight")}</div>
 ''', cls="c-rubi", section="Início")
 
 # Carta pro futuro ----------------------------------------------------------
@@ -286,28 +308,29 @@ page(f'''
 # Retrato -------------------------------------------------------------------
 rt = C.RETRATO
 def retrato(dia40=False):
-    rows = ""
-    for a in rt["areas"]:
-        if dia40:
-            rows += f'<div class="retrato-row"><span class="nm">{e(a)}</span><span class="lbl">Dia 1</span>{scale()}<span class="lbl">Dia 40</span>{scale()}</div>'
-        else:
-            rows += f'<div class="retrato-row"><span class="nm">{e(a)}</span>{scale()}</div>'
     if dia40:
-        right = (f'{field(rt["mudou_40"], 3, cls="tight")}{field(rt["deus_40"], 3, cls="tight")}'
-                 + fill_field("Oração de chegada", "o que eu quero dizer a Deus ao terminar"))
-        left_w = "flex:0 0 118mm"
-    else:
-        right = (f'{field(rt["palavras_1"], 2, cls="tight")}{field(rt["incomodo_1"], 3, cls="tight")}'
-                 + fill_field("Oração de partida", "o que eu quero pedir a Deus antes do dia 1"))
-        left_w = "flex:0 0 82mm"
-    t = rt["titulo_40"] if dia40 else rt["titulo_1"]
-    i = rt["intro_40"] if dia40 else rt["intro_1"]
+        rows = "".join(f'<div class="retrato-row cmp"><span class="nm">{e(a)}</span><span class="lbl">Dia 1</span>{scale()}<span class="lbl">Dia 40</span>{scale()}</div>' for a in rt["areas"])
+        return f'''
+{head("Foto honesta", "Dia 40")}
+<h1>{e(rt["titulo_40"])}</h1>
+<p class="small muted" style="font-size:8pt">{e(rt["intro_40"])}</p>
+<div class="label">De 0 a 10, como está cada área</div>
+{rows}
+<div class="cols" style="margin-top:3mm">
+  {field(rt["mudou_40"], 3, cls="tight")}
+  {field(rt["deus_40"], 3, cls="tight")}
+  {field("Oração de chegada", 3, "o que eu quero dizer a Deus ao terminar", "tight")}
+</div>
+'''
+    rows = "".join(f'<div class="retrato-row"><span class="nm">{e(a)}</span>{scale()}</div>' for a in rt["areas"])
+    right = (f'{field(rt["palavras_1"], 2, cls="tight")}{field(rt["incomodo_1"], 3, cls="tight")}'
+             + fill_field("Oração de partida", "o que eu quero pedir a Deus antes do dia 1"))
     return f'''
-{head("Foto honesta", "Dia 40" if dia40 else "Dia 1")}
-<h1>{e(t)}</h1>
-<p class="small muted">{e(i)}</p>
+{head("Foto honesta", "Dia 1")}
+<h1>{e(rt["titulo_1"])}</h1>
+<p class="small muted" style="font-size:8pt">{e(rt["intro_1"])}</p>
 <div class="split">
-  <div class="l" style="{left_w}"><div class="label">De 0 a 10, como está cada área</div>{rows}</div>
+  <div class="l" style="flex:0 0 104mm"><div class="label">De 0 a 10, como está cada área</div>{rows}</div>
   <div class="r">{right}</div>
 </div>
 '''
