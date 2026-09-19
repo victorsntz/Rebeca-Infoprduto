@@ -55,7 +55,7 @@
   .dor .list { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.6rem 2rem; margin: 2rem 0; }
   @media (max-width: 700px) { .dor .list { grid-template-columns: 1fr; } }
   .dor .list div { display: flex; gap: 0.8rem; align-items: flex-start; padding: 0.75rem 0; border-bottom: 1px solid var(--linha); }
-  .dor .list .box { flex: 0 0 auto; width: 20px; height: 20px; border: 1.5px solid var(--rubi); border-radius: 5px; margin-top: 3px; }
+  .dor .list div::before { content: ""; flex: 0 0 auto; width: 7px; height: 7px; border-radius: 50%; background: var(--dourado); margin-top: 0.55rem; }
   .callout { border-left: 4px solid var(--rubi); padding: 1rem 1.4rem; background: #fff; border-radius: 0 var(--radius) var(--radius) 0; }
 
   /* método */
@@ -114,18 +114,46 @@
   .foto small { display: block; font-size: 0.75rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--cinza); margin-top: 0.6rem; }
 
   /* oferta */
-  .oferta .box { background: #fff; border-radius: 22px; box-shadow: var(--shadow); overflow: hidden; display: grid; grid-template-columns: 1.1fr 0.9fr; }
+  .of-head { max-width: 640px; margin: 0 auto 2.4rem; }
+  .of-head .lead { max-width: 560px; }
+  .oferta .box { background: #fff; border-radius: 22px; box-shadow: var(--shadow); overflow: hidden; display: grid; grid-template-columns: 1.15fr 0.85fr; }
   @media (max-width: 860px) { .oferta .box { grid-template-columns: 1fr; } }
-  .oferta .left { padding: 2.4rem; }
-  .oferta .right { background: var(--rubi-escuro); color: var(--creme); padding: 2.4rem; display: flex; flex-direction: column; justify-content: center; }
-  .oferta ul { list-style: none; padding: 0; margin: 1.2rem 0 0; }
-  .oferta li { display: flex; gap: 0.7rem; padding: 0.45rem 0; align-items: flex-start; }
-  .oferta li::before { content: ""; flex: 0 0 auto; width: 18px; height: 18px; border-radius: 50%; background: var(--rubi); margin-top: 4px; -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23000' d='M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z'/%3E%3C/svg%3E") center / contain no-repeat; mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23000' d='M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z'/%3E%3C/svg%3E") center / contain no-repeat; }
-  .price { font-family: var(--serif); font-size: 3.6rem; line-height: 1; margin: 0.4rem 0; }
-  .price small { font-size: 1.2rem; vertical-align: top; margin-right: 0.2rem; }
-  .price-note { font-size: 0.85rem; color: rgba(249,245,238,0.7); }
+  .oferta .left { padding: 2.2rem; }
+  .oferta .right { position: relative; background: linear-gradient(160deg, var(--rubi-escuro), var(--rubi-profundo)); color: var(--creme); padding: 2.4rem; display: flex; flex-direction: column; justify-content: center; }
+  .oferta .right::before { content: ""; position: absolute; inset: 14px; border: 1px solid rgba(232,194,122,0.28); border-radius: 14px; pointer-events: none; }
+  .oferta .right > * { position: relative; }
+  .oferta .tag { display: inline-block; align-self: flex-start; background: var(--dourado-vivo); color: var(--rubi-profundo); font-size: 0.68rem; letter-spacing: 0.18em; text-transform: uppercase; padding: 0.35rem 0.8rem; border-radius: 999px; margin-bottom: 1rem; }
+  .stack { display: grid; grid-template-columns: 150px 1fr; gap: 1.6rem; align-items: start; }
+  @media (max-width: 560px) { .stack { grid-template-columns: 1fr; } }
+  .st-img { position: relative; width: 150px; height: 190px; }
+  .st-img img { position: absolute; width: 130px; border-radius: 8px; box-shadow: var(--shadow-sm); border: 1px solid var(--linha); }
+  .st-img img:first-child { top: 0; left: 0; transform: rotate(-5deg); z-index: 2; }
+  .st-img .st-2 { top: 44px; left: 24px; transform: rotate(6deg); }
+  .st-list h3 { font-size: 1.15rem; margin-bottom: 0.6rem; }
+  .vs { list-style: none; padding: 0; margin: 0; }
+  .vs li { display: grid; grid-template-columns: 1fr auto; grid-template-areas: "t v" "s v"; gap: 0 1rem; padding: 0.6rem 0; border-bottom: 1px dashed var(--linha); align-items: center; }
+  .vs li b { grid-area: t; font-weight: 400; font-size: 0.98rem; padding-left: 1.5rem; position: relative; }
+  .vs li b::before { content: ""; position: absolute; left: 0; top: 4px; width: 16px; height: 16px; border-radius: 50%; background: var(--rubi); -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23000' d='M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z'/%3E%3C/svg%3E") center / contain no-repeat; mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23000' d='M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z'/%3E%3C/svg%3E") center / contain no-repeat; }
+  .vs li span { grid-area: s; font-size: 0.82rem; color: var(--cinza); padding-left: 1.5rem; }
+  .vs li em { grid-area: v; font-style: normal; font-family: var(--serif); color: var(--cinza); text-decoration: line-through; font-size: 0.9rem; white-space: nowrap; }
+  .vs li:last-child em { text-decoration: none; color: var(--dourado); text-transform: uppercase; font-size: 0.72rem; letter-spacing: 0.14em; font-family: var(--sans); }
+  .vs-total { display: flex; justify-content: space-between; align-items: baseline; padding-top: 0.8rem; font-size: 0.85rem; color: var(--cinza); }
+  .vs-total s { font-family: var(--serif); font-size: 1.05rem; color: var(--carvao); }
+  .price { font-family: var(--display); font-size: 4.4rem; line-height: 1; margin: 0.3rem 0; color: var(--dourado-vivo); }
+  .price small { font-size: 1.3rem; vertical-align: top; margin-right: 0.2rem; }
+  .price-note { font-size: 0.9rem; color: rgba(249,245,238,0.75); }
+  .save { display: inline-block; align-self: flex-start; margin-top: 0.7rem; font-size: 0.8rem; color: var(--dourado-vivo); border: 1px solid rgba(232,194,122,0.5); padding: 0.25rem 0.7rem; border-radius: 999px; }
   .strike { text-decoration: line-through; opacity: 0.6; font-size: 1rem; }
-  .garantia { display: flex; gap: 0.9rem; align-items: center; margin-top: 1.5rem; padding-top: 1.2rem; border-top: 1px solid rgba(249,245,238,0.2); font-size: 0.88rem; color: rgba(249,245,238,0.85); }
+  .btn.block svg { width: 18px; height: 18px; }
+  .pay { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.9rem; }
+  .pay span { font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(249,245,238,0.75); border: 1px solid rgba(249,245,238,0.2); padding: 0.25rem 0.6rem; border-radius: 6px; }
+  .garantia { display: flex; gap: 0.9rem; align-items: center; margin-top: 1.3rem; padding-top: 1.2rem; border-top: 1px solid rgba(249,245,238,0.2); font-size: 0.88rem; color: rgba(249,245,238,0.85); }
+  .passos { list-style: none; padding: 0; margin: 1.8rem 0 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; counter-reset: p; }
+  @media (max-width: 760px) { .passos { grid-template-columns: 1fr; } }
+  .passos li { background: rgba(255,255,255,0.55); border: 1px solid var(--linha); border-radius: var(--radius); padding: 1.1rem 1.2rem; display: grid; grid-template-columns: auto 1fr; grid-template-areas: "n t" "n s"; gap: 0.1rem 0.9rem; align-items: center; }
+  .passos span { grid-area: n; width: 34px; height: 34px; border-radius: 50%; background: var(--rubi); color: var(--creme); display: flex; align-items: center; justify-content: center; font-family: var(--serif); }
+  .passos b { grid-area: t; font-weight: 400; font-size: 0.98rem; }
+  .passos small { grid-area: s; font-size: 0.82rem; color: var(--cinza); }
   .garantia svg { width: 34px; height: 34px; flex: 0 0 auto; color: var(--dourado-vivo); }
 
   /* faq */
@@ -147,6 +175,7 @@
     .hero .cta, .cta { justify-content: center; }
     .mock { margin: 0 auto; }
     .dor .list div { flex-direction: column; align-items: center; text-align: center; gap: 0.3rem; }
+    .dor .list div::before { display: none; }
     .callout { text-align: center; border-left: 0; border-top: 4px solid var(--rubi); border-radius: 0 0 var(--radius) var(--radius); }
     .pilar ul { text-align: center; }
     .why > div { text-align: center; }
@@ -158,8 +187,15 @@
     .item { flex-direction: column; align-items: center; }
     .quem div { text-align: center; }
     .foto { margin: 0 auto; }
-    .oferta li { flex-direction: column; align-items: center; text-align: center; gap: 0.2rem; }
-    .oferta .left, .oferta .right { text-align: center; }
+    .oferta .left, .oferta .right { text-align: center; align-items: center; }
+    .oferta .tag, .save { align-self: center; }
+    .st-img { margin: 0 auto 0.6rem; }
+    .vs li { grid-template-columns: 1fr; grid-template-areas: "t" "s" "v"; text-align: center; gap: 0.15rem; }
+    .vs li b, .vs li span { padding-left: 0; }
+    .vs li b::before { position: static; display: inline-block; vertical-align: -2px; margin-right: 0.4rem; }
+    .vs-total { flex-direction: column; align-items: center; gap: 0.2rem; }
+    .pay { justify-content: center; }
+    .passos li { grid-template-columns: 1fr; grid-template-areas: "n" "t" "s"; justify-items: center; text-align: center; gap: 0.3rem; }
     .callout p { text-align: center; }
     .pilar, .card { text-align: center; }
     .why b { text-align: center; }
@@ -220,14 +256,14 @@
     <span class="eyebrow">Você conhece essa mulher?</span>
     <h2>Ela sabe o que devia fazer.<br>E não faz.</h2>
     <div class="list">
-      <div><span class="box"></span><span>Espera ter vontade pra começar. A vontade não vem.</span></div>
-      <div><span class="box"></span><span>Dorme com o celular na mão e acorda já cansada.</span></div>
-      <div><span class="box"></span><span>Se compara com as redes e termina o dia se sentindo atrasada.</span></div>
-      <div><span class="box"></span><span>Quer mudar tudo em uma semana e desiste na quarta.</span></div>
-      <div><span class="box"></span><span>Reage no tom que veio e pede desculpa depois.</span></div>
-      <div><span class="box"></span><span>Separa fé de vida: Deus no domingo, ansiedade na segunda.</span></div>
-      <div><span class="box"></span><span>Não sabe pra onde o dinheiro foi nem onde o tempo passou.</span></div>
-      <div><span class="box"></span><span>Chora. E para.</span></div>
+      <div><span>Espera ter vontade pra começar. A vontade não vem.</span></div>
+      <div><span>Dorme com o celular na mão e acorda já cansada.</span></div>
+      <div><span>Se compara com as redes e termina o dia se sentindo atrasada.</span></div>
+      <div><span>Quer mudar tudo em uma semana e desiste na quarta.</span></div>
+      <div><span>Reage no tom que veio e pede desculpa depois.</span></div>
+      <div><span>Separa fé de vida: Deus no domingo, ansiedade na segunda.</span></div>
+      <div><span>Não sabe pra onde o dinheiro foi nem onde o tempo passou.</span></div>
+      <div><span>Chora. E para.</span></div>
     </div>
     <div class="callout">
       <p class="verse" style="font-size:1.2rem">“Toda mulher sábia edifica a sua casa; mas a tola derruba-a com as suas próprias mãos.”<span class="verse-ref">Provérbios 14:1</span></p>
@@ -346,30 +382,49 @@
 <!-- OFERTA -->
 <section class="oferta on-sand" id="oferta">
   <div class="wrap">
+    <div class="of-head center">
+      <span class="eyebrow">Sua travessia começa hoje</span>
+      <h2>Tudo o que você leva pro deserto</h2>
+      <p class="lead" style="margin:0.8rem auto 0">Um caderno, uma área de membros e uma mulher que já fez o caminho. Por menos que um almoço fora.</p>
+    </div>
+
     <div class="box">
       <div class="left">
-        <span class="eyebrow">Sua travessia começa hoje</span>
-        <h2>De Tola a Virtuosa</h2>
-        <p class="muted" style="margin-top:0.5rem">40 dias no deserto · corpo, alma e espírito</p>
-        <ul>
-          <li>Caderno em PDF (A5, pronto pra imprimir)</li>
-          <li>Área de membros com a versão pelo celular</li>
-          <li>Aula inaugural com a Rebeca Fortunato</li>
-          <li>Vídeos: como imprimir e como usar o site</li>
-          <li>40 leituras bíblicas e 40 desafios práticos</li>
-          <li>Páginas de identidade, propósito, limites e regras</li>
-          <li>Carta pro futuro, retrato do dia 1 e do dia 40</li>
-        </ul>
+        <div class="stack">
+          <div class="st-img"><img src="assets/img/capa.png" alt="Capa do caderno De Tola a Virtuosa"><img src="assets/img/dia.png" alt="Página do dia" class="st-2"></div>
+          <div class="st-list">
+            <h3>O que vem dentro</h3>
+            <ul class="vs">
+              <li><b>Caderno em PDF, A5, pronto pra imprimir</b><span>68 páginas, 40 dias, 4 provas</span><em>R$ 97</em></li>
+              <li><b>Área de membros pelo celular</b><span>A mesma travessia, sem impressora</span><em>R$ 67</em></li>
+              <li><b>Aula inaugural com a Rebeca</b><span>Como sair da tola antes do dia 1</span><em>R$ 47</em></li>
+              <li><b>Vídeos: como imprimir e como usar</b><span>Sem dúvida, sem desculpa</span><em>R$ 27</em></li>
+              <li><b>Carta pro futuro, retrato do dia 1 e do dia 40</b><span>A prova de que você mudou</span><em>Bônus</em></li>
+            </ul>
+            <div class="vs-total"><span>Valor de tudo separado</span><s>R$ 238</s></div>
+          </div>
+        </div>
       </div>
+
       <div class="right">
+        <span class="tag">Oferta de lançamento</span>
         <span class="strike">de R$ 197</span>
         <div class="price"><small>R$</small>97</div>
         <span class="price-note">ou 12x de R$ 9,70 · acesso imediato</span>
-        <a class="btn gold block" style="margin-top:1.4rem" href="#checkout" id="btn-checkout">Quero começar agora</a>
-        <div class="garantia"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2 4 5v6c0 5 3.5 9.5 8 11 4.5-1.5 8-6 8-11V5z"/><path d="m9 12 2 2 4-4"/></svg><span>7 dias de garantia. Se não for pra você, devolvemos tudo. Sem pergunta.</span></div>
+        <span class="save">Você economiza R$ 141</span>
+        <a class="btn gold block" style="margin-top:1.4rem" href="#checkout" id="btn-checkout">Quero começar agora<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <div class="pay"><span>Pix</span><span>Cartão</span><span>Boleto</span><span>Compra segura</span></div>
+        <div class="garantia"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2 4 5v6c0 5 3.5 9.5 8 11 4.5-1.5 8-6 8-11V5z"/><path d="m9 12 2 2 4-4"/></svg><span><b>7 dias de garantia.</b> Se não for pra você, devolvemos tudo. Sem pergunta.</span></div>
       </div>
     </div>
-    <p class="center muted" style="font-size:0.85rem;margin-top:1.2rem">Preço e parcelamento são exemplo. Troque pelo valor real e aponte o botão pro link do checkout.</p>
+
+    <ol class="passos">
+      <li><span>1</span><b>Você garante o acesso</b><small>Pix cai na hora, cartão aprova em segundos.</small></li>
+      <li><span>2</span><b>Recebe tudo no e-mail</b><small>PDF, link da área de membros e a aula inaugural.</small></li>
+      <li><span>3</span><b>Marca a data do dia 1</b><small>E começa a travessia no seu ritmo, com a sua casa.</small></li>
+    </ol>
+
+    <p class="center muted" style="font-size:0.85rem;margin-top:1.4rem">Preço, parcelamento e valores dos itens são exemplo. Troque pelo valor real e aponte o botão pro link do checkout.</p>
   </div>
 </section>
 
