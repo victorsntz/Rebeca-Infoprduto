@@ -145,14 +145,35 @@ page(f'''
 # Carta ---------------------------------------------------------------------
 cw = C.CARTA
 half = (len(cw["paragrafos"]) + 1) // 2
+
+
+def foto_rebeca():
+    import base64, glob
+    cand = sorted(glob.glob(os.path.join(ROOT, "assets", "rebeca.*")))
+    if cand:
+        f = cand[0]
+        mime = "image/png" if f.endswith(".png") else "image/jpeg"
+        data = base64.b64encode(open(f, "rb").read()).decode()
+        return f'<img src="data:{mime};base64,{data}" alt="Rebeca Fortunato">'
+    return '<div class="ph"><span>foto da<br>Rebeca</span></div>'
+
+
 page(f'''
 {head("Carta de boas-vindas")}
-<h1>{e(cw["titulo"])}</h1>
-<div class="cols" style="font-size:9.4pt;line-height:1.55;margin-top:2mm">
-  <div>{"".join(f"<p>{e(p)}</p>" for p in cw["paragrafos"][:half])}</div>
-  <div>{"".join(f"<p>{e(p)}</p>" for p in cw["paragrafos"][half:])}
-    <p class="serif" style="font-size:12pt;font-style:italic;color:var(--rubi);margin-top:2mm">{e(cw["assinatura"])}</p>
-    <div class="assin"><span class="nome">{e(C.AUTORA)}</span><span class="fh" style="color:var(--rubi)">{FLAME_HEART}</span><span class="cargo">Autora de De Tola a Virtuosa</span></div></div>
+<div class="carta">
+  <div class="foto">
+    <div class="polaroid"><span class="tape"></span>{foto_rebeca()}<div class="leg">{e(C.AUTORA)}</div></div>
+    <p class="serif oi">“Se você está com este caderno na mão, já começou a escolher.”</p>
+  </div>
+  <div class="txt">
+    <h1>{e(cw["titulo"])}</h1>
+    <div class="cols" style="font-size:8.9pt;line-height:1.5;margin-top:1.5mm">
+      <div>{"".join(f"<p>{e(p)}</p>" for p in cw["paragrafos"][:half])}</div>
+      <div>{"".join(f"<p>{e(p)}</p>" for p in cw["paragrafos"][half:])}
+        <p class="serif" style="font-size:11.5pt;font-style:italic;color:var(--rubi);margin-top:1.5mm">{e(cw["assinatura"])}</p>
+        <div class="assin"><span class="nome">{e(C.AUTORA)}</span><span class="fh" style="color:var(--rubi)">{FLAME_HEART}</span><span class="cargo">Autora de De Tola a Virtuosa</span></div></div>
+    </div>
+  </div>
 </div>
 ''', section="Início")
 
