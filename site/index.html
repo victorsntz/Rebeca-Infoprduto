@@ -139,6 +139,33 @@
   footer { background: var(--rubi-profundo); color: rgba(249,245,238,0.7); padding: 2.5rem 0; font-size: 0.85rem; }
   footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem; align-items: center; }
   footer a { text-decoration: none; }
+
+  /* celular: tudo centralizado */
+  @media (max-width: 760px) {
+    body { text-align: center; }
+    .lead, .eyebrow, .center .lead { margin-left: auto; margin-right: auto; }
+    .hero .cta, .cta { justify-content: center; }
+    .mock { margin: 0 auto; }
+    .dor .list div { justify-content: center; text-align: left; }
+    .callout { text-align: center; border-left: 0; border-top: 4px solid var(--rubi); border-radius: 0 0 var(--radius) var(--radius); }
+    .pilar ul { text-align: center; }
+    .why > div { text-align: center; }
+    .why span { margin: 0 auto; }
+    .prova { align-items: center; text-align: center; }
+    .prova .ph { justify-content: center; gap: 1rem; }
+    .prova .w { width: 100%; }
+    .dia .steps li { flex-direction: column; align-items: center; gap: 0.3rem; }
+    .item { flex-direction: column; align-items: center; }
+    .quem div { text-align: center; }
+    .foto { margin: 0 auto; }
+    .oferta li { justify-content: center; text-align: left; }
+    .garantia { flex-direction: column; text-align: center; }
+    summary { justify-content: center; gap: 0.6rem; text-align: center; }
+    footer .wrap { justify-content: center; text-align: center; }
+    .logo { justify-content: center; }
+    nav.top .wrap { justify-content: space-between; }
+    nav.top .logo { text-align: left; }
+  }
 </style>
 </head>
 <body>
