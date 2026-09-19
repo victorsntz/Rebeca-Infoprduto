@@ -132,7 +132,7 @@ DESAFIOS = [
     "Escolha um horário fixo pra dormir e cumpra hoje. Deitar de verdade, não deitar com o celular.",
     "Diga não a uma coisa hoje. Pequena. Só pra lembrar que você consegue.",
     "Passe o dia inteiro sem reclamar em voz alta. Se escapar, recomece a contagem.",
-    "Anote tudo o que gastou hoje. Cada centavo. Só olhar, sem julgar.",
+    "Anote no bloco de notas do celular cada gasto de hoje, na hora, até o cafezinho. À noite marque: necessidade ou impulso?",
     "Separe uma sacola com o que você não usa há um ano: roupa, sapato, bolsa. Doe esta semana. Largar o Egito começa pelo armário.",
     # Prova 2: Sinai · Fé
     "Escreva três versículos sobre quem você é e cole no espelho do banheiro.",
@@ -148,7 +148,7 @@ DESAFIOS = [
     # Prova 3: Deserto · Fidelidade
     "Repita hoje o hábito mais difícil dos últimos 20 dias. Sem negociar.",
     "Cumpra o que você prometeu a alguém e ainda não fez.",
-    "Faça o orçamento do mês numa folha: o que entra, o que sai, o que sobra. Ela examina antes de comprar (Provérbios 31:16).",
+    "Abra uma planilha grátis ou o bloco de notas e escreva: o que entra no mês, as contas fixas, o que sobra. Escolha um gasto pra cortar e um valor pra guardar.",
     "Antes de responder qualquer coisa que te irritar hoje, conte até dez e respire.",
     "Deixe a casa aconchegante hoje: cama limpa, uma vela, uma flor, música baixa. Casa com amor se sente na porta.",
     "Faça uma comida especial pra alguém e sirva na mesa posta, sem celular. Só conversa. Pode ser um bolo.",
