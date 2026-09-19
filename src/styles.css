@@ -42,7 +42,7 @@ body {
 .page {
   width: 210mm;
   height: 148mm;
-  padding: 8mm 10mm 7.5mm;
+  padding: 13mm 13mm 10mm;
   position: relative;
   overflow: hidden;
   background: var(--creme);
@@ -77,7 +77,7 @@ p { margin: 0 0 1.8mm; }
 /* Cabeçalho e rodapé */
 .head { display: flex; justify-content: space-between; align-items: baseline; border-bottom: 0.35mm solid var(--carvao); padding-bottom: 1.2mm; margin-bottom: 2.5mm; }
 .head .tag { font-size: 5.8pt; letter-spacing: 0.16em; text-transform: uppercase; color: var(--cinza); }
-.foot { position: absolute; left: 10mm; right: 10mm; bottom: 4mm; display: flex; justify-content: space-between; align-items: center; font-size: 5.4pt; letter-spacing: 0.14em; text-transform: uppercase; color: var(--cinza); }
+.foot { position: absolute; left: 13mm; right: 13mm; bottom: 5mm; display: flex; justify-content: space-between; align-items: center; font-size: 5.4pt; letter-spacing: 0.14em; text-transform: uppercase; color: var(--cinza); }
 .foot .num { font-family: var(--serif); font-size: 7.5pt; letter-spacing: 0; color: var(--carvao); }
 .foot .stripe { height: 0.25mm; flex: 1; background: var(--linha); margin: 0 3mm; }
 .foot .fh { width: 2.6mm; height: 2.6mm; margin-right: 1.5mm; vertical-align: -0.5mm; }
@@ -132,8 +132,8 @@ table.tracker th.h { text-align: left; padding-left: 1.5mm; font-weight: 500; fo
 table.tracker thead th { background: var(--accent-claro); font-weight: 500; height: 4.2mm; }
 
 /* Capa e contracapa */
-.cover { background: var(--rubi-escuro); color: var(--creme); padding: 14mm 16mm 12mm; justify-content: space-between; align-items: center; text-align: center; }
-.cover .frame { border: 0.3mm solid rgba(249,245,238,0.45); position: absolute; inset: 6mm; }
+.cover { background: var(--rubi-escuro); color: var(--creme); padding: 16mm 18mm 13mm; justify-content: space-between; align-items: center; text-align: center; }
+.cover .frame { border: 0.3mm solid rgba(249,245,238,0.45); position: absolute; inset: 7mm; }
 .cover .frame::after { content: ""; position: absolute; inset: 1.5mm; border: 0.15mm solid rgba(249,245,238,0.25); }
 .cover .kicker { font-size: 6.4pt; letter-spacing: 0.4em; text-transform: uppercase; color: var(--dourado); }
 .cover .kicker.sub { color: rgba(249,245,238,0.6); letter-spacing: 0.3em; margin-top: 1.6mm; font-size: 5.6pt; }
@@ -161,8 +161,8 @@ table.tracker thead th { background: var(--accent-claro); font-weight: 500; heig
 .back .brand small { display: block; font-family: var(--sans); font-size: 5.6pt; letter-spacing: 0.25em; text-transform: uppercase; color: rgba(249,245,238,0.7); margin-top: 1.5mm; }
 
 /* Layout duas metades */
-.split { display: flex; gap: 5mm; flex: 1; min-height: 0; }
-.split > .l { flex: 0 0 82mm; display: flex; flex-direction: column; min-height: 0; }
+.split { display: flex; gap: 6mm; flex: 1; min-height: 0; }
+.split > .l { flex: 0 0 78mm; display: flex; flex-direction: column; min-height: 0; }
 .split > .r { flex: 1; display: flex; flex-direction: column; min-height: 0; }
 .split.even > .l { flex: 1; }
 
@@ -204,7 +204,7 @@ table.tracker thead th { background: var(--accent-claro); font-weight: 500; heig
 .prova-open .verse { color: var(--creme); }
 .prova-open .verse-ref { color: rgba(249,245,238,0.75); }
 .prova-open .verse-box { border-color: rgba(249,245,238,0.6); }
-.prova-open .num { font-family: var(--display); font-size: 85pt; line-height: 0.8; font-weight: 300; color: rgba(249,245,238,0.14); position: absolute; right: 8mm; top: 4mm; }
+.prova-open .num { font-family: var(--display); font-size: 85pt; line-height: 0.8; font-weight: 300; color: rgba(249,245,238,0.14); position: absolute; right: 10mm; top: 6mm; }
 .prova-open .woman { border: 0.25mm solid rgba(249,245,238,0.5); border-radius: 1.2mm; padding: 2.2mm 2.8mm; margin-top: auto; }
 .prova-open .woman b { font-family: var(--serif); font-size: 12pt; font-weight: 500; display: block; color: var(--creme); }
 .prova-open .woman span { font-size: 7pt; color: rgba(249,245,238,0.9); display: block; }
