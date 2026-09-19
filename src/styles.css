@@ -77,8 +77,8 @@ p { margin: 0 0 1.8mm; }
 /* Cabeçalho e rodapé */
 .head { display: flex; justify-content: space-between; align-items: baseline; border-bottom: 0.35mm solid var(--carvao); padding-bottom: 1.2mm; margin-bottom: 2.5mm; }
 .head .tag { font-size: 5.8pt; letter-spacing: 0.16em; text-transform: uppercase; color: var(--cinza); }
-.foot { position: absolute; left: 13mm; right: 13mm; bottom: 5mm; display: flex; justify-content: space-between; align-items: center; font-size: 5.4pt; letter-spacing: 0.14em; text-transform: uppercase; color: var(--cinza); }
-.foot .num { font-family: var(--serif); font-size: 7.5pt; letter-spacing: 0; color: var(--carvao); }
+.foot { position: absolute; left: 13mm; right: 13mm; bottom: 5mm; display: flex; justify-content: space-between; align-items: baseline; font-size: 6pt; letter-spacing: 0.18em; text-transform: uppercase; color: var(--cinza); }
+.foot .num { font-family: var(--display); font-size: 8.5pt; letter-spacing: 0; color: var(--carvao); }
 .foot .stripe { height: 0.25mm; flex: 1; background: var(--linha); margin: 0 3mm; }
 .foot .fh { width: 2.6mm; height: 2.6mm; margin-right: 1.5mm; vertical-align: -0.5mm; }
 
@@ -144,8 +144,8 @@ table.tracker thead th { background: var(--accent-claro); font-weight: 700; heig
 .cover h1 .l2 { font-size: 38pt; }
 .cover h1 em { font-style: italic; color: var(--dourado); }
 .cover .orn { display: flex; align-items: center; gap: 4mm; margin: 6mm 0 5mm; width: 70mm; }
-.cover .orn .ln { flex: 1; height: 0.2mm; background: linear-gradient(to right, transparent, var(--dourado)); }
-.cover .orn .ln:last-child { background: linear-gradient(to left, transparent, var(--dourado)); }
+.cover .orn .ln { flex: 1; height: 0.4mm; background: linear-gradient(to right, rgba(184,151,91,0.15), var(--dourado)); }
+.cover .orn .ln:last-child { background: linear-gradient(to left, rgba(184,151,91,0.15), var(--dourado)); }
 .cover .orn svg { width: 5.5mm; height: 5.5mm; flex: 0 0 auto; color: var(--dourado); }
 .cover .sub { font-family: var(--serif); font-size: 14pt; font-style: italic; margin: 0 0 3mm; color: var(--creme); letter-spacing: 0.01em; }
 .cover .tag { font-size: 5.8pt; letter-spacing: 0.32em; text-transform: uppercase; color: rgba(249,245,238,0.6); }
@@ -286,7 +286,7 @@ table.tracker thead th { background: var(--accent-claro); font-weight: 700; heig
 
 /* Capa florida */
 .cover .floral { position: absolute; inset: 0; width: 100%; height: 100%; }
-.cover .aq { position: absolute; width: 78mm; height: 78mm; }
+.cover .aq { position: absolute; width: 78mm; height: 78mm; overflow: visible; }
 .cover .aq.br { right: -14mm; bottom: -16mm; width: 74mm; height: 74mm; }
 .cover .aq.tl { left: -8mm; top: -10mm; transform: rotate(180deg); width: 60mm; height: 60mm; }
 .cover .frame, .cover .cv-top, .cover .cv-mid, .cover .cv-bot { position: relative; }
