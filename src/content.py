@@ -16,7 +16,7 @@ VERSICULO_CAPA = {
 }
 
 CONTRACAPA = {
-    "frase": "Feito por uma mulher que também já foi tola, pra mulheres que decidiram sair de lá.",
+    "frase": "Feito por uma mulher que também está saindo de tola pra virtuosa, pra mulheres que decidiram fazer o mesmo.",
     "versiculo": "Dai-lhe do fruto das suas mãos, e louvem-na nas portas as suas obras.",
     "ref": "Provérbios 31:31",
 }
@@ -208,7 +208,7 @@ VIRTUDE_OPCOES = ["Apareceu", "Em parte", "Faltou"]
 CARTA = {
     "titulo": "Antes de começar",
     "paragrafos": [
-        "A tola e a virtuosa moram na mesma mulher. Têm as mesmas mãos, a mesma casa, o mesmo dia de 24 horas. Uma derruba, a outra edifica. E o que decide qual das duas acorda amanhã é o que você faz hoje. Ninguém nasce virtuosa. A gente escolhe, um dia de cada vez. Se você está com este caderno na mão, já começou a escolher. Bem-vinda.",
+        "A tola e a virtuosa moram na mesma mulher. Têm as mesmas mãos, a mesma casa, o mesmo dia de 24 horas. Uma derruba, a outra edifica. E o que decide qual das duas acorda amanhã é o que você faz hoje. Ninguém nasce virtuosa. A gente escolhe, um dia de cada vez. Se você está com este caderno na mão, já começou a escolher. E eu não escrevi isto já sendo virtuosa: enquanto você faz o desafio, eu estou fazendo do lado de cá. Bem-vinda.",
         "Isto não é um livro pra ler. É um caderno pra usar. Todo dia, por 40 dias, você vai marcar, riscar, errar e continuar. Ele vai ficar amassado, com marca de café e letra feia. Ótimo. Caderno limpo é caderno que ninguém usou.",
         "Por que 40? Porque na Bíblia o deserto dura 40. Jesus, Moisés, Elias, o dilúvio, Nínive. Deserto não é castigo. É o lugar onde Deus fala, forma e prepara pra promessa. E Daniel pediu uma prova de 10 dias pra mostrar o que Deus faz com quem obedece. Aqui são quatro provas de 10 dias. Uma travessia inteira.",
         "A ideia é simples: somos espírito, alma e corpo, e tudo anda junto. Dormir mal vira irritação. Irritação vira palavra dura. Palavra dura vira distância de quem você ama e de Deus. Por isso você vai cuidar dos três ao mesmo tempo: beber água e orar, treinar e perdoar, organizar a casa e renovar a mente. O Evangelho se vive na pia da cozinha.",

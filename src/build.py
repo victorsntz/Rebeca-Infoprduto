@@ -163,7 +163,7 @@ page(f'''
 <div class="carta">
   <div class="foto">
     <div class="polaroid"><span class="tape"></span>{foto_rebeca()}<div class="leg">{e(C.AUTORA)}</div></div>
-    <p class="serif oi">“Se você está com este caderno na mão, já começou a escolher.”</p>
+    <p class="serif oi">“Enquanto você faz o desafio, eu estou fazendo do lado de cá.”</p>
   </div>
   <div class="txt">
     <h1>{e(cw["titulo"])}</h1>
