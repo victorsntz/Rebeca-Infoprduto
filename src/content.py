@@ -124,7 +124,7 @@ BLOCOS = [
 # ---------------------------------------------------------------------------
 DESAFIOS = [
     # Prova 1: Saída · Temperança
-    "Encha uma garrafa de 1 litro de manhã e termine antes do almoço. Encha de novo.",
+    "Um copo de água ao acordar, antes do café. Depois, 3 copos de manhã, 3 à tarde e 1 à noite. São 2 litros, contados.",
     "Deixe o celular fora do quarto esta noite. Compre um despertador de verdade se precisar.",
     "Arrume o canto da casa que te incomoda há semanas. Só um: uma gaveta, a pia, a mesa. Dez minutos.",
     "Caminhe 20 minutos hoje. Sem fone. Só você e o que passa na sua cabeça.",
