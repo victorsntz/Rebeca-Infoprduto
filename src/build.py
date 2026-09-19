@@ -521,6 +521,8 @@ page(f'''
 
 cc = C.CONTRACAPA
 page(f'''
+{DECO}
+<div class="frame"></div>
 <p class="frase">“{e(cc["frase"])}”</p>
 <div class="autora">{FLAME_HEART}<span>{e(C.AUTORA)}</span></div>
 <p class="verse">“{e(cc["versiculo"])}”<span class="verse-ref">{e(cc["ref"])}</span></p>

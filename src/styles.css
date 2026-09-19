@@ -287,8 +287,8 @@ table.tracker thead th { background: var(--accent-claro); font-weight: 700; heig
 /* Capa florida */
 .cover .floral { position: absolute; inset: 0; width: 100%; height: 100%; }
 .cover .aq { position: absolute; width: 78mm; height: 78mm; overflow: visible; }
-.cover .aq.br { right: -17mm; bottom: -19mm; width: 74mm; height: 74mm; }
-.cover .aq.tl { left: -8mm; top: -10mm; transform: rotate(180deg); width: 60mm; height: 60mm; }
+.cover .aq.br { right: -26mm; bottom: -30mm; width: 100mm; height: 100mm; }
+.cover .aq.tl { left: -14mm; top: -16mm; transform: rotate(180deg); width: 84mm; height: 84mm; }
 .cover .frame, .cover .cv-top, .cover .cv-mid, .cover .cv-bot { position: relative; }
 .cover .frame { position: absolute; }
 
@@ -371,3 +371,15 @@ table.tracker thead th { background: var(--accent-claro); font-weight: 700; heig
 .retrato-row.cmp { padding: 1.6mm 0; }
 .retrato-row.cmp .nm { font-size: 9pt; }
 .retrato-row.cmp .scale .dot { width: 4.4mm; height: 4.4mm; font-size: 5.6pt; }
+
+/* Contracapa florida, igual à capa */
+.back { padding: 16mm 18mm 13mm; }
+.back .floral { position: absolute; inset: 0; width: 100%; height: 100%; }
+.back .aq { position: absolute; width: 78mm; height: 78mm; overflow: visible; }
+.back .aq.br { right: -26mm; bottom: -30mm; width: 100mm; height: 100mm; }
+.back .aq.tl { left: -14mm; top: -16mm; transform: rotate(180deg); width: 84mm; height: 84mm; }
+.back .frame { border: 0.3mm solid rgba(249,245,238,0.45); position: absolute; inset: 7mm; }
+.back .frame::after { content: ""; position: absolute; inset: 1.5mm; border: 0.15mm solid rgba(249,245,238,0.25); }
+.back .frase, .back .autora, .back .verse, .back .brand { position: relative; }
+
+.cover .cv-bot { margin-bottom: 5mm; }
