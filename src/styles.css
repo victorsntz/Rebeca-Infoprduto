@@ -373,9 +373,11 @@ table.tracker thead th { background: var(--accent-claro); font-weight: 700; heig
 .mural .recorte.r2 { right: 7mm; bottom: 8mm; transform: rotate(2deg); }
 .mural .pin { position: absolute; font-size: 7pt; letter-spacing: 0.12em; text-transform: uppercase; color: var(--rubi); opacity: 0.45; border: 0.2mm dashed rgba(142,42,58,0.4); padding: 1mm 2.5mm; border-radius: 1mm; }
 .mural .pin.p1 { left: 6mm; top: 6mm; transform: rotate(-3deg); }
-.mural .pin.p2 { right: 8mm; top: 9mm; transform: rotate(2deg); }
-.mural .pin.p3 { left: 10mm; bottom: 8mm; transform: rotate(2deg); }
-.mural .pin.p4 { right: 6mm; bottom: 6mm; transform: rotate(-2deg); }
+.mural .pin.p2 { left: 50%; top: 6mm; margin-left: -12mm; transform: rotate(1.5deg); }
+.mural .pin.p3 { right: 8mm; top: 7mm; transform: rotate(2deg); }
+.mural .pin.p4 { left: 8mm; bottom: 7mm; transform: rotate(2deg); }
+.mural .pin.p5 { left: 50%; bottom: 6mm; margin-left: -10mm; transform: rotate(-1.5deg); }
+.mural .pin.p6 { right: 6mm; bottom: 6mm; transform: rotate(-2deg); }
 .sonho-area { display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr; gap: 4mm 5mm; flex: 1; min-height: 0; }
 .sonho-area > div { border-top: 1mm solid var(--accent); padding-top: 2mm; }
 .sonho-area h3 { font-family: var(--display); font-size: 11pt; margin-bottom: 1mm; }

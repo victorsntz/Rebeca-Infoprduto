@@ -293,13 +293,11 @@ page(f'''
 </div>
 ''', cls="c-rubi", section="Início")
 page(f'''
-{head("Meu mural · 2 de 2", "espaço livre")}
+{head("Meu mural · 2 de 2", "sonhos, sem limite de área")}
 <div class="mural livre c-rubi">
   <span class="tape a"></span><span class="tape b"></span><span class="tape c"></span>
   <div class="dica">O que eu quero ver acontecer</div>
-  <div class="recorte r1"><span class="tape"></span>“Sê forte e corajosa; não temas, nem te espantes, porque o Senhor teu Deus é contigo por onde quer que andares.”<small>Josué 1:9</small></div>
-  <div class="recorte r2"><span class="tape"></span>“As coisas que o olho não viu, e o ouvido não ouviu, e não subiram ao coração do homem, são as que Deus preparou para os que o amam.”<small>1 Coríntios 2:9</small></div>
-  <span class="pin p2">uma foto</span><span class="pin p3">um lugar</span>
+  <span class="pin p1">uma viagem</span><span class="pin p2">meu trabalho</span><span class="pin p3">amizades</span><span class="pin p4">família e filhos</span><span class="pin p5">minha casa</span><span class="pin p6">meu corpo</span>
 </div>
 ''', cls="c-rubi", section="Início")
 
