@@ -383,3 +383,7 @@ table.tracker thead th { background: var(--accent-claro); font-weight: 700; heig
 .back .frase, .back .autora, .back .verse, .back .brand { position: relative; }
 
 .cover .cv-bot { margin-bottom: 5mm; }
+
+.day .lines.tight { --lh: 5mm; }
+.day .row { margin-bottom: 1.6mm; }
+.day .bottom { margin-top: 2mm; }
