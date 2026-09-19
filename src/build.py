@@ -270,8 +270,8 @@ page(f'''
 
 # Quadro dos sonhos: explicação + mural -------------------------------------
 areas = "".join(f'''<div class="c-{cor}"><h3>{e(n)}</h3>
-  <div class="label">Meta que dá pra medir</div>{lines(2, "tight")}
-  <div class="label" style="margin-top:1mm">Como vou saber que cheguei</div>{lines(1, "tight")}</div>''' for n, cor in rs["areas"])
+  <div class="label">Meta que dá pra medir</div>{lines(3)}
+  <div class="label" style="margin-top:2mm">Como vou saber que cheguei</div>{lines(3)}</div>''' for n, cor in rs["areas"])
 page(f'''
 {head("Escreve a visão", "Habacuque 2:2")}
 <div class="split even">

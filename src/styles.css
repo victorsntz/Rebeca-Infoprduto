@@ -363,6 +363,6 @@ table.tracker thead th { background: var(--accent-claro); font-weight: 700; heig
 .mural .tape.a { left: 12mm; top: -2.2mm; transform: rotate(-4deg); }
 .mural .tape.b { right: 12mm; top: -2.2mm; transform: rotate(5deg); }
 .mural .tape.c { left: 50%; bottom: -2.2mm; margin-left: -7mm; transform: rotate(2deg); }
-.sonho-area { display: grid; grid-template-columns: 1fr 1fr; gap: 3mm 5mm; }
-.sonho-area > div { border-top: 1mm solid var(--accent); padding-top: 1.5mm; }
+.sonho-area { display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr; gap: 4mm 5mm; flex: 1; min-height: 0; }
+.sonho-area > div { border-top: 1mm solid var(--accent); padding-top: 2mm; }
 .sonho-area h3 { font-family: var(--display); font-size: 11pt; margin-bottom: 1mm; }
