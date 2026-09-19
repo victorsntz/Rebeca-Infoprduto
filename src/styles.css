@@ -390,3 +390,11 @@ table.tracker thead th { background: var(--accent-claro); font-weight: 700; heig
 
 .day .l .bottom { margin-top: 3mm; border-top: 0.25mm solid var(--linha); padding-top: 2mm; }
 .day .lverse { margin-top: auto; }
+.day .split > .l { flex: 0 0 84mm; }
+.day .pillars .check { font-size: 7.4pt; margin-bottom: 1.5mm; gap: 1.6mm; }
+.day .pillars .check .box { width: 3.3mm; height: 3.3mm; }
+.day .box { padding: 2mm 3mm; margin-bottom: 2.4mm; }
+.day .box .txt { font-size: 10pt; }
+.day .reading .txt { font-size: 12pt; }
+.day .lverse { font-size: 8.4pt; padding-top: 2mm; }
+.day .l .bottom { margin-top: 2mm; padding-top: 1.5mm; }
