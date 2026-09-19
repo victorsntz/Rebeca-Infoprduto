@@ -319,12 +319,7 @@ def retrato(dia40=False):
 <h1>{e(rt["titulo_40"])}</h1>
 <p class="small muted" style="font-size:8pt">{e(rt["intro_40"])}</p>
 <div class="label">De 0 a 10, como está cada área</div>
-{rows}
-<div class="cols" style="margin-top:3mm">
-  {field(rt["mudou_40"], 3, cls="tight")}
-  {field(rt["deus_40"], 3, cls="tight")}
-  {field("Oração de chegada", 3, "o que eu quero dizer a Deus ao terminar", "tight")}
-</div>
+<div class="cmp-wrap">{rows}</div>
 '''
     rows = "".join(f'<div class="retrato-row"><span class="nm">{e(a)}</span>{scale()}</div>' for a in rt["areas"])
     right = (f'{field(rt["palavras_1"], 2, cls="tight")}{field(rt["incomodo_1"], 3, cls="tight")}'
@@ -486,6 +481,18 @@ for b in C.BLOCOS:
 # Fechamento
 # ---------------------------------------------------------------------------
 page(retrato(True), cls="c-ameixa", section="Fechamento")
+page(f'''
+{head("Foto honesta", "Dia 40")}
+<h1>O que os 40 dias fizeram</h1>
+<p class="small muted" style="font-size:8pt">Olhe o retrato do dia 1 e o do dia 40 lado a lado. Não só os números. Escreva o que você vê.</p>
+<div class="split even">
+  <div class="l">
+    {field(rt["mudou_40"], 6)}
+    {field(rt["deus_40"], 6)}
+  </div>
+  <div class="r">{fill_field("Oração de chegada", "o que eu quero dizer a Deus ao terminar")}</div>
+</div>
+''', cls="c-ameixa", section="Fechamento")
 
 fc = C.FECHAMENTO
 page(f'''

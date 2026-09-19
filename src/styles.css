@@ -366,3 +366,8 @@ table.tracker thead th { background: var(--accent-claro); font-weight: 700; heig
 .sonho-area { display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr; gap: 4mm 5mm; flex: 1; min-height: 0; }
 .sonho-area > div { border-top: 1mm solid var(--accent); padding-top: 2mm; }
 .sonho-area h3 { font-family: var(--display); font-size: 11pt; margin-bottom: 1mm; }
+
+.cmp-wrap { flex: 1; display: flex; flex-direction: column; justify-content: space-between; min-height: 0; }
+.retrato-row.cmp { padding: 1.6mm 0; }
+.retrato-row.cmp .nm { font-size: 9pt; }
+.retrato-row.cmp .scale .dot { width: 4.4mm; height: 4.4mm; font-size: 5.6pt; }
