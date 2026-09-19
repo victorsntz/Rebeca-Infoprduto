@@ -17,6 +17,12 @@ body { background: var(--creme); }
   .auth .side h1 { font-size: 2rem; margin: 0.5rem 0 0; }
   .auth .side p { font-size: 0.95rem; margin: 0.6rem 0 0; }
   .auth .form { padding: 1.8rem 1.4rem 3rem; align-items: start; }
+  .auth .side { text-align: center; align-items: center; }
+  .auth .side .logo { justify-content: center; text-align: left; }
+  .auth .side h1 { text-align: center; }
+  .auth .side .eyebrow { display: block; text-align: center; }
+  .auth .form .demo, .auth .form .label { text-align: center; }
+  .auth .form input { text-align: center; }
 }
 .auth .side { background: var(--rubi-profundo); color: var(--creme); padding: 2.5rem; display: flex; flex-direction: column; justify-content: space-between; position: relative; overflow: hidden; }
 .auth .side .frame { position: absolute; inset: 14px; border: 1px solid rgba(249,245,238,0.14); pointer-events: none; }
