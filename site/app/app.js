@@ -241,6 +241,7 @@
           <div class="row"><span class="label">${esc(b.virtude)} hoje</span>${chips(C.virtude_opcoes, "virtude", en.virtude, "acc", true)}</div>
           <div class="row"><label class="label" for="e-grat">Sou grata por</label><textarea id="e-grat" class="lined" data-entry="gratidao" rows="2">${esc(en.gratidao)}</textarea></div>
           <div class="row"><label class="label" for="e-dif">Minha maior dificuldade hoje <span class="hint">e o que ela me mostrou</span></label><textarea id="e-dif" class="lined" data-entry="dificuldade" rows="3">${esc(en.dificuldade)}</textarea></div>
+          <div class="row"><label class="label" for="e-oro">Hoje eu oro por <span class="hint">uma pessoa, pelo nome</span></label><input id="e-oro" type="text" class="lined" data-entry="oro" value="${esc(en.oro)}"></div>
           <div class="row"><label class="label" for="e-deus">Uma linha pra Deus</label><textarea id="e-deus" class="lined" data-entry="deus" rows="2">${esc(en.deus)}</textarea></div>
           <div class="row"><label class="label" for="e-am">Amanhã eu vou <span class="hint">uma coisa só</span></label><input id="e-am" type="text" class="lined" data-entry="amanha" value="${esc(en.amanha)}"></div>
           <div class="row" style="display:flex;gap:1.5rem;flex-wrap:wrap;align-items:center">
@@ -297,7 +298,7 @@
             <span class="eyebrow">Metas destes 10 dias</span><div class="metas">${metas}</div></div>
           <div class="card"><span class="eyebrow">O que é meu nesta prova</span>
             <div class="field"><label class="label" for="pm">Minha meta pessoal <span class="hint">uma só, mensurável</span></label><input id="pm" type="text" data-prep="${pk}.meta" value="${esc(p.meta)}"></div>
-            <div class="field"><label class="label" for="pp">Uma pessoa que quero abençoar nesses dias</label><input id="pp" type="text" data-prep="${pk}.pessoa" value="${esc(p.pessoa)}"></div>
+            <div class="field"><label class="label" for="pp">Por quem vou orar nesta prova <span class="hint">uma pessoa por dia</span></label><textarea id="pp" data-prep="${pk}.pessoa" rows="2">${esc(p.pessoa)}</textarea></div>
             <div class="field"><label class="label" for="pn">Notas da prova <span class="hint">o que eu percebi no caminho</span></label><textarea id="pn" data-prep="${pk}.notas" rows="3">${esc(p.notas)}</textarea></div></div>
         </div>
         <div class="stack">
