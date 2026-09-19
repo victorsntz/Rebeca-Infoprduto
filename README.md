@@ -78,7 +78,7 @@ Títulos em Libre Caslon (Display nos grandes, Text nos demais), texto corrido e
 ## Pendências pra Rebeca
 
 - Conferir cada citação bíblica com a versão que ela usa.
-- Foto e bio dela na landing (tem um texto de exemplo no lugar).
+- Bio da Rebeca na landing (já tem a primeira versão, ela revisa).
 - Frase da contracapa do caderno (tem uma sugestão).
 - Gravar a aula inaugural e os dois vídeos curtos.
 - Preço, parcelamento e link do checkout.
