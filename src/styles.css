@@ -85,7 +85,7 @@ p { margin: 0 0 1.8mm; }
 /* Linhas pra escrever */
 .lines { --lh: 6mm; display: block; }
 .lines i { display: block; height: var(--lh); border-bottom: 0.25mm solid var(--linha); }
-.lines.tight { --lh: 5.2mm; }
+.lines.tight { --lh: 5.5mm; }
 .lines.fill { flex: 1; min-height: 0; overflow: hidden; }
 .field { margin-bottom: 2mm; }
 .field.grow { flex: 1; display: flex; flex-direction: column; min-height: 0; }
@@ -94,10 +94,10 @@ p { margin: 0 0 1.8mm; }
 .q { font-family: var(--serif); font-size: 9.6pt; margin: 0 0 0.5mm; color: var(--carvao); }
 
 /* Checkbox e chips */
-.check { display: flex; align-items: flex-start; gap: 1.5mm; margin: 0 0 1.1mm; font-size: 7pt; line-height: 1.2; }
-.check .box { flex: 0 0 auto; width: 3.1mm; height: 3.1mm; border: 0.3mm solid var(--carvao); border-radius: 0.5mm; margin-top: 0.15mm; }
+.check { display: flex; align-items: flex-start; gap: 2mm; margin: 0 0 2.4mm; font-size: 8.2pt; line-height: 1.25; }
+.check .box { flex: 0 0 auto; width: 3.8mm; height: 3.8mm; border: 0.3mm solid var(--carvao); border-radius: 0.5mm; margin-top: 0.15mm; }
 .chips { display: flex; flex-wrap: wrap; gap: 1.3mm; }
-.chip { border: 0.28mm solid var(--carvao); border-radius: 6mm; padding: 0.5mm 2.2mm; font-size: 6.6pt; line-height: 1.25; white-space: nowrap; }
+.chip { border: 0.28mm solid var(--carvao); border-radius: 6mm; padding: 0.8mm 2.6mm; font-size: 7.6pt; line-height: 1.25; white-space: nowrap; }
 .chip.soft { border-color: var(--cinza); color: var(--carvao); }
 .chip.acc { border-color: var(--accent); }
 
@@ -127,9 +127,9 @@ p { margin: 0 0 1.8mm; }
 
 /* Tracker */
 table.tracker { border-collapse: collapse; width: 100%; table-layout: fixed; }
-table.tracker th, table.tracker td { border: 0.2mm solid var(--linha); text-align: center; font-size: 5.6pt; padding: 0; height: 4.9mm; }
-table.tracker th.h { text-align: left; padding-left: 1.5mm; font-weight: 500; font-size: 6pt; width: 20mm; }
-table.tracker thead th { background: var(--accent-claro); font-weight: 500; height: 4.2mm; }
+table.tracker th, table.tracker td { border: 0.2mm solid var(--linha); text-align: center; font-size: 7pt; padding: 0; height: 7.6mm; }
+table.tracker th.h { text-align: left; padding-left: 2mm; font-weight: 400; font-size: 8pt; width: 27mm; }
+table.tracker thead th { background: var(--accent-claro); font-weight: 700; height: 6mm; }
 
 /* Capa e contracapa */
 .cover { background: var(--rubi-escuro); color: var(--creme); padding: 16mm 18mm 13mm; justify-content: space-between; align-items: center; text-align: center; }
@@ -149,7 +149,7 @@ table.tracker thead th { background: var(--accent-claro); font-weight: 500; heig
 .cover .orn svg { width: 5.5mm; height: 5.5mm; flex: 0 0 auto; color: var(--dourado); }
 .cover .sub { font-family: var(--serif); font-size: 14pt; font-style: italic; margin: 0 0 3mm; color: var(--creme); letter-spacing: 0.01em; }
 .cover .tag { font-size: 5.8pt; letter-spacing: 0.32em; text-transform: uppercase; color: rgba(249,245,238,0.6); }
-.cover .verse { color: rgba(249,245,238,0.85); font-size: 8.5pt; max-width: 120mm; margin: 0 auto 4mm; line-height: 1.35; }
+.cover .verse { color: rgba(249,245,238,0.85); font-size: 8.5pt; max-width: 96mm; margin: 0 auto 4mm; line-height: 1.35; }
 .cover .verse-ref { color: var(--dourado); margin-top: 1.2mm; }
 .cover .autora { font-size: 6.4pt; letter-spacing: 0.3em; text-transform: uppercase; color: var(--dourado); }
 .back { background: var(--rubi-escuro); color: var(--creme); justify-content: center; align-items: center; text-align: center; }
@@ -175,25 +175,25 @@ table.tracker thead th { background: var(--accent-claro); font-weight: 500; heig
 .day .meta .tag { display: block; margin-top: 0.8mm; font-size: 5.6pt; }
 .day .date { font-size: 6pt; color: var(--cinza); }
 .day .date span { display: inline-block; border-bottom: 0.25mm solid var(--carvao); width: 6mm; margin: 0 0.4mm; }
-.day .box { border: 0.25mm solid var(--linha); border-radius: 1.2mm; padding: 1.6mm 2.4mm; background: #fff; margin-bottom: 2mm; }
+.day .box { border: 0.25mm solid var(--linha); border-radius: 1.2mm; padding: 2.6mm 3.2mm; background: #fff; margin-bottom: 3mm; }
 .day .box.ch { border-left: 1mm solid var(--accent); }
-.day .box .txt { font-family: var(--serif); font-size: 8.6pt; line-height: 1.18; }
-.day .reading .txt { font-size: 10pt; color: var(--rubi-escuro); }
-.day .pillars { display: flex; gap: 2.2mm; }
-.day .pillars > div { flex: 1; border-top: 0.5mm solid var(--pc); padding-top: 1.2mm; }
-.day .pillars .eyebrow { color: var(--pc); margin-bottom: 1mm; }
+.day .box .txt { font-family: var(--serif); font-size: 10.5pt; line-height: 1.25; }
+.day .reading .txt { font-family: var(--display); font-size: 13pt; color: var(--rubi-escuro); }
+.day .pillars { display: flex; gap: 3mm; margin-top: 1mm; }
+.day .pillars > div { flex: 1; border-top: 0.6mm solid var(--pc); padding-top: 2mm; }
+.day .pillars .eyebrow { color: var(--pc); margin-bottom: 2mm; font-size: 6.4pt; }
 .p-corpo { --pc: var(--salvia); }
 .p-mente { --pc: var(--dourado); }
 .p-espirito { --pc: var(--rubi); }
-.day .row { margin-bottom: 1.8mm; }
-.day .row .label { margin-bottom: 0.8mm; }
+.day .row { margin-bottom: 2mm; }
+.day .row .label { margin-bottom: 1.2mm; font-size: 6.4pt; }
 .day .bottom { margin-top: auto; display: flex; justify-content: space-between; align-items: center; padding-top: 1.2mm; border-top: 0.25mm solid var(--linha); font-size: 5.6pt; color: var(--cinza); letter-spacing: 0.1em; text-transform: uppercase; }
 .day .bottom .grp { display: flex; align-items: center; gap: 1.5mm; }
 .progress { width: 26mm; height: 1.4mm; background: var(--areia-escura); border-radius: 1mm; overflow: hidden; display: inline-block; }
 .progress i { display: block; height: 100%; background: var(--accent); }
 .day .skip { display: flex; align-items: center; gap: 1mm; }
 .day .skip .box { width: 2.8mm; height: 2.8mm; border: 0.25mm solid var(--cinza); border-radius: 0.4mm; padding: 0; margin: 0; background: none; }
-.day .lverse { margin-top: auto; font-size: 7.6pt; color: var(--rubi-escuro); padding-right: 2mm; }
+.day .lverse { margin-top: auto; font-size: 9pt; color: var(--rubi-escuro); padding: 3mm 2mm 0 0; border-top: 0.25mm solid var(--linha); }
 
 /* Abertura de prova */
 .prova-open { background: var(--accent); color: var(--creme); }
@@ -286,9 +286,9 @@ table.tracker thead th { background: var(--accent-claro); font-weight: 500; heig
 
 /* Capa florida */
 .cover .floral { position: absolute; inset: 0; width: 100%; height: 100%; }
-.cover .spray { position: absolute; width: 58mm; height: 58mm; }
-.cover .spray.tl { left: 9mm; top: 8mm; transform: scaleY(-1) rotate(90deg); }
-.cover .spray.br { right: 9mm; bottom: 8mm; transform: rotate(-90deg); }
+.cover .aq { position: absolute; width: 78mm; height: 78mm; }
+.cover .aq.br { right: -14mm; bottom: -16mm; width: 74mm; height: 74mm; }
+.cover .aq.tl { left: -8mm; top: -10mm; transform: rotate(180deg); width: 60mm; height: 60mm; }
 .cover .frame, .cover .cv-top, .cover .cv-mid, .cover .cv-bot { position: relative; }
 .cover .frame { position: absolute; }
 
@@ -339,3 +339,30 @@ table.tracker thead th { background: var(--accent-claro); font-weight: 500; heig
 .retrato-row.cmp .scale .dot { width: 4mm; height: 4mm; font-size: 5.2pt; }
 .mb-col .frame-img { min-height: 28mm; }
 .mb-grid { margin-bottom: 1mm; }
+
+/* Mapa */
+.mapa-head { margin-bottom: 3mm; }
+.mapa-head p { max-width: 165mm; }
+.trail { display: flex; gap: 1.5mm; margin: 0 0 6mm; }
+.trail .seg { flex: 1; height: 2.6mm; border-radius: 2mm; position: relative; }
+.trail .seg i, .trail .seg em { position: absolute; top: 3.4mm; font-style: normal; font-size: 5.6pt; letter-spacing: 0.1em; color: var(--cinza); }
+.trail .seg i { left: 0; } .trail .seg em { right: 0; }
+.map .m .dias { font-family: var(--display); font-size: 8pt; color: rgba(249,245,238,0.85); margin-bottom: 1mm; }
+.map .m .v { font-size: 8.6pt; }
+.map .m .w { font-size: 7.4pt; line-height: 1.4; margin-top: 1.5mm; }
+.map .m .dt { font-size: 6.2pt; line-height: 1.6; margin-top: auto; padding-top: 2mm; }
+.map .m .ck { display: flex; align-items: center; gap: 1.5mm; font-size: 6.4pt; letter-spacing: 0.08em; text-transform: uppercase; margin-top: 1.5mm; color: var(--creme); }
+.map .m .ck .box { width: 3.2mm; height: 3.2mm; border: 0.3mm solid rgba(249,245,238,0.9); border-radius: 0.5mm; margin: 0; }
+.map .m > .box { display: none; }
+
+/* Mural de colagem */
+.mural { flex: 1; min-height: 0; border: 0.4mm dashed var(--rubi); border-radius: 1.5mm; position: relative; display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr; background: rgba(255,255,255,0.5); }
+.mural > div { position: relative; border: 0.2mm dashed rgba(142,42,58,0.35); }
+.mural > div span { position: absolute; left: 3mm; top: 2.5mm; font-family: var(--display); font-size: 10pt; color: var(--accent); opacity: 0.8; }
+.mural .tape { position: absolute; width: 14mm; height: 4.5mm; background: rgba(232,194,122,0.6); }
+.mural .tape.a { left: 12mm; top: -2.2mm; transform: rotate(-4deg); }
+.mural .tape.b { right: 12mm; top: -2.2mm; transform: rotate(5deg); }
+.mural .tape.c { left: 50%; bottom: -2.2mm; margin-left: -7mm; transform: rotate(2deg); }
+.sonho-area { display: grid; grid-template-columns: 1fr 1fr; gap: 3mm 5mm; }
+.sonho-area > div { border-top: 1mm solid var(--accent); padding-top: 1.5mm; }
+.sonho-area h3 { font-family: var(--display); font-size: 11pt; margin-bottom: 1mm; }

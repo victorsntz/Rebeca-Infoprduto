@@ -295,7 +295,7 @@
             <div class="field"><label class="label" for="pn">Notas da prova <span class="hint">o que eu percebi no caminho</span></label><textarea id="pn" data-prep="${pk}.notas" rows="3">${esc(p.notas)}</textarea></div></div>
         </div>
         <div class="stack">
-          <div class="card"><span class="eyebrow">Tracker · preenchido pelo checklist de cada dia</span>${trk}<p class="muted" style="font-size:0.82rem;margin:0.6rem 0 0">${provaProgress(b)} de 10 dias marcados. Dez dias de uma vez mostram o padrão que o dia a dia esconde.</p></div>
+          <div class="card"><span class="eyebrow">Quadro de hábitos · preenchido pelas caixinhas de cada dia</span>${trk}<p class="muted" style="font-size:0.82rem;margin:0.6rem 0 0">${provaProgress(b)} de 10 dias marcados. Dez dias de uma vez mostram o padrão que o dia a dia esconde.</p></div>
           <div class="card"><span class="eyebrow">${esc(rv.titulo)} ${n}${t <= b.fim ? " · abre no fim da prova, mas pode começar" : ""}</span>
             <div class="field"><span class="label">Cumpri a meta pessoal?</span>${chips(["Sim", "Em parte", "Não"], pk + ".meta_ok", p.meta_ok, "", true)}</div>
             <div class="field"><span class="label">Nota de 1 a 5</span><div class="two" style="gap:0.6rem">${rv.notas.map((nm) => `<div><small class="muted">${esc(nm)}</small><div class="energy" style="margin-top:0.2rem">${[1, 2, 3, 4, 5].map((v) => `<button type="button" class="${(p.notas_n || {})[nm] === v ? "on" : ""}" data-nota="${pk}:${esc(nm)}:${v}">${v}</button>`).join("")}</div></div>`).join("")}</div></div>
@@ -367,7 +367,7 @@
     shell(`<div class="page-head"><div><span class="eyebrow">Com a Rebeca</span><h1>Aulas</h1></div></div>
       <div class="stack">
         ${video(V.aula_inaugural, "Aula inaugural: o propósito da travessia", "Por que 40 dias, por que quatro provas, o que esperar de cada uma e como a Rebeca usa o caderno no dia a dia.")}
-        <div class="two">${video(V.como_imprimir, "Como imprimir e encadernar", "Papel, gramatura, espiral e o que pedir na gráfica.")}${video(V.como_usar_site, "Como usar a versão online", "O passo a passo desta área de membros pelo celular.")}</div>
+        <div class="two">${video(V.como_imprimir, "Como imprimir e encadernar", "Papel, gramatura, espiral e o que pedir na gráfica.")}${video(V.como_usar_site, "Como usar a versão pelo celular", "O passo a passo desta área de membros pelo celular.")}</div>
       </div>`, "aulas");
   }
   function viewImprimir() {

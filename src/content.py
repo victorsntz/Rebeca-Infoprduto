@@ -229,7 +229,7 @@ COMO_USAR = {
         ("Perdeu um dia? Marque o X e siga.", "Não compense, não desista, não recomece do zero."),
     ],
     "manha": ["Um copo de água antes de tudo.", "Louvor ou silêncio, sem tela.", "Leitura de hoje, caneta na mão.", "Ler o desafio e decidir quando fazer."],
-    "noite": ["Marcar o checklist com honestidade.", "Circular como me senti e o que pesou.", "Uma gratidão, uma dificuldade, um amanhã.", "Celular fora do quarto."],
+    "noite": ["Marcar as caixinhas com honestidade.", "Circular como me senti e o que pesou.", "Uma gratidão, uma dificuldade, um amanhã.", "Celular fora do quarto."],
 }
 
 TOLA_VIRTUOSA = {
@@ -364,7 +364,7 @@ FECHAMENTO = {
     "versiculo": "Aquele que em vós começou a boa obra a aperfeiçoará até ao dia de Jesus Cristo.",
     "ref": "Filipenses 1:6",
     "paragrafos": [
-        "Quarenta dias. Você atravessou. Talvez não com o checklist perfeito, talvez com mais X do que gostaria. Não importa. Você abriu este caderno quarenta vezes. Isso é fidelidade, e fidelidade sustenta todas as outras virtudes.",
+        "Quarenta dias. Você atravessou. Talvez não com todas as caixinhas marcadas, talvez com mais X do que gostaria. Não importa. Você abriu este caderno quarenta vezes. Isso é fidelidade, e fidelidade sustenta todas as outras virtudes.",
         "Olhe o retrato do dia 1 e o do dia 40 lado a lado. Não só os números. Veja como você responde, como dorme, como fala com Deus e com as pessoas. Isso é o que Ele fez, com a sua mão na dele.",
         "O que virou hábito fica. O que ainda não virou entra na próxima travessia. Porque sim, existe uma próxima. A mulher virtuosa não é a que chegou. É a que não para.",
     ],
