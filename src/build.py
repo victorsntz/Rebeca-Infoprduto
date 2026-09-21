@@ -210,6 +210,7 @@ page(f'''
     <h1>{e(tv["titulo"])}</h1>
     {verse_box(tv["versiculo"], tv["ref"])}
     <p style="font-size:9pt;line-height:1.5">{e(tv["intro"])}</p>
+    <div class="card fill c-rubi" style="margin-top:2mm"><div class="eyebrow" style="color:var(--rubi)">A régua da virtuosa</div><p class="serif" style="font-size:8.8pt;font-style:italic;line-height:1.4;margin:0;color:var(--rubi-escuro)">“Tudo o que é verdadeiro, tudo o que é honesto, tudo o que é justo, tudo o que é puro, tudo o que é amável, tudo o que é de boa fama, se há alguma virtude, e se há algum louvor, nisso pensai.”</p><span class="verse-ref">Filipenses 4:8</span></div>
     <div style="margin-top:auto">{field(tv["pergunta"], 3)}</div>
   </div>
   <div class="r">
