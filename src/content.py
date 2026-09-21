@@ -158,7 +158,7 @@ DESAFIOS = [
     "Pergunte a três pessoas próximas: 'em que eu preciso melhorar?'. Só ouça e anote.",
     # Prova 4: Jordão · Coragem
     "Tenha a conversa que você vem evitando. Com mansidão e firmeza.",
-    "Levante na primeira vez que o despertador tocar. Sem soneca.",
+    "Reserve uma hora só pra você hoje: faça as unhas, lave o cabelo com calma, hidrate a pele. Sem culpa e sem celular.",
     "Escreva um medo que te trava e o que a Bíblia diz sobre ele.",
     "Compre, ou faça, uma coisa que deixe a casa com a sua cara: um quadro com versículo, uma planta, uma manta. Um canto que diga \"aqui é a minha casa\".",
     "Compre, ou separe do armário, a peça-chave que falta no seu visual: uma camisa boa, um sapato, um batom. Use hoje.",
