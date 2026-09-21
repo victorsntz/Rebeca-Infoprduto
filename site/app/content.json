@@ -202,6 +202,48 @@
   "Filipenses 1",
   "Apocalipse 21:1-7"
  ],
+ "leituras_tema": [
+  "O dia em que o povo saiu do Egito",
+  "A mulher sem domínio próprio é cidade sem muro",
+  "Corpo como sacrifício vivo, mente renovada",
+  "Disciplina de quem corre pra ganhar",
+  "O retrato da mulher virtuosa",
+  "Casa construída sobre a rocha",
+  "Seu corpo é templo",
+  "A árvore plantada junto ao rio",
+  "Fruto do Espírito contra as obras da carne",
+  "Rute deixa Moabe",
+  "Deus diz quem o povo é antes das regras",
+  "Formada de modo assombroso",
+  "Escolhida antes da fundação do mundo",
+  "Feitura dele, criada pra boas obras",
+  "Pedra viva, geração eleita",
+  "A galeria dos que creram",
+  "Maria ouve o impossível e diz sim",
+  "Nada nos separa do amor de Deus",
+  "Ele conhece a nossa estrutura",
+  "Fé provada gera paciência",
+  "Por que Deus leva ao deserto",
+  "O povo murmura e cansa de repetir",
+  "Ana ora anos sem resposta",
+  "O cântico de Ana quando a resposta veio",
+  "Fiel no pouco, fiel no muito",
+  "Quem governa o próprio espírito",
+  "Correr com paciência a carreira",
+  "Não cansar de fazer o bem",
+  "A língua é fogo",
+  "Sede de Deus em terra seca",
+  "Sê forte e corajosa",
+  "Atravessando o Jordão",
+  "Ester decide entrar",
+  "Ester entra e é ouvida",
+  "Planos de paz, futuro e esperança",
+  "Prosseguir para o alvo",
+  "O que olho nenhum viu",
+  "Sem amor, nada disso vale",
+  "Quem começou a obra vai completar",
+  "Ele faz novas todas as coisas"
+ ],
  "checklist": {
   "corpo": [
    "2 litros de água",
@@ -436,14 +478,20 @@
  },
  "proposito_limites": {
   "titulo": "Propósito e limites",
-  "prop_intro": "Propósito dá direção. Sem ele, meta vira lista solta. E propósito não precisa ser extraordinário: cuidar bem da casa, ser uma filha melhor, ajudar uma amiga, pregar pros filhos. O ordinário feito com fidelidade é o extraordinário de Deus.",
+  "prop_intro": "Propósito dá direção. Sem ele, meta vira lista solta. E propósito não precisa ser extraordinário: cuidar bem da casa, ser uma filha melhor, ajudar uma amiga, criar os filhos na fé. Você tem várias versões, mulher, filha, esposa, mãe, amiga, e Deus tem um propósito pra cada uma. Escreva o rascunho hoje. No dia 40 você volta aqui e vê o que clareou.",
   "prop_versiculo": "Muitos propósitos há no coração do homem, porém o conselho do Senhor permanecerá.",
   "prop_ref": "Provérbios 19:21",
   "prop_perguntas": [
-   "O que queima no meu coração e não sai da cabeça?",
-   "Quem Deus já colocou perto de mim, e do que essas pessoas precisam?"
+   "O que queima no meu coração e não sai da cabeça?"
+  ],
+  "prop_papeis": [
+   "Como mulher",
+   "Como filha",
+   "Como esposa (ou um dia)",
+   "Como mãe (ou um dia)"
   ],
   "prop_frase": "Meu propósito em uma frase (rascunho, pode mudar até o dia 40):",
+  "prop_papeis_titulo": "Meu propósito em cada papel, hoje",
   "lim_intro": "Mulher sem limite claro aceita qualquer coisa e depois se pergunta como chegou ali. Decida com a cabeça fria o que segura você quando o coração esquenta.",
   "lim_versiculo": "Sobre tudo o que se deve guardar, guarda o teu coração, porque dele procedem as saídas da vida.",
   "lim_ref": "Provérbios 4:23",
@@ -575,7 +623,7 @@
   "proximos": [
    "As três coisas que viraram hábito:",
    "A virtude que preciso treinar de novo:",
-   "O que clareou sobre o meu propósito e sobre o que eu quero da vida:",
+   "O que clareou sobre o meu propósito, como mulher, filha, esposa, mãe:",
    "Quem vou chamar pra fazer comigo:"
   ],
   "comunidade": "Você não foi feita pra caminhar sozinha. Conte o que mudou. Convide uma amiga. Virtude se espalha por contágio."

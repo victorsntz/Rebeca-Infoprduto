@@ -245,7 +245,7 @@
     const html = head + `
       <div class="two">
         <div>
-          <div class="box reading"><span class="eyebrow">Leitura de hoje</span><div class="txt">${esc(C.leituras[d - 1])}</div></div>
+          <div class="box reading"><span class="eyebrow">Leitura de hoje</span><div class="txt">${esc(C.leituras[d - 1])}</div><div class="tema">${esc((C.leituras_tema || [])[d - 1] || "")}</div></div>
           <div class="box ch"><span class="eyebrow">Desafio do dia</span><div class="txt">${esc(C.desafios[d - 1])}</div>
             <label class="check ${en.desafio ? "on" : ""}" data-check="desafio" style="margin-top:0.6rem"><span class="box"></span><span>Fiz o desafio</span></label></div>
           <div class="pillars">${pil}</div>

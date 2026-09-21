@@ -113,6 +113,7 @@ main.content { padding: 1.8rem clamp(1.25rem, 3vw, 2.6rem) 6rem; max-width: 1080
 .box .eyebrow { margin-bottom: 0.4rem; }
 .box .txt { font-family: var(--serif); font-size: 1.35rem; line-height: 1.2; }
 .box.reading .txt { font-size: 1.6rem; color: var(--rubi-escuro); }
+.box.reading .tema { font-family: var(--serif); font-style: italic; font-size: 0.9rem; color: var(--cinza); margin-top: 0.2rem; }
 .pillars { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.8rem; }
 @media (max-width: 560px) { .pillars { grid-template-columns: 1fr; } }
 .pillars > div { border-top: 3px solid var(--pc); padding-top: 0.5rem; }

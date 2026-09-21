@@ -184,6 +184,8 @@ table.tracker thead th { background: var(--accent-claro); font-weight: 700; heig
 .day .box.ch { border-left: 1mm solid var(--accent); }
 .day .box .txt { font-family: var(--serif); font-size: 10.5pt; line-height: 1.25; }
 .day .reading .txt { font-family: var(--display); font-size: 13pt; color: var(--rubi-escuro); }
+.day .reading .tema { font-size: 7pt; color: var(--cinza); margin-top: 0.6mm; font-style: italic; font-family: var(--serif); }
+.papeis { display: grid; grid-template-columns: 1fr 1fr; gap: 1mm 4mm; }
 .day .pillars { display: flex; gap: 3mm; margin-top: 1mm; }
 .day .pillars > div { flex: 1; border-top: 0.6mm solid var(--pc); padding-top: 2mm; }
 .day .pillars .eyebrow { color: var(--pc); margin-bottom: 2mm; font-size: 6.4pt; }

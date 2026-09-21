@@ -268,7 +268,9 @@ page(f'''
   <div class="l">
     <h1>Propósito</h1>
     <p style="font-size:7.4pt">{e(pl["prop_intro"])}</p>
-    {"".join(f'<div class="field"><div class="q" style="font-size:8.6pt">{e(q)}</div>{lines(4, "tight")}</div>' for q in pl["prop_perguntas"])}
+    {"".join(f'<div class="field"><div class="q" style="font-size:8.6pt">{e(q)}</div>{lines(2, "tight")}</div>' for q in pl["prop_perguntas"])}
+    <div class="label" style="margin-top:2mm">{e(pl["prop_papeis_titulo"])}</div>
+    <div class="papeis">{"".join(f'<div><span class="tiny muted">{e(r)}</span>{lines(2, "tight")}</div>' for r in pl["prop_papeis"])}</div>
   </div>
   <div class="r">
     <h1>Limites</h1>
@@ -462,7 +464,7 @@ def day_page(d):
 </div>
 <div class="split">
   <div class="l">
-    <div class="box reading"><div class="eyebrow">Leitura de hoje</div><div class="txt">{e(C.LEITURAS[d-1])}</div></div>
+    <div class="box reading"><div class="eyebrow">Leitura de hoje</div><div class="txt">{e(C.LEITURAS[d-1])}</div><div class="tema">{e(C.LEITURAS_TEMA[d-1])}</div></div>
     <div class="box ch"><div class="eyebrow">Desafio do dia</div><div class="txt">{e(C.DESAFIOS[d-1])}</div></div>
     <div class="pillars">{pil}</div>
     <p class="verse lverse">“{e(b["versiculo"])}”<span class="verse-ref">{e(b["ref"])}</span></p>
@@ -587,7 +589,7 @@ print(f"{len(pages)} páginas -> {OUT_HTML}")
 data = {
     "titulo": C.TITULO, "subtitulo": C.SUBTITULO, "tagline": C.TAGLINE, "autora": C.AUTORA,
     "versiculo_capa": C.VERSICULO_CAPA, "contracapa": C.CONTRACAPA,
-    "blocos": C.BLOCOS, "desafios": C.DESAFIOS, "leituras": C.LEITURAS,
+    "blocos": C.BLOCOS, "desafios": C.DESAFIOS, "leituras": C.LEITURAS, "leituras_tema": C.LEITURAS_TEMA,
     "checklist": C.CHECKLIST, "senti": C.SENTI, "pesou": C.PESOU, "virtude_opcoes": C.VIRTUDE_OPCOES,
     "carta": C.CARTA, "como_usar": C.COMO_USAR, "tola_virtuosa": C.TOLA_VIRTUOSA,
     "identidade": C.IDENTIDADE, "corpo_alma_espirito": C.CORPO_ALMA_ESPIRITO,
