@@ -437,7 +437,7 @@ def prova_open(b):
 <div class="split">
   <div class="l" style="flex:0 0 118mm">
     <h2>Quadro de hábitos da prova {b["num"]}</h2>
-    <p style="font-size:8.4pt;margin-bottom:2mm">No fim do dia, pinte o quadradinho de cada hábito: <span class="leg full"></span> inteiro se fez, <span class="leg half"></span> metade se fez mais ou menos, em branco se não fez. Dez dias de uma vez mostram o padrão que o dia a dia esconde.</p>
+    <p style="font-size:8.4pt;margin-bottom:2mm">No fim do dia, pinte o quadradinho de cada hábito: <span class="lg full"></span> inteiro se fez, <span class="lg half"></span> metade se fez mais ou menos, em branco se não fez. Dez dias de uma vez mostram o padrão que o dia a dia esconde.</p>
     {tracker(b)}
     <div class="cols" style="margin-top:3mm">
       {field("O hábito que mais falhou", 1)}

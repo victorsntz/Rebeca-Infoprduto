@@ -131,9 +131,9 @@ table.tracker th, table.tracker td { border: 0.2mm solid var(--linha); text-alig
 table.tracker th.h { text-align: left; padding-left: 2mm; font-weight: 400; font-size: 8pt; width: 27mm; }
 table.tracker td { position: relative; }
 table.tracker td i { position: absolute; left: 50%; top: 50%; width: 130%; height: 0; border-top: 0.15mm solid var(--linha); transform: translate(-50%, -50%) rotate(-45deg); pointer-events: none; }
-.leg { display: inline-block; width: 3.2mm; height: 3.2mm; border: 0.2mm solid var(--linha); vertical-align: -0.6mm; margin: 0 0.5mm 0 1mm; position: relative; overflow: hidden; background: #fff; }
-.leg.full { background: var(--accent); }
-.leg.half::before { content: ""; position: absolute; left: 0; top: 0; width: 0; height: 0; border-style: solid; border-width: 3.2mm 3.2mm 0 0; border-color: var(--accent) transparent transparent transparent; }
+.lg { display: inline-block; width: 3.2mm; height: 3.2mm; border: 0.2mm solid var(--linha); vertical-align: -0.6mm; margin: 0 0.5mm 0 1mm; position: relative; overflow: hidden; background: #fff; }
+.lg.full { background: var(--accent); }
+.lg.half::before { content: ""; position: absolute; left: 0; top: 0; width: 0; height: 0; border-style: solid; border-width: 3.2mm 3.2mm 0 0; border-color: var(--accent) transparent transparent transparent; }
 table.tracker thead th { background: var(--accent-claro); font-weight: 700; height: 6mm; }
 
 /* Capa e contracapa */
