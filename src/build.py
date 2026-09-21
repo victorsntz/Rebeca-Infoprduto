@@ -138,15 +138,11 @@ page(f'''
       <p style="font-size:8pt;line-height:1.45">Eu, <span style="display:inline-block;border-bottom:0.25mm solid var(--carvao);width:52mm"></span>, decido atravessar estes 40 dias com honestidade, sem perfeição e sem desistir. Quando falhar, viro a página. Quando acertar, agradeço a Deus.</p>
       <div class="sig"><div>Assinatura</div><div class="short">Data</div></div>
     </div>
-    <div class="preciosa">
-      <div class="eyebrow">Antes de virar a página, lembre</div>
-      <p class="serif big">“Ela é mais preciosa do que rubis, e tudo o que mais possas desejar não se pode comparar a ela.”</p>
-      <span class="verse-ref">Provérbios 3:15</span>
-      <p class="serif mid">“A força e a dignidade são os seus vestidos, e ri-se do dia futuro.”</p>
-      <span class="verse-ref">Provérbios 31:25</span>
-      <p class="serif mid">“Se alguém quer vir após mim, negue-se a si mesmo, e tome cada dia a sua cruz, e siga-me.”</p>
-      <span class="verse-ref">Lucas 9:23</span>
-      <p class="serif small">Deus já disse quem você é. Agora é ser. Não porque você já chegou lá, mas porque decidiu: largar o que pesa, tomar a cruz e ficar cada dia mais parecida com Cristo.</p>
+    <div class="postits">
+      <div class="pi a"><span class="tape"></span><p>“Ela é mais preciosa do que rubis, e tudo o que mais possas desejar não se pode comparar a ela.”</p><small>Provérbios 3:15</small></div>
+      <div class="pi b"><span class="tape"></span><p>“A força e a dignidade são os seus vestidos, e ri-se do dia futuro.”</p><small>Provérbios 31:25</small></div>
+      <div class="pi c"><span class="tape"></span><p>“Enganosa é a graça e vã a formosura, mas a mulher que teme ao Senhor, essa sim será louvada.”</p><small>Provérbios 31:30</small></div>
+      <div class="pi d"><span class="tape"></span><p>“Se alguém quer vir após mim, negue-se a si mesmo, e tome cada dia a sua cruz, e siga-me.”</p><small>Lucas 9:23</small></div>
     </div>
   </div>
 </div>
