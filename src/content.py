@@ -139,7 +139,7 @@ DESAFIOS = [
     "Ore em voz alta hoje, mesmo que só por dois minutos. Ouvir a própria voz falando com Deus muda alguma coisa.",
     "Se arrume pro seu dia, mesmo sem compromisso: cabelo feito, uma maquiagem, perfume, um salto confortável.",
     "Jejue de redes sociais por 24 horas. Use o tempo que sobrar na Palavra.",
-    "Ligue ou mande áudio pra pessoa por quem você está orando nesta prova. Ore por ela em voz alta, com ela ouvindo.",
+    "Ore hoje por uma família específica, pelo nome de cada pessoa da casa. Pode ser a sua.",
     "Peça perdão a Deus por algo que você vem escondendo. Depois deixe lá.",
     "Faça uma lista de dez orações que Deus já respondeu na sua vida.",
     "Acorde 30 minutos mais cedo e use esse tempo com Deus antes de qualquer tela.",
@@ -346,7 +346,7 @@ MAPA = {
     "intro": "Quatro provas de 10 dias. Cada uma tem um lugar, uma virtude e uma mulher que já passou por ali. Marque ao terminar.",
 }
 
-TRACKER_HABITOS = ["Água", "Movimento", "Comida", "Sono", "Leitura", "Palavra", "Oração", "Sem tela 1ª h", "Domínio próprio", "Paciência"]
+TRACKER_HABITOS = ["Água", "Movimento", "Comida", "Sono", "Leitura", "Palavra", "Oração", "Sem tela 1ª h", "Domínio próprio", "Autocuidado"]
 
 REVISAO = {
     "titulo": "Revisão da prova",

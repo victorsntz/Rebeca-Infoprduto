@@ -124,7 +124,8 @@ page(f'''
       <div><div class="line"></div><div class="lbl">Data do dia 1</div></div>
       <div><div class="line"></div><div class="lbl">Data do dia 40</div></div>
     </div>
-    <div style="margin-top:5mm"><div class="eyebrow">Meu porquê, em uma frase</div>{lines(3)}</div>
+    <div style="margin-top:4mm"><div class="eyebrow">O que eu mais luto contra hoje</div>{lines(2)}</div>
+    <div style="margin-top:3mm"><div class="eyebrow">Por que eu quero ser uma mulher melhor</div>{lines(3)}</div>
     <div style="margin-top:4mm">
       <div class="eyebrow">Onde eu estou hoje</div>
       <div class="chips">{"".join(f'<span class="chip">{x}</span>' for x in ["Solteira","Namorando","Noiva","Casada","Mãe"])}</div>
@@ -137,7 +138,12 @@ page(f'''
       <p style="font-size:8pt;line-height:1.45">Eu, <span style="display:inline-block;border-bottom:0.25mm solid var(--carvao);width:52mm"></span>, decido atravessar estes 40 dias com honestidade, sem perfeição e sem desistir. Quando falhar, viro a página. Quando acertar, agradeço a Deus.</p>
       <div class="sig"><div>Assinatura</div><div class="short">Data</div></div>
     </div>
-    <div style="margin-top:auto">{verse_box("Ensina-nos a contar os nossos dias, de tal maneira que alcancemos corações sábios.", "Salmo 90:12", "center")}</div>
+    <div class="preciosa">
+      <div class="eyebrow">Antes de virar a página, lembre</div>
+      <p class="serif big">“Ela é mais preciosa do que rubis, e tudo o que mais possas desejar não se pode comparar a ela.”</p>
+      <span class="verse-ref">Provérbios 3:15</span>
+      <p class="serif small">Você não começa do zero. Começa de quem Deus já disse que você é: preciosa, sábia, vestida de força e dignidade. Os 40 dias não vão te tornar valiosa. Vão te lembrar disso todo dia.</p>
+    </div>
   </div>
 </div>
 ''', section="Início")

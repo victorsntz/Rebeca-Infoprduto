@@ -268,6 +268,11 @@ table.tracker thead th { background: var(--accent-claro); font-weight: 700; heig
 .dreams .d h3 { font-size: 10pt; margin-bottom: 0.6mm; }
 
 /* Compromisso */
+.preciosa { flex: 1; display: flex; flex-direction: column; justify-content: center; margin-top: 4mm; padding: 3.5mm 4mm; background: var(--rubi-claro); border-radius: 1.5mm; text-align: center; }
+.preciosa .eyebrow { color: var(--rubi); }
+.preciosa .big { font-style: italic; font-size: 11.5pt; line-height: 1.3; color: var(--rubi-escuro); margin: 0; }
+.preciosa .verse-ref { margin-top: 1.5mm; }
+.preciosa .small { font-size: 8pt; line-height: 1.45; color: var(--ameixa); margin: 2.5mm 0 0; }
 .compromisso { border: 0.25mm solid var(--linha); border-radius: 1.2mm; padding: 2.5mm 3mm; background: #fff; }
 .compromisso .sig { display: flex; gap: 5mm; margin-top: 4mm; }
 .compromisso .sig > div { flex: 1; border-top: 0.3mm solid var(--carvao); padding-top: 0.8mm; font-size: 5.4pt; letter-spacing: 0.14em; text-transform: uppercase; color: var(--cinza); }
