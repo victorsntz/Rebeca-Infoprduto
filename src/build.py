@@ -447,7 +447,7 @@ def prova_open(b):
   </div>
   <div class="r">
     {field("Minha meta pessoal desta prova", 2, "uma só, mensurável", "tight")}
-    {field("Por quem vou orar nesta prova", 2, "uma pessoa só, os 10 dias inteiros", "tight")}
+    {field("Por quem vou orar nesta prova", 2, "uma pessoa ou uma família específica, os 10 dias inteiros", "tight")}
     {fill_field("Notas da prova", "o que eu percebi no caminho")}
   </div>
 </div>
@@ -482,7 +482,7 @@ def day_page(d):
     <div class="row" style="display:flex;align-items:center;gap:2.5mm"><div class="label" style="margin:0">{e(b["virtude"])} hoje</div>{chips(C.VIRTUDE_OPCOES, "acc")}</div>
     <div class="row"><div class="label">Sou grata por</div>{lines(2, "tight")}</div>
     <div class="row"><div class="label">Minha maior dificuldade hoje <span class="hint">e o que ela me mostrou</span></div>{lines(3, "tight")}</div>
-    <div class="row"><div class="label">Hoje eu oro por <span class="hint">alguém diferente, pelo nome</span></div>{lines(1, "tight")}</div>
+    <div class="row"><div class="label">Minha pequena vitória de hoje <span class="hint">uma só, por menor que seja</span></div>{lines(1, "tight")}</div>
     <div class="row"><div class="label">Uma linha pra Deus</div>{lines(1, "tight")}</div>
     <div class="row"><div class="label">Amanhã eu vou <span class="hint">uma coisa só</span></div>{lines(1, "tight")}</div>
   </div>

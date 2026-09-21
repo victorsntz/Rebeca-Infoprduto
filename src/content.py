@@ -139,7 +139,7 @@ DESAFIOS = [
     "Ore em voz alta hoje, mesmo que só por dois minutos. Ouvir a própria voz falando com Deus muda alguma coisa.",
     "Se arrume pro seu dia, mesmo sem compromisso: cabelo feito, uma maquiagem, perfume, um salto confortável.",
     "Jejue de redes sociais por 24 horas. Use o tempo que sobrar na Palavra.",
-    "Ore hoje por uma família específica, pelo nome de cada pessoa da casa. Pode ser a sua.",
+    "Mande uma mensagem de encorajamento pra três mulheres hoje: um versículo e uma frase sua. Sem esperar resposta.",
     "Peça perdão a Deus por algo que você vem escondendo. Depois deixe lá.",
     "Faça uma lista de dez orações que Deus já respondeu na sua vida.",
     "Acorde 30 minutos mais cedo e use esse tempo com Deus antes de qualquer tela.",
