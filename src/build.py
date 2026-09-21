@@ -480,11 +480,9 @@ def day_page(d):
     <div class="row"><div class="label">Hoje eu me senti <span class="hint">circule</span></div>{chips(C.SENTI)}</div>
     <div class="row"><div class="label">O que pesou hoje <span class="hint">marque</span></div>{chips(C.PESOU, "soft")}</div>
     <div class="row" style="display:flex;align-items:center;gap:2.5mm"><div class="label" style="margin:0">{e(b["virtude"])} hoje</div>{chips(C.VIRTUDE_OPCOES, "acc")}</div>
-    <div class="row"><div class="label">Sou grata por</div>{lines(2, "tight")}</div>
-    <div class="row"><div class="label">Minha maior dificuldade hoje <span class="hint">e o que ela me mostrou</span></div>{lines(3, "tight")}</div>
-    <div class="row"><div class="label">Minha pequena vitória de hoje <span class="hint">uma só, por menor que seja</span></div>{lines(1, "tight")}</div>
-    <div class="row"><div class="label">Uma linha pra Deus</div>{lines(1, "tight")}</div>
-    <div class="row"><div class="label">Amanhã eu vou <span class="hint">uma coisa só</span></div>{lines(1, "tight")}</div>
+    <div class="row"><div class="label">Sou grata por</div>{lines(3)}</div>
+    <div class="row"><div class="label">Minha maior dificuldade hoje <span class="hint">e o que ela me mostrou</span></div>{lines(4)}</div>
+    <div class="row"><div class="label">Amanhã eu vou <span class="hint">uma coisa só</span></div>{lines(2)}</div>
   </div>
 </div>
 ''', cls=f"day c-{b['cor']}", section=sec)

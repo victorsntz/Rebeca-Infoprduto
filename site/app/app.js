@@ -257,8 +257,6 @@
           <div class="row"><span class="label">${esc(b.virtude)} hoje</span>${chips(C.virtude_opcoes, "virtude", en.virtude, "acc", true)}</div>
           <div class="row"><label class="label" for="e-grat">Sou grata por</label><textarea id="e-grat" class="lined" data-entry="gratidao" rows="2">${esc(en.gratidao)}</textarea></div>
           <div class="row"><label class="label" for="e-dif">Minha maior dificuldade hoje <span class="hint">e o que ela me mostrou</span></label><textarea id="e-dif" class="lined" data-entry="dificuldade" rows="3">${esc(en.dificuldade)}</textarea></div>
-          <div class="row"><label class="label" for="e-oro">Minha pequena vitória de hoje <span class="hint">uma só, por menor que seja</span></label><input id="e-oro" type="text" class="lined" data-entry="oro" value="${esc(en.oro)}"></div>
-          <div class="row"><label class="label" for="e-deus">Uma linha pra Deus</label><textarea id="e-deus" class="lined" data-entry="deus" rows="2">${esc(en.deus)}</textarea></div>
           <div class="row"><label class="label" for="e-am">Amanhã eu vou <span class="hint">uma coisa só</span></label><input id="e-am" type="text" class="lined" data-entry="amanha" value="${esc(en.amanha)}"></div>
           <div class="row" style="display:flex;gap:1.5rem;flex-wrap:wrap;align-items:center">
             <div><span class="label">Energia</span><div class="energy">${[1, 2, 3, 4, 5].map((n) => `<button type="button" class="${en.energia === n ? "on" : ""}" data-energy="${n}">${n}</button>`).join("")}</div></div>
