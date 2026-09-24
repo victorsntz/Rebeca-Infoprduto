@@ -40,6 +40,9 @@ jobs:
           # Bloqueia pastas que não são pra ver e cache de assets (Apache/Hostinger).
           cat > /tmp/pacote/.htaccess <<'EOF'
           ErrorDocument 404 /index.html
+          <FilesMatch "\.(html)$">
+            Header set Cache-Control "no-cache, must-revalidate"
+          </FilesMatch>
           RedirectMatch 404 ^/\.git
           RedirectMatch 404 ^/\.github
           RedirectMatch 404 ^/app/supabase
@@ -55,6 +58,12 @@ jobs:
           EOF
           # Remove o que é só de desenvolvimento.
           rm -rf /tmp/pacote/app/supabase
+          # Versiona os arquivos de script e estilo pra o navegador não usar cópia antiga (cache).
+          V="${GITHUB_SHA::7}"
+          for f in /tmp/pacote/index.html /tmp/pacote/app/index.html; do
+            sed -i -E "s#((assets/|\.\./assets/)?brand\.css|app\.css|app\.js|store\.js|config\.js|content\.js)\"#\1?v=$V\"#g" "$f"
+          done
+          grep -c "?v=$V" /tmp/pacote/app/index.html
 
       - name: Enviar pra branch publicar
         run: |
