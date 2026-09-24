@@ -144,7 +144,7 @@
     <div class="auth"><div class="side"><div class="frame"></div>
       <a class="logo" href="../"><img src="../assets/logo.svg" alt=""><span>De Tola a Virtuosa<small>Rebeca Fortunato</small></span></a>
       <div><span class="eyebrow" style="color:var(--dourado-vivo)">Antes de tudo</span><h1>Bem-vinda,<br><em class="gold">${esc(firstName() || "mulher")}</em>.</h1>
-      <p style="color:rgba(249,245,238,0.85);max-width:44ch">Quatro provas de dez dias. Um minuto por dia pra marcar. Escolha quando começa e o caderno se organiza a partir daí.</p></div>
+      <p style="color:rgba(249,245,238,0.85);max-width:44ch">Quatro provas de dez dias. Um minuto por dia pra marcar. Primeiro as páginas de preparação, depois o dia 1. Igual ao caderno impresso.</p></div>
       ${verse("Ensina-nos a contar os nossos dias, de tal maneira que alcancemos corações sábios.", "Salmo 90:12")}
     </div>
     <div class="form"><div>
@@ -225,7 +225,7 @@
         <div>
           <span class="eyebrow">${!st.profile.start_date ? "Antes do dia 1" : t === 0 ? "Sua travessia começa " + fmt(st.profile.start_date) : `Prova ${b.num} · ${esc(b.lugar)} · ${esc(b.virtude)}`}</span>
           <h2>${!prepDone() ? `Antes do dia 1, ${esc(firstName())}.` : !st.profile.start_date ? `Preparação pronta, ${esc(firstName())}. Quando começa?` : t === 0 ? `Preparada, ${esc(firstName())}?` : todayEntry.done ? `Dia ${t} marcado, ${esc(firstName())}.` : `Dia ${t}, ${esc(firstName())}.`}</h2>
-          <p>${!prepDone() ? "Igual ao caderno: primeiro as páginas de preparação, depois o dia 1. Compromisso, identidade, propósito, regras, quadro dos sonhos, carta e retrato. Uma tarde resolve." : t === 0 ? "Use estes dias pra preencher a preparação. É a parte que a maioria pula e que decide tudo." : todayEntry.done ? "Fidelidade é isso: o dia " + t + " com a mesma seriedade do dia 1." : esc(C.desafios[t - 1])}</p>
+          <p>${!prepDone() ? "Igual ao caderno: primeiro as páginas de preparação, depois o dia 1. Compromisso, identidade, propósito, regras, quadro dos sonhos, carta e retrato. Uma tarde resolve." : !st.profile.start_date ? "As sete páginas estão preenchidas. Escolha se o dia 1 é hoje ou amanhã, e o caderno se organiza a partir daí. Dá pra ajustar em Conta se errar." : t === 0 ? "Use estes dias pra preencher a preparação. É a parte que a maioria pula e que decide tudo." : todayEntry.done ? "Fidelidade é isso: o dia " + t + " com a mesma seriedade do dia 1." : esc(C.desafios[t - 1])}</p>
           ${!prepDone() ? `<a class="btn gold" href="#/prep">Continuar a preparação (${prepPending()} ${prepPending() === 1 ? "página" : "páginas"})</a>` : !st.profile.start_date ? `<div class="btns"><button class="btn gold" data-act="start" data-when="0">Meu dia 1 é hoje</button><button class="btn ghost" data-act="start" data-when="1" style="color:var(--creme)">Começo amanhã</button></div>` : t > 0 ? `<a class="btn gold" href="#/dia/${t}">${todayEntry.done ? "Rever o dia de hoje" : "Marcar o dia de hoje"}</a>` : `<a class="btn gold" href="#/prep">Rever a preparação</a>`}
         </div>
         <div class="ring" style="--p:${(doneCount() / TOTAL) * 100}"><div><b>${doneCount()}</b><small>de 40</small></div></div>
