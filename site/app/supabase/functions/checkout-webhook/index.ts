@@ -66,16 +66,19 @@ Deno.serve(async (req) => {
   // membro. Não mexe na conta dela, só cria (ou cancela) o convite. Assim ela pode comprar quantos quiser.
   const soPresente = comPresente && giftOffers.includes(offer);
 
-  const ativa = ATIVA.some((s) => status.includes(s));
   const desativa = DESATIVA.some((s) => status.includes(s));
+  const ativa = !desativa && ATIVA.some((s) => status.includes(s));
   if (!ativa && !desativa) return new Response("ignored: " + status, { status: 200 });
 
   const sb = createClient(Deno.env.get("SUPABASE_URL")!, Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!);
   if (!soPresente) {
-    const { error } = await sb.from("members").upsert(
-      { email, active: ativa, plan: "travessia" + (comPresente ? "+amiga" : ""), provider, provider_ref: ref },
-      { onConflict: "email" },
-    );
+    // Reembolso só desliga o acesso; mantém plano e referência da compra original pra o suporte achar depois.
+    const { error } = desativa
+      ? await sb.from("members").update({ active: false }).eq("email", email)
+      : await sb.from("members").upsert(
+          { email, active: true, plan: "travessia" + (comPresente ? "+amiga" : ""), provider, provider_ref: ref },
+          { onConflict: "email" },
+        );
     if (error) return new Response(error.message, { status: 500 });
   }
 

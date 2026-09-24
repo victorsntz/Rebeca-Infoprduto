@@ -6,6 +6,10 @@
 (function () {
   const cfg = window.DTV_CONFIG || {};
   const useSupabase = !!(cfg.SUPABASE_URL && cfg.SUPABASE_ANON_KEY && window.supabase);
+  // Servidor configurado mas a biblioteca não carregou (bloqueador, sem internet): não cai no modo demonstração em silêncio.
+  if (cfg.SUPABASE_URL && cfg.SUPABASE_ANON_KEY && !window.supabase) {
+    document.addEventListener("DOMContentLoaded", () => { const a = document.getElementById("app"); if (a) a.innerHTML = '<div class="inactive"><div class="card"><h2>Não conseguimos carregar o app</h2><p>Confere a internet, desliga bloqueador de anúncios nesta página e recarrega.</p><button class="btn gold" onclick="location.reload()">Recarregar</button></div></div>'; });
+  }
 
   // ---------- LOCAL ----------
   const LS = {
@@ -33,13 +37,14 @@
     },
     async signOut() { LS.del("session"); },
     async resetPassword() { throw new Error("No modo demonstração não há recuperação de senha."); },
+    async updatePassword() { return true; },
     async membership(email) { return { active: true, plan: "demo", email }; },
     async getProfile(email) { return LS.get("profile:" + email, { start_date: null, name: null }); },
     async setProfile(email, data) { const p = await this.getProfile(email); LS.set("profile:" + email, { ...p, ...data }); },
     async getEntries(email) { return LS.get("entries:" + email, {}); },
-    async setEntry(email, day, data) { const all = await this.getEntries(email); all[day] = { ...(all[day] || {}), ...data, updated: Date.now() }; LS.set("entries:" + email, all); },
+    async setEntry(email, day, data, full) { const all = await this.getEntries(email); all[day] = { ...(all[day] || {}), ...(full || data), updated: Date.now() }; LS.set("entries:" + email, all); },
     async getPrep(email) { return LS.get("prep:" + email, {}); },
-    async setPrep(email, key, data) { const all = await this.getPrep(email); all[key] = { ...(all[key] || {}), ...data }; LS.set("prep:" + email, all); },
+    async setPrep(email, key, data, full) { const all = await this.getPrep(email); all[key] = { ...(all[key] || {}), ...(full || data) }; LS.set("prep:" + email, all); },
     async wipe(email) { LS.del("entries:" + email); LS.del("prep:" + email); LS.del("profile:" + email); },
     // Presentes (demonstração): toda conta ganha um código de exemplo pra testar o fluxo.
     async getGifts(email) {
@@ -84,8 +89,13 @@
     },
     async signOut() { await sb().auth.signOut(); },
     async resetPassword(email) {
-      const { error } = await sb().auth.resetPasswordForEmail(email, { redirectTo: location.href });
+      const { error } = await sb().auth.resetPasswordForEmail(email, { redirectTo: location.href.split("#")[0] });
       if (error) throw new Error(traduz(error.message));
+    },
+    async updatePassword(password) {
+      const { error } = await sb().auth.updateUser({ password });
+      if (error) throw new Error(traduz(error.message));
+      return true;
     },
     async membership(email) {
       const { data } = await sb().from("members").select("active, plan, expires_at, provider").eq("email", email).maybeSingle();
@@ -99,30 +109,35 @@
     },
     async setProfile(email, patch) {
       const s = await this.session();
-      await sb().from("profiles").upsert({ user_id: s.id, ...patch }, { onConflict: "user_id" });
+      const { error } = await sb().from("profiles").upsert({ user_id: s.id, ...patch }, { onConflict: "user_id" });
+      if (error) throw new Error(traduz(error.message));
     },
     async getEntries() {
       const { data } = await sb().from("entries").select("day, data");
       const out = {}; (data || []).forEach((r) => { out[r.day] = r.data; }); return out;
     },
-    async setEntry(email, day, patch) {
+    async setEntry(email, day, patch, full) {
+      // Grava o objeto inteiro que o app já tem na memória: duas gravações seguidas não se atropelam.
       const s = await this.session();
-      const all = await this.getEntries();
-      const merged = { ...(all[day] || {}), ...patch, updated: Date.now() };
-      await sb().from("entries").upsert({ user_id: s.id, day, data: merged }, { onConflict: "user_id,day" });
+      let merged = full;
+      if (!merged) { const all = await this.getEntries(); merged = { ...(all[day] || {}), ...patch }; }
+      const { error } = await sb().from("entries").upsert({ user_id: s.id, day, data: { ...merged, updated: Date.now() } }, { onConflict: "user_id,day" });
+      if (error) throw new Error(traduz(error.message));
     },
     async getPrep() {
       const { data } = await sb().from("prep").select("key, data");
       const out = {}; (data || []).forEach((r) => { out[r.key] = r.data; }); return out;
     },
-    async setPrep(email, key, patch) {
+    async setPrep(email, key, patch, full) {
       const s = await this.session();
-      const all = await this.getPrep();
-      await sb().from("prep").upsert({ user_id: s.id, key, data: { ...(all[key] || {}), ...patch } }, { onConflict: "user_id,key" });
+      let merged = full;
+      if (!merged) { const all = await this.getPrep(); merged = { ...(all[key] || {}), ...patch }; }
+      const { error } = await sb().from("prep").upsert({ user_id: s.id, key, data: merged }, { onConflict: "user_id,key" });
+      if (error) throw new Error(traduz(error.message));
     },
     async wipe() { const s = await this.session(); await sb().from("entries").delete().eq("user_id", s.id); await sb().from("prep").delete().eq("user_id", s.id); },
     async getGifts(email) { const { data } = await sb().from("gifts").select("*").eq("buyer_email", email).order("created_at"); return data || []; },
-    async updateGift(code, patch) { await sb().from("gifts").update(patch).eq("code", code); },
+    async updateGift(code, patch) { const { error } = await sb().from("gifts").update(patch).eq("code", code); if (error) throw new Error(traduz(error.message)); },
     async claimGift(email, code) {
       const { data, error } = await sb().rpc("claim_gift", { p_code: String(code || "").toUpperCase().trim() });
       if (error) return { ok: false, error: traduz(error.message) };
@@ -137,6 +152,8 @@
     if (/already registered/i.test(m)) return "Esse e-mail já tem cadastro. Entre com a senha.";
     if (/Password should be/i.test(m)) return "A senha precisa ter pelo menos 6 caracteres.";
     if (/Email not confirmed/i.test(m)) return "Confirme o e-mail que enviamos antes de entrar.";
+    if (/JWT expired|session_not_found|refresh_token/i.test(m)) return "Sua sessão venceu. Entra de novo.";
+    if (/Failed to fetch|NetworkError|Load failed/i.test(m)) return "Sem conexão agora. Tenta de novo em instantes.";
     return m;
   }
 

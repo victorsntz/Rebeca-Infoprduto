@@ -20,7 +20,7 @@
   const fmt = (iso) => { if (!iso) return ""; const d = parseISO(iso); return d.toLocaleDateString("pt-BR", { day: "2-digit", month: "long" }); };
   function todayIdx() {
     if (!st.profile || !st.profile.start_date) return 0;
-    const diff = Math.floor((parseISO(isoToday()) - parseISO(st.profile.start_date)) / 86400000) + 1;
+    const diff = Math.round((parseISO(isoToday()) - parseISO(st.profile.start_date)) / 86400000) + 1;
     return Math.max(0, Math.min(TOTAL, diff));
   }
   const dayDate = (d) => { if (!st.profile || !st.profile.start_date) return ""; const dt = parseISO(st.profile.start_date); dt.setDate(dt.getDate() + d - 1); return dt.toLocaleDateString("pt-BR", { weekday: "long", day: "2-digit", month: "long" }); };
@@ -31,7 +31,7 @@
   const firstName = () => ((st.profile && st.profile.name) || (st.session && st.session.name) || "").split(" ")[0];
 
   let toastT;
-  function isoShift(days) { const d = new Date(); d.setDate(d.getDate() + days); return d.toISOString().slice(0, 10); }
+  function isoShift(days) { const d = new Date(); d.setDate(d.getDate() + days); return `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`; }
   function toast(msg, err) { toastEl.textContent = msg; toastEl.hidden = false; toastEl.className = "toast" + (err ? " err" : ""); clearTimeout(toastT); toastT = setTimeout(() => (toastEl.hidden = true), 2200); }
   const debounce = (fn, ms) => { let t; return (...a) => { clearTimeout(t); t = setTimeout(() => fn(...a), ms); }; };
 
@@ -64,9 +64,13 @@
     else toast(r.error, true);
     if (/resgatar/.test(location.hash)) location.hash = "";
   }
+  // Link de "esqueci a senha": o Supabase abre o app já logada e a gente pede a senha nova.
+  let RECOVERY = /type=recovery/.test(location.hash);
   async function boot() {
+    st.member = null; st.profile = null; st.entries = {}; st.prep = {};
     st.session = await S.session();
     if (!st.session) return renderAuth(pendingGift() ? "criar" : "entrar");
+    if (RECOVERY) return renderNewPassword();
     await tryClaim();
     st.member = await S.membership(st.session.email);
     if (!st.member.active) return renderInactive();
@@ -74,7 +78,7 @@
     if (!st.profile || !st.profile.name) return renderOnboarding();
     route();
   }
-  window.addEventListener("hashchange", () => { if (st.session && st.profile && st.profile.name) route(); });
+  window.addEventListener("hashchange", () => { if (/^#\/?resgatar\//.test(location.hash)) return boot(); if (st.session && st.profile && st.profile.name) route(); });
 
   // ------------------------------------------------------------------ auth
   function renderAuth(tab = "entrar", err = "") {
@@ -128,6 +132,14 @@
     }, 3200);
   }
 
+  function renderNewPassword() {
+    app.innerHTML = `<div class="inactive"><div class="card">
+      ${LOGO.replace("<img", '<img style="width:48px;margin:0 auto 1rem"')}
+      <h2>Escolha uma senha nova</h2>
+      <p>Você entrou pelo link do e-mail. Agora é só definir a senha que vai usar daqui pra frente na conta <b>${esc(st.session.email)}</b>.</p>
+      <form id="pwform" class="claim"><label class="label" for="p-new" style="color:rgba(249,245,238,0.8)">Senha nova (mínimo 6 caracteres)</label><div class="row-inline"><input id="p-new" type="password" name="password" minlength="6" autocomplete="new-password" required><button class="btn gold sm" type="submit">Salvar</button></div></form>
+    </div></div>`;
+  }
   async function renderInactive() {
     // Amiga que ganhou o presente e a compradora pediu reembolso: diz isso com todas as letras.
     let cancelado = null;
@@ -140,7 +152,7 @@
       ? `O acesso de <b>${esc(st.session.email)}</b> veio de um presente de <b>${esc(quem)}</b>, e ela pediu o reembolso dessa compra. Com isso, o convite perdeu a validade e a sua travessia ficou pausada. Fala com ela, ou garante o seu acesso por conta própria aqui embaixo. O que você já escreveu fica guardado.`
       : st.member && st.member.found === false
         ? `Não achamos nenhuma compra com o e-mail <b>${esc(st.session.email)}</b>. Se você comprou com outro e-mail, saia e entre com ele. Se acabou de comprar, espera um minuto e recarrega a página.`
-        : `A conta <b>${esc(st.session.email)}</b> existe, mas não encontramos uma assinatura ativa. Se você acabou de comprar, aguarde alguns minutos. Se cancelou ou pediu reembolso, o acesso foi encerrado.`;
+        : `A conta <b>${esc(st.session.email)}</b> existe, mas não encontramos uma compra ativa. Se você acabou de comprar, aguarde alguns minutos. Se cancelou ou pediu reembolso, o acesso foi encerrado.`;
     app.innerHTML = `<div class="inactive"><div class="card">
       ${LOGO.replace("<img", '<img style="width:48px;margin:0 auto 1rem"')}
       <h2>${titulo}</h2>
@@ -202,7 +214,7 @@
     const h = location.hash.replace(/^#\/?/, "") || "inicio";
     const [name, arg] = h.split("/");
     const t = todayIdx();
-    if (name === "dia") return viewDia(Math.min(TOTAL, Math.max(1, parseInt(arg || t || 1, 10))));
+    if (name === "dia") { const n = parseInt(arg, 10); return viewDia(Math.min(TOTAL, Math.max(1, Number.isFinite(n) ? n : (t || 1)))); }
     if (name === "prova") return viewProva(parseInt(arg, 10) || 1);
     const views = { inicio: viewInicio, travessia: viewTravessia, prep: viewPrep, aulas: viewAulas, imprimir: viewImprimir, conta: viewConta, presente: viewPresente, resgatar: viewInicio };
     (views[name] || viewInicio)();
@@ -211,7 +223,7 @@
   // ------------------------------------------------------------------ início
   function prepStatus() {
     const p = st.prep;
-    const has = (k, f) => p[k] && p[k][f] && String(p[k][f]).trim().length > 0;
+    const has = (k, f) => !!p[k] && p[k][f] != null && String(p[k][f]).trim().length > 0;
     return [
       ["compromisso", "Compromisso", has("compromisso", "assinatura")],
       ["tola", "Tola ou virtuosa", has("tola", "linha")],
@@ -247,9 +259,9 @@
       <div class="hero-card">
         <div>
           <span class="eyebrow">${!st.profile.start_date ? "Antes do dia 1" : t === 0 ? "Sua travessia começa " + fmt(st.profile.start_date) : `Prova ${b.num} · ${esc(b.lugar)} · ${esc(b.virtude)}`}</span>
-          <h2>${!prepDone() ? `Antes do dia 1, ${esc(firstName())}.` : !st.profile.start_date ? `Preparação pronta, ${esc(firstName())}. Quando começa?` : t === 0 ? `Preparada, ${esc(firstName())}?` : todayEntry.done ? `Dia ${t} marcado, ${esc(firstName())}.` : `Dia ${t}, ${esc(firstName())}.`}</h2>
-          <p>${!prepDone() ? "Igual ao caderno: primeiro as páginas de preparação, depois o dia 1. Compromisso, identidade, propósito, regras, quadro dos sonhos, carta e retrato. Uma tarde resolve." : !st.profile.start_date ? "As sete páginas estão preenchidas. Escolha se o dia 1 é hoje ou amanhã, e o caderno se organiza a partir daí. Dá pra ajustar em Conta se errar." : t === 0 ? "Use estes dias pra preencher a preparação. É a parte que a maioria pula e que decide tudo." : todayEntry.done ? "Fidelidade é isso: o dia " + t + " com a mesma seriedade do dia 1." : esc(C.desafios[t - 1])}</p>
-          ${!prepDone() ? `<a class="btn gold" href="#/prep">Continuar a preparação (${prepPending()} ${prepPending() === 1 ? "página" : "páginas"})</a>` : !st.profile.start_date ? `<div class="btns"><button class="btn gold" data-act="start" data-when="0">Meu dia 1 é hoje</button><button class="btn ghost" data-act="start" data-when="1" style="color:var(--creme)">Começo amanhã</button></div>` : t > 0 ? `<a class="btn gold" href="#/dia/${t}">${todayEntry.done ? "Rever o dia de hoje" : "Marcar o dia de hoje"}</a>` : `<a class="btn gold" href="#/prep">Rever a preparação</a>`}
+          <h2>${!prepDone() ? `Antes do dia 1, ${esc(firstName())}.` : !st.profile.start_date ? `Preparação pronta, ${esc(firstName())}. Quando começa?` : t === 0 ? `Preparada, ${esc(firstName())}?` : t >= TOTAL && todayEntry.done ? `Você atravessou, ${esc(firstName())}.` : todayEntry.done ? `Dia ${t} marcado, ${esc(firstName())}.` : `Dia ${t}, ${esc(firstName())}.`}</h2>
+          <p>${!prepDone() ? "Igual ao caderno: primeiro as páginas de preparação, depois o dia 1. Compromisso, identidade, propósito, regras, quadro dos sonhos, carta e retrato. Uma tarde resolve." : !st.profile.start_date ? "As sete páginas estão preenchidas. Escolha se o dia 1 é hoje ou amanhã, e o caderno se organiza a partir daí. Dá pra ajustar em Conta se errar." : t === 0 ? "Use estes dias pra preencher a preparação. É a parte que a maioria pula e que decide tudo." : t >= TOTAL && todayEntry.done ? "Quarenta dias. Agora abre a carta que você escreveu no dia 1 e faz o retrato do dia 40. Depois, marca a próxima travessia." : todayEntry.done ? "Fidelidade é isso: o dia " + t + " com a mesma seriedade do dia 1." : esc(C.desafios[t - 1])}</p>
+          ${!prepDone() ? `<a class="btn gold" href="#/prep">Continuar a preparação (${prepPending()} ${prepPending() === 1 ? "página" : "páginas"})</a>` : !st.profile.start_date ? `<div class="btns"><button class="btn gold" data-act="start" data-when="0">Meu dia 1 é hoje</button><button class="btn ghost" data-act="start" data-when="1" style="color:var(--creme)">Começo amanhã</button></div>` : t >= TOTAL && todayEntry.done ? `<a class="btn gold" href="#/prep">Abrir o retrato do dia 40</a>` : t > 0 ? `<a class="btn gold" href="#/dia/${t}">${todayEntry.done ? "Rever o dia de hoje" : "Marcar o dia de hoje"}</a>` : `<a class="btn gold" href="#/prep">Rever a preparação</a>`}
         </div>
         <div class="ring" style="--p:${(doneCount() / TOTAL) * 100}"><div><b>${doneCount()}</b><small>de 40</small></div></div>
       </div>
@@ -277,7 +289,7 @@
 
   // ------------------------------------------------------------------ dia
   function viewDia(d) {
-    if (!prepDone()) { toast("Antes do dia 1, preencha a preparação. Faltam " + prepPending() + ".", true); location.hash = "#/prep"; return viewPrep(); }
+    if (!prepDone()) { toast("Antes do dia 1, preencha a preparação. " + faltam() + ".", true); location.hash = "#/prep"; return viewPrep(); }
     const t = todayIdx();
     const b = bloco(d);
     const nav = `<div class="daynav">${d > 1 ? `<a href="#/dia/${d - 1}" aria-label="Dia anterior">${ICO.left}</a>` : `<span>${ICO.left}</span>`}${d < TOTAL && d < t ? `<a href="#/dia/${d + 1}" aria-label="Próximo dia">${ICO.right}</a>` : `<span>${ICO.right}</span>`}</div>`;
@@ -286,7 +298,7 @@
       <div style="display:flex;gap:1rem;align-items:flex-end"><div class="meta"><b>${esc(b.virtude)} · ${esc(b.lugar)}</b><span>Prova ${b.num} · ${esc(b.chamada)}</span></div>${nav}</div>
     </div>`;
     if (d > t) {
-      shell(head + `<div class="day-locked"><div class="big">${pad(d)}</div><h2>Ainda não.</h2><p class="muted">Este dia abre ${esc(dayDate(d))}. Uma página por dia, sem adiantar. A prova é de fidelidade, não de velocidade.</p><a class="btn" href="#/dia/${Math.max(1, t)}">Voltar pro dia de hoje</a></div>`, "dia", b.cor);
+      shell(head + `<div class="day-locked"><div class="big">${pad(d)}</div><h2>Ainda não.</h2><p class="muted">${dayDate(d) ? `Este dia abre ${esc(dayDate(d))}.` : "Este dia ainda não chegou."} Uma página por dia, sem adiantar. A prova é de fidelidade, não de velocidade.</p><a class="btn" href="#/dia/${Math.max(1, t)}">Voltar pro dia de hoje</a></div>`, "dia", b.cor);
       return;
     }
     const en = entry(d);
@@ -319,17 +331,17 @@
     app.dataset.day = d;
   }
 
-  const saveEntryDebounced = debounce(async (d, patch) => { await S.setEntry(st.session.email, d, patch); flashSaved(); }, 500);
+  const saveEntryDebounced = debounce(async (d, patch) => { try { await S.setEntry(st.session.email, d, patch, st.entries[d]); flashSaved(); } catch (e) { toast("Não salvou: " + e.message, true); } }, 500);
   function flashSaved() { const el = document.getElementById("savestate"); if (el && !entry(+app.dataset.day).done) { el.textContent = "Salvo"; setTimeout(() => { if (el.textContent === "Salvo") el.textContent = "Salvando sozinho enquanto você preenche"; }, 1500); } }
   function patchEntry(d, patch, immediate) {
     st.entries[d] = { ...(st.entries[d] || {}), ...patch };
-    if (immediate) return S.setEntry(st.session.email, d, patch).then(flashSaved);
+    if (immediate) return S.setEntry(st.session.email, d, patch, st.entries[d]).then(flashSaved).catch((e) => toast("Não salvou: " + e.message, true));
     saveEntryDebounced(d, patch);
   }
 
   // ------------------------------------------------------------------ travessia
   function provaProgress(b) { let n = 0; for (let d = b.inicio; d <= b.fim; d++) if (isDone(d)) n++; return n; }
-  function gatePrep() { if (prepDone()) return false; toast("Primeiro a preparação, depois a travessia. Faltam " + prepPending() + " páginas.", true); location.hash = "#/prep"; viewPrep(); return true; }
+  function gatePrep() { if (prepDone()) return false; toast("Primeiro a preparação, depois a travessia. " + faltam() + ".", true); location.hash = "#/prep"; viewPrep(); return true; }
   function viewTravessia() {
     if (gatePrep()) return;
     const t = todayIdx();
@@ -385,6 +397,7 @@
   const PREP_ORDER = ["compromisso", "tola", "identidade", "proposito", "regras", "carta", "retrato1"];
   function prepDone() { return prepStatus().every((x) => x[2]); }
   function prepPending() { return prepStatus().filter((x) => !x[2]).length; }
+  function faltam() { const n = prepPending(); return n === 1 ? "Falta 1 página" : `Faltam ${n} páginas`; }
   function viewPrep() {
     const p = st.prep, t = todayIdx();
     const ps = Object.fromEntries(prepStatus().map(([k, l, ok]) => [k, ok]));
@@ -452,7 +465,7 @@
   }
 
   // ------------------------------------------------------------------ aulas / imprimir / conta
-  const video = (url, title, desc) => `<div class="card"><div class="video">${url ? `<iframe src="${esc(url)}" title="${esc(title)}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>` : `<div>${ICO.play}<b style="display:block;color:var(--creme);font-family:var(--serif);font-size:1.3rem">${esc(title)}</b><small>Vídeo em breve. Cole a URL em config.js.</small></div>`}</div><h3 style="margin-top:1rem">${esc(title)}</h3><p class="muted" style="margin:0.3rem 0 0">${esc(desc)}</p></div>`;
+  const video = (url, title, desc) => `<div class="card"><div class="video">${url ? `<iframe src="${esc(url)}" title="${esc(title)}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>` : `<div>${ICO.play}<b style="display:block;color:var(--creme);font-family:var(--serif);font-size:1.3rem">${esc(title)}</b><small>Em breve, aqui mesmo.</small></div>`}</div><h3 style="margin-top:1rem">${esc(title)}</h3><p class="muted" style="margin:0.3rem 0 0">${esc(desc)}</p></div>`;
   function viewAulas() {
     const V = CFG.VIDEOS || {};
     shell(`<div class="page-head"><div><span class="eyebrow">Com a Rebeca</span><h1>Aulas</h1></div></div>
@@ -529,7 +542,7 @@
     const w = window.open("", "_blank");
     if (!w) return toast("Libere as janelas pop-up pra abrir o cartão.", true);
     w.document.write(`<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><title>Cartão de presente</title>
-      <link rel="stylesheet" href="${location.href.split("#")[0].replace(/app\/?$/, "")}assets/brand.css">
+      <link rel="stylesheet" href="${new URL("../assets/brand.css", location.href).href}">
       <style>@page{size:148mm 105mm;margin:0}body{margin:0;background:#fff}.c{width:148mm;height:105mm;box-sizing:border-box;padding:12mm 14mm;background:var(--rubi-profundo);color:var(--creme);display:flex;flex-direction:column;justify-content:space-between;position:relative}.c .frame{position:absolute;inset:5mm;border:0.3mm solid rgba(232,194,122,.5)}.c .eyebrow{color:var(--dourado-vivo)}.c h1{font-family:var(--display);font-size:22pt;line-height:1.05;margin:2mm 0 3mm}.c p{font-family:var(--serif);font-style:italic;font-size:10.5pt;line-height:1.4;margin:0;color:rgba(249,245,238,.9)}.c .code{font-family:var(--serif);font-size:16pt;letter-spacing:.2em;color:var(--dourado-vivo);margin-top:2mm}.c .foot{font-size:7pt;letter-spacing:.14em;text-transform:uppercase;color:rgba(249,245,238,.6)}.c .de{font-family:var(--display);font-size:13pt;color:var(--creme)}@media screen{body{padding:20px;background:#eee}.c{box-shadow:0 10px 30px rgba(0,0,0,.2)}}</style></head>
       <body><div class="c"><div class="frame"></div>
         <div><span class="eyebrow">Um presente pra você${g.to_name ? ", " + esc(g.to_name) : ""}</span><h1>40 dias no deserto,<br>nós duas.</h1><p>${g.message ? esc(g.message) : "Pensei em você pra fazer esse caminho comigo. Um caderno, quarenta dias, uma virtude de cada vez."}</p></div>
@@ -554,8 +567,8 @@
   }
 
   // ------------------------------------------------------------------ eventos
-  const savePrepDebounced = debounce(async (k, f, v) => { await S.setPrep(st.session.email, k, { [f]: v }); }, 500);
-  function setPrep(k, f, v, now) { st.prep[k] = { ...(st.prep[k] || {}), [f]: v }; if (now) return S.setPrep(st.session.email, k, { [f]: v }); savePrepDebounced(k, f, v); }
+  const savePrepDebounced = debounce(async (k, f, v) => { try { await S.setPrep(st.session.email, k, { [f]: v }, st.prep[k]); } catch (e) { toast("Não salvou: " + e.message, true); } }, 500);
+  function setPrep(k, f, v, now) { st.prep[k] = { ...(st.prep[k] || {}), [f]: v }; if (now) return S.setPrep(st.session.email, k, { [f]: v }, st.prep[k]).catch((e) => toast("Não salvou: " + e.message, true)); savePrepDebounced(k, f, v); }
 
   const saveGiftDebounced = debounce(async (code, f, v) => { await S.updateGift(code, { [f]: v }); }, 500);
   app.addEventListener("input", (ev) => {
@@ -632,6 +645,12 @@
       try { st.session = tab === "criar" ? await S.signUp(fd.get("email").trim().toLowerCase(), fd.get("password"), fd.get("name").trim()) : await S.signIn(fd.get("email").trim().toLowerCase(), fd.get("password")); await boot(); }
       catch (e) { renderAuth(tab, e.message); }
       return;
+    }
+    if (f.id === "pwform") {
+      const pw = new FormData(f).get("password");
+      try { await S.updatePassword(pw); } catch (e) { return toast(e.message, true); }
+      RECOVERY = false; history.replaceState(null, "", location.pathname); toast("Senha salva. Bem-vinda de volta.");
+      return boot();
     }
     if (f.id === "claimform") {
       const code = new FormData(f).get("code");

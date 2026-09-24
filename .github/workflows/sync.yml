@@ -40,9 +40,15 @@ jobs:
           # Bloqueia pastas que não são pra ver e cache de assets (Apache/Hostinger).
           cat > /tmp/pacote/.htaccess <<'EOF'
           ErrorDocument 404 /index.html
-          <FilesMatch "\.(html)$">
-            Header set Cache-Control "no-cache, must-revalidate"
-          </FilesMatch>
+          <IfModule mod_headers.c>
+            <FilesMatch "\.(html)$">
+              Header set Cache-Control "no-cache, must-revalidate"
+            </FilesMatch>
+            # O caderno e o app não entram no Google.
+            <If "%{REQUEST_URI} =~ m#^/(dist|app)/#">
+              Header set X-Robots-Tag "noindex, nofollow"
+            </If>
+          </IfModule>
           RedirectMatch 404 ^/\.git
           RedirectMatch 404 ^/\.github
           RedirectMatch 404 ^/app/supabase
