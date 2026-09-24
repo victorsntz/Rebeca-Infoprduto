@@ -15,7 +15,7 @@
 import { createClient } from "npm:@supabase/supabase-js@2";
 
 const ATIVA = ["approved", "purchase_approved", "paid", "order.paid", "subscription_renewed", "completed", "compra_aprovada"];
-const DESATIVA = ["refunded", "purchase_refunded", "chargeback", "purchase_chargeback", "canceled", "cancelled", "subscription_canceled", "subscription_cancellation", "purchase_canceled", "expired", "subscription_expired", "overdue", "purchase_delayed", "reembolso", "cancelamento"];
+const DESATIVA = ["refunded", "purchase_refunded", "chargeback", "chargedback", "purchase_chargeback", "canceled", "cancelled", "subscription_canceled", "subscription_cancellation", "purchase_canceled", "expired", "subscription_expired", "overdue", "purchase_delayed", "reembolso", "cancelamento"];
 
 // Código curto e legível, sem letras que confundem (0/O, 1/I).
 function codigo(): string {
