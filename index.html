@@ -1,0 +1,509 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>De Tola a Virtuosa · 40 dias no deserto</title>
+<meta name="description" content="Um caderno prático de 40 dias pra cuidar do corpo, da alma e do espírito e virar a mulher que Deus já disse que você é. Por Rebeca Fortunato.">
+<meta property="og:title" content="De Tola a Virtuosa · 40 dias no deserto">
+<meta property="og:description" content="A mesma casa, as mesmas mãos. Uma derruba, a outra edifica. Quatro provas de dez dias pra cuidar do corpo, da alma e do espírito, com a Rebeca Fortunato.">
+<meta property="og:image" content="https://detolaavirtuosa.com/assets/img/capa.png">
+<meta property="og:url" content="https://detolaavirtuosa.com/">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/brand.css?v=6a88957">
+<style>
+  /* ===== Landing page ===== */
+  .wrap { width: min(1120px, 100% - 3rem); margin: 0 auto; }
+  section { padding: clamp(3.5rem, 8vw, 6.5rem) 0; }
+  .on-dark { background: var(--rubi-profundo); color: var(--creme); }
+  .on-rubi { background: var(--rubi-escuro); color: var(--creme); }
+  .on-sand { background: var(--areia); }
+  .lead { font-size: 1.15rem; line-height: 1.6; max-width: 60ch; }
+  .center { text-align: left; }
+  .center .lead, .center .eyebrow { margin-left: 0; margin-right: 0; }
+  .grid { display: grid; gap: 1.4rem; }
+  .g2 { grid-template-columns: repeat(2, 1fr); }
+  .g3 { grid-template-columns: repeat(3, 1fr); }
+  .g4 { grid-template-columns: repeat(4, 1fr); }
+  @media (max-width: 900px) { .g3, .g4 { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 600px) { .g2, .g3, .g4 { grid-template-columns: 1fr; } }
+
+  /* nav */
+  nav.top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20; background: rgba(63,16,25,0.92); backdrop-filter: blur(10px); color: var(--creme); border-bottom: 1px solid rgba(249,245,238,0.1); }
+  nav.top .wrap { display: flex; align-items: center; justify-content: space-between; height: 66px; }
+  nav.top .links { display: flex; gap: 1.4rem; align-items: center; font-size: 0.9rem; }
+  nav.top .links a { text-decoration: none; opacity: 0.85; }
+  nav.top .links a:hover { opacity: 1; }
+  @media (max-width: 760px) { nav.top .links a.hide-m { display: none; } }
+
+  /* hero */
+  .hero { position: relative; overflow: hidden; padding: clamp(3rem, 7vw, 6rem) 0 0; }
+  .hero .wrap { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 3rem; align-items: center; }
+  @media (max-width: 900px) { .hero .wrap { grid-template-columns: 1fr; } }
+  .hero h1 { margin-bottom: 1.2rem; }
+  .hero .lead { color: rgba(249,245,238,0.85); }
+  .hero .cta { display: flex; gap: 0.8rem; flex-wrap: wrap; margin-top: 1.8rem; align-items: center; }
+  .btn.pulse { font-weight: 700; animation: pulse 2.2s ease-in-out infinite; }
+  @keyframes pulse {
+    0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(232,194,122,0.55); }
+    50% { transform: scale(1.04); box-shadow: 0 0 0 12px rgba(232,194,122,0); }
+  }
+  .btn.pulse:hover { animation: none; transform: translateY(-1px); }
+  @media (prefers-reduced-motion: reduce) { .btn.pulse { animation: none; } }
+  .hero .small { font-size: 0.85rem; color: rgba(249,245,238,0.65); margin-top: 1rem; }
+  .hero .frame { position: absolute; inset: 18px; border: 1px solid rgba(249,245,238,0.12); pointer-events: none; }
+  .mock { position: relative; padding: 1rem 0 2.5rem; }
+  .mock img { border-radius: 8px; box-shadow: var(--shadow); border: 1px solid rgba(255,255,255,0.08); }
+  .mock .a { width: 88%; transform: rotate(-3deg); }
+  .mock .b { width: 74%; position: absolute; right: 0; bottom: 0; transform: rotate(3deg) translateY(8%); }
+  .mock .tag { position: absolute; left: 0; bottom: 0.4rem; background: var(--dourado); color: var(--rubi-profundo); border-radius: 999px; padding: 0.4rem 0.9rem; font-size: 0.75rem; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 500; }
+  .hero .verse-strip { margin-top: clamp(2.5rem, 6vw, 4.5rem); border-top: 1px solid rgba(249,245,238,0.12); padding: 1.6rem 0; text-align: left; }
+
+  /* dor */
+  .dor .list { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.6rem 2rem; margin: 2rem 0; }
+  @media (max-width: 700px) { .dor .list { grid-template-columns: 1fr; } }
+  .dor .list div { display: flex; gap: 0.8rem; align-items: flex-start; padding: 0.75rem 0; border-bottom: 1px solid var(--linha); }
+  .dor .list div::before { content: ""; flex: 0 0 auto; width: 7px; height: 7px; border-radius: 50%; background: var(--dourado); margin-top: 0.55rem; }
+  .callout { border-left: 4px solid var(--rubi); padding: 1rem 1.4rem; background: #fff; border-radius: 0 var(--radius) var(--radius) 0; }
+
+  /* método */
+  .pilar { border-top: 5px solid var(--accent); }
+  .pilar .eyebrow { color: var(--accent); }
+  .pilar ul { list-style: none; padding: 0; margin: 0.8rem 0 0; color: var(--cinza); font-size: 0.95rem; }
+  .pilar li { padding: 0.2rem 0; }
+
+  /* travessia */
+  .why { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 2.2rem 0 2.4rem; }
+  @media (max-width: 760px) { .why { grid-template-columns: 1fr; } }
+  .why > div { border-top: 2px solid var(--rubi); padding-top: 0.9rem; }
+  .why b { font-size: 1.9rem; font-weight: 500; display: block; color: var(--rubi-escuro); line-height: 1; margin-bottom: 0.4rem; }
+  .why span { color: var(--cinza); font-size: 0.95rem; display: block; max-width: 34ch; }
+  .trail { display: flex; gap: 6px; margin: 0 0 0.9rem; }
+  .trail .seg { flex: 1; height: 10px; border-radius: 999px; background: var(--accent); position: relative; }
+  .trail .seg i, .trail .seg em { position: absolute; top: 14px; font-style: normal; font-size: 0.7rem; letter-spacing: 0.1em; color: var(--cinza); }
+  .trail .seg i { left: 0; } .trail .seg em { right: 0; }
+  .provas { margin-top: 2rem; }
+  .prova { border-radius: var(--radius); padding: 1.3rem 1.3rem 1.2rem; color: var(--creme); background: var(--accent); display: grid; grid-template-rows: auto auto auto 1fr auto; gap: 0.35rem; min-height: 280px; }
+  .prova .ph { display: flex; justify-content: space-between; font-size: 0.68rem; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(249,245,238,0.8); padding-bottom: 0.7rem; border-bottom: 1px solid rgba(249,245,238,0.25); margin-bottom: 0.4rem; }
+  .prova h3 { font-size: 2.1rem; line-height: 1; }
+  .prova .v { font-family: var(--serif); font-style: italic; font-size: 1.2rem; color: rgba(249,245,238,0.95); }
+  .prova p { font-size: 0.92rem; color: rgba(249,245,238,0.9); margin: 0.5rem 0 0; }
+  .prova .w { padding-top: 0.8rem; border-top: 1px solid rgba(249,245,238,0.25); font-size: 0.85rem; color: rgba(249,245,238,0.85); align-self: end; }
+  .prova .w b { font-family: var(--serif); font-size: 1.15rem; font-weight: 500; display: block; color: var(--creme); }
+
+  /* um dia */
+  .dia .wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
+  @media (max-width: 900px) { .dia .wrap { grid-template-columns: 1fr; } }
+  .dia img { border-radius: 8px; box-shadow: var(--shadow); }
+  .steps { list-style: none; padding: 0; margin: 1.5rem 0 0; counter-reset: s; }
+  .steps li { display: flex; gap: 1rem; padding: 0.9rem 0; border-bottom: 1px solid var(--linha); }
+  .steps li::before { counter-increment: s; content: counter(s, decimal-leading-zero); font-family: var(--serif); font-size: 1.6rem; color: var(--rubi); line-height: 1; flex: 0 0 2.4rem; }
+  .steps b { display: block; font-weight: 500; }
+  .steps span { color: var(--cinza); font-size: 0.95rem; }
+
+  /* entrega */
+  .item { display: flex; gap: 1rem; align-items: flex-start; }
+  .item .ic { flex: 0 0 auto; width: 46px; height: 46px; border-radius: 12px; background: var(--rubi-claro); display: grid; place-items: center; color: var(--rubi); }
+  .item .ic svg { width: 22px; height: 22px; }
+  .item b { display: block; font-weight: 500; font-size: 1.05rem; }
+  .item span { color: var(--cinza); font-size: 0.95rem; }
+
+  /* pra quem */
+  .quem { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
+  @media (max-width: 900px) { .quem { grid-template-columns: repeat(2, 1fr); } }
+  .quem div { background: rgba(249,245,238,0.06); border: 1px solid rgba(249,245,238,0.15); border-radius: var(--radius); padding: 1.3rem; }
+  .quem b { font-family: var(--serif); font-size: 1.5rem; font-weight: 500; display: block; margin-bottom: 0.3rem; }
+  .quem span { font-size: 0.93rem; color: rgba(249,245,238,0.8); }
+
+  /* sobre */
+  .sobre .wrap { display: grid; grid-template-columns: 0.8fr 1.2fr; gap: 3rem; align-items: center; }
+  @media (max-width: 800px) { .sobre .wrap { grid-template-columns: 1fr; } }
+  .foto { aspect-ratio: 4 / 5; border-radius: var(--radius); background: linear-gradient(160deg, var(--areia-escura), var(--dourado-claro)); display: grid; place-items: center; color: var(--rubi); text-align: center; padding: 0; overflow: hidden; box-shadow: var(--shadow); }
+  .sobre .assina { font-family: var(--display); font-size: 1.5rem; color: var(--rubi-escuro); margin: 0.4rem 0 0; }
+  .foto img { width: 100%; height: 100%; object-fit: cover; border-radius: var(--radius); }
+  .foto small { display: block; font-size: 0.75rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--cinza); margin-top: 0.6rem; }
+
+  /* oferta */
+  .of-head { max-width: 640px; margin: 0 0 2.4rem; }
+  .of-head .lead { max-width: 560px; }
+  .oferta .box { background: #fff; border-radius: 22px; box-shadow: var(--shadow); overflow: hidden; display: grid; grid-template-columns: 1.15fr 0.85fr; }
+  @media (max-width: 860px) { .oferta .box { grid-template-columns: 1fr; } }
+  .oferta .left { padding: 2.2rem; }
+  .oferta .right { position: relative; background: linear-gradient(160deg, var(--rubi-escuro), var(--rubi-profundo)); color: var(--creme); padding: 2.4rem; display: flex; flex-direction: column; justify-content: center; }
+  .oferta .right::before { content: ""; position: absolute; inset: 14px; border: 1px solid rgba(232,194,122,0.28); border-radius: 14px; pointer-events: none; }
+  .oferta .right > * { position: relative; }
+  .oferta .tag { display: inline-block; align-self: flex-start; background: var(--dourado-vivo); color: var(--rubi-profundo); font-size: 0.68rem; letter-spacing: 0.18em; text-transform: uppercase; padding: 0.35rem 0.8rem; border-radius: 999px; margin-bottom: 1rem; }
+  .stack { display: grid; grid-template-columns: 150px 1fr; gap: 1.6rem; align-items: start; }
+  @media (max-width: 560px) { .stack { grid-template-columns: 1fr; } }
+  .st-img { position: relative; width: 150px; height: 190px; }
+  .st-img img { position: absolute; width: 130px; border-radius: 8px; box-shadow: var(--shadow-sm); border: 1px solid var(--linha); }
+  .st-img img:first-child { top: 0; left: 0; transform: rotate(-5deg); z-index: 2; }
+  .st-img .st-2 { top: 44px; left: 24px; transform: rotate(6deg); }
+  .st-list h3 { font-size: 1.15rem; margin-bottom: 0.6rem; }
+  .vs { list-style: none; padding: 0; margin: 0; }
+  .vs li { display: grid; grid-template-columns: 1fr auto; grid-template-areas: "t v" "s v"; gap: 0 1rem; padding: 0.6rem 0; border-bottom: 1px dashed var(--linha); align-items: center; }
+  .vs li b { grid-area: t; font-weight: 400; font-size: 0.98rem; padding-left: 1.5rem; position: relative; }
+  .vs li b::before { content: ""; position: absolute; left: 0; top: 4px; width: 16px; height: 16px; border-radius: 50%; background: var(--rubi); -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23000' d='M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z'/%3E%3C/svg%3E") center / contain no-repeat; mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23000' d='M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z'/%3E%3C/svg%3E") center / contain no-repeat; }
+  .vs li span { grid-area: s; font-size: 0.82rem; color: var(--cinza); padding-left: 1.5rem; }
+  .vs li em { grid-area: v; font-style: normal; font-family: var(--serif); color: var(--cinza); text-decoration: line-through; font-size: 0.9rem; white-space: nowrap; }
+  .vs li:last-child em { text-decoration: none; color: var(--dourado); text-transform: uppercase; font-size: 0.72rem; letter-spacing: 0.14em; font-family: var(--sans); }
+  .vs-total { display: flex; justify-content: space-between; align-items: baseline; padding-top: 0.8rem; font-size: 0.85rem; color: var(--cinza); }
+  .vs-total s { font-family: var(--serif); font-size: 1.05rem; color: var(--carvao); }
+  .price { font-family: var(--display); font-size: 4.4rem; line-height: 1; margin: 0.3rem 0; color: var(--dourado-vivo); }
+  .price small { font-size: 1.3rem; vertical-align: top; margin-right: 0.2rem; }
+  .price-note { font-size: 0.9rem; color: rgba(249,245,238,0.75); }
+  .save { display: inline-block; align-self: flex-start; margin-top: 0.7rem; font-size: 0.8rem; color: var(--dourado-vivo); border: 1px solid rgba(232,194,122,0.5); padding: 0.25rem 0.7rem; border-radius: 999px; }
+  .strike { text-decoration: line-through; opacity: 0.6; font-size: 1rem; }
+  .btn.block svg { width: 18px; height: 18px; }
+  .bump { display: flex; gap: 0.8rem; align-items: flex-start; margin-top: 1.3rem; padding: 0.9rem 1rem; border: 1.5px dashed rgba(232,194,122,0.55); border-radius: 12px; cursor: pointer; background: rgba(249,245,238,0.04); transition: background 0.15s ease, border-color 0.15s ease; }
+  .bump:hover { background: rgba(249,245,238,0.08); }
+  .bump input { position: absolute; opacity: 0; width: 0; height: 0; }
+  .bump .bx { flex: 0 0 auto; width: 22px; height: 22px; border-radius: 6px; border: 1.5px solid var(--dourado-vivo); margin-top: 2px; position: relative; }
+  .bump input:checked + .bx { background: var(--dourado-vivo); }
+  .bump input:checked + .bx::after { content: ""; position: absolute; left: 7px; top: 3px; width: 6px; height: 11px; border: solid var(--rubi-profundo); border-width: 0 2px 2px 0; transform: rotate(45deg); }
+  .bump input:checked ~ .bt b { color: var(--dourado-vivo); }
+  .bump .bt b { display: block; font-weight: 500; font-size: 0.98rem; }
+  .bump .bt b em { font-style: normal; color: var(--dourado-vivo); margin-left: 0.3rem; }
+  .bump .bt small { display: block; font-size: 0.82rem; color: rgba(249,245,238,0.75); margin-top: 0.15rem; }
+  .bump-note { font-size: 0.75rem; color: rgba(249,245,238,0.6); margin: 0.5rem 0 0; }
+  .bump + .bump { margin-top: 0.6rem; }
+  .pay { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.9rem; }
+  .pay span { font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(249,245,238,0.75); border: 1px solid rgba(249,245,238,0.2); padding: 0.25rem 0.6rem; border-radius: 6px; }
+  .garantia { display: flex; gap: 0.9rem; align-items: center; margin-top: 1.3rem; padding-top: 1.2rem; border-top: 1px solid rgba(249,245,238,0.2); font-size: 0.88rem; color: rgba(249,245,238,0.85); }
+  .passos { list-style: none; padding: 0; margin: 1.8rem 0 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; counter-reset: p; }
+  @media (max-width: 760px) { .passos { grid-template-columns: 1fr; } }
+  .passos li { background: rgba(255,255,255,0.55); border: 1px solid var(--linha); border-radius: var(--radius); padding: 1.1rem 1.2rem; display: grid; grid-template-columns: auto 1fr; grid-template-areas: "n t" "n s"; gap: 0.1rem 0.9rem; align-items: center; }
+  .passos span { grid-area: n; width: 34px; height: 34px; border-radius: 50%; background: var(--rubi); color: var(--creme); display: flex; align-items: center; justify-content: center; font-family: var(--serif); }
+  .passos b { grid-area: t; font-weight: 400; font-size: 0.98rem; }
+  .passos small { grid-area: s; font-size: 0.82rem; color: var(--cinza); }
+  .garantia svg { width: 34px; height: 34px; flex: 0 0 auto; color: var(--dourado-vivo); }
+
+  /* faq */
+  details { border-bottom: 1px solid var(--linha); padding: 0.4rem 0; }
+  summary { cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; padding: 0.9rem 0; font-family: var(--serif); font-size: 1.3rem; }
+  summary::-webkit-details-marker { display: none; }
+  summary::after { content: "+"; font-family: var(--sans); color: var(--rubi); font-size: 1.4rem; }
+  details[open] summary::after { content: "–"; }
+  details p { color: var(--cinza); padding-bottom: 0.8rem; }
+
+  footer { background: var(--rubi-profundo); color: rgba(249,245,238,0.7); padding: 2.5rem 0; font-size: 0.85rem; }
+  footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem; align-items: center; }
+  footer a { text-decoration: none; }
+
+  /* celular: tudo centralizado */
+  @media (max-width: 760px) {
+    body { text-align: center; }
+    .center, .hero .verse-strip, .of-head { text-align: center; }
+    .of-head { margin-left: auto; margin-right: auto; }
+    .lead, .eyebrow, .center .lead { margin-left: auto; margin-right: auto; }
+    .hero .cta, .cta { justify-content: center; }
+    .mock { margin: 0 auto; }
+    .dor .list div { flex-direction: column; align-items: center; text-align: center; gap: 0.3rem; }
+    .dor .list div::before { display: none; }
+    .callout { text-align: center; border-left: 0; border-top: 4px solid var(--rubi); border-radius: 0 0 var(--radius) var(--radius); }
+    .pilar ul { text-align: center; }
+    .why > div { text-align: center; }
+    .why span { margin: 0 auto; }
+    .prova { align-items: center; text-align: center; }
+    .prova .ph { justify-content: center; gap: 1rem; }
+    .prova .w { width: 100%; }
+    .dia .steps li { flex-direction: column; align-items: center; gap: 0.3rem; }
+    .item { flex-direction: column; align-items: center; }
+    .quem div { text-align: center; }
+    .foto { margin: 0 auto; }
+    .oferta .left, .oferta .right { text-align: center; align-items: center; }
+    .oferta .tag, .save { align-self: center; }
+    .st-img { margin: 0 auto 0.6rem; }
+    .vs li { grid-template-columns: 1fr; grid-template-areas: "t" "s" "v"; text-align: center; gap: 0.15rem; }
+    .vs li b, .vs li span { padding-left: 0; }
+    .vs li b::before { position: static; display: inline-block; vertical-align: -2px; margin-right: 0.4rem; }
+    .vs-total { flex-direction: column; align-items: center; gap: 0.2rem; }
+    .pay { justify-content: center; }
+    .bump { text-align: left; }
+    .passos li { grid-template-columns: 1fr; grid-template-areas: "n" "t" "s"; justify-items: center; text-align: center; gap: 0.3rem; }
+    .callout p { text-align: center; }
+    .pilar, .card { text-align: center; }
+    .why b { text-align: center; }
+    .sobre .wrap > div { text-align: center; }
+    details p { text-align: center; }
+    .garantia { flex-direction: column; text-align: center; }
+    summary { justify-content: center; gap: 0.6rem; text-align: center; }
+    footer .wrap { justify-content: center; text-align: center; }
+    .logo { justify-content: center; }
+    nav.top .wrap { justify-content: space-between; }
+    nav.top .logo { text-align: left; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="top on-dark">
+  <div class="wrap">
+    <a class="logo" href="./"><img src="assets/logo.svg" alt=""><span>De Tola a Virtuosa<small>Rebeca Fortunato</small></span></a>
+    <div class="links">
+      <a href="#metodo" class="hide-m">O método</a>
+      <a href="#travessia" class="hide-m">A travessia</a>
+      <a href="#entrega" class="hide-m">O que você recebe</a>
+      <a href="app/" class="hide-m">Entrar</a>
+      <a class="btn gold sm" href="#oferta">Quero começar</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero on-dark">
+  <div class="frame"></div>
+  <div class="wrap">
+    <div>
+      <span class="eyebrow">Caderno prático · 40 dias no deserto</span>
+      <h1>A mesma casa, as mesmas mãos.<br>Uma derruba, a outra <em class="gold">edifica.</em></h1>
+      <p class="lead">A tola e a virtuosa de Provérbios têm as mesmas mãos. A diferença é o que cada uma faz todo dia. Quatro provas de dez dias pra cuidar do corpo, da alma e do espírito ao mesmo tempo. Um minuto por dia pra marcar.</p>
+      <div class="cta">
+        <a class="btn gold pulse" href="#oferta">Começar minha travessia</a>
+        <a class="btn ghost" href="#dia">Ver como funciona</a>
+      </div>
+      <p class="small">Impresso ou online. Você escolhe. Com aula inaugural da Rebeca Fortunato.</p>
+    </div>
+    <div class="mock">
+      <img class="a" src="assets/img/capa.png" alt="Capa do caderno De Tola a Virtuosa">
+      <img class="b" src="assets/img/dia.png" alt="Página do dia 1 do caderno">
+      <span class="tag">A4 · pra imprimir</span>
+    </div>
+  </div>
+  <div class="verse-strip wrap">
+    <p class="verse">“Mulher virtuosa, quem a achará? O seu valor muito excede o de rubis.”<span class="verse-ref">Provérbios 31:10</span></p>
+  </div>
+</header>
+
+<!-- DOR -->
+<section class="dor">
+  <div class="wrap">
+    <span class="eyebrow">Você conhece essa mulher?</span>
+    <h2>Ela sabe o que devia fazer.<br>E não faz.</h2>
+    <div class="list">
+      <div><span>Espera ter vontade pra começar. A vontade não vem.</span></div>
+      <div><span>Dorme com o celular na mão e acorda já cansada.</span></div>
+      <div><span>Se compara com as redes e termina o dia se sentindo atrasada.</span></div>
+      <div><span>Quer mudar tudo em uma semana e desiste na quarta.</span></div>
+      <div><span>Reage no tom que veio e pede desculpa depois.</span></div>
+      <div><span>Separa fé de vida: Deus no domingo, ansiedade na segunda.</span></div>
+      <div><span>Não sabe pra onde o dinheiro foi nem onde o tempo passou.</span></div>
+      <div><span>Chora. E para.</span></div>
+    </div>
+    <div class="callout">
+      <p class="verse" style="font-size:1.2rem">“Toda mulher sábia edifica a sua casa; mas a tola derruba-a com as suas próprias mãos.”<span class="verse-ref">Provérbios 14:1</span></p>
+      <p style="margin:0.8rem 0 0">Tola aqui não é xingamento. É diagnóstico. A tola de Provérbios não é burra. É distraída de si mesma, do que fala, do que come, de quem deixa entrar. Todas nós começamos tolas em alguma área. A diferença é quem decide sair.</p>
+    </div>
+  </div>
+</section>
+
+<!-- MÉTODO -->
+<section class="on-sand" id="metodo">
+  <div class="wrap">
+    <div class="center">
+      <span class="eyebrow">O método</span>
+      <h2>Corpo, alma e espírito.<br>Tudo ao mesmo tempo.</h2>
+      <p class="lead" style="margin-top:1rem">A gente vive separando: fé é domingo, corpo é academia, cabeça é terapia. A Bíblia não separa. Dormir mal vira irritação. Irritação vira palavra dura. Palavra dura vira distância de quem você ama e de Deus. Um só hábito derruba os três. Um só hábito, feito com fidelidade, levanta os três.</p>
+    </div>
+    <div class="grid g3" style="margin-top:2.5rem">
+      <div class="card pilar c-salvia"><span class="eyebrow">Corpo</span><h3>Templo do Espírito Santo</h3><p class="muted" style="margin-top:0.5rem">Você cuida dele porque não é seu.</p><ul><li>2 litros de água</li><li>Sono de verdade</li><li>Comida de verdade e uma fruta</li><li>Corpo em movimento</li></ul></div>
+      <div class="card pilar c-dourado"><span class="eyebrow">Alma</span><h3>Mente, vontade e emoções</h3><p class="muted" style="margin-top:0.5rem">Renova-se pensando diferente.</p><ul><li>Primeira hora sem tela</li><li>Leitura todo dia</li><li>Frear um pensamento ruim</li><li>Domínio próprio</li></ul></div>
+      <div class="card pilar c-rubi"><span class="eyebrow">Espírito</span><h3>Onde Deus fala com você</h3><p class="muted" style="margin-top:0.5rem">Exercita-se em piedade.</p><ul><li>Oração no mesmo horário</li><li>Leitura bíblica guiada</li><li>Obedecer em uma coisa por dia</li><li>Caráter</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<!-- TRAVESSIA -->
+<section id="travessia">
+  <div class="wrap">
+    <div class="center">
+      <span class="eyebrow">A travessia</span>
+      <h2>Por que 40 dias?</h2>
+      <p class="lead" style="margin-top:1rem">Porque na Bíblia o deserto dura 40. E deserto não é castigo: é onde Deus fala, forma e prepara pra promessa.</p>
+    </div>
+    <div class="why">
+      <div><b class="serif">40 dias</b><span>Jesus no deserto. Moisés no Sinai. Elias até Horebe. O dilúvio. Nínive. O número da preparação.</span></div>
+      <div><b class="serif">4 provas de 10</b><span>Daniel pediu dez dias pra provar que obedecer funciona (Daniel 1:12). Aqui são quatro, uma atrás da outra.</span></div>
+      <div><b class="serif">1 mulher por prova</b><span>Rute, Maria, Ana e Ester. Cada uma passou pelo lugar que você vai passar.</span></div>
+    </div>
+    <div class="trail" aria-hidden="true">
+      <span class="seg c-salvia"><i>1</i></span><span class="seg c-dourado"><i>11</i></span><span class="seg c-rubi"><i>21</i></span><span class="seg c-ameixa"><i>31</i><em>40</em></span>
+    </div>
+    <div class="grid g4 provas">
+      <div class="prova c-salvia"><div class="ph"><span>Prova 01</span><span>dias 1 a 10</span></div><h3>Saída</h3><div class="v">Temperança</div><p>Largar o Egito. Os hábitos que te escravizam sem você perceber.</p><div class="w"><b>Rute</b>Deixou tudo o que conhecia pra seguir Deus.</div></div>
+      <div class="prova c-dourado"><div class="ph"><span>Prova 02</span><span>dias 11 a 20</span></div><h3>Sinai</h3><div class="v">Fé</div><p>Ouvir quem você é. Se definir pelo que Deus falou, não pelo que sente.</p><div class="w"><b>Maria</b>Ouviu o impossível e disse: eis aqui a serva.</div></div>
+      <div class="prova c-rubi"><div class="ph"><span>Prova 03</span><span>dias 21 a 30</span></div><h3>Deserto</h3><div class="v">Fidelidade</div><p>Continuar quando cansa. O dia 25 com a mesma seriedade do dia 5.</p><div class="w"><b>Ana</b>Orou anos até Deus responder. E cumpriu.</div></div>
+      <div class="prova c-ameixa"><div class="ph"><span>Prova 04</span><span>dias 31 a 40</span></div><h3>Jordão</h3><div class="v">Coragem</div><p>Entrar na promessa. A conversa adiada, o projeto parado, o propósito.</p><div class="w"><b>Ester</b>Entrou na sala do rei tremendo. Entrou.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- UM DIA -->
+<section class="dia on-sand" id="dia">
+  <div class="wrap">
+    <div><img src="assets/img/dia.png" alt="Página do dia: leitura, desafio, caixinhas e espaço pra marcar como você se sentiu"></div>
+    <div>
+      <span class="eyebrow">Um dia no caderno</span>
+      <h2>Um minuto pra marcar. Escrever é bônus.</h2>
+      <p class="lead" style="margin-top:1rem">A página deitada divide em duas metades. Esquerda é o que o caderno te dá. Direita é o que você devolve. Nos dias sem fôlego, você só circula. Nos dias com fôlego, escreve.</p>
+      <ol class="steps">
+        <li><div><b>Leitura de hoje</b><span>Um trecho curto da Bíblia, ligado à virtude da prova.</span></div></li>
+        <li><div><b>Desafio do dia</b><span>Uma ação concreta. Não é sugestão, é tarefa.</span></div></li>
+        <li><div><b>Caixinhas de corpo, mente e espírito</b><span>Dez caixinhas. Marque à noite, com honestidade.</span></div></li>
+        <li><div><b>Como me senti e o que pesou</b><span>Circule. Grata, ansiosa, cansada. Tela, língua, comparação.</span></div></li>
+        <li><div><b>Maior dificuldade</b><span>A pergunta mais importante. Ela mostra onde Deus está trabalhando.</span></div></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- ENTREGA -->
+<section id="entrega">
+  <div class="wrap">
+    <div class="center">
+      <span class="eyebrow">O que você recebe</span>
+      <h2>Do jeito que você preferir usar</h2>
+    </div>
+    <div class="grid g2" style="margin-top:2.5rem">
+      <div class="item"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 3h9l5 5v13a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z"/><path d="M14 3v6h6"/></svg></div><div><b>O caderno em PDF, pronto pra imprimir</b><span>72 páginas em A4 deitado, só frente. Imprime em casa ou na gráfica, encaderna com espiral e escreve de canetinha sem medo. Quer menor? Imprime em A5, é a mesma proporção.</span></div></div>
+      <div class="item"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M9 18h6"/></svg></div><div><b>A versão pelo celular</b><span>Pros dias longe do caderno, ou pra quem não vai imprimir agora: a mesma travessia numa área de membros. Marca o dia, salva o que escreveu, vê a prova avançar. O papel dá mais foco, o celular garante que você não pare.</span></div></div>
+      <div class="item"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="14" height="14" rx="2"/><path d="m17 10 4-2v8l-4-2z"/></svg></div><div><b>Aula inaugural com a Rebeca</b><span>Qual é o propósito da travessia, como ela usa o caderno no dia a dia e o que esperar de cada prova. Pra começar com direção.</span></div></div>
+      <div class="item"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 9V3h12v6"/><rect x="3" y="9" width="18" height="8" rx="2"/><path d="M6 14h12v7H6z"/></svg></div><div><b>Vídeo: como imprimir e encadernar</b><span>Papel, gramatura, espiral, onde pedir. E outro vídeo mostrando o app funcionando, pra quem prefere a tela.</span></div></div>
+      <div class="item"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 4h16v16H4z"/><path d="m4 4 8 8 8-8"/></svg></div><div><b>Carta pro futuro e retrato do dia 1 e do dia 40</b><span>Você escreve pra mulher que vai abrir a página daqui a 40 dias. E compara, com números, onde Deus trabalhou.</span></div></div>
+      <div class="item"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg></div><div><b>Identidade, propósito, limites e regras</b><span>As páginas de preparação que a maioria pula e que decidem tudo: quem Deus diz que você é, pra que você foi chamada, o que você aceita e o que não aceita mais.</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- PRA QUEM -->
+<section class="on-dark">
+  <div class="wrap">
+    <span class="eyebrow">Pra quem é</span>
+    <h2 style="margin-bottom:1.6rem">Pra mulheres. Em qualquer capítulo.</h2>
+    <div class="quem">
+      <div><b>Solteira</b><span>Mora com os pais, está na escola ou na faculdade, ainda não sabe o que Deus quer pra ela e quer chegar no próximo capítulo já sendo quem Ele chamou.</span></div>
+      <div><b>Noiva</b><span>Preparando o casamento, lendo sobre casamento, e percebendo que a casa que vai construir começa em você.</span></div>
+      <div><b>Casada</b><span>Lidando com casa, marido, trabalho e tanta coisa ao mesmo tempo, precisando de jogo de cintura e querendo fazer isso com força e dignidade.</span></div>
+      <div><b>Mãe</b><span>Filho demanda demais e é fácil esquecer quem você é. Aqui você é lembrada de quem Deus diz que você é e do propósito que Ele te deu.</span></div>
+    </div>
+    <p class="lead" style="margin-top:2rem;color:rgba(249,245,238,0.8)">Cada capítulo tem seus desafios. O chamado é o mesmo: todas nós temos um propósito, como mulher, pra nossa família e pra quem Deus colocou perto. O caderno dá a estrutura, você adapta à sua vida.</p>
+  </div>
+</section>
+
+<!-- SOBRE -->
+<section class="sobre">
+  <div class="wrap">
+    <div class="foto"><img src="assets/img/rebeca.jpg" alt="Rebeca Fortunato"></div>
+    <div>
+      <span class="eyebrow">Quem fez</span>
+      <h2>Feito por uma mulher que também está saindo de tola pra virtuosa.</h2>
+      <p class="lead" style="margin-top:1rem">Eu não escrevi este caderno já sendo virtuosa. Virtuosa é o que a gente escolhe ser todo dia. Escrevi da pia da cozinha, do treino que eu não queria fazer, da conversa difícil que eu não queria ter. Enquanto você faz o desafio, eu estou fazendo do lado de cá.</p>
+      <p class="lead">O que eu descobri é simples: virtude não é sentimento, é prática. E prática com meta visível, com data pra começar e data pra terminar, e com uma amiga fazendo junto muda tudo: além de te edificar, te dá uma motivação a mais. São 40 dias com começo e fim. Quando terminar, você já vai ser outra mulher. Mas não para aí: a gente nunca vai estar cem por cento virtuosa. Termina uma travessia, marca a próxima. Virtuosa é quem não para.</p>
+      <p class="lead">Tenho 23 anos e sou casada há pouco tempo. Já fui a solteira que não sabia o que Deus queria pra ela, a noiva lendo livro de casamento, e hoje sou a casada aprendendo, na prática, como é difícil ser virtuosa dentro de uma casa. Ainda vou ser mãe. E foi por isso que Deus me chamou pra falar com mulheres sobre identidade e relacionamentos: ninguém precisa esperar a próxima fase pra começar.</p>
+      <p class="assina">Rebeca Fortunato</p>
+    </div>
+  </div>
+</section>
+
+<!-- OFERTA -->
+<section class="oferta on-sand" id="oferta">
+  <div class="wrap">
+    <div class="of-head center">
+      <span class="eyebrow">Sua travessia começa hoje</span>
+      <h2>Tudo o que você leva pro deserto</h2>
+      <p class="lead" style="margin:0.8rem auto 0">Um caderno, uma área de membros e uma mulher fazendo o caminho junto com você. Por menos que um almoço fora.</p>
+    </div>
+
+    <div class="box">
+      <div class="left">
+        <div class="stack">
+          <div class="st-img"><img src="assets/img/capa.png" alt="Capa do caderno De Tola a Virtuosa"><img src="assets/img/dia.png" alt="Página do dia" class="st-2"></div>
+          <div class="st-list">
+            <h3>O que vem dentro</h3>
+            <ul class="vs">
+              <li><b>Caderno em PDF, A4, pronto pra imprimir</b><span>72 páginas, 40 dias, 4 provas</span><em>R$ 67</em></li>
+              <li><b>Área de membros pelo celular</b><span>A mesma travessia, sem impressora</span><em>R$ 37</em></li>
+              <li><b>Aula inaugural com a Rebeca</b><span>Como sair da tola antes do dia 1</span><em>R$ 27</em></li>
+              <li><b>Vídeos: como imprimir e como usar</b><span>Sem dúvida, sem desculpa</span><em>R$ 17</em></li>
+              <li><b>Carta pro futuro, retrato do dia 1 e do dia 40</b><span>A prova de que você mudou</span><em>Bônus</em></li>
+            </ul>
+            <div class="vs-total"><span>Valor de tudo separado</span><s>R$ 148</s></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="right">
+        <span class="tag">Oferta de lançamento</span>
+        <span class="strike">de R$ 97</span>
+        <div class="price"><small>R$</small>47</div>
+        <span class="price-note">ou 12x de R$ 4,70 · acesso imediato</span>
+        <span class="save">Você economiza R$ 101</span>
+        <label class="bump"><input type="checkbox" id="bump-amiga" data-extra="27"><span class="bx"></span><span class="bt"><b>Presentear uma amiga <em>+ R$ 27</em></b><small>Ela ganha o acesso dela, com o seu nome no cartão. Vocês fazem os 40 dias juntas.</small></span></label>
+        <p class="bump-note">O presente você confirma na página de pagamento.</p>
+        <a class="btn gold block" style="margin-top:1rem" href="https://pay.kiwify.com.br/6IGmfcv" id="btn-checkout">Quero começar agora<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <div class="pay"><span>Pix</span><span>Cartão</span><span>Compra segura</span></div>
+        <div class="garantia"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2 4 5v6c0 5 3.5 9.5 8 11 4.5-1.5 8-6 8-11V5z"/><path d="m9 12 2 2 4-4"/></svg><span><b>7 dias de garantia.</b> Se não for pra você, devolvemos tudo. Sem pergunta.</span></div>
+      </div>
+    </div>
+
+    <ol class="passos">
+      <li><span>1</span><b>Você garante o acesso</b><small>Pix cai na hora, cartão aprova em segundos.</small></li>
+      <li><span>2</span><b>Recebe tudo no e-mail</b><small>O e-mail da Kiwify traz o caderno em PDF e o passo a passo pra criar sua conta no app, onde ficam as aulas.</small></li>
+      <li><span>3</span><b>Marca a data do dia 1</b><small>E começa a travessia no seu ritmo, com a sua casa.</small></li>
+    </ol>
+
+  </div>
+</section>
+
+<!-- FAQ -->
+<section>
+  <div class="wrap" style="max-width:820px">
+    <span class="eyebrow">Perguntas frequentes</span>
+    <h2 style="margin-bottom:1.5rem">O que você ainda quer saber</h2>
+    <details><summary>Preciso imprimir?</summary><p>Não. Você recebe o PDF e o acesso à versão online, e dá pra fazer a travessia inteira pelo celular. Mas a gente recomenda imprimir. Ter o caderno na mão, escrever com a sua letra, riscar, pintar o quadradinho: isso muda alguma coisa na cabeça. Dá mais foco e mais compromisso do que uma tela. Por isso o vídeo de como imprimir vem junto.</p></details>
+    <details><summary>Quanto custa imprimir?</summary><p>São 72 páginas em A4 deitado, só frente, 72 folhas. Numa gráfica de bairro, com espiral, costuma sair barato. No vídeo de como imprimir a Rebeca mostra papel, gramatura e o que pedir.</p></details>
+    <details><summary>E se eu perder um dia?</summary><p>Marca "pulei" e vira a página. Se der, faz dois desafios no dia seguinte. Se não der, tudo bem. Não desiste, não recomeça do zero. Não existe 40 dias perfeitos. Existe 40 dias vividos.</p></details>
+    <details><summary>Sou casada e mãe. Dá tempo?</summary><p>A página do dia foi feita pra ser marcada em um minuto. Escrever é bônus pros dias com fôlego. Os desafios cabem numa rotina cheia, e vários deles são com a sua casa e as suas pessoas.</p></details>
+    <details><summary>Quanto tempo tenho de acesso?</summary><p>O PDF é seu pra sempre, e o app também: não tem prazo pra acabar.</p></details>
+    <details><summary>Posso dar de presente pra uma amiga?</summary><p>Pode, e é o jeito mais bonito de fazer. Na hora da compra, marque "presentear uma amiga" por mais R$ 27. Você recebe um código de presente na sua área de membros, com um cartão pra mandar por mensagem ou imprimir. Ela cria a conta dela com o código e cada uma segue no seu ritmo, com o próprio caderno. Esqueceu na hora? Dá pra comprar depois, quantas vezes quiser, pelo menu Presente do app.</p></details>
+<details><summary>Posso fazer mais de uma vez?</summary><p>Sim, e a ideia é essa. No dia 40 você decide a próxima travessia, com novas metas, novas regras e uma amiga junto.</p></details>
+  </div>
+</section>
+
+<section class="on-rubi center" style="padding-top:4rem;padding-bottom:4rem">
+  <div class="wrap">
+    <p class="verse" style="font-size:1.6rem">“Não existe 40 dias perfeitos. Existe 40 dias vividos.”</p>
+    <a class="btn gold" style="margin-top:1.6rem" href="#oferta">Começar minha travessia</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <a class="logo" href="./"><img src="assets/logo.svg" alt=""><span style="color:var(--creme)">De Tola a Virtuosa<small>por Rebeca Fortunato</small></span></a>
+    <div>Corpo, alma e espírito · 40 dias no deserto · <a href="app/">Área de membros</a></div>
+  </div>
+</footer>
+
+<script>
+  // Checkout Kiwify. O presente é um order bump confirmado na página de pagamento; aqui só mostra o total.
+  var CHECKOUT_URL = "https://pay.kiwify.com.br/6IGmfcv";
+  var BASE = 47;
+  var b = document.getElementById("btn-checkout");
+  var price = document.querySelector(".price");
+  var note = document.querySelector(".price-note");
+  var bumps = document.querySelectorAll(".bump input");
+  function atualiza() {
+    var total = BASE, n = 0;
+    bumps.forEach(function (c) { if (c.checked) { total += +c.dataset.extra; n++; } });
+    price.innerHTML = "<small>R$</small>" + total;
+    note.textContent = "ou 12x de R$ " + (total / 10).toFixed(2).replace(".", ",") + (n ? " · dois acessos" : " · acesso imediato");
+    b.firstChild.textContent = n ? "Quero começar com ela" : "Quero começar agora";
+  }
+  bumps.forEach(function (c) { c.addEventListener("change", atualiza); });
+  b.href = CHECKOUT_URL;
+  atualiza();
+</script>
+</body>
+</html>

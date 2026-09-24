@@ -1,0 +1,22 @@
+ErrorDocument 404 /index.html
+<IfModule mod_headers.c>
+  <FilesMatch "\.(html)$">
+    Header set Cache-Control "no-cache, must-revalidate"
+  </FilesMatch>
+  # O caderno e o app não entram no Google.
+  <If "%{REQUEST_URI} =~ m#^/(dist|app)/#">
+    Header set X-Robots-Tag "noindex, nofollow"
+  </If>
+</IfModule>
+RedirectMatch 404 ^/\.git
+RedirectMatch 404 ^/\.github
+RedirectMatch 404 ^/app/supabase
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType text/css "access plus 7 days"
+  ExpiresByType application/javascript "access plus 7 days"
+  ExpiresByType image/png "access plus 30 days"
+  ExpiresByType image/jpeg "access plus 30 days"
+  ExpiresByType image/svg+xml "access plus 30 days"
+  ExpiresByType font/ttf "access plus 365 days"
+</IfModule>
