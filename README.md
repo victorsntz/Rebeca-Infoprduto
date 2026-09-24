@@ -57,7 +57,7 @@ push na main  →  sync.yml monta: site/ na raiz + PDFs em dist/ + .htaccess  �
 
 - **Publicar na hora:** `gh workflow run sync.yml -R victorsntz/Rebeca-Infoprduto --ref main`
 - Todo push na `main` que mexa em `site/` ou nos PDFs publica sozinho.
-- Não precisa de segredo: a Action usa o token do próprio repositório.
+- Segredo `HOSTINGER_DEPLOY_URL` (Settings › Secrets › Actions): a URL de "Implementação automática" da tela GIT da Hostinger. Com ele, a Action avisa a Hostinger no fim e o site atualiza sozinho. Sem ele, clique em "Implementar" no painel.
 - A branch `publicar` é gerada, nunca edite nela: cada publicação apaga e refaz.
 
 **Na Hostinger (uma vez):** Websites › Adicionar site › domínio do produto (ex.: `detolaavirtuosa.com.br`,
