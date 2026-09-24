@@ -31,6 +31,7 @@
   const firstName = () => ((st.profile && st.profile.name) || (st.session && st.session.name) || "").split(" ")[0];
 
   let toastT;
+  function isoShift(days) { const d = new Date(); d.setDate(d.getDate() + days); return d.toISOString().slice(0, 10); }
   function toast(msg, err) { toastEl.textContent = msg; toastEl.hidden = false; toastEl.className = "toast" + (err ? " err" : ""); clearTimeout(toastT); toastT = setTimeout(() => (toastEl.hidden = true), 2200); }
   const debounce = (fn, ms) => { let t; return (...a) => { clearTimeout(t); t = setTimeout(() => fn(...a), ms); }; };
 
@@ -149,7 +150,7 @@
     <div class="form"><div>
       <form id="onboard">
         <div class="field"><label class="label" for="o-name">Como você quer ser chamada</label><input id="o-name" type="text" name="name" value="${esc(st.session.name || "")}" required></div>
-        <div class="field"><label class="label" for="o-date">Meu dia 1 é</label><input id="o-date" type="date" name="start_date" value="${isoToday()}" required><p class="muted" style="font-size:0.82rem;margin:0.4rem 0 0">Pode ser hoje ou uma data futura. O dia 40 cai 39 dias depois.</p></div>
+        <div class="field"><label class="label" for="o-date">Quando começa a sua travessia? <span class="hint">a data do seu dia 1, não a de nascimento</span></label><input id="o-date" type="date" name="start_date" value="${isoToday()}" min="${isoShift(-10)}" max="${isoShift(60)}" required><p class="muted" style="font-size:0.82rem;margin:0.4rem 0 0">Hoje, ou um dia dos próximos dois meses. O dia 40 cai 39 dias depois.</p></div>
         <div class="field"><span class="label">Onde eu estou hoje</span>${chips(["Solteira", "Namorando", "Noiva", "Casada", "Mãe"], "fase", [], "", false)}</div>
 
         <button class="btn block" type="submit">Começar a travessia</button>
