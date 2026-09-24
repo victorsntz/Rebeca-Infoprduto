@@ -251,3 +251,14 @@ table.tracker td.na { background: repeating-linear-gradient(45deg, transparent 0
 .gift.off h3 { font-size: 1.25rem; margin: 0.2rem 0 0.4rem; }
 .btns { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 0.6rem; }
 @media (max-width: 860px) { .gift-cta { flex-direction: column; align-items: center; text-align: center; } .gift .gift-head { flex-direction: column; } .btns { justify-content: center; } .claim { text-align: center; } }
+
+/* preparação em sequência */
+.steps-strip { display: flex; gap: 0.4rem; flex-wrap: wrap; margin: 0 0 1.2rem; }
+.steps-strip .step { display: inline-flex; align-items: center; gap: 0.45rem; padding: 0.35rem 0.7rem 0.35rem 0.4rem; border-radius: 999px; border: 1px solid var(--linha); background: #fff; font-size: 0.82rem; color: var(--cinza); text-decoration: none; }
+.steps-strip .step i { width: 22px; height: 22px; border-radius: 50%; background: var(--areia-escura); color: var(--carvao); display: inline-flex; align-items: center; justify-content: center; font-style: normal; font-size: 0.75rem; font-family: var(--serif); }
+.steps-strip .step.ok i { background: var(--salvia); color: #fff; }
+.steps-strip .step.cur { border-color: var(--rubi); color: var(--rubi-escuro); }
+.steps-strip .step.cur i { background: var(--rubi); color: #fff; }
+.stepbar { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin-top: 1.2rem; padding-top: 1rem; border-top: 1px dashed var(--linha); }
+.stepbar .muted { font-size: 0.8rem; }
+@media (max-width: 860px) { .steps-strip { justify-content: center; } .stepbar { flex-direction: column; } }

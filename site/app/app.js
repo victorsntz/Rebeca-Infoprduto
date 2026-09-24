@@ -217,9 +217,9 @@
       <div class="hero-card">
         <div>
           <span class="eyebrow">${t === 0 ? "Sua travessia começa " + fmt(st.profile.start_date) : `Prova ${b.num} · ${esc(b.lugar)} · ${esc(b.virtude)}`}</span>
-          <h2>${t === 0 ? `Preparada, ${esc(firstName())}?` : todayEntry.done ? `Dia ${t} marcado, ${esc(firstName())}.` : `Dia ${t}, ${esc(firstName())}.`}</h2>
-          <p>${t === 0 ? "Use estes dias pra preencher a preparação. É a parte que a maioria pula e que decide tudo." : todayEntry.done ? "Fidelidade é isso: o dia " + t + " com a mesma seriedade do dia 1." : esc(C.desafios[t - 1])}</p>
-          ${t > 0 ? `<a class="btn gold" href="#/dia/${t}">${todayEntry.done ? "Rever o dia de hoje" : "Marcar o dia de hoje"}</a>` : `<a class="btn gold" href="#/prep">Ir pra preparação</a>`}
+          <h2>${!prepDone() ? `Antes do dia 1, ${esc(firstName())}.` : t === 0 ? `Preparada, ${esc(firstName())}?` : todayEntry.done ? `Dia ${t} marcado, ${esc(firstName())}.` : `Dia ${t}, ${esc(firstName())}.`}</h2>
+          <p>${!prepDone() ? "Igual ao caderno: primeiro as páginas de preparação, depois o dia 1. Compromisso, identidade, propósito, regras, quadro dos sonhos, carta e retrato. Uma tarde resolve." : t === 0 ? "Use estes dias pra preencher a preparação. É a parte que a maioria pula e que decide tudo." : todayEntry.done ? "Fidelidade é isso: o dia " + t + " com a mesma seriedade do dia 1." : esc(C.desafios[t - 1])}</p>
+          ${!prepDone() ? `<a class="btn gold" href="#/prep">Continuar a preparação (${prepPending()} ${prepPending() === 1 ? "página" : "páginas"})</a>` : t > 0 ? `<a class="btn gold" href="#/dia/${t}">${todayEntry.done ? "Rever o dia de hoje" : "Marcar o dia de hoje"}</a>` : `<a class="btn gold" href="#/prep">Rever a preparação</a>`}
         </div>
         <div class="ring" style="--p:${(doneCount() / TOTAL) * 100}"><div><b>${doneCount()}</b><small>de 40</small></div></div>
       </div>
@@ -247,6 +247,7 @@
 
   // ------------------------------------------------------------------ dia
   function viewDia(d) {
+    if (!prepDone()) { toast("Antes do dia 1, preencha a preparação. Faltam " + prepPending() + ".", true); location.hash = "#/prep"; return viewPrep(); }
     const t = todayIdx();
     const b = bloco(d);
     const nav = `<div class="daynav">${d > 1 ? `<a href="#/dia/${d - 1}" aria-label="Dia anterior">${ICO.left}</a>` : `<span>${ICO.left}</span>`}${d < TOTAL && d < t ? `<a href="#/dia/${d + 1}" aria-label="Próximo dia">${ICO.right}</a>` : `<span>${ICO.right}</span>`}</div>`;
@@ -347,49 +348,57 @@
   }
 
   // ------------------------------------------------------------------ preparação
+  const PREP_ORDER = ["compromisso", "tola", "identidade", "proposito", "regras", "carta", "retrato1"];
+  function prepDone() { return prepStatus().every((x) => x[2]); }
+  function prepPending() { return prepStatus().filter((x) => !x[2]).length; }
   function viewPrep() {
     const p = st.prep, t = todayIdx();
     const ps = Object.fromEntries(prepStatus().map(([k, l, ok]) => [k, ok]));
+    const first = PREP_ORDER.find((k) => !ps[k]);
+    const stepBtn = (k) => { const i = PREP_ORDER.indexOf(k); const nx = PREP_ORDER[i + 1];
+      return `<div class="stepbar">${nx ? `<button type="button" class="btn sm" data-act="prep-next" data-next="${nx}">Salvar e ir pro próximo</button><span class="muted">${i + 1} de ${PREP_ORDER.length}</span>` : `<a class="btn gold sm" href="#/inicio">Terminei a preparação</a><span class="muted">${i + 1} de ${PREP_ORDER.length}</span>`}</div>`; };
     const g = (k, f) => esc((p[k] || {})[f]);
-    const acc = (k, title, sub, body, open) => `<details class="acc" ${open ? "open" : ""}><summary class="${ps[k] ? "ok" : ""}"><span class="st"></span><b>${esc(title)}</b><small>${esc(sub)}</small></summary><div class="body">${body}</div></details>`;
+    const acc = (k, title, sub, body, open) => `<details class="acc" id="acc-${k}" ${(first ? k === first : false) ? "open" : ""}><summary class="${ps[k] ? "ok" : ""}"><span class="st"></span><b>${esc(title)}</b><small>${esc(sub)}</small></summary><div class="body">${body}</div></details>`;
     const cae = C.corpo_alma_espirito, idn = C.identidade, pl = C.proposito_limites, rs = C.regras_sonhos, rt = C.retrato, tv = C.tola_virtuosa, cf = C.carta_futuro;
     const retratoRows = (k) => rt.areas.map((a) => `<div class="retrato-row"><span>${esc(a)}</span><div class="scale">${Array.from({ length: 11 }, (_, i) => i).map((v) => `<button type="button" class="${((p[k] || {}).notas || {})[a] === v ? "on" : ""}" data-nota="${k}:${esc(a)}:${v}">${v}</button>`).join("")}</div></div>`).join("");
     const html = `
-      <div class="page-head"><div><span class="eyebrow">Antes do dia 1</span><h1>Preparação</h1></div><p class="muted" style="max-width:48ch">As páginas que a maioria pula e que decidem tudo. Reserve uma tarde. Tudo salva sozinho.</p></div>
+      <div class="page-head"><div><span class="eyebrow">Antes do dia 1 · ${PREP_ORDER.length - prepPending()} de ${PREP_ORDER.length} prontas</span><h1>Preparação</h1></div><p class="muted" style="max-width:48ch">As páginas que a maioria pula e que decidem tudo. Reserve uma tarde. Tudo salva sozinho.</p></div>
+      <div class="steps-strip">${PREP_ORDER.map((k, i) => { const it = prepStatus().find((x) => x[0] === k); return `<a href="#acc-${k}" class="step ${it[2] ? "ok" : ""} ${k === first ? "cur" : ""}" data-act="prep-goto" data-next="${k}"><i>${it[2] ? "✓" : i + 1}</i><span>${esc(it[1])}</span></a>`; }).join("")}</div>
+      ${prepDone() ? `<div class="card gift-cta"><div><span class="eyebrow">Tudo pronto</span><b>A preparação está completa</b><span class="muted">Agora é uma página por dia. Vai pro início e marque o dia 1.</span></div><a class="btn gold sm" href="#/inicio">Ir pro início</a></div>` : ""}
       ${acc("compromisso", "Meu compromisso", "assinatura e porquê", `
         <p>Eu, <b>${esc(st.profile.name || "")}</b>, decido atravessar estes 40 dias com honestidade, sem perfeição e sem desistir. Quando falhar, viro a página. Quando acertar, agradeço a Deus.</p>
         <div class="field"><label class="label" for="c-ass">Assinatura <span class="hint">digite seu nome completo</span></label><input id="c-ass" type="text" data-prep="compromisso.assinatura" value="${g("compromisso", "assinatura")}" style="font-family:var(--serif);font-size:1.4rem;font-style:italic"></div>
         <div class="field"><label class="label" for="c-why">Meu porquê, em uma frase</label><textarea id="c-why" data-prep="compromisso.porque" rows="2">${g("compromisso", "porque")}</textarea></div>
-        <div class="field"><span class="label">Onde eu estou hoje</span>${chips(["Solteira", "Namorando", "Noiva", "Casada", "Mãe"], "compromisso.fase", (p.compromisso || {}).fase)}</div>`, !ps.compromisso)}
+        <div class="field"><span class="label">Onde eu estou hoje</span>${chips(["Solteira", "Namorando", "Noiva", "Casada", "Mãe"], "compromisso.fase", (p.compromisso || {}).fase)}</div>${stepBtn("compromisso")}`, !ps.compromisso)}
       ${acc("tola", tv.titulo, "diagnóstico", `
         ${verse(tv.versiculo, tv.ref)}<p style="margin-top:0.8rem">${esc(tv.intro)}</p>
         <table class="contrast">${tv.contrastes.map(([a, b], i) => `<tr><td><button type="button" class="chip ${(p.tola || {}).linha == i ? "on" : ""}" data-chip="tola.linha" data-val="${i}" data-single="1" style="width:30px;height:30px;padding:0;justify-content:center">${i + 1}</button></td><td class="t"><i>A tola</i> ${esc(a)}</td><td class="v"><i style="color:var(--rubi)">A virtuosa</i> ${esc(b)}</td></tr>`).join("")}</table>
-        <div class="field" style="margin-top:0.8rem"><label class="label" for="tl">${esc(tv.pergunta)} <span class="hint">marque o número acima e escreva por quê</span></label><textarea id="tl" class="lined" data-prep="tola.porque" rows="2">${g("tola", "porque")}</textarea></div>`)}
+        <div class="field" style="margin-top:0.8rem"><label class="label" for="tl">${esc(tv.pergunta)} <span class="hint">marque o número acima e escreva por quê</span></label><textarea id="tl" class="lined" data-prep="tola.porque" rows="2">${g("tola", "porque")}</textarea></div>${stepBtn("tola")}`)}
       ${acc("identidade", idn.titulo, "quem Deus diz", `
         <p>${esc(idn.intro)}</p>
         <div class="two" style="gap:0.6rem;margin-bottom:1rem">${idn.versiculos.map(([t2, v, r]) => `<div style="border-left:3px solid var(--rubi);padding-left:0.7rem"><span class="label" style="color:var(--rubi);margin:0">${esc(t2)}</span><i class="serif" style="font-size:1.05rem">“${esc(v)}”</i><br><small class="muted" style="letter-spacing:0.1em;text-transform:uppercase;font-size:0.65rem">${esc(r)}</small></div>`).join("")}</div>
         <div class="field"><label class="label" for="id1">${esc(idn.pergunta1)}</label><textarea id="id1" class="lined" data-prep="identidade.hoje" rows="3">${g("identidade", "hoje")}</textarea></div>
-        <div class="field"><label class="label" for="id2">${esc(idn.pergunta2)}</label><textarea id="id2" class="lined" data-prep="identidade.deus" rows="3">${g("identidade", "deus")}</textarea></div>`)}
+        <div class="field"><label class="label" for="id2">${esc(idn.pergunta2)}</label><textarea id="id2" class="lined" data-prep="identidade.deus" rows="3">${g("identidade", "deus")}</textarea></div>${stepBtn("identidade")}`)}
       ${acc("proposito", pl.titulo, "direção e limites", `
         <div class="two"><div><h4 class="serif" style="font-size:1.3rem">Propósito</h4><p class="muted" style="font-size:0.92rem">${esc(pl.prop_intro)}</p>
           ${pl.prop_perguntas.map((q, i) => `<div class="field"><label class="label" for="pq${i}">${esc(q)}</label><textarea id="pq${i}" class="lined" data-prep="proposito.q${i}" rows="2">${g("proposito", "q" + i)}</textarea></div>`).join("")}
           <div class="field" style="background:var(--dourado-claro);padding:0.8rem;border-radius:10px"><label class="label" for="pf">${esc(pl.prop_frase)}</label><textarea id="pf" data-prep="proposito.frase" rows="2" style="background:transparent">${g("proposito", "frase")}</textarea></div></div>
         <div><h4 class="serif" style="font-size:1.3rem">Limites</h4><p class="muted" style="font-size:0.92rem">${esc(pl.lim_intro)} <i>“${esc(pl.lim_versiculo)}”</i> ${esc(pl.lim_ref)}</p>
-          ${pl.lim_areas.map((a, i) => `<span class="label">${esc(a)}</span><div class="two" style="gap:0.6rem;margin-bottom:0.8rem">${pl.lim_cols.map((c, j) => `<div><small class="muted">${esc(c)}</small><textarea class="lined" data-prep="proposito.l${i}${j}" rows="2">${g("proposito", "l" + i + j)}</textarea></div>`).join("")}</div>`).join("")}</div></div>`)}
+          ${pl.lim_areas.map((a, i) => `<span class="label">${esc(a)}</span><div class="two" style="gap:0.6rem;margin-bottom:0.8rem">${pl.lim_cols.map((c, j) => `<div><small class="muted">${esc(c)}</small><textarea class="lined" data-prep="proposito.l${i}${j}" rows="2">${g("proposito", "l" + i + j)}</textarea></div>`).join("")}</div>`).join("")}</div></div>${stepBtn("proposito")}`)}
       ${acc("regras", rs.titulo, "inegociáveis e visão", `
         <div class="two"><div><p class="muted" style="font-size:0.92rem">${esc(rs.regras_intro)}</p>${rs.regras.map((r) => `<label class="check ${((p.regras || {}).marcadas || []).includes(r) ? "on" : ""}" data-multi="regras.marcadas" data-val="${esc(r)}"><span class="box"></span><span>${esc(r)}</span></label>`).join("")}
           <div class="field" style="margin-top:0.8rem"><label class="label" for="rm">Minhas regras <span class="hint">as que eu não negocio por 40 dias</span></label><textarea id="rm" class="lined" data-prep="regras.minhas" rows="3">${g("regras", "minhas")}</textarea></div></div>
         <div><p class="muted" style="font-size:0.92rem">${esc(rs.sonhos_intro)} <i>“${esc(rs.sonhos_versiculo)}”</i> ${esc(rs.sonhos_ref)}</p>
-          <div class="dreams">${rs.areas.map(([a, cor], i) => `<div class="c-${cor}"><h4>${esc(a)}</h4><label class="label" for="dm${i}">Meta que dá pra medir</label><input id="dm${i}" type="text" data-prep="regras.meta${i}" value="${g("regras", "meta" + i)}"><label class="label" for="dc${i}" style="margin-top:0.5rem">Como vou saber que cheguei</label><input id="dc${i}" type="text" data-prep="regras.como${i}" value="${g("regras", "como" + i)}"></div>`).join("")}</div></div></div>`)}
+          <div class="dreams">${rs.areas.map(([a, cor], i) => `<div class="c-${cor}"><h4>${esc(a)}</h4><label class="label" for="dm${i}">Meta que dá pra medir</label><input id="dm${i}" type="text" data-prep="regras.meta${i}" value="${g("regras", "meta" + i)}"><label class="label" for="dc${i}" style="margin-top:0.5rem">Como vou saber que cheguei</label><input id="dc${i}" type="text" data-prep="regras.como${i}" value="${g("regras", "como" + i)}"></div>`).join("")}</div></div></div>${stepBtn("regras")}`)}
       ${acc("carta", cf.titulo, "só abre no dia 40", (p.carta || {}).texto && t < TOTAL && (p.carta || {}).lacrada
-        ? `<div class="sealed"><div class="big">Lacrada.</div><p class="muted">Escrita em ${esc((p.carta || {}).data || "")}. Abre no dia 40, ${esc(dayDate(TOTAL))}.</p><button class="btn ghost sm" data-act="unseal">Preciso editar</button></div>`
+        ? `<div class="sealed"><div class="big">Lacrada.</div><p class="muted">Escrita em ${esc((p.carta || {}).data || "")}. Abre no dia 40, ${esc(dayDate(TOTAL))}.</p><button class="btn ghost sm" data-act="unseal">Preciso editar</button></div>${stepBtn("carta")}`
         : `<p class="muted">${esc(cf.intro)}</p><p class="serif" style="font-size:1.2rem;font-style:italic">${esc(cf.cabecalho)}</p>
            <div class="field"><textarea class="lined" data-prep="carta.texto" rows="8" placeholder="Hoje eu estou…">${g("carta", "texto")}</textarea></div>
-           ${t >= TOTAL ? "" : `<button class="btn sm" data-act="seal">Lacrar até o dia 40</button>`}`)}
+           ${t >= TOTAL ? "" : `<button class="btn sm" data-act="seal">Lacrar até o dia 40</button>`}${stepBtn("carta")}`)}
       ${acc("retrato1", rt.titulo_1, "foto honesta", `
         <p class="muted" style="font-size:0.92rem">${esc(rt.intro_1)}</p><span class="label">De 0 a 10, como está cada área hoje</span>${retratoRows("retrato1")}
         <div class="two" style="margin-top:1rem"><div class="field"><label class="label" for="r1a">${esc(rt.palavras_1)}</label><input id="r1a" type="text" data-prep="retrato1.palavras" value="${g("retrato1", "palavras")}"></div><div class="field"><label class="label" for="r1b">${esc(rt.incomodo_1)}</label><input id="r1b" type="text" data-prep="retrato1.incomodo" value="${g("retrato1", "incomodo")}"></div></div>
-        <div class="field"><label class="label" for="r1c">Oração de partida <span class="hint">o que eu quero pedir a Deus antes do dia 1</span></label><textarea id="r1c" class="lined" data-prep="retrato1.oracao" rows="3">${g("retrato1", "oracao")}</textarea></div>`)}
+        <div class="field"><label class="label" for="r1c">Oração de partida <span class="hint">o que eu quero pedir a Deus antes do dia 1</span></label><textarea id="r1c" class="lined" data-prep="retrato1.oracao" rows="3">${g("retrato1", "oracao")}</textarea></div>${stepBtn("retrato1")}`)}
       ${t >= TOTAL ? acc("retrato40", rt.titulo_40, "dia 40", `
         <p class="muted" style="font-size:0.92rem">${esc(rt.intro_40)}</p>${retratoRows("retrato40")}
         <div class="two" style="margin-top:1rem"><div class="field"><label class="label" for="r4a">${esc(rt.mudou_40)}</label><textarea id="r4a" class="lined" data-prep="retrato40.mudou" rows="3">${g("retrato40", "mudou")}</textarea></div><div class="field"><label class="label" for="r4b">${esc(rt.deus_40)}</label><textarea id="r4b" class="lined" data-prep="retrato40.deus" rows="3">${g("retrato40", "deus")}</textarea></div></div>
@@ -545,6 +554,7 @@
     const a = act.dataset.act;
     if (a === "tab") return renderAuth(act.dataset.tab);
     if (a === "logout") { await S.signOut(); location.hash = ""; return boot(); }
+    if (a === "prep-next" || a === "prep-goto") { ev.preventDefault(); const k = act.dataset.next; app.querySelectorAll("details.acc").forEach((d) => { d.open = d.id === "acc-" + k; }); const el = document.getElementById("acc-" + k); if (el) el.scrollIntoView({ behavior: "smooth", block: "start" }); if (a === "prep-next") toast("Salvo. Próxima página."); return; }
     if (a === "copy") { try { await navigator.clipboard.writeText(act.dataset.text); toast("Link copiado."); } catch { prompt("Copie o link:", act.dataset.text); } return; }
     if (a === "cartao") { const gs = await S.getGifts(st.session.email); const g = gs.find((x) => x.code === act.dataset.code); if (g) cartaoPresente(g); return; }
     if (a === "reset") { const email = document.getElementById("f-email").value; if (!email) return toast("Digite o e-mail primeiro.", true); try { await S.resetPassword(email); toast("Enviamos um link pro seu e-mail."); } catch (e) { toast(e.message, true); } return; }
@@ -576,7 +586,7 @@
       await S.setProfile(st.session.email, { name: fd.get("name").trim(), start_date: fd.get("start_date") });
       await S.setPrep(st.session.email, "compromisso", { porque: fd.get("why"), fase: fases });
       st.profile = await S.getProfile(st.session.email); st.prep = await S.getPrep(st.session.email);
-      location.hash = "#/inicio"; route();
+      location.hash = "#/prep"; route();
     }
   });
 
