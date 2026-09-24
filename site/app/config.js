@@ -16,7 +16,7 @@ window.DTV_CONFIG = {
   PDF_URL: "../dist/de-tola-a-virtuosa.pdf",   // no site publicado os PDFs ficam em detolaavirtuosa/dist/
 
   // Link do checkout, usado quando a assinatura está inativa.
-  CHECKOUT_URL: "",
+  CHECKOUT_URL: "https://pay.kiwify.com.br/6IGmfcv",
 
   // Suporte
   SUPORTE_EMAIL: "contato@detolaavirtuosa.com",
