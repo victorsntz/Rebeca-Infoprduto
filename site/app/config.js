@@ -5,9 +5,9 @@ window.DTV_CONFIG = {
   SUPABASE_URL: "https://stcskyelzuynfnmdrnth.supabase.co",
   SUPABASE_ANON_KEY: "sb_publishable_qRZtPer3nwwQqo3J-T2qPQ_yLJpGDQv",
 
-  // Vídeos (YouTube ou Vimeo). Cole só o ID ou a URL de embed.
+  // Vídeos (YouTube ou Vimeo). Pode colar o link normal do vídeo, o app converte pro player.
   VIDEOS: {
-    aula_inaugural: "",   // ex.: "https://www.youtube.com/embed/XXXXXXXX"
+    aula_inaugural: "https://youtu.be/kUP5Hm-PTVw",
     como_imprimir: "",
     como_usar_site: "",
   },

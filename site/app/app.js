@@ -465,7 +465,17 @@
   }
 
   // ------------------------------------------------------------------ aulas / imprimir / conta
-  const video = (url, title, desc) => `<div class="card"><div class="video">${url ? `<iframe src="${esc(url)}" title="${esc(title)}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>` : `<div>${ICO.play}<b style="display:block;color:var(--creme);font-family:var(--serif);font-size:1.3rem">${esc(title)}</b><small>Em breve, aqui mesmo.</small></div>`}</div><h3 style="margin-top:1rem">${esc(title)}</h3><p class="muted" style="margin:0.3rem 0 0">${esc(desc)}</p></div>`;
+  // Aceita qualquer link do YouTube (youtu.be, watch?v=, shorts) ou Vimeo e devolve o endereço do player.
+  function embedUrl(u) {
+    u = String(u || "").trim(); if (!u) return "";
+    let m = u.match(/(?:youtu\.be\/|youtube\.com\/(?:watch\?(?:.*&)?v=|shorts\/|embed\/))([A-Za-z0-9_-]{6,})/);
+    if (m) return "https://www.youtube-nocookie.com/embed/" + m[1] + "?rel=0&modestbranding=1";
+    m = u.match(/vimeo\.com\/(?:video\/)?(\d+)/);
+    if (m) return "https://player.vimeo.com/video/" + m[1];
+    if (/^[A-Za-z0-9_-]{6,}$/.test(u)) return "https://www.youtube-nocookie.com/embed/" + u + "?rel=0&modestbranding=1";
+    return u;
+  }
+  const video = (url, title, desc) => `<div class="card"><div class="video">${url ? `<iframe src="${esc(embedUrl(url))}" title="${esc(title)}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>` : `<div>${ICO.play}<b style="display:block;color:var(--creme);font-family:var(--serif);font-size:1.3rem">${esc(title)}</b><small>Em breve, aqui mesmo.</small></div>`}</div><h3 style="margin-top:1rem">${esc(title)}</h3><p class="muted" style="margin:0.3rem 0 0">${esc(desc)}</p></div>`;
   function viewAulas() {
     const V = CFG.VIDEOS || {};
     shell(`<div class="page-head"><div><span class="eyebrow">Com a Rebeca</span><h1>Aulas</h1></div></div>
