@@ -128,12 +128,24 @@
     }, 3200);
   }
 
-  function renderInactive() {
+  async function renderInactive() {
+    // Amiga que ganhou o presente e a compradora pediu reembolso: diz isso com todas as letras.
+    let cancelado = null;
+    if (st.member && st.member.provider === "gift") {
+      try { const g = await S.giftReceived(st.session.email); if (g && g.active === false) cancelado = g; } catch {}
+    }
+    const quem = cancelado ? (cancelado.buyer_name || cancelado.buyer_email) : "";
+    const titulo = cancelado ? "Seu convite foi cancelado" : st.member && st.member.found === false ? "Este e-mail ainda não tem acesso" : "Seu acesso não está ativo";
+    const texto = cancelado
+      ? `O acesso de <b>${esc(st.session.email)}</b> veio de um presente de <b>${esc(quem)}</b>, e ela pediu o reembolso dessa compra. Com isso, o convite perdeu a validade e a sua travessia ficou pausada. Fala com ela, ou garante o seu acesso por conta própria aqui embaixo. O que você já escreveu fica guardado.`
+      : st.member && st.member.found === false
+        ? `Não achamos nenhuma compra com o e-mail <b>${esc(st.session.email)}</b>. Se você comprou com outro e-mail, saia e entre com ele. Se acabou de comprar, espera um minuto e recarrega a página.`
+        : `A conta <b>${esc(st.session.email)}</b> existe, mas não encontramos uma assinatura ativa. Se você acabou de comprar, aguarde alguns minutos. Se cancelou ou pediu reembolso, o acesso foi encerrado.`;
     app.innerHTML = `<div class="inactive"><div class="card">
       ${LOGO.replace("<img", '<img style="width:48px;margin:0 auto 1rem"')}
-      <h2>Seu acesso não está ativo</h2>
-      <p>A conta <b>${esc(st.session.email)}</b> existe, mas não encontramos uma assinatura ativa. Se você acabou de comprar, aguarde alguns minutos. Se cancelou ou pediu reembolso, o acesso foi encerrado.</p>
-      ${CFG.CHECKOUT_URL ? `<a class="btn gold block" href="${esc(CFG.CHECKOUT_URL)}">Quero ativar meu acesso</a>` : ""}
+      <h2>${titulo}</h2>
+      <p>${texto}</p>
+      ${CFG.CHECKOUT_URL ? `<a class="btn gold block" href="${esc(CFG.CHECKOUT_URL)}">${cancelado ? "Garantir meu acesso" : "Quero ativar meu acesso"}</a>` : ""}
       <form id="claimform" class="claim"><label class="label" for="c-code" style="color:rgba(249,245,238,0.8)">Ganhou de presente? Digite o código</label><div class="row-inline"><input id="c-code" type="text" name="code" placeholder="AMIGA123" autocomplete="off" required><button class="btn gold sm" type="submit">Resgatar</button></div></form>
       <p style="margin-top:1rem;font-size:0.85rem">Precisa de ajuda? <a href="mailto:${esc(CFG.SUPORTE_EMAIL || "")}">${esc(CFG.SUPORTE_EMAIL || "fale com o suporte")}</a></p>
       <button class="btn ghost sm" data-act="logout" style="margin-top:0.8rem;color:var(--creme)">Sair</button>

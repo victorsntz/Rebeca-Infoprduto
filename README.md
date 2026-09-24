@@ -7,6 +7,7 @@ Infoproduto da Rebeca Fortunato pra mulheres: um caderno prático de corpo, alma
 | Caderno (PDF) | `dist/de-tola-a-virtuosa.pdf` | 72 páginas em A4 deitado, só frente, pra imprimir e encadernar |
 | Landing page | `site/index.html` | Página de vendas que a cliente abre antes do checkout |
 | Área de membros | `site/app/` | Versão online do caderno, com login, dia a dia e progresso salvo |
+| Aula "Comece aqui" (Kiwify) | `kiwify/aula-comece-aqui.html` | HTML colado na primeira aula da Kiwify: mapa do caminho, link do app e do PDF |
 
 O texto inteiro vive em um lugar só: `src/content.py`. O build gera o HTML do caderno e o `content.json` que o app lê. Mudou uma frase, um desafio ou um versículo, roda o build e as duas versões ficam iguais.
 
@@ -44,7 +45,7 @@ Precisa de `python3` e de um Chromium ou Chrome (`CHROME=/caminho/do/chrome ./bu
    - **Comprar o presente depois, quantas vezes quiser.** O mesmo produto do bump tem link de checkout próprio na plataforma. Está em `GIFT_CHECKOUT_URL` no `config.js` (e no HTML da aula em `kiwify/`): https://pay.kiwify.com.br/l2of2hZ. O app mostra "Presentear uma amiga" no Início e na página Presente; cada compra avulsa vira um convite novo. Nessas compras o webhook não mexe na conta da compradora (nem reembolso do presente derruba o acesso dela).
    - No modo demonstração toda conta ganha um código de exemplo, só pra testar.
 
-Na landing, troque o preço de exemplo e coloque a URL do checkout em `CHECKOUT_URL`, no fim do `site/index.html`.
+A landing já aponta pra https://pay.kiwify.com.br/6IGmfcv em `CHECKOUT_URL`, no fim do `site/index.html`.
 
 ## Publicar (a esteira)
 
@@ -61,7 +62,7 @@ push na main  →  sync.yml monta: site/ na raiz + PDFs em dist/ + .htaccess  �
 - Segredo `HOSTINGER_DEPLOY_URL` (Settings › Secrets › Actions): a URL de "Implementação automática" da tela GIT da Hostinger. Com ele, a Action avisa a Hostinger no fim e o site atualiza sozinho. Sem ele, clique em "Implementar" no painel.
 - A branch `publicar` é gerada, nunca edite nela: cada publicação apaga e refaz.
 
-**Na Hostinger (uma vez):** Websites › Adicionar site › domínio do produto (ex.: `detolaavirtuosa.com.br`,
+**Na Hostinger (uma vez):** Websites › Adicionar site › domínio do produto (ex.: `detolaavirtuosa.com`,
 ou um subdomínio temporário do plano enquanto o domínio não vem) › Avançado › Git › Criar repositório:
 URL `https://github.com/victorsntz/Rebeca-Infoprduto.git`, branch `publicar`, diretório em branco
 (vai pro `public_html`). Se o repositório for privado, a Hostinger mostra uma chave SSH pra colar em
@@ -105,4 +106,3 @@ Títulos em Libre Caslon (Display nos grandes, Text nos demais), texto corrido e
 - Bio da Rebeca na landing (já tem a primeira versão, ela revisa).
 - Frase da contracapa do caderno (tem uma sugestão).
 - Gravar a aula inaugural e os dois vídeos curtos.
-- Preço, parcelamento e link do checkout.

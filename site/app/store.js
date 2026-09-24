@@ -88,10 +88,10 @@
       if (error) throw new Error(traduz(error.message));
     },
     async membership(email) {
-      const { data } = await sb().from("members").select("active, plan, expires_at").eq("email", email).maybeSingle();
-      if (!data) return { active: false, email };
+      const { data } = await sb().from("members").select("active, plan, expires_at, provider").eq("email", email).maybeSingle();
+      if (!data) return { active: false, email, found: false };
       const expired = data.expires_at && new Date(data.expires_at) < new Date();
-      return { active: !!data.active && !expired, plan: data.plan, email };
+      return { active: !!data.active && !expired, plan: data.plan, provider: data.provider, email, found: true };
     },
     async getProfile() {
       const { data } = await sb().from("profiles").select("start_date, name").maybeSingle();
@@ -128,7 +128,7 @@
       if (error) return { ok: false, error: traduz(error.message) };
       return data || { ok: false, error: "Não deu pra resgatar agora. Tente de novo." };
     },
-    async giftReceived(email) { const { data } = await sb().from("gifts").select("code, buyer_name, buyer_email, to_name, message, claimed_at").eq("claimed_email", email).maybeSingle(); return data || null; },
+    async giftReceived(email) { const { data } = await sb().from("gifts").select("code, buyer_name, buyer_email, to_name, message, claimed_at, active").eq("claimed_email", email).maybeSingle(); return data || null; },
   };
 
   function traduz(m) {
