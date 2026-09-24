@@ -481,7 +481,7 @@
     shell(`<div class="page-head"><div><span class="eyebrow">Com a Rebeca</span><h1>Aulas</h1></div></div>
       <div class="stack">
         ${video(V.aula_inaugural, "Aula inaugural", "Quem é a Rebeca, por que 40 dias e por que este caderno nasceu. Assiste antes de escrever qualquer coisa.")}
-        ${video(V.conhecendo_caderno, "Conhecendo o caderno", "A Rebeca passa página por página: o que foi pensado em cada parte, por quê, e como ela usa no dia a dia.")}
+        ${video(V.conhecendo_caderno, "Conhecendo o caderno", "A Rebeca passa página por página: o que foi pensado em cada parte, por quê, e como ela vai usar no dia a dia junto com você.")}
         <div class="two">${video(V.como_imprimir, "Como imprimir e encadernar", "O caderno impresso em A4 deitado: papel, espiral e o que pedir na gráfica.")}${video(V.como_usar_site, "Como usar pelo celular", "O passo a passo desta versão no celular, pra quem não vai imprimir ou está longe do caderno.")}</div>
       </div>`, "aulas");
   }
