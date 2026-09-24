@@ -151,17 +151,23 @@
         <div class="field"><label class="label" for="o-name">Como você quer ser chamada</label><input id="o-name" type="text" name="name" value="${esc(st.session.name || "")}" required></div>
         <div class="field"><label class="label" for="o-date">Meu dia 1 é</label><input id="o-date" type="date" name="start_date" value="${isoToday()}" required><p class="muted" style="font-size:0.82rem;margin:0.4rem 0 0">Pode ser hoje ou uma data futura. O dia 40 cai 39 dias depois.</p></div>
         <div class="field"><span class="label">Onde eu estou hoje</span>${chips(["Solteira", "Namorando", "Noiva", "Casada", "Mãe"], "fase", [], "", false)}</div>
-        <div class="field"><label class="label" for="o-why">Meu porquê, em uma frase</label><textarea id="o-why" name="why" placeholder="Por que eu quero sair de tola?"></textarea></div>
+
         <button class="btn block" type="submit">Começar a travessia</button>
       </form>
     </div></div></div>`;
   }
 
   // ------------------------------------------------------------------ shell
-  const NAV = [["inicio", "Início", ICO.inicio], ["dia", "Hoje", ICO.hoje], ["travessia", "Travessia", ICO.travessia], ["prep", "Preparação", ICO.prep], ["aulas", "Aulas", ICO.aulas], ["imprimir", "Imprimir", ICO.imprimir], ["conta", "Conta", ICO.conta]];
+  const NAV = [["inicio", "Início", ICO.inicio], ["prep", "Preparação", ICO.prep], ["dia", "Hoje", ICO.hoje], ["travessia", "Travessia", ICO.travessia], ["aulas", "Aulas", ICO.aulas], ["imprimir", "Imprimir", ICO.imprimir], ["conta", "Conta", ICO.conta]];
+  const LOCK = '<svg class="lock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>';
+  function navLink(k, l, i, current, t) {
+    const locked = !prepDone() && (k === "dia" || k === "travessia");
+    const href = locked ? "#/prep" : "#/" + (k === "dia" ? "dia/" + Math.max(1, t) : k);
+    return `<a href="${href}" class="${current === k ? "on" : ""} ${locked ? "locked" : ""}" ${locked ? 'title="Abre depois da preparação"' : ""}>${i}<span>${l}</span>${locked ? LOCK : ""}</a>`;
+  }
   function shell(view, current, accent = "rubi") {
     const t = todayIdx();
-    const nav = (cls) => NAV.map(([k, l, i]) => `<a href="#/${k === "dia" ? "dia/" + Math.max(1, t) : k}" class="${current === k ? "on" : ""}">${i}<span>${l}</span></a>`).join("");
+    const nav = (cls) => NAV.map(([k, l, i]) => navLink(k, l, i, current, t)).join("");
     app.innerHTML = `<div class="shell c-${accent}">
       <aside class="side-nav">
         <a class="logo" href="#/inicio">${LOGO}<span>De Tola a Virtuosa<small>Rebeca Fortunato</small></span></a>
@@ -172,7 +178,7 @@
         <header class="topbar"><a class="logo" href="#/inicio">${LOGO}<span>De Tola a Virtuosa<small>Rebeca Fortunato</small></span></a><span class="daypill">${t === 0 ? "Começa " + fmt(st.profile.start_date) : "Dia " + t + " de 40"}</span></header>
         <main class="content">${view}</main>
       </div>
-      <nav class="bottom-nav">${NAV.slice(0, 5).map(([k, l, i]) => `<a href="#/${k === "dia" ? "dia/" + Math.max(1, t) : k}" class="${current === k ? "on" : ""}">${i}<span>${l}</span></a>`).join("")}</nav>
+      <nav class="bottom-nav">${NAV.slice(0, 5).map(([k, l, i]) => navLink(k, l, i, current, t)).join("")}</nav>
     </div>`;
     window.scrollTo(0, 0);
   }
@@ -299,7 +305,9 @@
 
   // ------------------------------------------------------------------ travessia
   function provaProgress(b) { let n = 0; for (let d = b.inicio; d <= b.fim; d++) if (isDone(d)) n++; return n; }
+  function gatePrep() { if (prepDone()) return false; toast("Primeiro a preparação, depois a travessia. Faltam " + prepPending() + " páginas.", true); location.hash = "#/prep"; viewPrep(); return true; }
   function viewTravessia() {
+    if (gatePrep()) return;
     const t = todayIdx();
     const cards = C.blocos.map((b) => { const n = provaProgress(b); const state = t > b.fim ? "concluída" : t >= b.inicio ? "em andamento" : "em breve"; return `<a class="prova-card c-${b.cor}" href="#/prova/${b.num}"><span class="n">${pad(b.num)}</span><span class="eyebrow">Prova ${b.num} · dias ${b.inicio} a ${b.fim} · ${state}</span><h3>${esc(b.lugar)}</h3><div class="v">${esc(b.virtude)} · ${esc(b.sub)}</div><small>${esc(b.chamada)}. Com ${esc(b.mulher)}.</small><div class="progress"><i style="width:${n * 10}%"></i></div><small>${n} de 10 dias marcados</small></a>`; }).join("");
     const grid = Array.from({ length: TOTAL }, (_, i) => i + 1).map((d) => { const e = entry(d); const cls = [e.done ? "done" : "", e.pulei && !e.done ? "skip" : "", d === t ? "today" : "", d > t ? "locked" : ""].join(" "); return `<a href="#/dia/${d}" class="${cls} c-${bloco(d).cor}">${d}</a>`; }).join("");
@@ -310,8 +318,10 @@
 
   const HAB = [["Água", "corpo", 0], ["Movimento", "corpo", 1], ["Comida", "corpo", 2], ["Sono", "corpo", 3], ["Leitura", "mente", 0], ["Sem tela 1ª h", "mente", 1], ["Palavra", "espirito", 1], ["Oração", "espirito", 0], ["Desafio", "desafio", null]];
   function viewProva(n) {
+    if (gatePrep()) return;
     const b = C.blocos.find((x) => x.num === n) || C.blocos[0];
     const t = todayIdx();
+    const futura = t < b.inicio;
     const pk = "prova" + n;
     const p = st.prep[pk] || {};
     const days = Array.from({ length: 10 }, (_, i) => b.inicio + i);
@@ -330,18 +340,18 @@
           <div class="card"><p>${esc(b.resumo)}</p><p>${esc(b.definicao)}</p>${verse(b.versiculo, b.ref)}
             <div class="tv"><div class="t"><span class="who">A tola</span>${esc(b.tola)}</div><div class="v"><span class="who">A virtuosa</span>${esc(b.virtuosa)}</div></div>
             <span class="eyebrow">Metas destes 10 dias</span><div class="metas">${metas}</div></div>
-          <div class="card"><span class="eyebrow">O que é meu nesta prova</span>
+          ${futura ? `<div class="card soft"><span class="eyebrow">Ainda não</span><h3 style="font-size:1.2rem;margin:0.2rem 0 0.4rem">Esta prova abre no dia ${b.inicio}, ${esc(dayDate(b.inicio))}.</h3><p class="muted" style="margin:0">Igual ao caderno: leia a abertura, as metas e a mulher desta prova antes dos 10 dias. A meta pessoal, a oração e o quadro de hábitos você preenche quando ela começar.</p></div>` : `<div class="card"><span class="eyebrow">O que é meu nesta prova</span>
             <div class="field"><label class="label" for="pm">Minha meta pessoal <span class="hint">uma só, mensurável</span></label><input id="pm" type="text" data-prep="${pk}.meta" value="${esc(p.meta)}"></div>
             <div class="field"><label class="label" for="pp">Por quem vou orar nesta prova <span class="hint">uma pessoa ou uma família, os 10 dias</span></label><textarea id="pp" data-prep="${pk}.pessoa" rows="2">${esc(p.pessoa)}</textarea></div>
-            <div class="field"><label class="label" for="pn">Notas da prova <span class="hint">o que eu percebi no caminho</span></label><textarea id="pn" data-prep="${pk}.notas" rows="3">${esc(p.notas)}</textarea></div></div>
+            <div class="field"><label class="label" for="pn">Notas da prova <span class="hint">o que eu percebi no caminho</span></label><textarea id="pn" data-prep="${pk}.notas" rows="3">${esc(p.notas)}</textarea></div></div>`}
         </div>
         <div class="stack">
-          <div class="card"><span class="eyebrow">Quadro de hábitos · preenchido pelas caixinhas de cada dia</span>${trk}<p class="muted" style="font-size:0.82rem;margin:0.6rem 0 0">${provaProgress(b)} de 10 dias marcados. Dez dias de uma vez mostram o padrão que o dia a dia esconde.</p></div>
+          ${futura ? "" : `<div class="card"><span class="eyebrow">Quadro de hábitos · preenchido pelas caixinhas de cada dia</span>${trk}<p class="muted" style="font-size:0.82rem;margin:0.6rem 0 0">${provaProgress(b)} de 10 dias marcados. Dez dias de uma vez mostram o padrão que o dia a dia esconde.</p></div>
           <div class="card"><span class="eyebrow">${esc(rv.titulo)} ${n}${t <= b.fim ? " · abre no fim da prova, mas pode começar" : ""}</span>
             <div class="field"><span class="label">Cumpri a meta pessoal?</span>${chips(["Sim", "Em parte", "Não"], pk + ".meta_ok", p.meta_ok, "", true)}</div>
             <div class="field"><span class="label">Nota de 1 a 5</span><div class="two" style="gap:0.6rem">${rv.notas.map((nm) => `<div><small class="muted">${esc(nm)}</small><div class="energy" style="margin-top:0.2rem">${[1, 2, 3, 4, 5].map((v) => `<button type="button" class="${(p.notas_n || {})[nm] === v ? "on" : ""}" data-nota="${pk}:${esc(nm)}:${v}">${v}</button>`).join("")}</div></div>`).join("")}</div></div>
             ${rv.perguntas.map(([q], i) => `<div class="field"><label class="label" for="rq${i}">${esc(q)}</label><textarea id="rq${i}" class="lined" data-prep="${pk}.r${i}" rows="2">${esc(p["r" + i])}</textarea></div>`).join("")}
-          </div>
+          </div>`}
         </div>
       </div>`;
     shell(html, "travessia", b.cor);
@@ -368,7 +378,15 @@
       ${acc("compromisso", "Meu compromisso", "assinatura e porquê", `
         <p>Eu, <b>${esc(st.profile.name || "")}</b>, decido atravessar estes 40 dias com honestidade, sem perfeição e sem desistir. Quando falhar, viro a página. Quando acertar, agradeço a Deus.</p>
         <div class="field"><label class="label" for="c-ass">Assinatura <span class="hint">digite seu nome completo</span></label><input id="c-ass" type="text" data-prep="compromisso.assinatura" value="${g("compromisso", "assinatura")}" style="font-family:var(--serif);font-size:1.4rem;font-style:italic"></div>
-        <div class="field"><label class="label" for="c-why">Meu porquê, em uma frase</label><textarea id="c-why" data-prep="compromisso.porque" rows="2">${g("compromisso", "porque")}</textarea></div>
+        <div class="field"><label class="label" for="c-luta">O que eu mais luto contra hoje</label><textarea id="c-luta" class="lined" data-prep="compromisso.luta" rows="2">${g("compromisso", "luta")}</textarea></div>
+        <div class="field"><label class="label" for="c-why">Por que eu quero ser uma mulher melhor</label><textarea id="c-why" class="lined" data-prep="compromisso.porque" rows="3">${g("compromisso", "porque")}</textarea></div>
+        <span class="label">Antes de virar a página, lembre</span>
+        <div class="postits">
+          <div class="pi a">“Ela é mais preciosa do que rubis, e tudo o que mais possas desejar não se pode comparar a ela.”<small>Provérbios 3:15</small></div>
+          <div class="pi b">“A força e a dignidade são os seus vestidos, e ri-se do dia futuro.”<small>Provérbios 31:25</small></div>
+          <div class="pi c">“Enganosa é a graça e vã a formosura, mas a mulher que teme ao Senhor, essa sim será louvada.”<small>Provérbios 31:30</small></div>
+          <div class="pi d">“Se alguém quer vir após mim, negue-se a si mesmo, e tome cada dia a sua cruz, e siga-me.”<small>Lucas 9:23</small></div>
+        </div>
         <div class="field"><span class="label">Onde eu estou hoje</span>${chips(["Solteira", "Namorando", "Noiva", "Casada", "Mãe"], "compromisso.fase", (p.compromisso || {}).fase)}</div>${stepBtn("compromisso")}`, !ps.compromisso)}
       ${acc("tola", tv.titulo, "diagnóstico", `
         ${verse(tv.versiculo, tv.ref)}<p style="margin-top:0.8rem">${esc(tv.intro)}</p>
@@ -584,7 +602,7 @@
       const fd = new FormData(f);
       const fases = [...f.querySelectorAll(".chip.on")].map((c) => c.dataset.val);
       await S.setProfile(st.session.email, { name: fd.get("name").trim(), start_date: fd.get("start_date") });
-      await S.setPrep(st.session.email, "compromisso", { porque: fd.get("why"), fase: fases });
+      await S.setPrep(st.session.email, "compromisso", { fase: fases });
       st.profile = await S.getProfile(st.session.email); st.prep = await S.getPrep(st.session.email);
       location.hash = "#/prep"; route();
     }

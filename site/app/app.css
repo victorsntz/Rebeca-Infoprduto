@@ -6,7 +6,7 @@ body { background: var(--creme); }
 .loading img { width: 42px; margin: 0 auto; }
 
 .toast { position: fixed; left: 50%; bottom: 90px; transform: translateX(-50%); background: var(--carvao); color: var(--creme); padding: 0.7rem 1.1rem; border-radius: 999px; font-size: 0.9rem; z-index: 60; box-shadow: var(--shadow); }
-.toast.err { background: var(--rubi); }
+.toast.err { background: var(--rubi-profundo); color: #fff; border: 1px solid var(--dourado-vivo); font-weight: 700; padding: 0.9rem 1.3rem; max-width: min(92vw, 420px); text-align: center; line-height: 1.35; border-radius: 14px; }
 
 /* ---------- auth ---------- */
 .auth { min-height: 100vh; display: grid; grid-template-columns: 1fr 1fr; }
@@ -262,3 +262,17 @@ table.tracker td.na { background: repeating-linear-gradient(45deg, transparent 0
 .stepbar { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin-top: 1.2rem; padding-top: 1rem; border-top: 1px dashed var(--linha); }
 .stepbar .muted { font-size: 0.8rem; }
 @media (max-width: 860px) { .steps-strip { justify-content: center; } .stepbar { flex-direction: column; } }
+
+/* navegação trancada até a preparação */
+.side-nav nav a.locked, .bottom-nav a.locked { opacity: 0.55; }
+.side-nav nav a .lock { width: 14px; height: 14px; margin-left: auto; opacity: 0.8; }
+.bottom-nav a .lock { display: none; }
+/* post-its do compromisso */
+.postits { display: grid; grid-template-columns: 1fr 1fr; gap: 0.7rem; margin: 0.4rem 0 0.6rem; }
+@media (max-width: 600px) { .postits { grid-template-columns: 1fr; } }
+.pi { padding: 0.9rem 1rem; border-radius: 4px; font-family: var(--serif); font-style: italic; font-size: 0.95rem; line-height: 1.35; color: var(--rubi-profundo); box-shadow: 0 4px 12px rgba(62,16,25,0.10); }
+.pi small { display: block; font-family: var(--sans); font-style: normal; font-size: 0.68rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--cinza); margin-top: 0.4rem; }
+.pi.a { background: var(--rubi-claro); transform: rotate(-0.8deg); }
+.pi.b { background: var(--dourado-claro); transform: rotate(0.6deg); }
+.pi.c { background: var(--salvia-claro); transform: rotate(0.5deg); }
+.pi.d { background: var(--ameixa-claro); transform: rotate(-0.6deg); }
