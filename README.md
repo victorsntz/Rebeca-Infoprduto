@@ -41,6 +41,7 @@ Precisa de `python3` e de um Chromium ou Chrome (`CHROME=/caminho/do/chrome ./bu
 5. Cole os links dos vídeos (aula inaugural, como imprimir, como usar o site) e o link do checkout no mesmo `config.js`.
 6. Extras vendidos como order bump no checkout:
    - **Presentear uma amiga (R$ 27).** Crie o bump na plataforma e coloque o id dele no segredo `GIFT_OFFER_IDS` da função. Toda compra com esse bump gera um código na tabela `gifts`. A compradora vê o código em "Presente" na área de membros, manda pelo WhatsApp ou imprime o cartão. A amiga abre o link `app/#/resgatar/CODIGO`, cria a conta e o acesso libera na hora (função `claim_gift` no banco). Reembolso da compradora cancela o presente.
+   - **Comprar o presente depois, quantas vezes quiser.** O mesmo produto do bump tem link de checkout próprio na plataforma. Cole em `GIFT_CHECKOUT_URL` no `config.js` (e no HTML da aula em `kiwify/`). O app mostra "Presentear uma amiga" no Início e na página Presente; cada compra avulsa vira um convite novo. Nessas compras o webhook não mexe na conta da compradora (nem reembolso do presente derruba o acesso dela).
    - No modo demonstração toda conta ganha um código de exemplo, só pra testar.
 
 Na landing, troque o preço de exemplo e coloque a URL do checkout em `CHECKOUT_URL`, no fim do `site/index.html`.

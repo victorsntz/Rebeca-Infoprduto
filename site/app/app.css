@@ -248,7 +248,14 @@ table.tracker td.na { background: repeating-linear-gradient(45deg, transparent 0
 .gift .code { font-family: var(--serif); font-size: 1.3rem; letter-spacing: 0.2em; color: var(--rubi); background: var(--rubi-claro); padding: 0.25rem 0.7rem; border-radius: 8px; }
 .gift.done { background: var(--salvia-claro); }
 .gift.received { background: var(--dourado-claro); }
-.gift.off h3 { font-size: 1.25rem; margin: 0.2rem 0 0.4rem; }
+.gift.off h3, .gift.buy h3 { font-size: 1.25rem; margin: 0.2rem 0 0.4rem; }
+.gift.buy { background: var(--rubi-profundo); color: var(--creme); border-color: transparent; }
+.gift.buy .eyebrow { color: var(--dourado-vivo); }
+.gift.buy h3 { color: var(--creme); font-family: var(--serif); font-size: 1.5rem; }
+.gift.buy p { margin: 0 0 0.6rem; }
+.gift.buy .muted { color: rgba(249,245,238,0.72); }
+.gift.buy .muted b { color: var(--dourado-vivo); }
+.gift.buy .btn.ghost { color: var(--creme); border-color: rgba(249,245,238,0.4); }
 .btns { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 0.6rem; }
 @media (max-width: 860px) { .gift-cta { flex-direction: column; align-items: center; text-align: center; } .gift .gift-head { flex-direction: column; } .btns { justify-content: center; } .claim { text-align: center; } }
 

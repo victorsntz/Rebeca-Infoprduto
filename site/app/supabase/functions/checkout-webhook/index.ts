@@ -5,6 +5,8 @@
 //
 // Quando a compra é da oferta com presente, além de liberar a compradora a função cria um código
 // na tabela `gifts`. Ela vê o código na área de membros e manda pra amiga, que resgata ao criar a conta.
+// O mesmo produto de presente comprado sozinho (link próprio, depois da compra) só gera o código:
+// um por compra, quantas vezes ela quiser presentear.
 //
 // Configure na plataforma de pagamento (Hotmart, Kiwify, Eduzz...) a URL:
 //   https://<projeto>.supabase.co/functions/v1/checkout-webhook?token=<WEBHOOK_TOKEN>
@@ -60,17 +62,22 @@ Deno.serve(async (req) => {
   const lista = (k: string) => (Deno.env.get(k) || "").toLowerCase().split(",").map((x) => x.trim()).filter(Boolean);
   const giftOffers = lista("GIFT_OFFER_IDS");
   const comPresente = giftOffers.some((g) => ids.includes(g));
+  // Compra só do presente (produto principal do pedido é o "presentear uma amiga"): a compradora já é
+  // membro. Não mexe na conta dela, só cria (ou cancela) o convite. Assim ela pode comprar quantos quiser.
+  const soPresente = comPresente && giftOffers.includes(offer);
 
   const ativa = ATIVA.some((s) => status.includes(s));
   const desativa = DESATIVA.some((s) => status.includes(s));
   if (!ativa && !desativa) return new Response("ignored: " + status, { status: 200 });
 
   const sb = createClient(Deno.env.get("SUPABASE_URL")!, Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!);
-  const { error } = await sb.from("members").upsert(
-    { email, active: ativa, plan: "travessia" + (comPresente ? "+amiga" : ""), provider, provider_ref: ref },
-    { onConflict: "email" },
-  );
-  if (error) return new Response(error.message, { status: 500 });
+  if (!soPresente) {
+    const { error } = await sb.from("members").upsert(
+      { email, active: ativa, plan: "travessia" + (comPresente ? "+amiga" : ""), provider, provider_ref: ref },
+      { onConflict: "email" },
+    );
+    if (error) return new Response(error.message, { status: 500 });
+  }
 
   let gift: string | undefined;
   if (comPresente && ativa) {

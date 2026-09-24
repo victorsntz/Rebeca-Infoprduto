@@ -212,7 +212,9 @@
     S.getGifts(st.session.email).then((gs) => {
       const g = (gs || []).find((x) => !x.claimed_email);
       const slot = document.getElementById("gift-slot");
-      if (g && slot) slot.innerHTML = `<a class="card gift-cta" href="#/presente"><div><span class="eyebrow">Fazer junto</span><b>Você tem um presente pra dar</b><span class="muted">Mande o código ${esc(g.code)} pra sua amiga e façam os 40 dias juntas.</span></div><span class="btn ghost sm">Mandar</span></a>`;
+      if (!slot) return;
+      if (g) slot.innerHTML = `<a class="card gift-cta" href="#/presente"><div><span class="eyebrow">Fazer junto</span><b>Você tem um presente pra dar</b><span class="muted">Mande o código ${esc(g.code)} pra sua amiga e façam os 40 dias juntas.</span></div><span class="btn ghost sm">Mandar</span></a>`;
+      else slot.innerHTML = `<a class="card gift-cta" href="#/presente"><div><span class="eyebrow">Fazer junto</span><b>Presenteie uma amiga</b><span class="muted">Chame alguém pra atravessar o deserto com você. Um acesso completo por ${esc(CFG.GIFT_PRICE || "R$ 27")}.</span></div><span class="btn ghost sm">Ver</span></a>`;
     }).catch(() => {});
     const t = todayIdx();
     const b = bloco(Math.max(1, t));
@@ -455,6 +457,21 @@
       </div>`, "imprimir");
   }
   function giftLink(code) { const base = location.href.split("#")[0]; return base + "#/resgatar/" + code; }
+  // Checkout do presente com o e-mail da compradora já preenchido (o webhook liga o convite a esse e-mail).
+  function giftBuyUrl() {
+    if (!CFG.GIFT_CHECKOUT_URL) return "";
+    const u = CFG.GIFT_CHECKOUT_URL + (CFG.GIFT_CHECKOUT_URL.includes("?") ? "&" : "?") + "email=" + encodeURIComponent(st.session.email);
+    return u;
+  }
+  function giftBuyCard(temAlgum) {
+    const url = giftBuyUrl();
+    return `<div class="card gift buy"><span class="eyebrow">${temAlgum ? "Mais uma amiga" : "Presente pra uma amiga"}</span><h3>Ninguém atravessa sozinha</h3>
+      <p>Imagina sua amiga fazendo esses 40 dias junto com você: as duas na mesma prova, trocando mensagem sobre o desafio do dia, orando uma pela outra. Você pode ser o canal dessa bênção na vida dela.</p>
+      <p class="muted">Cada presente é um acesso completo, com caderno, app e aulas, por <b>${esc(CFG.GIFT_PRICE || "R$ 27")}</b>. Pode presentear quantas quiser: cada compra vira um convite novo aqui nesta página.</p>
+      ${url ? `<div class="btns"><a class="btn gold" href="${esc(url)}" target="_blank" rel="noopener">Presentear ${temAlgum ? "mais " : ""}uma amiga · ${esc(CFG.GIFT_PRICE || "R$ 27")}</a><button class="btn ghost" type="button" data-act="reload">Já paguei, atualizar</button></div>
+      <p class="muted" style="font-size:0.82rem;margin:0.8rem 0 0">Use o mesmo e-mail desta conta na hora de pagar. O convite aparece aqui em até alguns minutos depois da confirmação.</p>` : `<p class="muted" style="font-size:0.82rem">O link de compra do presente ainda não foi configurado. Fale com o suporte${CFG.SUPORTE_EMAIL ? ": " + esc(CFG.SUPORTE_EMAIL) : ""}.</p>`}
+    </div>`;
+  }
   function giftMsg(g) {
     const nome = g.to_name ? g.to_name + ", " : "";
     const de = st.profile.name || st.session.name || "uma amiga";
@@ -482,7 +499,8 @@
     shell(`<div class="page-head"><div><span class="eyebrow">Fazer junto</span><h1>Presente</h1></div></div>
       <div class="stack">
         ${recebido ? `<div class="card gift received"><span class="eyebrow">Você ganhou</span><p>Sua travessia foi um presente de <b>${esc(recebido.buyer_name || recebido.buyer_email)}</b>.${recebido.message ? ` Ela deixou um recado: <em>“${esc(recebido.message)}”</em>` : ""} Quando terminar os 40 dias, conta pra ela o que mudou.</p></div>` : ""}
-        ${cards || `<div class="card gift off"><span class="eyebrow">Presente pra uma amiga</span><h3>Ninguém atravessa sozinha</h3><p class="muted">Você ainda não tem um presente pra dar. Na página do caderno dá pra comprar um acesso extra por R$ 27 e mandar pra quem você quer levar junto.${CFG.CHECKOUT_URL ? ` <a href="${esc(CFG.CHECKOUT_URL)}">Presentear uma amiga</a>.` : ""}</p></div>`}
+        ${cards}
+        ${giftBuyCard(gifts.length > 0)}
       </div>`, "conta");
   }
   function cartaoPresente(g) {
@@ -575,6 +593,7 @@
     if (a === "logout") { await S.signOut(); location.hash = ""; return boot(); }
     if (a === "start") { if (!prepDone()) return toast("Termine a preparação primeiro.", true); const d = isoShift(+act.dataset.when || 0); st.profile.start_date = d; await S.setProfile(st.session.email, { start_date: d }); toast(+act.dataset.when ? "Combinado. Amanhã é o dia 1." : "Hoje é o dia 1. Vamos."); location.hash = "#/inicio"; return route(); }
     if (a === "prep-next" || a === "prep-goto") { ev.preventDefault(); const k = act.dataset.next; app.querySelectorAll("details.acc").forEach((d) => { d.open = d.id === "acc-" + k; }); const el = document.getElementById("acc-" + k); if (el) el.scrollIntoView({ behavior: "smooth", block: "start" }); if (a === "prep-next") toast("Salvo. Próxima página."); return; }
+    if (a === "reload") { toast("Atualizando..."); route(); return; }
     if (a === "copy") { try { await navigator.clipboard.writeText(act.dataset.text); toast("Link copiado."); } catch { prompt("Copie o link:", act.dataset.text); } return; }
     if (a === "cartao") { const gs = await S.getGifts(st.session.email); const g = gs.find((x) => x.code === act.dataset.code); if (g) cartaoPresente(g); return; }
     if (a === "reset") { const email = document.getElementById("f-email").value; if (!email) return toast("Digite o e-mail primeiro.", true); try { await S.resetPassword(email); toast("Enviamos um link pro seu e-mail."); } catch (e) { toast(e.message, true); } return; }
