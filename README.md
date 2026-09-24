@@ -4,7 +4,7 @@ Infoproduto da Rebeca Fortunato pra mulheres: um caderno prático de corpo, alma
 
 | Peça | Onde | O que é |
 |---|---|---|
-| Caderno (PDF) | `dist/de-tola-a-virtuosa.pdf` | 72 páginas em A5 deitado, só frente, pra imprimir e encadernar |
+| Caderno (PDF) | `dist/de-tola-a-virtuosa.pdf` | 72 páginas em A4 deitado, só frente, pra imprimir e encadernar |
 | Landing page | `site/index.html` | Página de vendas que a cliente abre antes do checkout |
 | Área de membros | `site/app/` | Versão online do caderno, com login, dia a dia e progresso salvo |
 
@@ -74,7 +74,7 @@ Pra hospedar em outro lugar: é a branch `publicar` inteira, estática, sobe em 
 ```
 src/content.py           todo o texto do caderno (provas, desafios, leituras, páginas)
 src/build.py             monta o HTML do caderno e exporta o content.json
-src/styles.css           estilo de impressão do caderno (A5 paisagem)
+src/styles.css           estilo de impressão do caderno (A4 paisagem, diagramado em grade A5 e ampliado)
 fonts/                   Libre Caslon Display e Text (licença OFL)
 dist/                    HTML e PDF gerados
 site/index.html          landing page

@@ -414,14 +414,14 @@
     shell(`<div class="page-head"><div><span class="eyebrow">Versão impressa</span><h1>Imprimir o caderno</h1></div></div>
       <div class="two">
         <div class="stack">
-          <div class="card"><img src="../assets/img/capa.png" alt="" style="border-radius:8px;box-shadow:var(--shadow-sm)"><a class="btn block" style="margin-top:1rem" href="${esc(CFG.PDF_URL || "#")}" download>Baixar o PDF (A5, 72 páginas)</a><p class="muted" style="font-size:0.85rem;margin:0.8rem 0 0">Só frente. Quer maior? Imprima em A4, é a mesma proporção.</p></div>
+          <div class="card"><img src="../assets/img/capa.png" alt="" style="border-radius:8px;box-shadow:var(--shadow-sm)"><a class="btn block" style="margin-top:1rem" href="${esc(CFG.PDF_URL || "#")}" download>Baixar o PDF (A4, 72 páginas)</a><p class="muted" style="font-size:0.85rem;margin:0.8rem 0 0">Só frente. Quer menor? Imprima em A5, é a mesma proporção.</p></div>
         </div>
         <div class="card"><span class="eyebrow">Como pedir na gráfica</span><ul class="tips">
-          <li>Tamanho A5 deitado (21 x 15 cm), impressão colorida, só frente.</li>
+          <li>Tamanho A4 deitado (29,7 x 21 cm), impressão colorida, só frente.</li>
           <li>Miolo em sulfite 120g ou 150g, que segura canetinha sem enrugar.</li>
           <li>Capa e contracapa em papel 250g ou 300g, laminação fosca.</li>
           <li>Encadernação em espiral wire-o (preto ou dourado) na borda de cima.</li>
-          <li>Em casa: imprima em A4, duas páginas por folha, corte ao meio e leve pra encadernar.</li>
+          <li>Em casa: imprima em A4 deitado, uma página por folha, e leve pra encadernar.</li>
           <li>Deixe na mesa de cabeceira, não numa gaveta.</li>
         </ul></div>
       </div>`, "imprimir");
