@@ -28,7 +28,8 @@ body { background: var(--creme); }
 .auth .side > * { position: relative; width: min(520px, 100%); }
 .auth .side .logo { justify-content: center; }
 .auth .side .eyebrow { display: block; text-align: center; }
-.auth .side .verse { text-align: center; }
+.auth .side .verse { text-align: center; color: rgba(249,245,238,0.88); }
+.auth .side .verse-ref { color: var(--dourado-vivo); }
 .auth .side .frame { display: none; }
 .auth .side h1 { font-size: clamp(2rem, 4.5vw, 3.4rem); margin: 1rem 0; }
 .auth .side img.mock { width: min(360px, 80%); border-radius: 8px; box-shadow: var(--shadow); transform: rotate(-3deg); margin: 1.5rem 0; }
