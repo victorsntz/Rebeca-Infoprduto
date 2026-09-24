@@ -2,8 +2,8 @@
 // Deixe SUPABASE_URL vazio pra rodar em modo demonstração (tudo salvo só neste navegador).
 // Com URL e chave preenchidas, o app usa login de verdade e salva o progresso na nuvem.
 window.DTV_CONFIG = {
-  SUPABASE_URL: "",
-  SUPABASE_ANON_KEY: "",
+  SUPABASE_URL: "https://dxxyylslxqkmbdthkwsj.supabase.co",
+  SUPABASE_ANON_KEY: "sb_publishable_j7pqDf19gbtETKC6jw0U2w_sV2-MsyE",
 
   // Vídeos (YouTube ou Vimeo). Cole só o ID ou a URL de embed.
   VIDEOS: {
@@ -19,5 +19,5 @@ window.DTV_CONFIG = {
   CHECKOUT_URL: "",
 
   // Suporte
-  SUPORTE_EMAIL: "contato@rebecafortunato.com",
+  SUPORTE_EMAIL: "contato@detolaavirtuosa.com",
 };

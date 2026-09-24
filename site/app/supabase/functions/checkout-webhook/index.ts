@@ -34,7 +34,8 @@ function pick(obj: any, paths: string[]): string | undefined {
 
 Deno.serve(async (req) => {
   const url = new URL(req.url);
-  if (url.searchParams.get("token") !== Deno.env.get("WEBHOOK_TOKEN")) {
+  const token = Deno.env.get("WEBHOOK_TOKEN");
+  if (!token || url.searchParams.get("token") !== token) {
     return new Response("unauthorized", { status: 401 });
   }
   let body: any = {};
