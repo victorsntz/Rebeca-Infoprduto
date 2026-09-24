@@ -29,7 +29,7 @@ body { background: var(--creme); }
 .auth .side .logo { justify-content: center; }
 .auth .side .eyebrow { display: block; text-align: center; }
 .auth .side .verse { text-align: center; }
-.auth .side .frame { position: absolute; inset: 14px; border: 1px solid rgba(249,245,238,0.14); pointer-events: none; }
+.auth .side .frame { display: none; }
 .auth .side h1 { font-size: clamp(2rem, 4.5vw, 3.4rem); margin: 1rem 0; }
 .auth .side img.mock { width: min(360px, 80%); border-radius: 8px; box-shadow: var(--shadow); transform: rotate(-3deg); margin: 1.5rem 0; }
 .auth .form { display: grid; place-items: center; padding: 2.5rem 1.5rem; }
