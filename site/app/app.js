@@ -52,9 +52,20 @@
     `<div class="chips">${items.map((i) => `<button type="button" class="chip ${cls} ${(single ? selected === i : (selected || []).includes(i)) ? "on" : ""}" data-chip="${esc(group)}" data-val="${esc(i)}" data-single="${single ? 1 : 0}">${esc(i)}</button>`).join("")}</div>`;
 
   // ------------------------------------------------------------------ boot
+  // Código de presente vindo do link (#/resgatar/CODIGO) fica guardado até a amiga entrar.
+  function pendingGift() { const m = location.hash.match(/^#\/?resgatar\/([A-Za-z0-9]+)/); if (m) { try { localStorage.setItem("dtv:gift", m[1].toUpperCase()); } catch {} } try { return localStorage.getItem("dtv:gift"); } catch { return null; } }
+  async function tryClaim() {
+    const code = pendingGift(); if (!code) return;
+    const r = await S.claimGift(st.session.email, code);
+    try { localStorage.removeItem("dtv:gift"); } catch {}
+    if (r.ok) { toast(`Presente de ${r.from} resgatado. Bem-vinda à travessia.`); st.member = await S.membership(st.session.email); }
+    else toast(r.error, true);
+    if (/resgatar/.test(location.hash)) location.hash = "";
+  }
   async function boot() {
     st.session = await S.session();
-    if (!st.session) return renderAuth();
+    if (!st.session) return renderAuth(pendingGift() ? "criar" : "entrar");
+    await tryClaim();
     st.member = await S.membership(st.session.email);
     if (!st.member.active) return renderInactive();
     [st.profile, st.entries, st.prep] = await Promise.all([S.getProfile(st.session.email), S.getEntries(st.session.email), S.getPrep(st.session.email)]);
@@ -85,6 +96,7 @@
       </div>
       <div class="form"><div>
         ${S.mode === "local" ? `<div class="demo"><b>Modo demonstração.</b> Sem servidor conectado, tudo fica salvo só neste navegador. Crie qualquer e-mail e senha pra testar.</div>` : ""}
+        ${pendingGift() ? `<div class="gift-note"><b>Você ganhou um presente.</b> Alguém te chamou pra fazer os 40 dias. Crie sua conta (ou entre) e o código <code>${esc(pendingGift())}</code> libera o seu acesso na hora.</div>` : ""}
         <div class="tabs"><button data-act="tab" data-tab="entrar" class="${tab === "entrar" ? "on" : ""}">Entrar</button><button data-act="tab" data-tab="criar" class="${tab === "criar" ? "on" : ""}">Criar conta</button></div>
         <form id="authform" data-tab="${tab}">
           ${tab === "criar" ? `<div class="field"><label class="label" for="f-name">Seu nome</label><input id="f-name" type="text" name="name" required autocomplete="name" placeholder="Como você quer ser chamada"></div>` : ""}
@@ -120,6 +132,7 @@
       <h2>Seu acesso não está ativo</h2>
       <p>A conta <b>${esc(st.session.email)}</b> existe, mas não encontramos uma assinatura ativa. Se você acabou de comprar, aguarde alguns minutos. Se cancelou ou pediu reembolso, o acesso foi encerrado.</p>
       ${CFG.CHECKOUT_URL ? `<a class="btn gold block" href="${esc(CFG.CHECKOUT_URL)}">Quero ativar meu acesso</a>` : ""}
+      <form id="claimform" class="claim"><label class="label" for="c-code" style="color:rgba(249,245,238,0.8)">Ganhou de presente? Digite o código</label><div class="row-inline"><input id="c-code" type="text" name="code" placeholder="AMIGA123" autocomplete="off" required><button class="btn gold sm" type="submit">Resgatar</button></div></form>
       <p style="margin-top:1rem;font-size:0.85rem">Precisa de ajuda? <a href="mailto:${esc(CFG.SUPORTE_EMAIL || "")}">${esc(CFG.SUPORTE_EMAIL || "fale com o suporte")}</a></p>
       <button class="btn ghost sm" data-act="logout" style="margin-top:0.8rem;color:var(--creme)">Sair</button>
     </div></div>`;
@@ -170,7 +183,7 @@
     const t = todayIdx();
     if (name === "dia") return viewDia(Math.min(TOTAL, Math.max(1, parseInt(arg || t || 1, 10))));
     if (name === "prova") return viewProva(parseInt(arg, 10) || 1);
-    const views = { inicio: viewInicio, travessia: viewTravessia, prep: viewPrep, aulas: viewAulas, imprimir: viewImprimir, conta: viewConta };
+    const views = { inicio: viewInicio, travessia: viewTravessia, prep: viewPrep, aulas: viewAulas, imprimir: viewImprimir, conta: viewConta, presente: viewPresente, resgatar: viewInicio };
     (views[name] || viewInicio)();
   }
 
@@ -189,12 +202,18 @@
     ];
   }
   function viewInicio() {
+    S.getGifts(st.session.email).then((gs) => {
+      const g = (gs || []).find((x) => !x.claimed_email);
+      const slot = document.getElementById("gift-slot");
+      if (g && slot) slot.innerHTML = `<a class="card gift-cta" href="#/presente"><div><span class="eyebrow">Fazer junto</span><b>Você tem um presente pra dar</b><span class="muted">Mande o código ${esc(g.code)} pra sua amiga e façam os 40 dias juntas.</span></div><span class="btn ghost sm">Mandar</span></a>`;
+    }).catch(() => {});
     const t = todayIdx();
     const b = bloco(Math.max(1, t));
     const ps = prepStatus();
     const pending = ps.filter((x) => !x[2]);
     const todayEntry = entry(t);
     const html = `
+      <div id="gift-slot"></div>
       <div class="hero-card">
         <div>
           <span class="eyebrow">${t === 0 ? "Sua travessia começa " + fmt(st.profile.start_date) : `Prova ${b.num} · ${esc(b.lugar)} · ${esc(b.virtude)}`}</span>
@@ -388,8 +407,19 @@
     shell(`<div class="page-head"><div><span class="eyebrow">Com a Rebeca</span><h1>Aulas</h1></div></div>
       <div class="stack">
         ${video(V.aula_inaugural, "Aula inaugural: o propósito da travessia", "Por que 40 dias, por que quatro provas, o que esperar de cada uma e como a Rebeca usa o caderno no dia a dia.")}
+        ${turmaCard()}
         <div class="two">${video(V.como_imprimir, "Como imprimir e encadernar", "Papel, gramatura, espiral e o que pedir na gráfica.")}${video(V.como_usar_site, "Como usar a versão pelo celular", "O passo a passo desta área de membros pelo celular.")}</div>
       </div>`, "aulas");
+  }
+  function temTurma() { return S.mode === "local" || /turma/.test(String(st.member.plan || "")); }
+  function turmaCard() {
+    if (!temTurma()) return `<div class="card turma off"><span class="eyebrow">Turma ao vivo</span><h3>Um encontro por semana com a Rebeca</h3><p class="muted">Você está fazendo a travessia por conta. Se quiser companhia, a turma ao vivo tem um encontro semanal por videochamada e um grupo no WhatsApp só de quem está nos mesmos 40 dias.${CFG.CHECKOUT_URL ? ` <a href="${esc(CFG.CHECKOUT_URL)}">Entrar na turma</a>.` : ""}</p></div>`;
+    return `<div class="card turma"><span class="eyebrow">Turma ao vivo</span><h3>Um encontro por semana com a Rebeca</h3>
+      <p class="muted">${esc(CFG.ENCONTROS_INFO || "O link do encontro fica aqui e no grupo.")}</p>
+      <div class="btns">
+        ${CFG.ENCONTROS_URL ? `<a class="btn" href="${esc(CFG.ENCONTROS_URL)}" target="_blank" rel="noopener">Entrar no encontro</a>` : `<span class="btn ghost sm" style="opacity:.6">Link do encontro em breve</span>`}
+        ${CFG.COMUNIDADE_URL ? `<a class="btn ghost" href="${esc(CFG.COMUNIDADE_URL)}" target="_blank" rel="noopener">Grupo da turma no WhatsApp</a>` : `<span class="btn ghost sm" style="opacity:.6">Grupo do WhatsApp em breve</span>`}
+      </div></div>`;
   }
   function viewImprimir() {
     shell(`<div class="page-head"><div><span class="eyebrow">Versão impressa</span><h1>Imprimir o caderno</h1></div></div>
@@ -407,8 +437,54 @@
         </ul></div>
       </div>`, "imprimir");
   }
+  function giftLink(code) { const base = location.href.split("#")[0]; return base + "#/resgatar/" + code; }
+  function giftMsg(g) {
+    const nome = g.to_name ? g.to_name + ", " : "";
+    const de = st.profile.name || st.session.name || "uma amiga";
+    const msg = g.message ? g.message + "\n\n" : "";
+    return `${nome}te dei um presente: 40 dias do caderno De Tola a Virtuosa pra gente fazer juntas.\n\n${msg}Seu código é ${g.code}. É só entrar em ${giftLink(g.code)} e criar sua conta.\n\nCom carinho, ${de}.`;
+  }
+  async function viewPresente() {
+    const gifts = await S.getGifts(st.session.email);
+    const recebido = await S.giftReceived(st.session.email);
+    const cards = gifts.map((g) => {
+      const claimed = !!g.claimed_email;
+      return `<div class="card gift ${claimed ? "done" : ""}">
+        <div class="gift-head"><span class="eyebrow">${claimed ? "Presente resgatado" : "Presente pra uma amiga"}</span><span class="code">${esc(g.code)}</span></div>
+        ${claimed ? `<p>Resgatado por <b>${esc(g.claimed_email)}</b>${g.claimed_at ? " em " + new Date(g.claimed_at).toLocaleDateString("pt-BR") : ""}. Vocês estão na mesma travessia.</p>` : `
+        <div class="field"><label class="label" for="g-to-${esc(g.code)}">Nome dela</label><input id="g-to-${esc(g.code)}" type="text" data-gift="${esc(g.code)}.to_name" value="${esc(g.to_name || "")}" placeholder="Como você chama sua amiga"></div>
+        <div class="field"><label class="label" for="g-msg-${esc(g.code)}">Um recado seu <span class="hint">vai junto com o código</span></label><textarea id="g-msg-${esc(g.code)}" class="lined" rows="3" data-gift="${esc(g.code)}.message" placeholder="Por que você pensou nela pra fazer isso junto">${esc(g.message || "")}</textarea></div>
+        <div class="btns">
+          <a class="btn" href="https://wa.me/?text=${encodeURIComponent(giftMsg(g))}" target="_blank" rel="noopener">Mandar pelo WhatsApp</a>
+          <button class="btn ghost" type="button" data-act="copy" data-text="${esc(giftLink(g.code))}">Copiar link do presente</button>
+          <button class="btn ghost" type="button" data-act="cartao" data-code="${esc(g.code)}">Cartão pra imprimir</button>
+        </div>
+        <p class="muted" style="font-size:0.82rem;margin:0.8rem 0 0">Ela abre o link, cria a conta com o e-mail dela e o acesso libera na hora. O código vale uma vez.</p>`}
+      </div>`;
+    }).join("");
+    shell(`<div class="page-head"><div><span class="eyebrow">Fazer junto</span><h1>Presente</h1></div></div>
+      <div class="stack">
+        ${recebido ? `<div class="card gift received"><span class="eyebrow">Você ganhou</span><p>Sua travessia foi um presente de <b>${esc(recebido.buyer_name || recebido.buyer_email)}</b>.${recebido.message ? ` Ela deixou um recado: <em>“${esc(recebido.message)}”</em>` : ""} Quando terminar os 40 dias, conta pra ela o que mudou.</p></div>` : ""}
+        ${cards || `<div class="card gift off"><span class="eyebrow">Presente pra uma amiga</span><h3>Ninguém atravessa sozinha</h3><p class="muted">Você ainda não tem um presente pra dar. Na página do caderno dá pra comprar um acesso extra por R$ 27 e mandar pra quem você quer levar junto.${CFG.CHECKOUT_URL ? ` <a href="${esc(CFG.CHECKOUT_URL)}">Presentear uma amiga</a>.` : ""}</p></div>`}
+      </div>`, "conta");
+  }
+  function cartaoPresente(g) {
+    const de = st.profile.name || st.session.name || "";
+    const w = window.open("", "_blank");
+    if (!w) return toast("Libere as janelas pop-up pra abrir o cartão.", true);
+    w.document.write(`<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><title>Cartão de presente</title>
+      <link rel="stylesheet" href="${location.href.split("#")[0].replace(/app\/?$/, "")}assets/brand.css">
+      <style>@page{size:148mm 105mm;margin:0}body{margin:0;background:#fff}.c{width:148mm;height:105mm;box-sizing:border-box;padding:12mm 14mm;background:var(--rubi-profundo);color:var(--creme);display:flex;flex-direction:column;justify-content:space-between;position:relative}.c .frame{position:absolute;inset:5mm;border:0.3mm solid rgba(232,194,122,.5)}.c .eyebrow{color:var(--dourado-vivo)}.c h1{font-family:var(--display);font-size:22pt;line-height:1.05;margin:2mm 0 3mm}.c p{font-family:var(--serif);font-style:italic;font-size:10.5pt;line-height:1.4;margin:0;color:rgba(249,245,238,.9)}.c .code{font-family:var(--serif);font-size:16pt;letter-spacing:.2em;color:var(--dourado-vivo);margin-top:2mm}.c .foot{font-size:7pt;letter-spacing:.14em;text-transform:uppercase;color:rgba(249,245,238,.6)}.c .de{font-family:var(--display);font-size:13pt;color:var(--creme)}@media screen{body{padding:20px;background:#eee}.c{box-shadow:0 10px 30px rgba(0,0,0,.2)}}</style></head>
+      <body><div class="c"><div class="frame"></div>
+        <div><span class="eyebrow">Um presente pra você${g.to_name ? ", " + esc(g.to_name) : ""}</span><h1>40 dias no deserto,<br>nós duas.</h1><p>${g.message ? esc(g.message) : "Pensei em você pra fazer esse caminho comigo. Um caderno, quarenta dias, uma virtude de cada vez."}</p></div>
+        <div><div class="foot">Seu código de acesso</div><div class="code">${esc(g.code)}</div><div class="foot" style="margin-top:1.5mm">${esc(location.href.split("#")[0])}</div></div>
+        <div style="display:flex;justify-content:space-between;align-items:flex-end"><span class="de">${esc(de)}</span><span class="foot">De Tola a Virtuosa · Rebeca Fortunato</span></div>
+      </div><script>setTimeout(function(){window.print()},400)<\/script></body></html>`);
+    w.document.close();
+  }
   function viewConta() {
     shell(`<div class="page-head"><div><span class="eyebrow">Sua conta</span><h1>Conta</h1></div></div>
+      <div class="card gift-cta"><div><span class="eyebrow">Fazer junto</span><b>Presente pra uma amiga</b><span class="muted">Mande o código, imprima o cartão ou veja quem já resgatou.</span></div><a class="btn ghost sm" href="#/presente">Abrir</a></div>
       <div class="two">
         <div class="card">
           <div class="field"><label class="label" for="a-name">Nome</label><input id="a-name" type="text" data-profile="name" value="${esc(st.profile.name || "")}"></div>
@@ -425,8 +501,10 @@
   const savePrepDebounced = debounce(async (k, f, v) => { await S.setPrep(st.session.email, k, { [f]: v }); }, 500);
   function setPrep(k, f, v, now) { st.prep[k] = { ...(st.prep[k] || {}), [f]: v }; if (now) return S.setPrep(st.session.email, k, { [f]: v }); savePrepDebounced(k, f, v); }
 
+  const saveGiftDebounced = debounce(async (code, f, v) => { await S.updateGift(code, { [f]: v }); }, 500);
   app.addEventListener("input", (ev) => {
     const el = ev.target;
+    if (el.dataset.gift) { const [code, f] = el.dataset.gift.split("."); return saveGiftDebounced(code, f, el.value); }
     if (el.dataset.entry) return patchEntry(+app.dataset.day, { [el.dataset.entry]: el.value });
     if (el.dataset.prep) { const [k, f] = el.dataset.prep.split("."); return setPrep(k, f, el.value); }
   });
@@ -478,6 +556,8 @@
     const a = act.dataset.act;
     if (a === "tab") return renderAuth(act.dataset.tab);
     if (a === "logout") { await S.signOut(); location.hash = ""; return boot(); }
+    if (a === "copy") { try { await navigator.clipboard.writeText(act.dataset.text); toast("Link copiado."); } catch { prompt("Copie o link:", act.dataset.text); } return; }
+    if (a === "cartao") { const gs = await S.getGifts(st.session.email); const g = gs.find((x) => x.code === act.dataset.code); if (g) cartaoPresente(g); return; }
     if (a === "reset") { const email = document.getElementById("f-email").value; if (!email) return toast("Digite o e-mail primeiro.", true); try { await S.resetPassword(email); toast("Enviamos um link pro seu e-mail."); } catch (e) { toast(e.message, true); } return; }
     if (a === "done") { const d = +act.dataset.day; const next = !entry(d).done; await patchEntry(d, { done: next, date: isoToday() }, true); toast(next ? `Dia ${d} marcado. Fidelidade.` : "Dia desmarcado."); return viewDia(d); }
     if (a === "seal") { await setPrep("carta", "lacrada", true, true); await setPrep("carta", "data", new Date().toLocaleDateString("pt-BR"), true); toast("Carta lacrada até o dia 40."); return viewPrep(); }
@@ -493,6 +573,13 @@
       try { st.session = tab === "criar" ? await S.signUp(fd.get("email").trim().toLowerCase(), fd.get("password"), fd.get("name").trim()) : await S.signIn(fd.get("email").trim().toLowerCase(), fd.get("password")); await boot(); }
       catch (e) { renderAuth(tab, e.message); }
       return;
+    }
+    if (f.id === "claimform") {
+      const code = new FormData(f).get("code");
+      const r = await S.claimGift(st.session.email, code);
+      if (!r.ok) return toast(r.error, true);
+      toast(`Presente de ${r.from} resgatado. Bem-vinda.`);
+      return boot();
     }
     if (f.id === "onboard") {
       const fd = new FormData(f);

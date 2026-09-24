@@ -41,6 +41,25 @@
     async getPrep(email) { return LS.get("prep:" + email, {}); },
     async setPrep(email, key, data) { const all = await this.getPrep(email); all[key] = { ...(all[key] || {}), ...data }; LS.set("prep:" + email, all); },
     async wipe(email) { LS.del("entries:" + email); LS.del("prep:" + email); LS.del("profile:" + email); },
+    // Presentes (demonstração): toda conta ganha um código de exemplo pra testar o fluxo.
+    async getGifts(email) {
+      const all = LS.get("gifts", {});
+      const mine = Object.values(all).filter((g) => g.buyer_email === email);
+      if (mine.length) return mine;
+      const code = "AMIGA" + String(Math.floor(Math.random() * 900) + 100);
+      all[code] = { code, buyer_email: email, buyer_name: (LS.get("users", {})[email] || {}).name || "", to_name: "", message: "", active: true, claimed_email: null, claimed_at: null, created_at: Date.now() };
+      LS.set("gifts", all); return [all[code]];
+    },
+    async updateGift(code, patch) { const all = LS.get("gifts", {}); if (all[code]) { all[code] = { ...all[code], ...patch }; LS.set("gifts", all); } },
+    async claimGift(email, code) {
+      const all = LS.get("gifts", {}); const g = all[String(code || "").toUpperCase().trim()];
+      if (!g) return { ok: false, error: "Código não encontrado. Confere com quem te presenteou." };
+      if (g.buyer_email === email) return { ok: false, error: "Esse código é pra sua amiga, não pra você." };
+      if (g.claimed_email && g.claimed_email !== email) return { ok: false, error: "Este código já foi usado por outra pessoa." };
+      g.claimed_email = email; g.claimed_at = g.claimed_at || Date.now(); LS.set("gifts", all);
+      return { ok: true, from: g.buyer_name || g.buyer_email };
+    },
+    async giftReceived(email) { const all = LS.get("gifts", {}); return Object.values(all).find((g) => g.claimed_email === email) || null; },
   };
 
   // ---------- SUPABASE ----------
@@ -102,6 +121,14 @@
       await sb().from("prep").upsert({ user_id: s.id, key, data: { ...(all[key] || {}), ...patch } }, { onConflict: "user_id,key" });
     },
     async wipe() { const s = await this.session(); await sb().from("entries").delete().eq("user_id", s.id); await sb().from("prep").delete().eq("user_id", s.id); },
+    async getGifts(email) { const { data } = await sb().from("gifts").select("*").eq("buyer_email", email).order("created_at"); return data || []; },
+    async updateGift(code, patch) { await sb().from("gifts").update(patch).eq("code", code); },
+    async claimGift(email, code) {
+      const { data, error } = await sb().rpc("claim_gift", { p_code: String(code || "").toUpperCase().trim() });
+      if (error) return { ok: false, error: traduz(error.message) };
+      return data || { ok: false, error: "Não deu pra resgatar agora. Tente de novo." };
+    },
+    async giftReceived(email) { const { data } = await sb().from("gifts").select("code, buyer_name, buyer_email, to_name, message, claimed_at").eq("claimed_email", email).maybeSingle(); return data || null; },
   };
 
   function traduz(m) {

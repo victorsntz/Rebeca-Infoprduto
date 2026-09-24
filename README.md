@@ -39,6 +39,10 @@ Precisa de `python3` e de um Chromium ou Chrome (`CHROME=/caminho/do/chrome ./bu
 3. Cole a URL e a chave `anon` em `site/app/config.js`.
 4. Pra liberar o acesso de quem comprou, faça deploy da função `site/app/supabase/functions/checkout-webhook` e aponte o webhook da plataforma de pagamento pra ela. Compra aprovada ativa, reembolso ou cancelamento bloqueia. Pra testar sem checkout, insira o e-mail na tabela `members` na mão (tem o exemplo no fim do `schema.sql`).
 5. Cole os links dos vídeos (aula inaugural, como imprimir, como usar o site) e o link do checkout no mesmo `config.js`.
+6. Extras vendidos como order bump no checkout:
+   - **Presentear uma amiga (R$ 27).** Crie o bump na plataforma e coloque o id dele no segredo `GIFT_OFFER_IDS` da função. Toda compra com esse bump gera um código na tabela `gifts`. A compradora vê o código em "Presente" na área de membros, manda pelo WhatsApp ou imprime o cartão. A amiga abre o link `app/#/resgatar/CODIGO`, cria a conta e o acesso libera na hora (função `claim_gift` no banco). Reembolso da compradora cancela o presente.
+   - **Turma ao vivo (R$ 47).** Id do bump em `LIVE_OFFER_IDS`. Quem compra ganha o plano com `+turma`, e a página "Aulas" mostra o link do encontro semanal e o grupo do WhatsApp, que ficam em `COMUNIDADE_URL` e `ENCONTROS_URL` no `config.js`.
+   - No modo demonstração toda conta ganha um código de exemplo e vê a turma, só pra testar.
 
 Na landing, troque o preço de exemplo e coloque a URL do checkout em `CHECKOUT_URL`, no fim do `site/index.html`.
 

@@ -39,6 +39,22 @@ create table if not exists public.prep (
   primary key (user_id, key)
 );
 
+-- Presentes: quem comprou o "presentear uma amiga" ganha um código. A amiga resgata e vira membro.
+create table if not exists public.gifts (
+  code text primary key,
+  buyer_email text not null,
+  buyer_name text,
+  to_name text,
+  message text,
+  active boolean not null default true,
+  claimed_email text,
+  claimed_at timestamptz,
+  provider text,
+  provider_ref text,
+  created_at timestamptz default now(),
+  updated_at timestamptz default now()
+);
+
 -- Segurança: cada mulher só vê o que é dela.
 alter table public.members enable row level security;
 alter table public.profiles enable row level security;
@@ -57,6 +73,36 @@ create policy "entries own" on public.entries for all
 create policy "prep own" on public.prep for all
   using (user_id = auth.uid()) with check (user_id = auth.uid());
 
+alter table public.gifts enable row level security;
+create policy "gift buyer reads" on public.gifts for select
+  using (buyer_email = auth.jwt() ->> 'email');
+create policy "gift buyer edits card" on public.gifts for update
+  using (buyer_email = auth.jwt() ->> 'email') with check (buyer_email = auth.jwt() ->> 'email');
+
+-- Resgate: a amiga chama esta função com o código. Roda com privilégio pra criar o membro dela.
+create or replace function public.claim_gift(p_code text)
+returns json language plpgsql security definer set search_path = public as $$
+declare g public.gifts%rowtype; v_email text;
+begin
+  v_email := lower(auth.jwt() ->> 'email');
+  if v_email is null then return json_build_object('ok', false, 'error', 'Entre na sua conta antes de resgatar.'); end if;
+  select * into g from public.gifts where code = upper(trim(p_code));
+  if not found then return json_build_object('ok', false, 'error', 'Código não encontrado. Confere com quem te presenteou.'); end if;
+  if not g.active then return json_build_object('ok', false, 'error', 'Este presente foi cancelado.'); end if;
+  if g.claimed_email is not null and g.claimed_email <> v_email then return json_build_object('ok', false, 'error', 'Este código já foi usado por outra pessoa.'); end if;
+  if g.buyer_email = v_email then return json_build_object('ok', false, 'error', 'Esse código é pra sua amiga, não pra você. Você já tem acesso.'); end if;
+  update public.gifts set claimed_email = v_email, claimed_at = coalesce(claimed_at, now()) where code = g.code;
+  insert into public.members (email, active, plan, provider, provider_ref)
+    values (v_email, true, 'presente', 'gift', g.code)
+    on conflict (email) do update set active = true, plan = 'presente', provider = 'gift', provider_ref = g.code;
+  return json_build_object('ok', true, 'from', coalesce(g.buyer_name, g.buyer_email));
+end $$;
+grant execute on function public.claim_gift(text) to authenticated;
+
+-- Quem resgatou pode ver de quem veio o presente (só a própria linha).
+create policy "gift claimed reads" on public.gifts for select
+  using (claimed_email = auth.jwt() ->> 'email');
+
 -- updated_at automático
 create or replace function public.touch_updated_at() returns trigger language plpgsql as $$
 begin new.updated_at = now(); return new; end $$;
@@ -66,8 +112,12 @@ drop trigger if exists t_profiles on public.profiles;
 create trigger t_profiles before update on public.profiles for each row execute function public.touch_updated_at();
 drop trigger if exists t_entries on public.entries;
 create trigger t_entries before update on public.entries for each row execute function public.touch_updated_at();
+drop trigger if exists t_gifts on public.gifts;
+create trigger t_gifts before update on public.gifts for each row execute function public.touch_updated_at();
 drop trigger if exists t_prep on public.prep;
 create trigger t_prep before update on public.prep for each row execute function public.touch_updated_at();
 
 -- Pra testar sem checkout: libere um e-mail na mão.
 -- insert into public.members (email, active, plan, provider) values ('teste@exemplo.com', true, 'travessia', 'manual');
+-- Pra testar o presente sem checkout:
+-- insert into public.gifts (code, buyer_email, buyer_name) values ('AMIGA123', 'teste@exemplo.com', 'Rebeca');
