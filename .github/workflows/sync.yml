@@ -1,15 +1,11 @@
-name: Publicar no site
+name: Publicar
 
-# Igual à esteira do fortunatoestudio.com, só que em duas etapas:
-#   1. copia a pasta site/ (landing + área de membros) e os PDFs pra dentro do repositório
-#      victorsntz/fortunato-site, na pasta detolaavirtuosa/, e faz o commit lá;
-#   2. dispara o sync.yml do fork (vitorvbarcelos/fortunato-site), que é o que a Hostinger serve.
+# Gera a versão "pronta pra hospedagem" e coloca na branch `publicar` deste repositório:
+#   raiz da branch = conteúdo de site/ (landing na raiz, área de membros em app/) + PDFs em dist/
+# A Hostinger serve essa branch pela raiz, no domínio do produto (ver README, "Publicar").
 #
 # Publicar na hora:  gh workflow run sync.yml -R victorsntz/Rebeca-Infoprduto --ref main
-# Endereço:          https://fortunatoestudio.com/detolaavirtuosa/
-#
-# Precisa de um segredo PAT neste repositório (Settings > Secrets and variables > Actions) com
-# permissão de escrita em victorsntz/fortunato-site e de Actions no fork. Pode ser o mesmo token do fork.
+# Todo push na main que mexa em site/ ou nos PDFs também publica sozinho.
 
 on:
   push:
@@ -18,54 +14,59 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
 
 concurrency:
-  group: publicar-site
+  group: publicar
   cancel-in-progress: true
-
-env:
-  PASTA: detolaavirtuosa
 
 jobs:
   publicar:
     runs-on: ubuntu-latest
-    name: Copiar pro site e sincronizar
+    name: Montar o pacote e enviar pra branch publicar
     steps:
-      - name: Checkout deste repositório
+      - name: Checkout
         uses: actions/checkout@v5
-        with:
-          path: produto
 
-      - name: Checkout do site (victorsntz/fortunato-site)
-        uses: actions/checkout@v5
-        with:
-          repository: victorsntz/fortunato-site
-          ref: main
-          token: ${{ secrets.PAT }}
-          path: site
-
-      - name: Copiar landing, área de membros e PDFs
+      - name: Montar o pacote
         run: |
           set -e
-          rm -rf "site/$PASTA"
-          mkdir -p "site/$PASTA/dist"
-          rsync -a --delete --exclude 'dist/' produto/site/ "site/$PASTA/"
-          cp produto/dist/*.pdf "site/$PASTA/dist/"
-          # O app procura o PDF em ../dist/ (relativo a app/). Confere que ele está lá.
-          test -f "site/$PASTA/dist/de-tola-a-virtuosa.pdf"
+          rm -rf /tmp/pacote && mkdir -p /tmp/pacote/dist
+          rsync -a --exclude 'dist/' site/ /tmp/pacote/
+          cp dist/*.pdf /tmp/pacote/dist/
+          test -f /tmp/pacote/index.html
+          test -f /tmp/pacote/app/index.html
+          test -f /tmp/pacote/dist/de-tola-a-virtuosa.pdf
+          # Bloqueia pastas que não são pra ver e cache de assets (Apache/Hostinger).
+          cat > /tmp/pacote/.htaccess <<'EOF'
+          ErrorDocument 404 /index.html
+          RedirectMatch 404 ^/\.git
+          RedirectMatch 404 ^/\.github
+          RedirectMatch 404 ^/app/supabase
+          <IfModule mod_expires.c>
+            ExpiresActive On
+            ExpiresByType text/css "access plus 7 days"
+            ExpiresByType application/javascript "access plus 7 days"
+            ExpiresByType image/png "access plus 30 days"
+            ExpiresByType image/jpeg "access plus 30 days"
+            ExpiresByType image/svg+xml "access plus 30 days"
+            ExpiresByType font/ttf "access plus 365 days"
+          </IfModule>
+          EOF
+          # Remove o que é só de desenvolvimento.
+          rm -rf /tmp/pacote/app/supabase
 
-      - name: Commit e push no site
+      - name: Enviar pra branch publicar
         run: |
-          cd site
+          set -e
+          cd /tmp/pacote
+          git init -q
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add "$PASTA"
-          if git diff --cached --quiet; then echo "Nada mudou."; exit 0; fi
-          git commit -m "De Tola a Virtuosa: publicação automática ($(date -u '+%Y-%m-%d %H:%M') UTC)"
-          git push origin main
-
-      - name: Disparar a sincronização do fork (Hostinger)
+          git checkout -q -b publicar
+          git add -A
+          git commit -q -m "Publicação automática ($(date -u '+%Y-%m-%d %H:%M') UTC) a partir de ${GITHUB_SHA::7}"
+          git remote add origin "https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
+          git push -f origin publicar
         env:
-          GH_TOKEN: ${{ secrets.PAT }}
-        run: gh workflow run sync.yml -R vitorvbarcelos/fortunato-site --ref main
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

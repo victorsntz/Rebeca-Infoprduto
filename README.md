@@ -47,19 +47,27 @@ Na landing, troque o preço de exemplo e coloque a URL do checkout em `CHECKOUT_
 
 ## Publicar (a esteira)
 
-Mesma lógica do site do estúdio, em duas etapas:
+Igual ao site do estúdio: um repositório servido pela raiz na Hostinger. A diferença é que aqui a raiz
+do repositório tem código-fonte, então a esteira monta um "pacote" e coloca numa branch só de publicação.
 
 ```
-push na main deste repo  →  sync.yml copia site/ e os PDFs pra victorsntz/fortunato-site/detolaavirtuosa/
-                          →  dispara o sync.yml do fork (vitorvbarcelos)  →  Hostinger serve
+push na main  →  sync.yml monta: site/ na raiz + PDFs em dist/ + .htaccess  →  força na branch `publicar`
+              →  Hostinger (Git) puxa a branch `publicar` pro domínio do produto
 ```
 
 - **Publicar na hora:** `gh workflow run sync.yml -R victorsntz/Rebeca-Infoprduto --ref main`
-- **Endereço:** `https://fortunatoestudio.com/detolaavirtuosa/` (landing) e `/detolaavirtuosa/app/` (área de membros). Quando o domínio próprio existir, é só apontar a raiz dele pra essa pasta na Hostinger.
-- **Pré-requisito:** o segredo `PAT` neste repositório, com escrita em `victorsntz/fortunato-site` e Actions no fork.
 - Todo push na `main` que mexa em `site/` ou nos PDFs publica sozinho.
+- Não precisa de segredo: a Action usa o token do próprio repositório.
+- A branch `publicar` é gerada, nunca edite nela: cada publicação apaga e refaz.
 
-Pra hospedar em outro lugar: é tudo estático, sobe a pasta `site/` com os PDFs numa pasta `dist/` ao lado do `app/`.
+**Na Hostinger (uma vez):** Websites › Adicionar site › domínio do produto (ex.: `detolaavirtuosa.com.br`,
+ou um subdomínio temporário do plano enquanto o domínio não vem) › Avançado › Git › Criar repositório:
+URL `https://github.com/victorsntz/Rebeca-Infoprduto.git`, branch `publicar`, diretório em branco
+(vai pro `public_html`). Se o repositório for privado, a Hostinger mostra uma chave SSH pra colar em
+Settings › Deploy keys do repositório. Depois ative o "auto deploy": ela dá uma URL de webhook pra colar em
+Settings › Webhooks do repositório, evento push. Aí cada publicação sobe sozinha, sem entrar no painel.
+
+Pra hospedar em outro lugar: é a branch `publicar` inteira, estática, sobe em qualquer host.
 
 ## Estrutura
 
