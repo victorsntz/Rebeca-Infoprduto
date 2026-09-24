@@ -8,6 +8,7 @@ window.DTV_CONFIG = {
   // Vídeos (YouTube ou Vimeo). Pode colar o link normal do vídeo, o app converte pro player.
   VIDEOS: {
     aula_inaugural: "https://youtu.be/kUP5Hm-PTVw",
+    conhecendo_caderno: "",
     como_imprimir: "",
     como_usar_site: "",
   },
