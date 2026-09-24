@@ -57,6 +57,27 @@ body { background: var(--creme); }
 .side-nav .dayline b { display: block; font-family: var(--serif); font-size: 1.6rem; font-weight: 400; color: var(--creme); }
 .side-nav .progress { background: rgba(249,245,238,0.15); margin-top: 0.5rem; }
 .side-nav .progress i { background: var(--dourado-vivo); }
+.side-gift { display: flex; align-items: center; gap: 0.75rem; margin-top: 0.9rem; padding: 0.75rem 0.85rem; border-radius: 12px; text-decoration: none; color: var(--creme); background: rgba(232,194,122,0.12); border: 1px solid rgba(232,194,122,0.35); }
+.side-gift:hover, .side-gift.on { background: rgba(232,194,122,0.22); }
+.side-gift .ico { width: 34px; height: 34px; border-radius: 50%; background: var(--dourado-vivo); color: var(--rubi-profundo); display: grid; place-items: center; flex: 0 0 auto; animation: gift-pulse 2.8s ease-in-out infinite; }
+.side-gift .ico svg { width: 18px; height: 18px; }
+.side-gift b { display: block; font-family: var(--serif); font-weight: 400; font-size: 0.98rem; line-height: 1.15; }
+.side-gift small { display: block; font-size: 0.72rem; color: rgba(249,245,238,0.65); }
+@keyframes gift-pulse { 0%, 100% { box-shadow: 0 0 0 0 rgba(232,194,122,0.55); } 50% { box-shadow: 0 0 0 7px rgba(232,194,122,0); } }
+@media (prefers-reduced-motion: reduce) { .side-gift .ico, .top-gift { animation: none; } }
+.topbar-right { display: flex; align-items: center; gap: 0.6rem; }
+.top-gift { width: 34px; height: 34px; border-radius: 50%; background: var(--dourado-vivo); color: var(--rubi-profundo); display: grid; place-items: center; animation: gift-pulse 2.8s ease-in-out infinite; }
+.top-gift svg { width: 18px; height: 18px; }
+.modo { margin-bottom: 1.2rem; }
+.modo-head p { margin: 0.2rem 0 0.8rem; color: var(--cinza); font-size: 0.95rem; }
+.modo-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+@media (max-width: 640px) { .modo-grid { grid-template-columns: 1fr; } }
+.modo-card { display: flex; flex-direction: column; gap: 0.35rem; padding: 1.2rem 1.3rem; background: #fff; border: 1px solid var(--linha); border-radius: var(--radius); text-decoration: none; color: var(--carvao); box-shadow: var(--shadow-sm); transition: transform .15s, box-shadow .15s; }
+.modo-card:hover { transform: translateY(-2px); box-shadow: var(--shadow); }
+.modo-card svg { width: 26px; height: 26px; color: var(--rubi); margin-bottom: 0.2rem; }
+.modo-card b { font-family: var(--serif); font-weight: 400; font-size: 1.3rem; color: var(--rubi-profundo); }
+.modo-card span { font-size: 0.92rem; color: var(--cinza); line-height: 1.45; }
+.modo-card em { font-style: normal; margin-top: 0.5rem; font-size: 0.85rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--rubi); font-weight: 600; }
 
 .topbar { display: flex; align-items: center; justify-content: space-between; padding: 0.9rem 1.2rem; background: var(--rubi-profundo); color: var(--creme); position: sticky; top: env(safe-area-inset-top, 0px); z-index: 10; }
 @media (min-width: 901px) { .topbar { display: none; } }

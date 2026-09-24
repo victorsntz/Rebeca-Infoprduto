@@ -36,6 +36,7 @@
   const debounce = (fn, ms) => { let t; return (...a) => { clearTimeout(t); t = setTimeout(() => fn(...a), ms); }; };
 
   const ICO = {
+    gift: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12v9H4v-9"/><path d="M2 7h20v5H2z"/><path d="M12 22V7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg>',
     inicio: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m3 11 9-8 9 8v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg>',
     hoje: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 9h18M8 2v4M16 2v4"/></svg>',
     travessia: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 20c3-6 6-9 9-9s6 3 9 9"/><path d="M12 3v8"/><path d="m8 7 4-4 4 4"/></svg>',
@@ -174,9 +175,10 @@
         <a class="logo" href="#/inicio">${LOGO}<span>De Tola a Virtuosa<small>Rebeca Fortunato</small></span></a>
         <nav>${nav()}</nav>
         <div class="dayline">${!st.profile.start_date ? "Preparação em andamento" : t === 0 ? "Sua travessia começa em " + fmt(st.profile.start_date) : `<b>Dia ${t}</b>de 40 · ${doneCount()} marcados`}<div class="progress"><i style="width:${(doneCount() / TOTAL) * 100}%"></i></div></div>
+        <a class="side-gift ${current === "presente" ? "on" : ""}" href="#/presente"><span class="ico">${ICO.gift}</span><span><b>Presenteie uma amiga</b><small>com este caderno</small></span></a>
       </aside>
       <div>
-        <header class="topbar"><a class="logo" href="#/inicio">${LOGO}<span>De Tola a Virtuosa<small>Rebeca Fortunato</small></span></a><span class="daypill">${t === 0 ? "Começa " + fmt(st.profile.start_date) : "Dia " + t + " de 40"}</span></header>
+        <header class="topbar"><a class="logo" href="#/inicio">${LOGO}<span>De Tola a Virtuosa<small>Rebeca Fortunato</small></span></a><span class="topbar-right"><span class="daypill">${!st.profile.start_date ? "Preparação" : t === 0 ? "Começa " + fmt(st.profile.start_date) : "Dia " + t + " de 40"}</span><a class="top-gift" href="#/presente" aria-label="Presenteie uma amiga">${ICO.gift}</a></span></header>
         <main class="content">${view}</main>
       </div>
       <nav class="bottom-nav">${NAV.slice(0, 5).map(([k, l, i]) => navLink(k, l, i, current, t)).join("")}</nav>
@@ -212,17 +214,24 @@
     S.getGifts(st.session.email).then((gs) => {
       const g = (gs || []).find((x) => !x.claimed_email);
       const slot = document.getElementById("gift-slot");
-      if (!slot) return;
-      if (g) slot.innerHTML = `<a class="card gift-cta" href="#/presente"><div><span class="eyebrow">Fazer junto</span><b>Você tem um presente pra dar</b><span class="muted">Mande o código ${esc(g.code)} pra sua amiga e façam os 40 dias juntas.</span></div><span class="btn ghost sm">Mandar</span></a>`;
-      else slot.innerHTML = `<a class="card gift-cta" href="#/presente"><div><span class="eyebrow">Fazer junto</span><b>Presenteie uma amiga</b><span class="muted">Chame alguém pra atravessar o deserto com você. Um acesso completo por ${esc(CFG.GIFT_PRICE || "R$ 27")}.</span></div><span class="btn ghost sm">Ver</span></a>`;
+      if (g && slot) slot.innerHTML = `<a class="card gift-cta" href="#/presente"><div><span class="eyebrow">Fazer junto</span><b>Você tem um presente pra dar</b><span class="muted">Mande o código ${esc(g.code)} pra sua amiga e façam os 40 dias juntas.</span></div><span class="btn ghost sm">Mandar</span></a>`;
     }).catch(() => {});
     const t = todayIdx();
     const b = bloco(Math.max(1, t));
     const ps = prepStatus();
     const pending = ps.filter((x) => !x[2]);
     const todayEntry = entry(t);
+    const escolha = !prepDone() ? `
+      <div class="modo">
+        <div class="modo-head"><span class="eyebrow">Como você quer fazer os 40 dias?</span><p>O caderno e o app são a mesma coisa. Escolhe o seu jeito, ou usa os dois.</p></div>
+        <div class="modo-grid">
+          <a class="modo-card" href="#/prep">${ICO.hoje}<b>Pelo celular</b><span>Preparação, o dia de hoje e as quatro provas, tudo aqui dentro.</span><em>Começar a preparação</em></a>
+          <a class="modo-card" href="#/imprimir">${ICO.imprimir}<b>Impresso, em mãos</b><span>Baixe o PDF e veja o que pedir na gráfica. Depois é só escrever.</span><em>Ver como imprimir</em></a>
+        </div>
+      </div>` : "";
     const html = `
       <div id="gift-slot"></div>
+      ${escolha}
       <div class="hero-card">
         <div>
           <span class="eyebrow">${!st.profile.start_date ? "Antes do dia 1" : t === 0 ? "Sua travessia começa " + fmt(st.profile.start_date) : `Prova ${b.num} · ${esc(b.lugar)} · ${esc(b.virtude)}`}</span>

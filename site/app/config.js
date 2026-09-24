@@ -20,7 +20,7 @@ window.DTV_CONFIG = {
 
   // Link do checkout do produto "Presentear uma amiga" (R$ 27), pra comprar depois e quantas vezes quiser.
   // Vazio esconde o botão de comprar dentro do app.
-  GIFT_CHECKOUT_URL: "",
+  GIFT_CHECKOUT_URL: "https://pay.kiwify.com.br/l2of2hZ",
   GIFT_PRICE: "R$ 27",
 
   // Suporte
