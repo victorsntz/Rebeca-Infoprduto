@@ -431,8 +431,7 @@
         <span class="price-note">ou 12x de R$ 4,70 · acesso imediato</span>
         <span class="save">Você economiza R$ 101</span>
         <label class="bump"><input type="checkbox" id="bump-amiga" data-extra="27"><span class="bx"></span><span class="bt"><b>Presentear uma amiga <em>+ R$ 27</em></b><small>Ela ganha o acesso dela, com o seu nome no cartão. Vocês fazem os 40 dias juntas.</small></span></label>
-        <label class="bump"><input type="checkbox" id="bump-turma" data-extra="47"><span class="bx"></span><span class="bt"><b>Turma ao vivo com a Rebeca <em>+ R$ 47</em></b><small>Um encontro por semana, ao vivo, durante os 40 dias. E o grupo da turma no WhatsApp pra não caminhar sozinha.</small></span></label>
-        <p class="bump-note">Os extras você confirma na página de pagamento.</p>
+        <p class="bump-note">O presente você confirma na página de pagamento.</p>
         <a class="btn gold block" style="margin-top:1rem" href="#checkout" id="btn-checkout">Quero começar agora<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
         <div class="pay"><span>Pix</span><span>Cartão</span><span>Boleto</span><span>Compra segura</span></div>
         <div class="garantia"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2 4 5v6c0 5 3.5 9.5 8 11 4.5-1.5 8-6 8-11V5z"/><path d="m9 12 2 2 4-4"/></svg><span><b>7 dias de garantia.</b> Se não for pra você, devolvemos tudo. Sem pergunta.</span></div>
@@ -460,7 +459,6 @@
     <details><summary>Sou casada e mãe. Dá tempo?</summary><p>A página do dia foi feita pra ser marcada em um minuto. Escrever é bônus pros dias com fôlego. Os desafios cabem numa rotina cheia, e vários deles são com a sua casa e as suas pessoas.</p></details>
     <details><summary>Quanto tempo tenho de acesso?</summary><p>O PDF é seu pra sempre. A área de membros fica disponível pelo período informado no checkout.</p></details>
     <details><summary>Posso dar de presente pra uma amiga?</summary><p>Pode, e é o jeito mais bonito de fazer. Na hora da compra, marque "presentear uma amiga" por mais R$ 27. Você recebe um código de presente na sua área de membros, com um cartão pra mandar por mensagem ou imprimir. Ela cria a conta dela com o código e cada uma segue no seu ritmo, com o próprio caderno.</p></details>
-<details><summary>O que é a turma ao vivo?</summary><p>Um extra opcional. Quem entra na turma tem um encontro por semana com a Rebeca, ao vivo, por videochamada, durante os 40 dias, e um grupo no WhatsApp só da turma. É onde ela responde dúvidas, conta como está indo a travessia dela e vocês seguram umas às outras. O caderno funciona sozinho, a turma é pra quem quer companhia.</p></details>
 <details><summary>Posso fazer mais de uma vez?</summary><p>Sim, e a ideia é essa. No dia 40 você decide a próxima travessia, com novas metas, novas regras e uma amiga junto.</p></details>
   </div>
 </section>
@@ -481,7 +479,7 @@
 
 <script>
   // Aponte o botão pro checkout real (Hotmart, Kiwify, Eduzz...).
-  // Os extras (presentear uma amiga, turma ao vivo) são "order bumps" configurados na plataforma de pagamento.
+  // O extra (presentear uma amiga) é um "order bump" configurado na plataforma de pagamento.
   // Aqui na página as caixinhas só mostram o total pra ela saber o que esperar no checkout.
   var CHECKOUT_URL = "";
   var BASE = 47;
@@ -493,8 +491,8 @@
     var total = BASE, n = 0;
     bumps.forEach(function (c) { if (c.checked) { total += +c.dataset.extra; n++; } });
     price.innerHTML = "<small>R$</small>" + total;
-    note.textContent = "ou 12x de R$ " + (total / 10).toFixed(2).replace(".", ",") + (n ? " · caderno + " + n + (n > 1 ? " extras" : " extra") : " · acesso imediato");
-    b.firstChild.textContent = n ? "Quero começar com isso" : "Quero começar agora";
+    note.textContent = "ou 12x de R$ " + (total / 10).toFixed(2).replace(".", ",") + (n ? " · dois acessos" : " · acesso imediato");
+    b.firstChild.textContent = n ? "Quero começar com ela" : "Quero começar agora";
   }
   bumps.forEach(function (c) { c.addEventListener("change", atualiza); });
   if (CHECKOUT_URL) b.href = CHECKOUT_URL; else b.addEventListener("click", function (e) { e.preventDefault(); alert("Coloque a URL do checkout em CHECKOUT_URL no final do index.html."); });

@@ -13,15 +13,10 @@ window.DTV_CONFIG = {
   },
 
   // Link do PDF pra download dentro da área de membros.
-  PDF_URL: "../../dist/de-tola-a-virtuosa.pdf",
+  PDF_URL: "../dist/de-tola-a-virtuosa.pdf",   // no site publicado os PDFs ficam em detolaavirtuosa/dist/
 
   // Link do checkout, usado quando a assinatura está inativa.
   CHECKOUT_URL: "",
-
-  // Turma ao vivo (extra): link do grupo no WhatsApp e dos encontros. Só aparece pra quem comprou a turma.
-  COMUNIDADE_URL: "",       // ex.: "https://chat.whatsapp.com/XXXXXXXX"
-  ENCONTROS_URL: "",        // ex.: link fixo do Meet/Zoom, ou uma página com a agenda
-  ENCONTROS_INFO: "Toda quarta, 20h, ao vivo. O link fica aqui e no grupo.",
 
   // Suporte
   SUPORTE_EMAIL: "contato@rebecafortunato.com",

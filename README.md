@@ -41,14 +41,25 @@ Precisa de `python3` e de um Chromium ou Chrome (`CHROME=/caminho/do/chrome ./bu
 5. Cole os links dos vídeos (aula inaugural, como imprimir, como usar o site) e o link do checkout no mesmo `config.js`.
 6. Extras vendidos como order bump no checkout:
    - **Presentear uma amiga (R$ 27).** Crie o bump na plataforma e coloque o id dele no segredo `GIFT_OFFER_IDS` da função. Toda compra com esse bump gera um código na tabela `gifts`. A compradora vê o código em "Presente" na área de membros, manda pelo WhatsApp ou imprime o cartão. A amiga abre o link `app/#/resgatar/CODIGO`, cria a conta e o acesso libera na hora (função `claim_gift` no banco). Reembolso da compradora cancela o presente.
-   - **Turma ao vivo (R$ 47).** Id do bump em `LIVE_OFFER_IDS`. Quem compra ganha o plano com `+turma`, e a página "Aulas" mostra o link do encontro semanal e o grupo do WhatsApp, que ficam em `COMUNIDADE_URL` e `ENCONTROS_URL` no `config.js`.
-   - No modo demonstração toda conta ganha um código de exemplo e vê a turma, só pra testar.
+   - No modo demonstração toda conta ganha um código de exemplo, só pra testar.
 
 Na landing, troque o preço de exemplo e coloque a URL do checkout em `CHECKOUT_URL`, no fim do `site/index.html`.
 
-## Hospedar
+## Publicar (a esteira)
 
-É tudo estático. Sobe a pasta `site/` em qualquer lugar (Vercel, Netlify, Hostinger, GitHub Pages) e o PDF junto. O caminho do PDF dentro do app está em `config.js`.
+Mesma lógica do site do estúdio, em duas etapas:
+
+```
+push na main deste repo  →  sync.yml copia site/ e os PDFs pra victorsntz/fortunato-site/detolaavirtuosa/
+                          →  dispara o sync.yml do fork (vitorvbarcelos)  →  Hostinger serve
+```
+
+- **Publicar na hora:** `gh workflow run sync.yml -R victorsntz/Rebeca-Infoprduto --ref main`
+- **Endereço:** `https://fortunatoestudio.com/detolaavirtuosa/` (landing) e `/detolaavirtuosa/app/` (área de membros). Quando o domínio próprio existir, é só apontar a raiz dele pra essa pasta na Hostinger.
+- **Pré-requisito:** o segredo `PAT` neste repositório, com escrita em `victorsntz/fortunato-site` e Actions no fork.
+- Todo push na `main` que mexa em `site/` ou nos PDFs publica sozinho.
+
+Pra hospedar em outro lugar: é tudo estático, sobe a pasta `site/` com os PDFs numa pasta `dist/` ao lado do `app/`.
 
 ## Estrutura
 

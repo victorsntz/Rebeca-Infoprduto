@@ -2,7 +2,6 @@
 // Deploy: supabase functions deploy checkout-webhook --no-verify-jwt
 // Segredos: supabase secrets set WEBHOOK_TOKEN=... SUPABASE_SERVICE_ROLE_KEY=... SUPABASE_URL=...
 //           supabase secrets set GIFT_OFFER_IDS=<ids das ofertas/bumps "presentear uma amiga">   (vários: separe por vírgula)
-//           supabase secrets set LIVE_OFFER_IDS=<ids das ofertas/bumps "turma ao vivo">
 //
 // Quando a compra é da oferta com presente, além de liberar a compradora a função cria um código
 // na tabela `gifts`. Ela vê o código na área de membros e manda pra amiga, que resgata ao criar a conta.
@@ -58,9 +57,8 @@ Deno.serve(async (req) => {
   }
   const ids = [offer, ...extras].filter(Boolean);
   const lista = (k: string) => (Deno.env.get(k) || "").toLowerCase().split(",").map((x) => x.trim()).filter(Boolean);
-  const giftOffers = lista("GIFT_OFFER_IDS"), liveOffers = lista("LIVE_OFFER_IDS");
+  const giftOffers = lista("GIFT_OFFER_IDS");
   const comPresente = giftOffers.some((g) => ids.includes(g));
-  const comTurma = liveOffers.some((g) => ids.includes(g));
 
   const ativa = ATIVA.some((s) => status.includes(s));
   const desativa = DESATIVA.some((s) => status.includes(s));
@@ -68,7 +66,7 @@ Deno.serve(async (req) => {
 
   const sb = createClient(Deno.env.get("SUPABASE_URL")!, Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!);
   const { error } = await sb.from("members").upsert(
-    { email, active: ativa, plan: "travessia" + (comPresente ? "+amiga" : "") + (comTurma ? "+turma" : ""), provider, provider_ref: ref },
+    { email, active: ativa, plan: "travessia" + (comPresente ? "+amiga" : ""), provider, provider_ref: ref },
     { onConflict: "email" },
   );
   if (error) return new Response(error.message, { status: 500 });

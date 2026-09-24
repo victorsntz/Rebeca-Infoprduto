@@ -407,19 +407,8 @@
     shell(`<div class="page-head"><div><span class="eyebrow">Com a Rebeca</span><h1>Aulas</h1></div></div>
       <div class="stack">
         ${video(V.aula_inaugural, "Aula inaugural: o propósito da travessia", "Por que 40 dias, por que quatro provas, o que esperar de cada uma e como a Rebeca usa o caderno no dia a dia.")}
-        ${turmaCard()}
         <div class="two">${video(V.como_imprimir, "Como imprimir e encadernar", "Papel, gramatura, espiral e o que pedir na gráfica.")}${video(V.como_usar_site, "Como usar a versão pelo celular", "O passo a passo desta área de membros pelo celular.")}</div>
       </div>`, "aulas");
-  }
-  function temTurma() { return S.mode === "local" || /turma/.test(String(st.member.plan || "")); }
-  function turmaCard() {
-    if (!temTurma()) return `<div class="card turma off"><span class="eyebrow">Turma ao vivo</span><h3>Um encontro por semana com a Rebeca</h3><p class="muted">Você está fazendo a travessia por conta. Se quiser companhia, a turma ao vivo tem um encontro semanal por videochamada e um grupo no WhatsApp só de quem está nos mesmos 40 dias.${CFG.CHECKOUT_URL ? ` <a href="${esc(CFG.CHECKOUT_URL)}">Entrar na turma</a>.` : ""}</p></div>`;
-    return `<div class="card turma"><span class="eyebrow">Turma ao vivo</span><h3>Um encontro por semana com a Rebeca</h3>
-      <p class="muted">${esc(CFG.ENCONTROS_INFO || "O link do encontro fica aqui e no grupo.")}</p>
-      <div class="btns">
-        ${CFG.ENCONTROS_URL ? `<a class="btn" href="${esc(CFG.ENCONTROS_URL)}" target="_blank" rel="noopener">Entrar no encontro</a>` : `<span class="btn ghost sm" style="opacity:.6">Link do encontro em breve</span>`}
-        ${CFG.COMUNIDADE_URL ? `<a class="btn ghost" href="${esc(CFG.COMUNIDADE_URL)}" target="_blank" rel="noopener">Grupo da turma no WhatsApp</a>` : `<span class="btn ghost sm" style="opacity:.6">Grupo do WhatsApp em breve</span>`}
-      </div></div>`;
   }
   function viewImprimir() {
     shell(`<div class="page-head"><div><span class="eyebrow">Versão impressa</span><h1>Imprimir o caderno</h1></div></div>

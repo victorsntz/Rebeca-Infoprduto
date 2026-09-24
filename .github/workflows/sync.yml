@@ -1,0 +1,71 @@
+name: Publicar no site
+
+# Igual à esteira do fortunatoestudio.com, só que em duas etapas:
+#   1. copia a pasta site/ (landing + área de membros) e os PDFs pra dentro do repositório
+#      victorsntz/fortunato-site, na pasta detolaavirtuosa/, e faz o commit lá;
+#   2. dispara o sync.yml do fork (vitorvbarcelos/fortunato-site), que é o que a Hostinger serve.
+#
+# Publicar na hora:  gh workflow run sync.yml -R victorsntz/Rebeca-Infoprduto --ref main
+# Endereço:          https://fortunatoestudio.com/detolaavirtuosa/
+#
+# Precisa de um segredo PAT neste repositório (Settings > Secrets and variables > Actions) com
+# permissão de escrita em victorsntz/fortunato-site e de Actions no fork. Pode ser o mesmo token do fork.
+
+on:
+  push:
+    branches: [main]
+    paths: ["site/**", "dist/*.pdf", ".github/workflows/sync.yml"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: publicar-site
+  cancel-in-progress: true
+
+env:
+  PASTA: detolaavirtuosa
+
+jobs:
+  publicar:
+    runs-on: ubuntu-latest
+    name: Copiar pro site e sincronizar
+    steps:
+      - name: Checkout deste repositório
+        uses: actions/checkout@v5
+        with:
+          path: produto
+
+      - name: Checkout do site (victorsntz/fortunato-site)
+        uses: actions/checkout@v5
+        with:
+          repository: victorsntz/fortunato-site
+          ref: main
+          token: ${{ secrets.PAT }}
+          path: site
+
+      - name: Copiar landing, área de membros e PDFs
+        run: |
+          set -e
+          rm -rf "site/$PASTA"
+          mkdir -p "site/$PASTA/dist"
+          rsync -a --delete --exclude 'dist/' produto/site/ "site/$PASTA/"
+          cp produto/dist/*.pdf "site/$PASTA/dist/"
+          # O app procura o PDF em ../dist/ (relativo a app/). Confere que ele está lá.
+          test -f "site/$PASTA/dist/de-tola-a-virtuosa.pdf"
+
+      - name: Commit e push no site
+        run: |
+          cd site
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add "$PASTA"
+          if git diff --cached --quiet; then echo "Nada mudou."; exit 0; fi
+          git commit -m "De Tola a Virtuosa: publicação automática ($(date -u '+%Y-%m-%d %H:%M') UTC)"
+          git push origin main
+
+      - name: Disparar a sincronização do fork (Hostinger)
+        env:
+          GH_TOKEN: ${{ secrets.PAT }}
+        run: gh workflow run sync.yml -R vitorvbarcelos/fortunato-site --ref main
