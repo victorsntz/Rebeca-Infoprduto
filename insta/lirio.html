@@ -16,6 +16,24 @@ body{margin:0;background:#222;font-family:var(--serif)}
 .post .at{position:absolute;left:0;right:0;text-align:center;bottom:60px;font-family:var(--sans);font-size:21px;letter-spacing:.22em;text-transform:uppercase;color:rgba(249,245,238,.6)}
 .post .shade{display:none;position:absolute;left:0;right:0;bottom:0;height:62%;background:linear-gradient(to top, rgba(20,4,8,.92) 0%, rgba(20,4,8,.75) 40%, rgba(20,4,8,0) 100%)}
 .post .frame{position:absolute;inset:34px;border:1.5px solid rgba(232,194,122,.35);pointer-events:none}
+.post.t-ameixa{background:radial-gradient(120% 90% at 30% 20%, #5a3346 0%, #3b2030 55%, #22101b 100%)}
+.post.t-salvia{background:radial-gradient(120% 90% at 30% 20%, #8a9a82 0%, #6f816a 55%, #4d5c48 100%)}
+.post.t-salvia .paper{background:#B9C6AE;opacity:.28}
+.post.t-salvia .q em,.post.t-salvia .eyebrow{color:#F3E6C9}
+.post.t-salvia .frame{border-color:rgba(249,245,238,.4)}
+.post.t-creme{background:radial-gradient(120% 90% at 30% 20%, #FBF7F0 0%, #F3EBDF 55%, #E9DECF 100%)}
+.post.t-creme .txt{color:#3F1019}.post.t-creme .q{text-shadow:none}
+.post.t-creme .q em,.post.t-creme .eyebrow{color:#8E2A3A}
+.post.t-creme .hand{color:#5A2A33;opacity:.09;mix-blend-mode:multiply}
+.post.t-creme .paper{background:#D8B9B5;opacity:.45;mix-blend-mode:multiply}
+.post.t-creme .frame{border-color:#B8975B}
+.post.t-creme .at{color:rgba(63,16,25,.55)}
+.post.left .txt{text-align:left;top:auto;transform:none;bottom:150px;left:90px;right:140px}
+.post.left .at{text-align:left;left:90px}
+.post.left .q{font-size:80px}
+.post.only-tr .lily-bl, .post.only-tr .stem-bl{display:none}
+.post.only-bl .lily-tr, .post.only-bl .stem-tr{display:none}
+.post.none .art{display:none}
 </style></head><body>
 <script>
 const CARTA = `A tola e a virtuosa moram na mesma mulher. Têm as mesmas mãos, a mesma casa, o mesmo dia de 24 horas. Uma derruba, a outra edifica. E o que decide qual das duas acorda amanhã é o que você faz hoje. Ninguém nasce virtuosa. A gente escolhe, um dia de cada vez. Se você está com este caderno na mão, já começou a escolher. E eu não escrevi isto já sendo virtuosa: enquanto você faz o desafio, eu estou fazendo do lado de cá. Bem-vinda. Isto não é um livro pra ler. É um caderno pra usar. Todo dia, por 40 dias, você vai marcar, riscar, errar e continuar. Ele vai ficar amassado, com marca de café e letra feia. Ótimo. Caderno limpo é caderno que ninguém usou. Por que 40? Porque na Bíblia o deserto dura 40. Jesus, Moisés, Elias, o dilúvio, Nínive. Deserto não é castigo. É o lugar onde Deus fala, forma e prepara pra promessa. E Daniel pediu uma prova de 10 dias pra mostrar o que Deus faz com quem obedece. Aqui são quatro provas de 10 dias. Uma travessia inteira. A ideia é simples: somos espírito, alma e corpo, e tudo anda junto. Dormir mal vira irritação. Irritação vira palavra dura. Palavra dura vira distância de quem você ama e de Deus. Por isso você vai cuidar dos três ao mesmo tempo: beber água e orar, treinar e perdoar, organizar a casa e renovar a mente. O Evangelho se vive na pia da cozinha.  aqui não é xingamento. É diagnóstico. A tola de Provérbios não é burra. É distraída de si mesma, do que fala, do que come, de quem deixa entrar. Todas nós começamos tolas em alguma área. A diferença é quem decide sair.  e vire a página. Se der, faça o desafio junto com o do dia seguinte. Se não der, siga. Deus não está contando suas falhas. Está esperando você na próxima. Identidade, propósito, limites, regras, quadro dos sonhos, carta e retrato. Uma tarde. Se der, faça dois desafios no dia seguinte. Se não der, tudo bem. Não desista, não recomece do zero. Toda mulher sábia edifica a sua casa; mas a tola derruba-a com as suas próprias mãos. Provérbios coloca duas mulheres lado a lado o livro inteiro. Uma edifica, a outra derruba. E o detalhe que assusta: as duas têm as mesmas mãos. A diferença é o que cada uma faz todo dia, quando ninguém está olhando. Tudo neste caderno nasce daqui. Virtude, feminilidade, disciplina, relacionamentos: tudo brota de identidade. Quem sabe quem é age diferente sem precisar se forçar. Todo o vosso espírito, e alma, e corpo, sejam plenamente conservados irrepreensíveis para a vinda de nosso Senhor Jesus Cristo. A gente vive separando. Fé é domin`;
@@ -51,25 +69,25 @@ function art(seed){
     <filter id="soft"><feGaussianBlur stdDeviation="1.1"/></filter>
   </defs>`;
   const stems = `
-    <path d="M 1010,120 C 960,260 930,330 880,420" stroke="#6F7A56" stroke-width="5" fill="none" stroke-linecap="round"/>
-    ${leaf(905,380,130,-115)}${leaf(950,300,110,-30)}
-    <path d="M 60,1300 C 110,1200 150,1150 190,1090" stroke="#6F7A56" stroke-width="5" fill="none" stroke-linecap="round"/>
-    ${leaf(120,1210,120,-150)}${leaf(100,1250,100,-15)}`;
+    <g class="stem-tr"><path d="M 1010,120 C 960,260 930,330 880,420" stroke="#6F7A56" stroke-width="5" fill="none" stroke-linecap="round"/>
+    ${leaf(905,380,130,-115)}${leaf(950,300,110,-30)}</g>
+    <g class="stem-bl"><path d="M 60,1300 C 110,1200 150,1150 190,1090" stroke="#6F7A56" stroke-width="5" fill="none" stroke-linecap="round"/>
+    ${leaf(120,1210,120,-150)}${leaf(100,1250,100,-15)}</g>`;
   return `<svg class="art" viewBox="0 0 1080 1350" xmlns="http://www.w3.org/2000/svg">${defs}${stems}
-    ${lily(905,215,135,18,seed+1)}${lily(190,1090,95,-35,seed+2)}</svg>`;
+    <g class="lily-tr">${lily(905,215,135,18,seed+1)}</g><g class="lily-bl">${lily(190,1090,95,-35,seed+2)}</g></svg>`;
 }
 const POSTS = [
-  { eyebrow:'A mulher virtuosa', q:'não espera ter vontade. Ela faz, e a vontade&nbsp;<em>vem&nbsp;atrás.</em>' },
-  { eyebrow:'A mulher virtuosa', q:'tem dia ruim. Ela só não deixa o dia ruim decidir o&nbsp;<em>dia&nbsp;seguinte.</em>' },
-  { eyebrow:'A mulher virtuosa', q:'fala menos do marido pros outros e mais dele&nbsp;<em>pra&nbsp;Deus.</em>' },
-  { eyebrow:'A mulher virtuosa', q:'cuida da casa como quem cuida de um altar. Ninguém vê.&nbsp;<em>Deus&nbsp;vê.</em>' },
-  { eyebrow:'A mulher virtuosa', q:'se arruma pra ela mesma, antes de qualquer um&nbsp;<em>pedir.</em>' },
-  { eyebrow:'A mulher virtuosa', q:'levanta antes da casa acordar. Esse silêncio é dela&nbsp;<em>e&nbsp;de&nbsp;Deus.</em>' },
-  { eyebrow:'A mulher virtuosa', q:'perdoa rápido. Ela não tem tempo pra carregar&nbsp;<em>peso.</em>' },
-  { eyebrow:'A mulher virtuosa', q:'sabe que a casa que ela edifica mora&nbsp;<em>dentro&nbsp;dela</em> primeiro.' },
-  { eyebrow:'A mulher virtuosa', q:'termina o que começa. Até quando ninguém&nbsp;<em>está&nbsp;olhando.</em>' },
-  { eyebrow:'A mulher virtuosa', q:'não compete com outra mulher. Ela compete com a&nbsp;<em>tola&nbsp;de&nbsp;ontem.</em>' },
+  { v:'t-vinho',  eyebrow:'A mulher virtuosa', q:'não espera ter vontade. Ela faz, e a vontade&nbsp;<em>vem&nbsp;atrás.</em>' },
+  { v:'t-creme left only-tr', eyebrow:'A mulher virtuosa', q:'tem dia ruim. Ela só não deixa o dia ruim decidir o&nbsp;<em>dia&nbsp;seguinte.</em>' },
+  { v:'t-ameixa none', eyebrow:'A mulher virtuosa', q:'fala menos do marido pros outros e mais dele&nbsp;<em>pra&nbsp;Deus.</em>' },
+  { v:'t-vinho only-bl left', eyebrow:'A mulher virtuosa', q:'cuida da casa como quem cuida de um altar. Ninguém vê.&nbsp;<em>Deus&nbsp;vê.</em>' },
+  { v:'t-salvia only-tr', eyebrow:'A mulher virtuosa', q:'se arruma pra ela mesma, antes de qualquer um&nbsp;<em>pedir.</em>' },
+  { v:'t-creme none', eyebrow:'A mulher virtuosa', q:'levanta antes da casa acordar. Esse silêncio é dela&nbsp;<em>e&nbsp;de&nbsp;Deus.</em>' },
+  { v:'t-ameixa only-tr left', eyebrow:'A mulher virtuosa', q:'perdoa rápido. Ela não tem tempo pra carregar&nbsp;<em>peso.</em>' },
+  { v:'t-vinho', eyebrow:'A mulher virtuosa', q:'sabe que a casa que ela edifica mora&nbsp;<em>dentro&nbsp;dela</em> primeiro.' },
+  { v:'t-salvia none left', eyebrow:'A mulher virtuosa', q:'termina o que começa. Até quando ninguém&nbsp;<em>está&nbsp;olhando.</em>' },
+  { v:'t-creme only-bl', eyebrow:'A mulher virtuosa', q:'não compete com outra mulher. Ela compete com a&nbsp;<em>tola&nbsp;de&nbsp;ontem.</em>' },
 ];
-document.body.innerHTML = POSTS.map((p,i)=>`<div class="post" id="p${i+1}"><div class="paper a"></div><div class="paper b"></div><div class="hand">${CARTA}</div>${art(i*7)}<div class="shade"></div><div class="frame"></div><div class="txt"><span class="eyebrow">${p.eyebrow}</span><p class="q ${p.big?'big':''}">${p.q}</p></div><div class="at">@rebecafortunato__</div></div>`).join('');
+document.body.innerHTML = POSTS.map((p,i)=>`<div class="post ${p.v||''}" id="p${i+1}"><div class="paper a"></div><div class="paper b"></div><div class="hand">${CARTA}</div>${art(i*7)}<div class="shade"></div><div class="frame"></div><div class="txt"><span class="eyebrow">${p.eyebrow}</span><p class="q ${p.big?'big':''}">${p.q}</p></div><div class="at">@rebecafortunato__</div></div>`).join('');
 </script>
 </body></html>
