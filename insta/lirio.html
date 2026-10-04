@@ -1,0 +1,73 @@
+<!doctype html><html><head><meta charset="utf-8">
+<link rel="stylesheet" href="file:///home/user/Rebeca-Infoprduto/site/assets/brand.css">
+<style>
+body{margin:0;background:#222;font-family:var(--serif)}
+.post{width:1080px;height:1350px;position:relative;overflow:hidden;margin:0 0 20px;background:radial-gradient(120% 90% at 30% 20%, #4a1420 0%, #2a0a11 55%, #170407 100%)}
+.post svg.art{position:absolute;inset:0;width:100%;height:100%}
+.post .paper{position:absolute;background:#7A2A3C;opacity:.34;mix-blend-mode:screen}
+.post .paper.a{left:620px;top:40px;width:440px;height:560px;clip-path:polygon(2% 0,100% 1%,99% 100%,0 98%,1% 60%,3% 30%)}
+.post .paper.b{left:0;top:720px;width:430px;height:600px;clip-path:polygon(0 0,98% 2%,100% 60%,97% 100%,0 100%)}
+.post .hand{position:absolute;inset:0;padding:60px 50px;font-family:var(--serif);font-style:italic;font-size:19px;line-height:1.6;color:#F3DDD2;opacity:.085;transform:rotate(-2.5deg) scale(1.08);white-space:pre-wrap;word-break:break-word;letter-spacing:.02em}
+.post .txt{position:absolute;left:80px;right:80px;bottom:120px;color:#F9F5EE}
+.post .eyebrow{font-family:var(--sans);font-size:22px;letter-spacing:.3em;text-transform:uppercase;color:#E8C27A;display:block;margin-bottom:22px}
+.post .q{font-family:var(--display);font-size:66px;line-height:1.12;margin:0;text-shadow:0 2px 30px rgba(0,0,0,.6)}
+.post .q em{font-style:italic;color:#E8C27A}
+.post .q.big{font-size:86px;line-height:1.05}
+.post .at{position:absolute;left:80px;bottom:56px;font-family:var(--sans);font-size:21px;letter-spacing:.22em;text-transform:uppercase;color:rgba(249,245,238,.6)}
+.post .shade{position:absolute;left:0;right:0;bottom:0;height:62%;background:linear-gradient(to top, rgba(20,4,8,.92) 0%, rgba(20,4,8,.75) 40%, rgba(20,4,8,0) 100%)}
+.post .frame{position:absolute;inset:34px;border:1.5px solid rgba(232,194,122,.35);pointer-events:none}
+</style></head><body>
+<script>
+const CARTA = `A tola e a virtuosa moram na mesma mulher. Têm as mesmas mãos, a mesma casa, o mesmo dia de 24 horas. Uma derruba, a outra edifica. E o que decide qual das duas acorda amanhã é o que você faz hoje. Ninguém nasce virtuosa. A gente escolhe, um dia de cada vez. Se você está com este caderno na mão, já começou a escolher. E eu não escrevi isto já sendo virtuosa: enquanto você faz o desafio, eu estou fazendo do lado de cá. Bem-vinda. Isto não é um livro pra ler. É um caderno pra usar. Todo dia, por 40 dias, você vai marcar, riscar, errar e continuar. Ele vai ficar amassado, com marca de café e letra feia. Ótimo. Caderno limpo é caderno que ninguém usou. Por que 40? Porque na Bíblia o deserto dura 40. Jesus, Moisés, Elias, o dilúvio, Nínive. Deserto não é castigo. É o lugar onde Deus fala, forma e prepara pra promessa. E Daniel pediu uma prova de 10 dias pra mostrar o que Deus faz com quem obedece. Aqui são quatro provas de 10 dias. Uma travessia inteira. A ideia é simples: somos espírito, alma e corpo, e tudo anda junto. Dormir mal vira irritação. Irritação vira palavra dura. Palavra dura vira distância de quem você ama e de Deus. Por isso você vai cuidar dos três ao mesmo tempo: beber água e orar, treinar e perdoar, organizar a casa e renovar a mente. O Evangelho se vive na pia da cozinha.  aqui não é xingamento. É diagnóstico. A tola de Provérbios não é burra. É distraída de si mesma, do que fala, do que come, de quem deixa entrar. Todas nós começamos tolas em alguma área. A diferença é quem decide sair.  e vire a página. Se der, faça o desafio junto com o do dia seguinte. Se não der, siga. Deus não está contando suas falhas. Está esperando você na próxima. Identidade, propósito, limites, regras, quadro dos sonhos, carta e retrato. Uma tarde. Se der, faça dois desafios no dia seguinte. Se não der, tudo bem. Não desista, não recomece do zero. Toda mulher sábia edifica a sua casa; mas a tola derruba-a com as suas próprias mãos. Provérbios coloca duas mulheres lado a lado o livro inteiro. Uma edifica, a outra derruba. E o detalhe que assusta: as duas têm as mesmas mãos. A diferença é o que cada uma faz todo dia, quando ninguém está olhando. Tudo neste caderno nasce daqui. Virtude, feminilidade, disciplina, relacionamentos: tudo brota de identidade. Quem sabe quem é age diferente sem precisar se forçar. Todo o vosso espírito, e alma, e corpo, sejam plenamente conservados irrepreensíveis para a vinda de nosso Senhor Jesus Cristo. A gente vive separando. Fé é domin`;
+function lily(cx, cy, r, rot, seed){
+  // seis pétalas, três de trás maiores e três da frente menores; perspectiva por scaleY
+  let s = seed, rnd = () => { s = (s*9301+49297)%233280; return s/233280; };
+  const petal = (len, w, ang, inner) => {
+    const g = inner ? 'url(#pin)' : 'url(#pout)';
+    const sp = [];
+    for (let i=0;i<26;i++){ const t = 0.08+rnd()*0.4; const x = (rnd()-0.5)*w*1.1*(0.5+t); const y = -t*len; sp.push(`<ellipse cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" rx="${(1+rnd()*1.4).toFixed(1)}" ry="${(1.8+rnd()*2.4).toFixed(1)}" fill="#5a1022" opacity="${(0.45+rnd()*0.4).toFixed(2)}"/>`); }
+    const curl = (rnd()-0.5)*26, tip = len*(0.96+rnd()*0.06);
+    const d = `M0,0 C ${-w*0.7},${-len*0.14} ${-w*1.05},${-len*0.62} ${curl-w*0.06},${-tip*0.985} Q ${curl},${-tip*1.01} ${curl+w*0.06},${-tip*0.985} C ${w*1.05},${-len*0.62} ${w*0.7},${-len*0.14} 0,0 Z`;
+    return `<g transform="rotate(${ang})">
+      <path d="${d}" fill="${g}" stroke="#F8E9E6" stroke-opacity=".42" stroke-width="1.3"/>
+      <path d="M ${curl-w*0.5},${-len*0.72} Q ${curl},${-len*0.88} ${curl+w*0.5},${-len*0.72}" stroke="#8E2240" stroke-opacity=".28" stroke-width="3" fill="none"/>
+      <path d="M0,0 C ${-w*0.28},${-len*0.3} ${-w*0.14},${-len*0.6} ${curl*0.7},${-len*0.8} C ${w*0.14},${-len*0.6} ${w*0.28},${-len*0.3} 0,0 Z" fill="#C64B69" opacity=".22"/>
+      <path d="M0,-4 C ${curl*0.3},${-len*0.45} ${curl*0.6},${-len*0.75} ${curl},${-len*0.95}" stroke="#FBF2EE" stroke-opacity=".6" stroke-width="2" fill="none"/>
+      ${sp.join('')}</g>`;
+  };
+  const back = [0,120,240].map((a,i) => petal(r*(1.0+ (i%2)*0.05), r*0.36, a+rot+8+(rnd()-0.5)*12, false)).join('');
+  const front = [60,180,300].map((a,i) => petal(r*0.94, r*0.44, a+rot-6+(rnd()-0.5)*12, true)).join('');
+  const stamens = [0,1,2,3,4,5].map(i => { const a = (i*60+rot+30)*Math.PI/180; const L = r*0.55+rnd()*r*0.1; const x=Math.cos(a)*L, y=Math.sin(a)*L; return `<path d="M0,0 Q ${x*0.5},${y*0.5-6} ${x},${y}" stroke="#F1E2C6" stroke-width="2.2" fill="none"/><ellipse cx="${x}" cy="${y}" rx="9" ry="4.5" transform="rotate(${i*60+rot+30} ${x} ${y})" fill="#5b2a14"/>`; }).join('');
+  const pist = (() => { const a=(rot+90)*Math.PI/180; const L=r*0.62; const x=Math.cos(a)*L,y=Math.sin(a)*L; return `<path d="M0,0 L ${x},${y}" stroke="#E9D6B5" stroke-width="3"/><circle cx="${x}" cy="${y}" r="6" fill="#8d4b2c"/>`; })();
+  return `<g transform="translate(${cx} ${cy}) rotate(${rot*0.6}) scale(${(0.86+rnd()*0.14).toFixed(2)} ${(0.72+rnd()*0.16).toFixed(2)})"><g opacity=".98">${back}</g><g>${front}</g><circle r="${r*0.11}" fill="url(#core)"/>${stamens}${pist}</g>`;
+}
+function leaf(x,y,len,ang){ return `<path transform="translate(${x} ${y}) rotate(${ang})" d="M0,0 C 18,-22 ${len*0.5},-${len*0.22} ${len},-6 C ${len*0.5},${len*0.18} 18,14 0,0 Z" fill="url(#leaf)" stroke="#C9CFB0" stroke-opacity=".35" stroke-width="1"/><path transform="translate(${x} ${y}) rotate(${ang})" d="M4,-1 L ${len-8},-5" stroke="#E3E6CF" stroke-opacity=".35" stroke-width="1.2"/>`; }
+function art(seed){
+  const defs = `<defs>
+    <linearGradient id="pout" x1="0" y1="0" x2="0" y2="-1" gradientUnits="objectBoundingBox" gradientTransform="rotate(90)"><stop offset="0" stop-color="#FBF3EE"/><stop offset=".3" stop-color="#F2C9CC"/><stop offset=".7" stop-color="#D9798F"/><stop offset="1" stop-color="#9E2B49"/></linearGradient>
+    <linearGradient id="pin" x1="0" y1="0" x2="0" y2="-1" gradientTransform="rotate(90)"><stop offset="0" stop-color="#FFF8F3"/><stop offset=".32" stop-color="#F6D6D6"/><stop offset=".72" stop-color="#E48FA2"/><stop offset="1" stop-color="#B0365A"/></linearGradient>
+    <radialGradient id="core"><stop offset="0" stop-color="#F7E9C9"/><stop offset="1" stop-color="#D9A86B" stop-opacity=".2"/></radialGradient>
+    <linearGradient id="leaf" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#8E9A72"/><stop offset="1" stop-color="#4F5B3E"/></linearGradient>
+    <filter id="soft"><feGaussianBlur stdDeviation="1.1"/></filter>
+  </defs>`;
+  const stems = `
+    <path d="M 420,1120 C 430,900 380,720 410,520" stroke="#6F7A56" stroke-width="7" fill="none" stroke-linecap="round"/>
+    <path d="M 420,1120 C 440,980 520,820 640,640" stroke="#6F7A56" stroke-width="6" fill="none" stroke-linecap="round"/>
+    <path d="M 405,540 C 380,440 330,360 300,330" stroke="#6F7A56" stroke-width="5" fill="none" stroke-linecap="round"/>
+    ${leaf(400,980,200,-150)}${leaf(445,1050,180,-20)}${leaf(380,760,170,-160)}${leaf(470,860,160,-25)}${leaf(600,700,150,-35)}${leaf(355,470,130,-165)}`;
+  return `<svg class="art" viewBox="0 0 1080 1350" xmlns="http://www.w3.org/2000/svg">${defs}${stems}
+    ${lily(290,330,215,18,seed+1)}${lily(650,640,265,-30,seed+2)}${lily(420,520,150,52,seed+3)}</svg>`;
+}
+const POSTS = [
+  { eyebrow:'Provérbios 31:10', q:'Mulher virtuosa, quem a achará? O seu valor muito excede o de <em>rubis.</em>' },
+  { eyebrow:'Provérbios 31:25', q:'A força e a honra são o seu vestido, e se alegrará com o <em>dia futuro.</em>' },
+  { eyebrow:'Provérbios 31:30', q:'Enganosa é a graça e vã a formosura, mas a mulher que <em>teme ao Senhor</em>, essa será louvada.' },
+  { eyebrow:'Provérbios 31:26', q:'Abre a sua boca com sabedoria, e a lei da <em>bondade</em> está na sua língua.' },
+  { eyebrow:'Provérbios 31:15', q:'Ela se levanta ainda de noite, e dá <em>mantimento</em> à sua casa.' },
+  { eyebrow:'Provérbios 31:11', q:'O coração do seu marido está nela <em>confiado.</em>' },
+  { eyebrow:'Tola ou virtuosa', q:'A virtuosa edifica em silêncio o que a tola derruba <em>falando.</em>' },
+  { eyebrow:'Tola ou virtuosa', q:'Virtuosa é a que faz hoje o que a tola deixa pra <em>amanhã.</em>' },
+];
+document.body.innerHTML = POSTS.map((p,i)=>`<div class="post" id="p${i+1}"><div class="paper a"></div><div class="paper b"></div><div class="hand">${CARTA}</div>${art(i*7)}<div class="shade"></div><div class="frame"></div><div class="txt"><span class="eyebrow">${p.eyebrow}</span><p class="q ${p.big?'big':''}">${p.q}</p></div><div class="at">@rebecafortunato__</div></div>`).join('');
+</script>
+</body></html>
