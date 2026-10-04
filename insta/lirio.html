@@ -5,16 +5,16 @@ body{margin:0;background:#222;font-family:var(--serif)}
 .post{width:1080px;height:1350px;position:relative;overflow:hidden;margin:0 0 20px;background:radial-gradient(120% 90% at 30% 20%, #4a1420 0%, #2a0a11 55%, #170407 100%)}
 .post svg.art{position:absolute;inset:0;width:100%;height:100%}
 .post .paper{position:absolute;background:#7A2A3C;opacity:.34;mix-blend-mode:screen}
-.post .paper.a{left:620px;top:40px;width:440px;height:560px;clip-path:polygon(2% 0,100% 1%,99% 100%,0 98%,1% 60%,3% 30%)}
-.post .paper.b{left:0;top:720px;width:430px;height:600px;clip-path:polygon(0 0,98% 2%,100% 60%,97% 100%,0 100%)}
-.post .hand{position:absolute;inset:0;padding:60px 50px;font-family:var(--serif);font-style:italic;font-size:19px;line-height:1.6;color:#F3DDD2;opacity:.085;transform:rotate(-2.5deg) scale(1.08);white-space:pre-wrap;word-break:break-word;letter-spacing:.02em}
-.post .txt{position:absolute;left:80px;right:80px;bottom:120px;color:#F9F5EE}
-.post .eyebrow{font-family:var(--sans);font-size:22px;letter-spacing:.3em;text-transform:uppercase;color:#E8C27A;display:block;margin-bottom:22px}
-.post .q{font-family:var(--display);font-size:66px;line-height:1.12;margin:0;text-shadow:0 2px 30px rgba(0,0,0,.6)}
+.post .paper.a{left:700px;top:40px;width:380px;height:420px;clip-path:polygon(2% 0,100% 1%,99% 100%,0 98%,1% 60%,3% 30%)}
+.post .paper.b{left:0;top:900px;width:360px;height:450px;clip-path:polygon(0 0,98% 2%,100% 60%,97% 100%,0 100%)}
+.post .hand{position:absolute;inset:0;padding:60px 50px;font-family:var(--serif);font-style:italic;font-size:19px;line-height:1.6;color:#F3DDD2;opacity:.07;transform:rotate(-2.5deg) scale(1.08);white-space:pre-wrap;word-break:break-word;letter-spacing:.02em}
+.post .txt{position:absolute;left:90px;right:90px;top:50%;transform:translateY(-50%);color:#F9F5EE;text-align:center}
+.post .eyebrow{font-family:var(--display);font-size:34px;letter-spacing:.14em;text-transform:uppercase;color:#E8C27A;display:block;margin-bottom:34px}
+.post .q{font-family:var(--display);font-size:74px;line-height:1.14;margin:0;text-shadow:0 2px 30px rgba(0,0,0,.6)}
 .post .q em{font-style:italic;color:#E8C27A}
 .post .q.big{font-size:86px;line-height:1.05}
-.post .at{position:absolute;left:80px;bottom:56px;font-family:var(--sans);font-size:21px;letter-spacing:.22em;text-transform:uppercase;color:rgba(249,245,238,.6)}
-.post .shade{position:absolute;left:0;right:0;bottom:0;height:62%;background:linear-gradient(to top, rgba(20,4,8,.92) 0%, rgba(20,4,8,.75) 40%, rgba(20,4,8,0) 100%)}
+.post .at{position:absolute;left:0;right:0;text-align:center;bottom:60px;font-family:var(--sans);font-size:21px;letter-spacing:.22em;text-transform:uppercase;color:rgba(249,245,238,.6)}
+.post .shade{display:none;position:absolute;left:0;right:0;bottom:0;height:62%;background:linear-gradient(to top, rgba(20,4,8,.92) 0%, rgba(20,4,8,.75) 40%, rgba(20,4,8,0) 100%)}
 .post .frame{position:absolute;inset:34px;border:1.5px solid rgba(232,194,122,.35);pointer-events:none}
 </style></head><body>
 <script>
@@ -51,22 +51,24 @@ function art(seed){
     <filter id="soft"><feGaussianBlur stdDeviation="1.1"/></filter>
   </defs>`;
   const stems = `
-    <path d="M 420,1120 C 430,900 380,720 410,520" stroke="#6F7A56" stroke-width="7" fill="none" stroke-linecap="round"/>
-    <path d="M 420,1120 C 440,980 520,820 640,640" stroke="#6F7A56" stroke-width="6" fill="none" stroke-linecap="round"/>
-    <path d="M 405,540 C 380,440 330,360 300,330" stroke="#6F7A56" stroke-width="5" fill="none" stroke-linecap="round"/>
-    ${leaf(400,980,200,-150)}${leaf(445,1050,180,-20)}${leaf(380,760,170,-160)}${leaf(470,860,160,-25)}${leaf(600,700,150,-35)}${leaf(355,470,130,-165)}`;
+    <path d="M 1010,120 C 960,260 930,330 880,420" stroke="#6F7A56" stroke-width="5" fill="none" stroke-linecap="round"/>
+    ${leaf(905,380,130,-115)}${leaf(950,300,110,-30)}
+    <path d="M 60,1300 C 110,1200 150,1150 190,1090" stroke="#6F7A56" stroke-width="5" fill="none" stroke-linecap="round"/>
+    ${leaf(120,1210,120,-150)}${leaf(100,1250,100,-15)}`;
   return `<svg class="art" viewBox="0 0 1080 1350" xmlns="http://www.w3.org/2000/svg">${defs}${stems}
-    ${lily(290,330,215,18,seed+1)}${lily(650,640,265,-30,seed+2)}${lily(420,520,150,52,seed+3)}</svg>`;
+    ${lily(905,215,135,18,seed+1)}${lily(190,1090,95,-35,seed+2)}</svg>`;
 }
 const POSTS = [
-  { eyebrow:'Provérbios 31:10', q:'Mulher virtuosa, quem a achará? O seu valor muito excede o de <em>rubis.</em>' },
-  { eyebrow:'Provérbios 31:25', q:'A força e a honra são o seu vestido, e se alegrará com o <em>dia futuro.</em>' },
-  { eyebrow:'Provérbios 31:30', q:'Enganosa é a graça e vã a formosura, mas a mulher que <em>teme ao Senhor</em>, essa será louvada.' },
-  { eyebrow:'Provérbios 31:26', q:'Abre a sua boca com sabedoria, e a lei da <em>bondade</em> está na sua língua.' },
-  { eyebrow:'Provérbios 31:15', q:'Ela se levanta ainda de noite, e dá <em>mantimento</em> à sua casa.' },
-  { eyebrow:'Provérbios 31:11', q:'O coração do seu marido está nela <em>confiado.</em>' },
-  { eyebrow:'Tola ou virtuosa', q:'A virtuosa edifica em silêncio o que a tola derruba <em>falando.</em>' },
-  { eyebrow:'Tola ou virtuosa', q:'Virtuosa é a que faz hoje o que a tola deixa pra <em>amanhã.</em>' },
+  { eyebrow:'A mulher virtuosa', q:'não espera ter vontade. Ela faz, e a vontade&nbsp;<em>vem&nbsp;atrás.</em>' },
+  { eyebrow:'A mulher virtuosa', q:'tem dia ruim. Ela só não deixa o dia ruim decidir o&nbsp;<em>dia&nbsp;seguinte.</em>' },
+  { eyebrow:'A mulher virtuosa', q:'fala menos do marido pros outros e mais dele&nbsp;<em>pra&nbsp;Deus.</em>' },
+  { eyebrow:'A mulher virtuosa', q:'cuida da casa como quem cuida de um altar. Ninguém vê.&nbsp;<em>Deus&nbsp;vê.</em>' },
+  { eyebrow:'A mulher virtuosa', q:'se arruma pra ela mesma, antes de qualquer um&nbsp;<em>pedir.</em>' },
+  { eyebrow:'A mulher virtuosa', q:'levanta antes da casa acordar. Esse silêncio é dela&nbsp;<em>e&nbsp;de&nbsp;Deus.</em>' },
+  { eyebrow:'A mulher virtuosa', q:'perdoa rápido. Ela não tem tempo pra carregar&nbsp;<em>peso.</em>' },
+  { eyebrow:'A mulher virtuosa', q:'sabe que a casa que ela edifica mora&nbsp;<em>dentro&nbsp;dela</em> primeiro.' },
+  { eyebrow:'A mulher virtuosa', q:'termina o que começa. Até quando ninguém&nbsp;<em>está&nbsp;olhando.</em>' },
+  { eyebrow:'A mulher virtuosa', q:'não compete com outra mulher. Ela compete com a&nbsp;<em>tola&nbsp;de&nbsp;ontem.</em>' },
 ];
 document.body.innerHTML = POSTS.map((p,i)=>`<div class="post" id="p${i+1}"><div class="paper a"></div><div class="paper b"></div><div class="hand">${CARTA}</div>${art(i*7)}<div class="shade"></div><div class="frame"></div><div class="txt"><span class="eyebrow">${p.eyebrow}</span><p class="q ${p.big?'big':''}">${p.q}</p></div><div class="at">@rebecafortunato__</div></div>`).join('');
 </script>
