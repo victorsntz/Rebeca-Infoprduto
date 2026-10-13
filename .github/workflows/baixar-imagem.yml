@@ -1,0 +1,49 @@
+name: Baixar imagens
+
+# Baixa imagens de URLs (ex.: artes geradas no Figma, que expiram em 7 dias) pra dentro do repositório.
+# Uso: Actions › Baixar imagens › Run workflow, cole as URLs separadas por vírgula e os nomes de arquivo na mesma ordem.
+
+on:
+  workflow_dispatch:
+    inputs:
+      urls:
+        description: "URLs separadas por vírgula"
+        required: true
+      nomes:
+        description: "Nomes dos arquivos (sem extensão), separados por vírgula, na mesma ordem"
+        required: true
+      pasta:
+        description: "Pasta de destino"
+        default: "insta/gen"
+
+permissions:
+  contents: write
+
+jobs:
+  baixar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - name: Baixar
+        env:
+          URLS: ${{ inputs.urls }}
+          NOMES: ${{ inputs.nomes }}
+          PASTA: ${{ inputs.pasta }}
+        run: |
+          set -e
+          mkdir -p "$PASTA"
+          IFS=',' read -ra U <<< "$URLS"
+          IFS=',' read -ra N <<< "$NOMES"
+          for i in "${!U[@]}"; do
+            url="$(echo "${U[$i]}" | xargs)"; nome="$(echo "${N[$i]}" | xargs)"
+            curl -fsSL --retry 3 -o "$PASTA/$nome.png" "$url"
+            file "$PASTA/$nome.png"
+          done
+          ls -la "$PASTA"
+      - name: Commitar
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "Imagens baixadas: ${{ inputs.nomes }}" || echo "nada novo"
+          git push
