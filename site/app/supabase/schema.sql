@@ -130,3 +130,10 @@ create trigger t_prep before update on public.prep for each row execute function
 -- insert into public.members (email, active, plan, provider) values ('teste@exemplo.com', true, 'travessia', 'manual');
 -- Pra testar o presente sem checkout:
 -- insert into public.gifts (code, buyer_email, buyer_name) values ('AMIGA123', 'teste@exemplo.com', 'Rebeca');
+
+-- Função mínima pra manter o projeto ativo (o plano grátis pausa depois de dias sem uso).
+-- Chamada a cada dois dias pela ação .github/workflows/manter-acordado.yml.
+create or replace function public.ping() returns timestamptz
+language sql stable security invoker set search_path = public as $$ select now() $$;
+revoke all on function public.ping() from public;
+grant execute on function public.ping() to anon, authenticated;
