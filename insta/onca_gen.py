@@ -60,9 +60,6 @@ def onca(uid):
   <path d="M471,708 C473,698 479,694 484,698" stroke="#F3E2C0" stroke-width="2" fill="none" opacity=".8"/>
   <path d="M609,708 C607,698 601,694 596,698" stroke="#F3E2C0" stroke-width="2" fill="none" opacity=".8"/>
 </g>
-<g transform="translate(604 724) rotate(-18) scale(1.1)">{petals}{veins}<circle r="7" fill="#5A0812"/>
-  <path d="M0,0 C6,-14 10,-24 18,-30" stroke="#E9B44A" stroke-width="2.2" fill="none"/>
-  <circle cx="18" cy="-30" r="3" fill="#F2C75C"/><circle cx="14" cy="-34" r="2" fill="#F2C75C"/><circle cx="21" cy="-35" r="2" fill="#F2C75C"/></g>
 </svg>'''
 
 def post(pid, bg):
