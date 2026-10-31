@@ -6,10 +6,11 @@
 body{margin:0;background:#333}
 .post{width:1080px;height:1350px;position:relative;overflow:hidden;margin:0 0 20px}
 .post svg.bg{position:absolute;inset:0}
-.at{position:absolute;left:0;right:0;top:226px;text-align:center;font-family:"Caslon";font-size:19px;letter-spacing:.3em}
-.solas{position:absolute;left:0;right:0;top:282px;text-align:center;font-family:"PlayfairI";font-size:60px;line-height:1.16}
-.buque{position:absolute;mix-blend-mode:multiply}
-.data{position:absolute;font-family:"Pinyon";font-size:54px}
+.at{position:absolute;left:0;right:0;top:432px;text-align:center;font-family:"Caslon";font-size:19px;letter-spacing:.3em}
+.solas{position:absolute;left:0;right:0;top:492px;text-align:center;font-family:"PlayfairI";font-size:56px;line-height:1.16}
+.tela{position:absolute;overflow:hidden}
+.lado{position:absolute;mix-blend-mode:multiply;transform-origin:50% 100%}
+.data{position:absolute;left:0;right:0;text-align:center;font-family:"Pinyon";font-size:54px}
 .grao{position:absolute;inset:0;pointer-events:none}
 </style></head><body>
 
@@ -124,8 +125,8 @@ function post(id, v){
   </svg>
   <div class="at" style="color:${c.at}">@REBECAFORTUNATO__</div>
   <div class="solas" style="color:${c.texto}">Sola Scriptura<br>Sola Fide<br>Sola Gratia<br>Solus Christus<br>Soli Deo Gloria</div>
-  <img class="buque">
-  <div class="data" style="color:${c.at};right:${1080-ix-iw+52}px;bottom:${1350-iy-ih+40}px">31.10</div>
+  <div class="tela" style="left:${ix}px;top:${iy}px;width:${iw}px;height:${ih}px"><img class="lado esq"><img class="lado dir"></div>
+  <div class="data" style="color:${c.at};top:842px">31.10</div>
   <svg class="grao" viewBox="0 0 1080 1350">${DEFS(id,c)}<rect width="1080" height="1350" filter="url(#${id}-grao)"/></svg>
 </div>`;
 }
@@ -162,10 +163,17 @@ window.pronto = new Promise(res=>{
     cx.putImageData(d,0,0);
     const w=x1-x0+16,h=y1-y0+16, out=document.createElement("canvas"); out.width=w; out.height=h;
     out.getContext("2d").drawImage(cv,x0-8,y0-8,w,h,0,0,w,h);
-    const url=out.toDataURL("image/png"), H=560, W=Math.round(H*w/h);
-    const ix=F.x+F.b, iy=F.y+F.b, ih=F.h-2*F.b;
-    document.querySelectorAll(".buque").forEach(el=>{el.src=url;el.style.height=H+"px";el.style.width=W+"px";
-      el.style.left=(540-W/2)+"px";el.style.top=(iy+ih-H-26)+"px";});
+    // Só as flores e o alto dos talos (corta antes do laço): entram pelas laterais da tela, uma de cada lado.
+    const hc=Math.round(h*.68), top=document.createElement("canvas"); top.width=w; top.height=hc;
+    top.getContext("2d").drawImage(out,0,0);
+    const url=top.toDataURL("image/png"), W=520, H=Math.round(W*hc/w), iw=F.w-2*F.b, ih=F.h-2*F.b;
+    // Em diagonal: à esquerda sobem de baixo, à direita caem do alto, como a tulipa caída da referência.
+    const LADOS={ esq:{x:-215, y:ih*1.0, t:"rotate(44deg)"}, dir:{x:iw+215, y:ih*.0, t:"scaleX(-1) rotate(136deg)"} };
+    document.querySelectorAll(".lado").forEach(el=>{
+      const L=LADOS[el.classList.contains("esq")?"esq":"dir"];
+      el.src=url; el.style.width=W+"px"; el.style.height=H+"px";
+      el.style.top=(L.y-H)+"px"; el.style.left=(L.x-W/2)+"px"; el.style.transform=L.t;
+    });
     res([w,h]);
   };
   im.src="gen/tulipas-laranja.png";
