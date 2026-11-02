@@ -7,18 +7,20 @@ R = "achadinhos/recortes/"
 # (arquivo, centro x, centro y, largura, giro, espelhar)
 ITENS = [
     ("03-guirlanda", 185, 215, 430, -4, False),
-    ("08-globo", 540, 215, 255, 0, False),
-    ("06-boleira", 845, 250, 420, 3, False),
-    ("05-quebra-nozes", 135, 760, None, -3, False),   # altura fixa, ver abaixo
-    ("07-xicara", 555, 1095, 380, -2, False),
-    ("04-toalha", 195, 1160, 420, -6, False),
-    ("01-meia", 930, 1075, 290, 5, False),
+    ("08-globo", 540, 200, 240, 0, False),
+    ("06-boleira", 850, 240, 420, 3, False),
+    ("05-quebra-nozes", 130, 700, None, -3, False),   # altura fixa, ver abaixo
+    ("09-petisqueira", 940, 662, 300, 4, False),
+    ("07-xicara", 560, 975, 330, -2, False),
+    ("04-toalha", 200, 1165, 420, -6, False),
+    ("10-canecas", 585, 1192, 320, 2, False),
+    ("01-meia", 935, 1080, 285, 5, False),
 ]
 from PIL import Image
 def tag(nome, cx, cy, w, giro, esp):
     iw, ih = Image.open(R + nome + ".png").size
     if w is None:
-        h = 680; w = round(h * iw / ih)
+        h = 600; w = round(h * iw / ih)
     else:
         h = round(w * ih / iw)
     t = f"rotate({giro}deg)" + (" scaleX(-1)" if esp else "")
@@ -30,7 +32,7 @@ for i, p in enumerate(posts[:2]):
     p = re.sub(r'<div class="ph"[^>]*>[^<]*</div>', "", p)
     p = p.replace("Achadinhos de Natal que eu compraria pra minha casa", "Coisas fofas de Natal que eu compraria")
     p = p.replace('<div class="titulo"', imgs + '<div class="titulo"', 1)
-    p = p.replace("padding:10px 22px", "padding:6px 15px")  # @ menorzinho, sem chamar atenção
+    p = p.replace("padding:10px 22px", "padding:6px 15px").replace("top:430px", "top:392px").replace("top:450px", "top:410px")  # @ menorzinho, sem chamar atenção
     out.append(p)
 css = ".prod{position:absolute;filter:drop-shadow(0 6px 10px rgba(60,20,25,.18))}\n.titulo{z-index:2}\n.at{z-index:2;font-size:14px !important;letter-spacing:.22em !important}\n"
 head = head.replace("</style>", css + "</style>")

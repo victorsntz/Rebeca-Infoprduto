@@ -10,7 +10,7 @@ ID de afiliada da Rebeca na Shopee: an_18337811366 (todo link tem que levar esse
 | 4 | Toalha branca bordada com pinheirinhos e laços | https://s.shopee.com.br/2gCPIewoR3 | produtos/04-toalha-pinheiros.jpg |
 | 5 | Soldadinho quebra-nozes vermelho e branco | https://s.shopee.com.br/7puVSGilwJ | produtos/05-quebra-nozes.jpg, produtos/05-quebra-nozes-fundo-branco.jpg (usada na arte) |
 | 6 | Boleira de Natal com pé vermelho e prato listrado | https://s.shopee.com.br/3VlWIVLESS | produtos/06-boleira-natal.jpg, produtos/06-boleira-natal-sozinha.webp (melhor pra recortar) |
-| 7 | Jogo de xícaras com pires listrados e Papai Noel | https://s.shopee.com.br/8Kqm3Trg3V | produtos/07-xicaras-papai-noel.jpg |
+| 7 | Jogo de xícaras com pires listrados e Papai Noel | https://s.shopee.com.br/8Kqm3Trg3V | produtos/07-xicaras-papai-noel.jpg, produtos/07-xicara-fundo-branco.jpg (usada na arte) |
 | 8 | Globo de neve com Papai Noel, base vermelha Feliz Natal | https://s.shopee.com.br/4fxTh654F4 | produtos/08-globo-de-neve.jpg |
-| 9 | Petisqueira de madeira em formato de árvore de Natal | https://s.shopee.com.br/8pn2hsHBFg | (foto pendente) |
-| 10 | Canecas Papai Noel e Mamãe Noel | https://s.shopee.com.br/8VACIirq3O | (foto pendente) |
+| 9 | Petisqueira de madeira em formato de árvore de Natal | https://s.shopee.com.br/8pn2hsHBFg | produtos/09-petisqueira-arvore.jpg |
+| 10 | Canecas Papai Noel e Mamãe Noel | https://s.shopee.com.br/8VACIirq3O | produtos/10-canecas-noel.jpg |
