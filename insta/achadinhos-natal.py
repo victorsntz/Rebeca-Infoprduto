@@ -14,7 +14,7 @@ ITENS = [
     ("02b-rena", 985, 680, 190, 8, False),
     ("07-xicara", 555, 1095, 380, -2, False),
     ("04-toalha", 195, 1160, 420, -6, False),
-    ("01-meia", 945, 1080, 320, 6, True),
+    ("01-meia", 930, 1075, 290, 5, False),
 ]
 from PIL import Image
 def tag(nome, cx, cy, w, giro, esp):
