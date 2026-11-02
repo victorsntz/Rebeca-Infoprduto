@@ -8,3 +8,4 @@ ID de afiliada da Rebeca na Shopee: an_18337811366 (todo link tem que levar esse
 | 2 | Enfeites de pelúcia pra árvore (Papai Noel, boneco de neve e rena) | https://s.shopee.com.br/5VWafPX4nM | produtos/02-enfeites-pelucia.jpg, produtos/02-enfeites-pelucia-fundo-claro.webp (melhor pra recortar) |
 | 3 | Guirlanda de pinheiro nevado com laço vermelho | https://s.shopee.com.br/5q9R46GS2f | produtos/03-guirlanda-nevada.jpg |
 | 4 | Toalha branca bordada com pinheirinhos e laços | https://s.shopee.com.br/2gCPIewoR3 | produtos/04-toalha-pinheiros.jpg |
+| 5 | Soldadinho quebra-nozes vermelho e branco | https://s.shopee.com.br/7puVSGilwJ | produtos/05-quebra-nozes.jpg |
