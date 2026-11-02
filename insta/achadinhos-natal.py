@@ -8,7 +8,7 @@ R = "achadinhos/recortes/"
 ITENS = [
     ("03-guirlanda", 185, 215, 430, -4, False),
     ("08-globo", 540, 215, 255, 0, False),
-    ("06-boleira", 860, 245, 440, 3, False),
+    ("06-boleira", 845, 250, 420, 3, False),
     ("05-quebra-nozes", 135, 760, None, -3, False),   # altura fixa, ver abaixo
     ("02a-papai-noel", 850, 610, 185, -6, False),
     ("02b-rena", 985, 680, 190, 8, False),
