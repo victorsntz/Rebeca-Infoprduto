@@ -10,7 +10,7 @@ ITENS = [
     ("08-globo", 540, 200, 240, 0, False),
     ("06-boleira", 850, 240, 420, 3, False),
     ("05-quebra-nozes", 130, 700, None, -3, False),   # altura fixa, ver abaixo
-    ("09-petisqueira", 940, 662, 300, 4, False),
+    ("09-pratos-arvore", 930, 660, 335, 3, False),
     ("07-xicara", 560, 975, 330, -2, False),
     ("04-toalha", 200, 1165, 420, -6, False),
     ("10-canecas", 585, 1192, 320, 2, False),
