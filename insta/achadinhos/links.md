@@ -11,3 +11,4 @@ ID de afiliada da Rebeca na Shopee: an_18337811366 (todo link tem que levar esse
 | 5 | Soldadinho quebra-nozes vermelho e branco | https://s.shopee.com.br/7puVSGilwJ | produtos/05-quebra-nozes.jpg |
 | 6 | Boleira de Natal com pé vermelho e prato listrado | https://s.shopee.com.br/3VlWIVLESS | produtos/06-boleira-natal.jpg, produtos/06-boleira-natal-sozinha.webp (melhor pra recortar) |
 | 7 | Jogo de xícaras com pires listrados e Papai Noel | https://s.shopee.com.br/8Kqm3Trg3V | produtos/07-xicaras-papai-noel.jpg |
+| 8 | Globo de neve com Papai Noel, base vermelha Feliz Natal | https://s.shopee.com.br/4fxTh654F4 | produtos/08-globo-de-neve.jpg |
