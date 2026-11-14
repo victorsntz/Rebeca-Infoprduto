@@ -1,0 +1,22 @@
+<!doctype html><html><head><meta charset="utf-8">
+<style>
+@font-face{font-family:"GreatVibes";src:url("fonts/great-vibes.ttf")}
+body{margin:0;background:#333}
+.capa{width:2560px;height:1440px;position:relative;overflow:hidden;margin:0 0 20px;display:flex;align-items:center;justify-content:center}
+.nome{font-family:"GreatVibes";font-size:200px;line-height:1;white-space:nowrap;padding-bottom:20px}
+.guia{position:absolute;border:3px dashed rgba(255,255,255,.85);font:600 30px sans-serif;color:#fff;padding:8px 14px;box-sizing:border-box}
+</style></head><body>
+<!-- Capa do YouTube: só o nome, numa linha, em letra cursiva, sobre uma cor lisa. -->
+<div class="capa" id="b1" style="background:#5E1A26"><div class="nome" style="color:#F4E8DA">Rebeca Fortunato</div></div>
+<div class="capa" id="b2" style="background:#F3E9DF"><div class="nome" style="color:#5E1A26">Rebeca Fortunato</div></div>
+<script>
+// Ajusta o tamanho pra o nome ocupar uns 1300px de largura, dentro da área que o celular mostra (1546px).
+document.fonts.ready.then(() => document.querySelectorAll(".nome").forEach(n => {
+  n.style.fontSize = (200 * 1300 / n.getBoundingClientRect().width) + "px";
+}));
+if (location.search === "?guias") document.querySelectorAll(".capa").forEach(el => el.insertAdjacentHTML("beforeend",
+  `<div class="guia" style="left:0;right:0;top:508px;height:424px">computador</div>
+   <div class="guia" style="left:507px;width:1546px;top:508px;height:424px;border-color:#ffd27a;color:#ffd27a;text-align:right">celular (área segura)</div>
+   <div class="guia" style="left:0;top:0;border:none">TV mostra a capa inteira</div>`));
+</script>
+</body></html>
