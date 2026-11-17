@@ -101,6 +101,15 @@ Este arquivo é lido sozinho no começo de cada conversa. Ele resume tudo o que 
 - A Rebeca se cadastrou no programa de afiliados e está esperando aprovação. Ela recebe pelo ShopeePay, e por isso o cadastro não pede conta bancária.
 - Próximo passo: o Victor manda os prints e os links. Aí é recortar os produtos, montar na base escolhida e escrever a DM com os links numerados. Uma página `/achadinhos` no site também é opção.
 
+## Conteúdo: estilo, história e fé (novo pilar)
+
+- A Rebeca quer falar de estilo, roupa, coerência, história da moda, como a mulher era vista antes e agora, repertório de filmes, séries e pessoas, tudo ligado ao cristianismo e aos relacionamentos.
+- Plano, pilares, séries e banco de ideias: `conteudo/PLANO-ESTILO-E-FE.md`.
+- Fatos já checados, com fonte (púrpura de Provérbios 31, Elisabeth Elliot, calça feminina, Dior, Chanel, Diana, Jackie, Grace Kelly): `conteudo/FATOS-CHECADOS.md`. **Usar a versão correta de lá, nunca a frase popular.**
+- Roteiros de Reels seguem o método de tela partida do Victor (skill `esqueleto-victor-fortunato`): versão curta e longa, teleprompter, sem asterisco nem cerquilha no roteiro. Ficam em `conteudo/roteiros/`.
+- Frase de seguir da Rebeca: "Me segue se você acredita que dá pra ser elegante e temente a Deus ao mesmo tempo."
+- Falta um áudio dela falando à vontade pra montar o mapa de fala.
+
 ## Pendências
 
 1. Links dos vídeos `como_imprimir` e `como_usar_site`.
