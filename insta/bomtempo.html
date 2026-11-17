@@ -1,0 +1,55 @@
+<!doctype html><html><head><meta charset="utf-8">
+<style>
+@font-face{font-family:"Kalam";src:url("fonts/kalam-bold.ttf")}
+@font-face{font-family:"Caslon";src:url("../site/assets/fonts/LibreCaslonText-Regular.ttf")}
+body{margin:0;background:#333}
+.post{width:1080px;position:relative;overflow:hidden;margin:0 0 20px}
+.post svg{position:absolute;inset:0}
+.frase{position:absolute;left:0;right:0;text-align:center;font-family:"Kalam";font-size:96px;line-height:1.08;transform:translateY(-50%) rotate(-1.5deg)}
+.at{position:absolute;left:0;right:0;text-align:center;font-family:"Caslon";font-size:17px;letter-spacing:.26em}
+</style></head><body>
+<script>
+// Listras de aquarela (como a referência azul) com a frase em letra de pincel.
+const V = [
+  { nome:"azul", papel:"#F8F1E4", listra:"#9DB5C8", borda:"#7F9BB2", texto:"#B42A1E", at:"#5C7487" },
+  { nome:"rose", papel:"#F8F0E6", listra:"#D9AAA6", borda:"#C08A87", texto:"#6E1F2E", at:"#8E2A3A" },
+];
+const TAM = [ { suf:"feed", h:1350 }, { suf:"story", h:1920 } ];
+let n = 0;
+for (const t of TAM) for (const c of V) {
+  n++;
+  const id = "p" + n, P = 120, W = 58, x0 = (1080 - Math.floor(1080 / P) * P) / 2 + (P - W) / 2;
+  const listras = [];
+  for (let x = x0 - P; x < 1080 + P; x += P) listras.push(`<rect x="${x}" y="-40" width="${W}" height="${t.h + 80}"/>`);
+  document.body.insertAdjacentHTML("beforeend", `
+<div class="post" id="${id}" data-nome="${c.nome}-${t.suf}" style="height:${t.h}px;background:${c.papel}">
+  <svg viewBox="0 0 1080 ${t.h}" width="1080" height="${t.h}">
+    <defs>
+      <filter id="${id}-aq" x="-5%" y="-5%" width="110%" height="110%">
+        <feTurbulence type="fractalNoise" baseFrequency=".011 .0025" numOctaves="3" seed="${3 + n}" result="t"/>
+        <feDisplacementMap in="SourceGraphic" in2="t" scale="16" xChannelSelector="R" yChannelSelector="G" result="d"/>
+        <feTurbulence type="fractalNoise" baseFrequency=".03 .008" numOctaves="4" seed="${9 + n}" result="m"/>
+        <feColorMatrix in="m" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -1.1 1.3" result="ma"/>
+        <feComposite in="d" in2="ma" operator="in"/>
+      </filter>
+      <filter id="${id}-bd" x="-5%" y="-5%" width="110%" height="110%">
+        <feTurbulence type="fractalNoise" baseFrequency=".011 .0025" numOctaves="3" seed="${3 + n}" result="t"/>
+        <feDisplacementMap in="SourceGraphic" in2="t" scale="16" xChannelSelector="R" yChannelSelector="G" result="d"/>
+        <feGaussianBlur in="d" stdDeviation="1.2"/>
+      </filter>
+      <filter id="${id}-grao" x="0" y="0" width="100%" height="100%">
+        <feTurbulence type="fractalNoise" baseFrequency=".85" numOctaves="2" seed="2"/>
+        <feColorMatrix type="saturate" values="0"/>
+        <feComponentTransfer><feFuncA type="linear" slope=".06"/></feComponentTransfer>
+      </filter>
+    </defs>
+    <g fill="${c.listra}" opacity=".9" filter="url(#${id}-aq)">${listras.join("")}</g>
+    <g fill="none" stroke="${c.borda}" stroke-width="3" opacity=".35" filter="url(#${id}-bd)">${listras.join("")}</g>
+    <rect width="1080" height="${t.h}" filter="url(#${id}-grao)"/>
+  </svg>
+  <div class="frase" style="top:${t.h / 2}px;color:${c.texto}">Deus é bom o<br>tempo todo</div>
+  <div class="at" style="bottom:${t.h > 1400 ? 170 : 56}px;color:${c.at}">@REBECAFORTUNATO__</div>
+</div>`);
+}
+</script>
+</body></html>
