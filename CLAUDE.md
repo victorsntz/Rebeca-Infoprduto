@@ -118,7 +118,8 @@ Este arquivo é lido sozinho no começo de cada conversa. Ele resume tudo o que 
 - Fatos já checados, com fonte (púrpura de Provérbios 31, Elisabeth Elliot, calça feminina, Dior, Chanel, Diana, Jackie, Grace Kelly): `conteudo/FATOS-CHECADOS.md`. **Usar a versão correta de lá, nunca a frase popular.**
 - Roteiros de Reels seguem o método de tela partida do Victor (skill `esqueleto-victor-fortunato`): versão curta e longa, teleprompter, sem asterisco nem cerquilha no roteiro. Ficam em `conteudo/roteiros/`.
 - Frase de seguir da Rebeca: "Me segue se você acredita que dá pra ser elegante e temente a Deus ao mesmo tempo."
-- Falta um áudio dela falando à vontade pra montar o mapa de fala.
+- **Mapa de fala e regra da janela** (privacidade): `conteudo/MAPA-DE-FALA.md`. Usar nos roteiros, com duas ou três marcas por bloco.
+- Sobre ela, pra roteiro: está no segundo ano de casada. No primeiro ano trabalhava fora e foi de adaptação. No segundo saiu do emprego, cuida da casa e quer transformar a casa em lar. Tem uma gatinha, a Angélica. Não quer expor demais o casal e **não quer falar de sogra e nora**.
 
 ## Pendências
 

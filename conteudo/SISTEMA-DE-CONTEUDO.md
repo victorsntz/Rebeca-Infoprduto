@@ -88,14 +88,24 @@ Uma pesquisa rende a semana inteira. E quem acompanha sente que o perfil "tem as
 
 Fato e história atraem. O que faz alguém **ficar** é conhecer a Rebeca de verdade. Os números confirmam: o carrossel de testemunho é o que mais traz seguidor, o reel de família é o mais engajado (21%) e o bolo que deu errado só recebeu carinho.
 
-### 1. "Casar nova" (volta, como temporada 2)
-**"Casar nova era pra ser um erro, e acabou sendo o ano em que eu mais amadureci."**
-- Vlog narrado: cenas do ordinário (mercado, louça, conta, bolo, sexta à noite em casa) com a voz dela por cima.
-- Cada episódio tem uma dificuldade real e o que ela aprendeu com ela. Fecha com uma frase ou um versículo.
-- "Temporada 2 · Episódio 1" escrito na tela. Quem chegar agora vai procurar a temporada 1, então vale juntar tudo num destaque e fixar o primeiro episódio.
-- Responde de quebra o assunto mais quente dos comentários (noivado e dinheiro), mostrando a vida real e não a ideal.
-- **Regra do casal:** só entra no episódio o que os dois toparam mostrar. Briga só se tiver o final bom e o marido concordar.
-- Ideias de episódio: o que me disseram quando eu casei nova · a primeira conta que apertou · aprender a cozinhar (o bolo que deu errado) · a primeira briga boba · sogra e nora · as amizades que mudaram · o dia em que eu quis desistir · os sonhos que eu adiei e os que eu ganhei · o que ninguém conta sobre ser dona de casa.
+### 1. "Casar nova", temporada 2: o segundo ano
+**"Casar nova era pra ser um erro, e acabou sendo o ano em que eu mais amadureci."** A temporada 2 conta o segundo ano: o primeiro foi adaptação, e o segundo foi quando a casa virou lar.
+- Vlog narrado: cenas do ordinário (cortina, louça, tempero, flores na mesa, a gatinha Angélica) com a voz dela por cima.
+- Cada episódio tem uma dificuldade do dia a dia e o que ela aprendeu, como mulher, esposa, dona de casa e com Cristo. Fecha com uma frase.
+- "Temporada 2 · Episódio X" na tela. Juntar as duas temporadas num destaque e fixar o primeiro episódio.
+- Fala de **casamento em geral**, e não da intimidade do casal. Segue a regra da janela do `MAPA-DE-FALA.md`.
+- Responde o assunto mais quente dos comentários (noivado e dinheiro), mostrando a vida real e não a ideal.
+- **Episódio 1 pronto:** `roteiros/03-casar-nova-t2e1.md`.
+- Próximos episódios:
+  - "Casar nova: o que as pessoas falam", sobre o julgamento em geral.
+  - "Transformar casa em lar": decoração com intenção, que conversa com os achadinhos da Shopee.
+  - "Fazer comida melhor": o tempero, o bolo que deu errado e o que deu certo.
+  - "Dinheiro no casamento": princípios, nunca valores.
+  - "Organização da casa": o que ela entende hoje e não entendia no primeiro ano.
+  - "A Angélica chegou": leve e fofo.
+  - "Primeiro ano e segundo ano": um antigamente e hoje do casamento.
+  - "O que eu aprendi com Cristo no segundo ano".
+- **Fora da pauta, por pedido dela:** sogra e nora.
 
 ### 2. "Antigamente e hoje: eu" (testemunho de identidade)
 O mesmo nome da série de história, só que aplicado à vida dela. É a ponte perfeita entre moda e testemunho.
@@ -104,12 +114,12 @@ O mesmo nome da série de história, só que aplicado à vida dela. É a ponte p
 - Formato: tela verde com fotos antigas dela no fundo, ou carrossel de testemunho (o formato que mais converte).
 - Precisa da história real dela. As perguntas estão abaixo.
 
-### 3. "Nós dois" (vídeos com o marido)
+### 3. "Nós dois" (vídeos com o marido, opcional)
+Só quando os dois quiserem, e falando do casamento em geral. Ela tem receio de expor demais o casal.
 - Perguntas pra fazer antes de casar (conversa com o tema noivado).
 - O que a gente achava do casamento e o que ele é de verdade (antigamente e hoje do casal).
 - Os dois respondendo juntos um comentário, com humor (ex.: "elas arrumam outro marido").
-- A nossa história em 60 segundos.
-- Uma vez a cada uma ou duas semanas. Identificação, nunca briga encenada pra dar view.
+- Identificação, nunca briga encenada pra dar view.
 
 ### 4. "Conversa de amigas" (com convidada)
 - Um bate-papo por mês sobre relacionamento, publicado como **collab** (post em parceria). Aparece pras duas audiências de uma vez, e é uma das formas mais baratas de ganhar seguidor novo.
