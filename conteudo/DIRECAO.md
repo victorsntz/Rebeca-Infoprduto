@@ -50,6 +50,31 @@ Se toda rotina virar episódio do Casar nova, a série perde a força e o produt
 
 **Marcar sempre:** marca o @ da marca em tudo o que você usa de verdade, no post e nos stories. As equipes das marcas veem as menções. Quando virar parceria (paga, permuta ou produto recebido), identificar como publicidade, com #publi ou o selo "parceria paga", que é a regra do Conar. Antes disso, só marca, sem #publi.
 
+## Os 3 jeitos de mostrar a rotina em reel
+
+Ela pode usar os três. Cada um faz um trabalho diferente:
+
+| Jeito | Como é | Pra quê | Quando |
+|---|---|---|---|
+| **"Vem comigo"** | "Vem arrumar a casa comigo", "vem fazer o almoço comigo", com música e texto curto na tela | Alcance leve e fácil de produzir. Mostra a casa e as marcas | Sexta ou sábado |
+| **Rotina em ASMR** | Sem música e sem fala, só os sons de verdade: a cafeteira, a garrafa, a cortina, a panela | Calma e conexão. Ótimo pra marca, porque o produto aparece e até "soa" | Rotina da manhã, nos dias leves (quinta) |
+| **Falando enquanto mostra** | Ela diz o título na tela e vai conversando sobre um assunto enquanto a rotina passa | O mais forte, porque carrega a voz dela. É aqui que entra "O óbvio que ninguém diz" e o Casar nova | Terça (reel de maior aposta), alternando com a tela verde |
+
+Fórmulas de título pra rotina:
+- "Rotina de uma segunda-feira sendo casada aos 23 e trabalhando de casa"
+- "Um dia na minha vida: dona de casa e cuidando da nossa agência"
+- "Minha manhã antes de abrir o computador"
+- "Rotina da tarde de uma jovem casada"
+
+Ela cuida da casa e ajuda o Victor na agência deles, a Fortunato Studio. Mostrar isso de leve (o computador na mesa, uma reunião, a casa funcionando junto) faz a seguidora se reconhecer e mostra pras marcas uma mulher que trabalha e cuida do lar.
+
+## Viagens e o apê
+
+- **Guia de viagem em carrossel** ("O que fazer em Gramado", "Onde comer em Manaus"): é o conteúdo mais salvo e compartilhado de viagem, e vira portfólio pra pedir permuta em hotel e restaurante. Só entra lugar onde ela foi de verdade, com as fotos dela.
+- **Reel "48 horas em..."**: as melhores cenas da viagem, com uma dica por cena escrita na tela.
+- **Tour pelo apê**: é um clássico, conversa com o tema "casa virando lar" e abre espaço pra marcas de decoração. Pela regra da janela: sem fachada, sem vista que mostre onde fica e sem o quarto, se ela preferir.
+- Viagens já feitas (Manaus, Gramado) podem virar post agora, com o material que já está no celular.
+
 ## "O óbvio que ninguém diz" (a parte forte e polêmica)
 
 Ela gosta de falar com força, e isso faz falta na igreja: namoro, noivado e casamento dito abertamente. A regra que deixa forte sem perder ninguém é **forte na ideia e gentil no tom**:
