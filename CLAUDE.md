@@ -42,6 +42,8 @@ Este arquivo é lido sozinho no começo de cada conversa. Ele resume tudo o que 
 | `insta/referencias/` | Imagens de referência que o Victor mandou |
 | `insta/gen/` | Imagens geradas ou recortadas usadas nas artes |
 | `insta/fonts/` | Caveat, Dancing Script, Playfair Display (itálico 500 e negrito 700) |
+| `midiakit/` | Mídia kit da Rebeca (HTML, PNGs e PDF A4). Renderizar com `node midiakit/midiakit.js` |
+| `conteudo/` | Plano, sistema de conteúdo, direção, mapa de fala, fatos checados, análises e roteiros |
 
 ## Publicar o site
 
@@ -120,6 +122,7 @@ Este arquivo é lido sozinho no começo de cada conversa. Ele resume tudo o que 
 - Frase de seguir da Rebeca: "Me segue se você acredita que dá pra ser elegante e temente a Deus ao mesmo tempo."
 - **Mapa de fala e regra da janela** (privacidade): `conteudo/MAPA-DE-FALA.md`. Usar nos roteiros, com duas ou três marcas por bloco.
 - **Direção (a página pra quando ela se perde):** `conteudo/DIRECAO.md`. Tem a pergunta-filtro, as 4 gavetas (ensina, vive, se cuida, conversa), o "grava sempre, decide depois", o checklist da viagem de aniversário, a estrutura do vídeo de finalização do cabelo e o caminho pras parcerias.
+- **Mídia kit** (rascunho de 4 páginas, na identidade dela): `midiakit/`. Falta preencher: fotos (retrato e lifestyle), número de seguidores, público (porcentagem de mulheres, idade, cidades), e-mail de parcerias, cidade e as marcas com quem já trabalhou. Os campos em aberto aparecem tracejados em dourado.
 - Ela saiu de uma transição capilar, e pediram o vídeo de finalização. Quer parcerias (cabelo, moda, casa, livros, hotel) e mostrar mais lifestyle: viagem de aniversário de casamento, hotel, voo, looks e beleza.
 - Sobre ela, pra roteiro: está no segundo ano de casada. No primeiro ano trabalhava fora e foi de adaptação. No segundo saiu do emprego, cuida da casa e quer transformar a casa em lar. Tem uma gatinha, a Angélica. Não quer expor demais o casal e **não quer falar de sogra e nora**.
 
