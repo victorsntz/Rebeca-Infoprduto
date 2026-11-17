@@ -57,19 +57,32 @@ Em vez de pensar "o que eu posto hoje?", ela pensa "qual é o tema da semana?". 
 
 Uma pesquisa rende a semana inteira. E quem acompanha sente que o perfil "tem assunto".
 
-## Semana modelo
+## O que os números dizem (análise de 15/11/2026, `analises/2026-11-15.md`)
 
-| Dia | Post | Função |
+1. **"Famosas em Pauta" é a maior alavanca da conta, e quase não é usada.** Tese em cima da história de uma mulher conhecida: alcance mediano de 443 mil, e só 3 posts em 6 meses. **A série de história é Famosas em Pauta com mulheres da história** (rainha Vitória, Diana, Jackie, Grace Kelly, princesa Isabel, Elisabeth Elliot). Usar o mesmo template, porque sair da identidade visual derruba o resultado: duas fotos, a de abertura fechada, escura e séria, e serifa branca itálica. Antigamente e hoje cabe perfeito nas duas fotos lado a lado.
+2. **Frase pura em print de tweet é a capa que mais converte** (21% de engajamento). Continua.
+3. **Estático de fé quebra o teto de alcance** (833 mil), e a fé tratada como consolo, e não como regra, é a que mais traz seguidor. A arte ilustrada com flores e frase competiu de igual pra igual com as celebridades (474 mil de alcance, 11,6% de engajamento). As artes de renda, flores e listras estão no caminho certo.
+4. **Viral de explore não vira seguidor sozinho.** 763 mil de alcance e saldo de seguidores negativo. Nos posts com cara de viral, o convite pra seguir vai no começo do texto, e não só no rodapé.
+5. **Reel precisa de CTA de seguir e salvar** (9% contra 5,5% sem). A pergunta vai dentro do vídeo, nunca na legenda.
+6. **Carrossel gosta de pergunta na legenda** (9,7% contra 7,6%). O que mais traz seguidor é o testemunho pessoal. Análise profunda (como a do Aslan, com 957 comentários) merece um slot por mês.
+7. **Assunto do momento: noivado e dinheiro** (55% dos comentários). A objeção mais curtida é o tom julgador: "nem todo mundo tem dinheiro pra casar". Regra nova: **acolher antes de corrigir**.
+8. **História e fé aprovam sem gerar briga** (o post de Lutero e as mulheres, por exemplo). Isso confirma a direção da série.
+9. **Vulnerabilidade rende carinho.** O bolo que deu errado só recebeu apoio.
+10. **Post colado em outro rouba alcance.** Deixar no mínimo 3 horas entre um e outro. Notícia fora do nicho (Nvidia) flopa.
+
+## Semana modelo (ajustada pelos números)
+
+| Dia | Post | Por quê |
 |---|---|---|
-| Segunda | Tela verde: antigamente e hoje | Atrair + ensinar |
-| Terça | Tweet + enquete nos stories | Atrair |
-| Quarta | Na cozinha / casa com reflexão | Encantar |
-| Quinta | CAV3 do tema | Ensinar (salvamentos) |
-| Sexta | Arrume-se comigo + história, ou look | Encantar + vender (achadinhos) |
-| Sábado | Frase com música | Leve |
-| Domingo | Descanso. Só stories, se der vontade | |
+| Segunda, 10h às 11h | Estático de conselho em print de tweet, com CTA de seguir na abertura | Segunda tem o maior alcance mediano da conta, e os virais saíram nesse horário |
+| Terça | **Reel de maior aposta**: tela verde, Antigamente e hoje / Famosas da história | Melhor dia do reel (11%) |
+| Quarta | **Carrossel**: Famosas em Pauta histórico ou testemunho, com pergunta na legenda | Terça e quarta são os melhores dias do carrossel |
+| Quinta | Dia fraco: só stories (caixinha, enquete, bastidor) ou rotina leve | Pior dia de reel e de estático |
+| Sexta | Arrume-se comigo + história, ou look | Encantar + achadinhos |
+| Sábado | Estático de fé (arte ilustrada com frase) | Fim de semana puxa o estático |
+| Domingo | Reel de família, gratidão ou rotina, ou estático de fé (agendado) | Melhor dia do estático e segundo melhor do reel |
 
-**Versão possível**, pra semana corrida: segunda, quarta, quinta e sexta. Constância vale mais que volume.
+**Versão possível**, pra semana corrida: segunda, terça, quarta e sábado. Constância vale mais que volume.
 
 ## Temas por mês (primeiros 3 meses)
 
@@ -80,6 +93,30 @@ Uma pesquisa rende a semana inteira. E quem acompanha sente que o perfil "tem as
 | 3 | **Vestida de força** (Bíblia) | Lídia, a empresária de púrpura · Ester e os 12 meses de preparo · Elisabeth Elliot e a casa que fala · Diana e a diferença entre dignidade e vingança |
 
 Os fatos dos meses 1 e 2 já estão checados ou estão sendo checados agora (`FATOS-CHECADOS.md`). Ester precisa de checagem antes de virar roteiro.
+
+## Comunidade: de quem vê pra quem participa
+
+Seguidor vê. Comunidade volta, comenta, chama a amiga e compra junto. Pra isso a pessoa precisa de **motivo pra voltar** e de **lugar pra participar**.
+
+1. **Ritual semanal com nome.** "Caixinha de domingo": no domingo à noite ela abre uma caixinha nos stories, e as melhores perguntas viram o estático ou o carrossel da semana, com a pergunta da seguidora na capa. Quem perguntou se sente vista e volta.
+2. **Responder comentário com vídeo.** O Reels deixa responder um comentário em vídeo. O comentário mais curtido de um post vira o próximo reel (ex.: "elas arrumam outro marido", respondido com humor).
+3. **Canal de transmissão no Instagram**, pras mais próximas. Lá vão bastidores, aviso de live, os achadinhos e livros antes de todo mundo e enquetes. Custa zero e separa quem quer participar de quem só passa.
+4. **A comunidade escolhe o tema.** Enquete: "qual mulher da história no próximo vídeo?". Quem votou volta pra ver.
+5. **Clube do livro do mês.** Um livro por mês (com link da Shopee), uma análise profunda no carrossel do mês (o formato do Aslan) e uma live no fim do mês pra conversar.
+6. **Turma dos 40 dias.** Uma ou duas vezes por ano, todo mundo começa o caderno no mesmo dia, com stories diários e uma live por semana. É comunidade e é venda ao mesmo tempo.
+7. **O perfil precisa converter quem chega do explore.** Fixar 3 posts no topo: um "quem é a Rebeca" (testemunho), o maior post de fé e o primeiro da série de história. Junto com a bio, é isso que decide se a pessoa segue.
+
+## Primeira semana com o plano novo (assunto quente: noivado e dinheiro)
+
+| Dia | Post |
+|---|---|
+| Terça | Reel tela verde: **o anel de diamante foi uma propaganda** (noivado + dinheiro, o assunto do momento) |
+| Quarta | Carrossel testemunho: **casar sem sobrar dinheiro**, a história dela, com pergunta na legenda. Responde a objeção mais curtida sem julgar ninguém |
+| Quinta | Stories: caixinha "o que te trava pra casar ou noivar?" |
+| Sexta | Arrume-se comigo pra um casamento: **por que a convidada não vai de branco** |
+| Sábado | Estático de fé: perseverar no casamento quando a fé sustenta |
+| Domingo | Reel tela verde: **por que a noiva se veste de branco** (roteiro pronto) |
+| Segunda, 10h | Estático em print de tweet: uma frase da caixinha, com CTA de seguir na abertura |
 
 ## Como produzir sem enlouquecer
 
