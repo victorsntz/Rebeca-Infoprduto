@@ -37,6 +37,39 @@ O que trava é tentar pensar no post na hora de gravar. A solução é separar a
 
 Assim, quando o roteiro chega, as cenas já existem. Com isso a ideia não morre por falta de vídeo.
 
+## Duas faixas pra mostrar a rotina (e as marcas)
+
+| Faixa | O que é | Marca aparece? |
+|---|---|---|
+| **Casar nova** (domingo) | Narrativa com lição: o casamento, a casa virando lar. Abertura fixa. | Só de fundo, natural (a garrafa na bancada, o look). O episódio nunca é sobre o produto. |
+| **Um dia comigo** (reel curto) e **stories diários** | Rotina leve, sem lição obrigatória: café, treino, cabelo, mercado, casa. Música e texto curto na tela. | Sim. É aqui que a marca brilha: o look de treino, a garrafa, o produto de cabelo, sempre marcados. |
+
+Se toda rotina virar episódio do Casar nova, a série perde a força e o produto ali parece propaganda. Separando as duas, a série continua sendo coração e a rotina vira vitrine.
+
+**Stories todo dia** são onde as marcas olham primeiro: manhã (café e garrafa), treino (look e marca), casa, noite.
+
+**Marcar sempre:** marca o @ da marca em tudo o que você usa de verdade, no post e nos stories. As equipes das marcas veem as menções. Quando virar parceria (paga, permuta ou produto recebido), identificar como publicidade, com #publi ou o selo "parceria paga", que é a regra do Conar. Antes disso, só marca, sem #publi.
+
+## "O óbvio que ninguém diz" (a parte forte e polêmica)
+
+Ela gosta de falar com força, e isso faz falta na igreja: namoro, noivado e casamento dito abertamente. A regra que deixa forte sem perder ninguém é **forte na ideia e gentil no tom**:
+- Sempre com Bíblia por trás.
+- Criticar comportamento e ideia, nunca uma pessoa ou uma igreja específica.
+- Acolher quem está do outro lado. Quem discorda tem que terminar pensando "ela tem razão nisso".
+- Os números já mostraram: tom julgador perde gente, identificação ganha.
+
+Melhor formato: **print de tweet** (o que mais converte), segunda das 10h às 11h, e de vez em quando um carrossel ou reel aprofundando.
+
+Ganchos pra começar:
+- Se vocês não conseguem falar de dinheiro no namoro, não vão conseguir no casamento. (A audiência já concordou com isso nos comentários.)
+- Noivado não é o tempo de preparar a festa. É o tempo de preparar o casamento.
+- A igreja ensina muito a esperar e quase nada a escolher.
+- Namoro sem data nem sempre é paciência. Às vezes é medo com nome bonito.
+- Tem namoro que nunca passou do limite no corpo e mesmo assim destruiu as duas pessoas por dentro.
+- Feminilidade não é fraqueza. A mulher de Provérbios 31 trabalhava, negociava e era forte.
+- Cuidar do corpo não é vaidade. É zelo com o que Deus te deu. (Ponte natural com o fitness.)
+- Ninguém te contou, mas o primeiro ano de casamento é difícil até pra quem fez tudo certo. (Ponte com o Casar nova.)
+
 ## Casar nova (temporada 2)
 
 - Não precisa numerar se não quiser. O que identifica a série é a **abertura igual toda vez**: a mesma frase de começo e o mesmo título na tela ("Casar nova · 2º ano"). Número ajuda quem quer maratonar, mas é opcional.
