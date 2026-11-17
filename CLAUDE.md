@@ -105,6 +105,9 @@ Este arquivo é lido sozinho no começo de cada conversa. Ele resume tudo o que 
 
 - A Rebeca quer falar de estilo, roupa, coerência, história da moda, como a mulher era vista antes e agora, repertório de filmes, séries e pessoas, tudo ligado ao cristianismo e aos relacionamentos.
 - Plano, pilares, séries e banco de ideias: `conteudo/PLANO-ESTILO-E-FE.md`.
+- **Sistema de conteúdo** (como organizar tudo): `conteudo/SISTEMA-DE-CONTEUDO.md`. Um tema por semana vira tela verde, CAV3, arrume-se comigo, rotina com reflexão, tweets e stories. Semana modelo e temas por mês estão lá.
+- Formato preferido pra começar: **tela verde** (ela fala na frente das imagens históricas), série "Antigamente e hoje". A tela partida fica pra depois. No roteiro de tela verde, no lugar de b-roll vai a imagem de fundo de cada trecho.
+- Ela já posta: tweets, CAV3, frase com música, rotina com reflexão (bolo, almoço, casa) e looks. Quer fazer arrume-se comigo.
 - Fatos já checados, com fonte (púrpura de Provérbios 31, Elisabeth Elliot, calça feminina, Dior, Chanel, Diana, Jackie, Grace Kelly): `conteudo/FATOS-CHECADOS.md`. **Usar a versão correta de lá, nunca a frase popular.**
 - Roteiros de Reels seguem o método de tela partida do Victor (skill `esqueleto-victor-fortunato`): versão curta e longa, teleprompter, sem asterisco nem cerquilha no roteiro. Ficam em `conteudo/roteiros/`.
 - Frase de seguir da Rebeca: "Me segue se você acredita que dá pra ser elegante e temente a Deus ao mesmo tempo."
