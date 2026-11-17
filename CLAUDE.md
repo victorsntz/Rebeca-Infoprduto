@@ -119,6 +119,8 @@ Este arquivo é lido sozinho no começo de cada conversa. Ele resume tudo o que 
 - Roteiros de Reels seguem o método de tela partida do Victor (skill `esqueleto-victor-fortunato`): versão curta e longa, teleprompter, sem asterisco nem cerquilha no roteiro. Ficam em `conteudo/roteiros/`.
 - Frase de seguir da Rebeca: "Me segue se você acredita que dá pra ser elegante e temente a Deus ao mesmo tempo."
 - **Mapa de fala e regra da janela** (privacidade): `conteudo/MAPA-DE-FALA.md`. Usar nos roteiros, com duas ou três marcas por bloco.
+- **Direção (a página pra quando ela se perde):** `conteudo/DIRECAO.md`. Tem a pergunta-filtro, as 4 gavetas (ensina, vive, se cuida, conversa), o "grava sempre, decide depois", o checklist da viagem de aniversário, a estrutura do vídeo de finalização do cabelo e o caminho pras parcerias.
+- Ela saiu de uma transição capilar, e pediram o vídeo de finalização. Quer parcerias (cabelo, moda, casa, livros, hotel) e mostrar mais lifestyle: viagem de aniversário de casamento, hotel, voo, looks e beleza.
 - Sobre ela, pra roteiro: está no segundo ano de casada. No primeiro ano trabalhava fora e foi de adaptação. No segundo saiu do emprego, cuida da casa e quer transformar a casa em lar. Tem uma gatinha, a Angélica. Não quer expor demais o casal e **não quer falar de sogra e nora**.
 
 ## Pendências
