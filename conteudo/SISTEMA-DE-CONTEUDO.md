@@ -80,9 +80,48 @@ Uma pesquisa rende a semana inteira. E quem acompanha sente que o perfil "tem as
 | Quinta | Dia fraco: só stories (caixinha, enquete, bastidor) ou rotina leve | Pior dia de reel e de estático |
 | Sexta | Arrume-se comigo + história, ou look | Encantar + achadinhos |
 | Sábado | Estático de fé (arte ilustrada com frase) | Fim de semana puxa o estático |
-| Domingo | Reel de família, gratidão ou rotina, ou estático de fé (agendado) | Melhor dia do estático e segundo melhor do reel |
+| Domingo | **Episódio de "Casar nova"** (vlog narrado do ordinário), ou estático de fé (agendado) | Melhor dia do estático e segundo melhor do reel. Tom de família e rotina, que é o que mais engaja no reel |
 
 **Versão possível**, pra semana corrida: segunda, terça, quarta e sábado. Constância vale mais que volume.
+
+## As séries pessoais (o coração da comunidade)
+
+Fato e história atraem. O que faz alguém **ficar** é conhecer a Rebeca de verdade. Os números confirmam: o carrossel de testemunho é o que mais traz seguidor, o reel de família é o mais engajado (21%) e o bolo que deu errado só recebeu carinho.
+
+### 1. "Casar nova" (volta, como temporada 2)
+**"Casar nova era pra ser um erro, e acabou sendo o ano em que eu mais amadureci."**
+- Vlog narrado: cenas do ordinário (mercado, louça, conta, bolo, sexta à noite em casa) com a voz dela por cima.
+- Cada episódio tem uma dificuldade real e o que ela aprendeu com ela. Fecha com uma frase ou um versículo.
+- "Temporada 2 · Episódio 1" escrito na tela. Quem chegar agora vai procurar a temporada 1, então vale juntar tudo num destaque e fixar o primeiro episódio.
+- Responde de quebra o assunto mais quente dos comentários (noivado e dinheiro), mostrando a vida real e não a ideal.
+- **Regra do casal:** só entra no episódio o que os dois toparam mostrar. Briga só se tiver o final bom e o marido concordar.
+- Ideias de episódio: o que me disseram quando eu casei nova · a primeira conta que apertou · aprender a cozinhar (o bolo que deu errado) · a primeira briga boba · sogra e nora · as amizades que mudaram · o dia em que eu quis desistir · os sonhos que eu adiei e os que eu ganhei · o que ninguém conta sobre ser dona de casa.
+
+### 2. "Antigamente e hoje: eu" (testemunho de identidade)
+O mesmo nome da série de história, só que aplicado à vida dela. É a ponte perfeita entre moda e testemunho.
+- Antes: medo do julgamento, falta de identidade, a roupa escolhida pra agradar.
+- Hoje: saber quem é e se vestir de acordo, sem medo do que vão pensar.
+- Formato: tela verde com fotos antigas dela no fundo, ou carrossel de testemunho (o formato que mais converte).
+- Precisa da história real dela. As perguntas estão abaixo.
+
+### 3. "Nós dois" (vídeos com o marido)
+- Perguntas pra fazer antes de casar (conversa com o tema noivado).
+- O que a gente achava do casamento e o que ele é de verdade (antigamente e hoje do casal).
+- Os dois respondendo juntos um comentário, com humor (ex.: "elas arrumam outro marido").
+- A nossa história em 60 segundos.
+- Uma vez a cada uma ou duas semanas. Identificação, nunca briga encenada pra dar view.
+
+### 4. "Conversa de amigas" (com convidada)
+- Um bate-papo por mês sobre relacionamento, publicado como **collab** (post em parceria). Aparece pras duas audiências de uma vez, e é uma das formas mais baratas de ganhar seguidor novo.
+
+### Perguntas pro testemunho (responder por áudio, do jeito que vier)
+1. Me conta uma cena concreta de quando você tinha medo do que iam pensar. Onde você estava, o que fez, o que deixou de fazer.
+2. Como era o seu jeito de se vestir nessa época, e por que você escolhia aquelas roupas?
+3. O que te fazia sentir que você não sabia quem era?
+4. Teve um momento ou uma virada? Pode ser um versículo, uma conversa, o casamento ou uma fase difícil.
+5. Me conta uma cena de hoje em que você percebeu que mudou.
+6. O que você diria pra Rebeca de antes, numa frase?
+7. Tem fotos de antes que você toparia mostrar?
 
 ## Temas por mês (primeiros 3 meses)
 

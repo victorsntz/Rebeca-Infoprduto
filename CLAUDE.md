@@ -113,6 +113,7 @@ Este arquivo é lido sozinho no começo de cada conversa. Ele resume tudo o que 
   - Print de tweet é o que mais converte. Estático de fé é o que mais alcança.
   - Reel sempre com CTA de seguir e salvar, sem pergunta na legenda. Carrossel com pergunta na legenda.
   - Assunto quente: noivado e dinheiro. Acolher antes de corrigir, porque a audiência rejeita tom julgador.
+- **Séries pessoais** (testemunho, "Casar nova" temporada 2, vídeos com o marido, conversa com amiga em collab): detalhes e perguntas pro testemunho no `SISTEMA-DE-CONTEUDO.md`. Só entra no vídeo o que o casal topar mostrar.
 - Ela quer **comunidade**, e não só viral. As ideias (caixinha de domingo, canal de transmissão, clube do livro, turma dos 40 dias) estão no `SISTEMA-DE-CONTEUDO.md`.
 - Fatos já checados, com fonte (púrpura de Provérbios 31, Elisabeth Elliot, calça feminina, Dior, Chanel, Diana, Jackie, Grace Kelly): `conteudo/FATOS-CHECADOS.md`. **Usar a versão correta de lá, nunca a frase popular.**
 - Roteiros de Reels seguem o método de tela partida do Victor (skill `esqueleto-victor-fortunato`): versão curta e longa, teleprompter, sem asterisco nem cerquilha no roteiro. Ficam em `conteudo/roteiros/`.
