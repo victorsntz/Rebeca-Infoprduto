@@ -16,16 +16,18 @@ Tudo o que eu amo cabe em 5 gavetas. Cada uma tem uma função, e nenhuma compet
 **O que diminui:** vídeo só com frase e música. Ele cumpriu o papel de alcance, e agora vira tempero (no máximo 1 por semana), e não prato principal.
 **O que continua:** trends, quando passarem na pergunta "isso mostra quem eu sou?".
 
-## A semana
-| Dia | Post | Gaveta |
+## A semana (combinada com ela)
+| Dia | O que vai | Já fica pronto? |
 |---|---|---|
-| Segunda, 10h | Print do "óbvio que ninguém diz" | 1 |
-| Terça | **Vídeo eu falando** (a maior aposta da semana) | 1 ou 2 |
-| Quarta | Carrossel profundo, com pergunta na legenda | 1 ou 2 |
-| Quinta | Só stories: caixinha, enquete, bastidor | 4 |
-| Sexta | Arrume-se comigo, look ou cabelo | 2 ou 3 |
-| Sábado | Estático de fé, ou viagem se tiver | 1 ou 5 |
-| Domingo | Casar nova (episódio) | 4 |
+| Segunda | 10h: tweet ("o óbvio que ninguém diz") | sim, no sábado de produção |
+| Terça | Vídeo da semana (tela verde ou falando enquanto mostra a rotina) | gravado no dia ou no sábado |
+| Quarta | 10h: tweet · à noite: carrossel (mínimo de 3h entre os dois) | sim, no sábado de produção |
+| Quinta | Só stories | |
+| Sexta | Pessoal e leve: look, ida pro treino, "fim de uma sexta comigo", foto sua | no dia |
+| Sábado | Estático de frase motivadora ou de fé, ou foto e momento do fim de semana | sim, no sábado de produção |
+| Domingo | Casar nova (episódio), quando tiver | gravado durante a semana |
+
+**Sábado de produção (a cada 2 semanas, umas 2 horas):** deixa prontos 2 carrosséis, 4 tweets e 2 estáticos. Agenda tudo no Meta Business Suite (o app de agendar do Instagram).
 
 ## Refinar a comunicação (o que muda no jeito de postar)
 1. **Rosto e voz toda semana.** Frase sem rosto dá alcance. Autoridade e parceria pedem você aparecendo e falando.
