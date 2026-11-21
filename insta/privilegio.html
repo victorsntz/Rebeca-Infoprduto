@@ -1,0 +1,69 @@
+<!doctype html><html><head><meta charset="utf-8">
+<style>
+@font-face{font-family:"Playfair";src:url("fonts/playfair-regular.ttf")}
+@font-face{font-family:"PlayfairI";src:url("fonts/playfair-italic.ttf")}
+@font-face{font-family:"Caslon";src:url("../site/assets/fonts/LibreCaslonText-Regular.ttf")}
+body{margin:0;background:#333}
+.post{width:1080px;height:1350px;position:relative;overflow:hidden;margin:0 0 20px;background:#111}
+.meia{position:absolute;left:0;width:1080px;height:675px;background-repeat:no-repeat;overflow:hidden}
+.cheia{position:absolute;inset:0;background-repeat:no-repeat}
+.t{position:absolute;left:70px;right:70px;color:#FBF6EE;font-family:"Playfair";text-align:center;
+   text-shadow:0 2px 14px rgba(0,0,0,.55),0 1px 3px rgba(0,0,0,.45)}
+.t1{font-size:66px;line-height:1.1}
+.t2{font-size:44px;line-height:1.25;font-family:"PlayfairI"}
+.at{position:absolute;left:0;right:0;text-align:center;font-family:"Caslon";font-size:15px;letter-spacing:.3em;color:#F4EADF;text-shadow:0 1px 6px rgba(0,0,0,.6)}
+.grao{position:absolute;inset:0;pointer-events:none}
+</style></head><body>
+<script>
+// Carrossel "Que privilégio é ser mulher": cada slide tem dois recortes bem fechados de pinturas antigas
+// (domínio público, Wikimedia Commons), com a frase partida entre as duas metades.
+const P = "gen/pinturas/";
+// recorte: [arquivo, centro x, centro y (frações da imagem), largura do recorte (fração da largura da imagem)]
+const S = [
+  { cima:["cha",.66,.27,.55],      baixo:["perola",.45,.37,.34],
+    f1:"Que privilégio é ser mulher", f2:"e se encantar com uma flor,<br>uma tarde de chuva e uma xícara de chá.", capa:true },
+  { cima:["chuva",.70,.46,.28],    baixo:["leiteira",.42,.47,.34],
+    f1:"Fazer do amor uma<br>escolha diária,", f2:"mesmo quando ele pede renúncia." },
+  { cima:["amigas",.46,.34,.52],   baixo:["amigas",.62,.62,.42],
+    f1:"Ter amigas de verdade", f2:"e celebrar a vitória delas<br>sem competir." },
+  { cima:["interior",.52,.55,.62], baixo:["cha",.30,.22,.50],
+    f1:"Encontrar alegria<br>em cuidar da casa", f2:"e fazer do ato de se arrumar<br>um momento especial." },
+  { cima:["mae",.45,.36,.55],      baixo:["flaming",.42,.40,.46],
+    f1:"Ter sido criada<br>com o dom", f2:"de gerar uma vida dentro de si." },
+  { cheia:["balanca",.50,.50,1],
+    f1:"Que privilégio<br>é ser mulher", f3:"e saber que Deus nos fez únicas, com uma identidade própria.<br><br>Não precisamos ser cópia de ninguém pra revelar a beleza de quem fomos criadas pra ser.", fim:true },
+];
+const tam = {};
+function fundo(el, [nome, cx, cy, cw], W, H){
+  const [iw, ih] = tam[nome], s = W / (cw * iw);
+  el.style.backgroundImage = `url(${P}${nome}.jpg)`;
+  el.style.backgroundSize = `${iw * s}px ${ih * s}px`;
+  el.style.backgroundPosition = `${W / 2 - cx * iw * s}px ${H / 2 - cy * ih * s}px`;
+}
+const grao = `<svg class="grao" viewBox="0 0 1080 1350"><filter id="g"><feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="2" seed="3"/><feColorMatrix type="saturate" values="0"/><feComponentTransfer><feFuncA type="linear" slope=".07"/></feComponentTransfer></filter><rect width="1080" height="1350" filter="url(#g)"/></svg>`;
+window.pronto = Promise.all([...new Set(S.flatMap(s => [s.cima, s.baixo, s.cheia]).filter(Boolean).map(x => x[0]))]
+  .map(n => new Promise(r => { const im = new Image(); im.onload = () => { tam[n] = [im.naturalWidth, im.naturalHeight]; r(); }; im.src = P + n + ".jpg"; })))
+.then(() => {
+  S.forEach((s, i) => {
+    const d = document.createElement("div"); d.className = "post"; d.id = "p" + (i + 1);
+    if (s.cheia) {
+      d.innerHTML = `<div class="cheia"></div>
+        <div style="position:absolute;inset:0;background:linear-gradient(90deg,rgba(10,6,4,.72),rgba(10,6,4,.35) 55%,rgba(10,6,4,0) 80%)"></div>
+        <div class="t t1" style="left:80px;right:420px;top:330px;text-align:left;font-size:60px">${s.f1}</div>
+        <div class="t t2" style="left:80px;right:440px;top:520px;text-align:left;font-size:36px;line-height:1.4">${s.f3}</div>
+        <div class="at" style="top:70px">@REBECAFORTUNATO__</div>${grao}`;
+      document.body.append(d); fundo(d.querySelector(".cheia"), s.cheia, 1080, 1350);
+    } else {
+      d.innerHTML = `<div class="meia" style="top:0"></div><div class="meia" style="top:675px"></div>
+        <div style="position:absolute;left:0;right:0;top:150px;height:380px;background:radial-gradient(60% 50% at 50% 50%,rgba(15,8,5,.32),rgba(15,8,5,0))"></div>
+        <div style="position:absolute;left:0;right:0;bottom:0;height:330px;background:linear-gradient(rgba(15,8,5,0),rgba(15,8,5,.42))"></div>
+        <div class="t t1" style="top:${s.f1.includes("<br>") ? 230 : 290}px">${s.f1}</div>
+        <div class="t t2" style="top:${1350 - 70 - (s.f2.includes("<br>") ? 110 : 55)}px">${s.f2}</div>
+        ${grao}`;
+      document.body.append(d);
+      const [a, b] = d.querySelectorAll(".meia"); fundo(a, s.cima, 1080, 675); fundo(b, s.baixo, 1080, 675);
+    }
+  });
+});
+</script>
+</body></html>
