@@ -8,8 +8,8 @@ body{margin:0;background:#333}
 .meia{position:absolute;left:0;width:1080px;height:675px;background-repeat:no-repeat}
 .cheia{position:absolute;inset:0;background-repeat:no-repeat}
 .t{position:absolute;color:#FBF7F0;font-family:"Cormorant";text-shadow:0 1px 10px rgba(0,0,0,.5),0 0 2px rgba(0,0,0,.35)}
-.cima{left:60px;right:60px;top:300px;text-align:center;font-size:58px;line-height:1.1;letter-spacing:.005em}
-.baixo{right:48px;bottom:64px;width:820px;text-align:right;font-size:39px;line-height:1.22}
+.cima{left:60px;right:60px;top:0;height:675px;display:flex;align-items:center;justify-content:center;text-align:center;font-size:56px;line-height:1.1}
+.baixo{left:60px;right:60px;top:675px;height:675px;display:flex;align-items:center;justify-content:center;text-align:center;font-size:50px;line-height:1.14}
 .at{position:absolute;left:0;right:0;text-align:center;font-family:"Caslon";font-size:15px;letter-spacing:.3em;color:#F4EADF;text-shadow:0 1px 6px rgba(0,0,0,.6)}
 .grao{position:absolute;inset:0;pointer-events:none}
 </style></head><body>
@@ -19,12 +19,12 @@ body{margin:0;background:#333}
 const P = "gen/pinturas/";
 // recorte: [arquivo, centro x, centro y (frações da imagem), largura do recorte (fração da largura da imagem)]
 const S = [
-  { cima:["perola",.47,.42,.86],   baixo:["rosas",.50,.42,.92],   f:"e se encantar com a beleza<br>de uma flor simples." },
-  { cima:["chuva",.69,.45,.46],    baixo:["leiteira",.46,.46,.72], f:"e fazer do amor uma escolha diária,<br>mesmo quando ele pede renúncia." },
-  { cima:["amigas",.50,.25,.86],   baixo:["amigas",.52,.74,.58],  f:"e ter amigas de verdade,<br>que a gente celebra em vez de competir." },
-  { cima:["interior",.50,.50,.96], baixo:["cha",.50,.36,.78],     f:"e encontrar encanto em cuidar da casa,<br>numa tarde de chuva e numa xícara de chá." },
+  { cima:["chuva",.52,.42,.62],    baixo:["rosas",.50,.42,.92],   f:"e se encantar com uma flor<br>e uma tarde de chuva." },
+  { cima:["perola",.47,.30,.86],   baixo:["cha",.50,.36,.78],     f:"e fazer do ato de se arrumar<br>um momento especial." },
   { cima:["mae",.50,.45,.96],      baixo:["flaming",.50,.46,.92], f:"e ter sido criada com o dom<br>de gerar uma vida dentro de si." },
-  { cheia:["balanca",.50,.50,0] },
+  { cima:["amigas",.50,.25,.86],   baixo:["amigas",.56,.69,.58],  f:"e ter amigas de verdade,<br>celebrar a vitória delas sem competir." },
+  { cima:["interior",.50,.50,.96], baixo:["leiteira",.46,.34,.72], f:"e transformar uma casa<br>em lar." },
+  { cima:["shalott",.42,.45,.55],  baixo:["balanca",.56,.50,.42], f:"e ser quem Deus me criou pra ser,<br>sem precisar ser cópia de ninguém.", at:true },
 ];
 const tam = {};
 function fundo(el, [nome, cx, cy, cw], W, H){
@@ -49,9 +49,10 @@ window.pronto = Promise.all([...new Set(S.flatMap(s => [s.cima, s.baixo, s.cheia
       document.body.append(d); fundo(d.querySelector(".cheia"), s.cheia, 1080, 1350);
     } else {
       d.innerHTML = `<div class="meia" style="top:0"></div><div class="meia" style="top:675px"></div>
-        <div style="position:absolute;left:0;right:0;bottom:0;height:300px;background:linear-gradient(rgba(12,7,4,0),rgba(12,7,4,.38))"></div>
+        <div style="position:absolute;left:0;right:0;top:200px;height:275px;background:radial-gradient(55% 50% at 50% 50%,rgba(12,7,4,.3),rgba(12,7,4,0))"></div>
+        <div style="position:absolute;left:0;right:0;top:860px;height:300px;background:radial-gradient(55% 50% at 50% 50%,rgba(12,7,4,.3),rgba(12,7,4,0))"></div>
         <div class="t cima">Que privilégio é ser mulher</div>
-        <div class="t baixo">${s.f}</div>${grao}`;
+        <div class="t baixo">${s.f}</div>${s.at ? '<div class="at" style="top:46px">@REBECAFORTUNATO__</div>' : ""}${grao}`;
       document.body.append(d);
       const [a, b] = d.querySelectorAll(".meia"); fundo(a, s.cima, 1080, 675); fundo(b, s.baixo, 1080, 675);
     }
