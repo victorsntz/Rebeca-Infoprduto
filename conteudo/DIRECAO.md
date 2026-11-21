@@ -132,3 +132,31 @@ As marcas procuram três coisas: **audiência que confia** (o engajamento dela �
 3. **Bio com e-mail de contato pra parcerias.**
 4. **Mídia kit:** uma página com quem ela é, os números, o público e os temas. O Victor monta na identidade dela (dá pra fazer aqui também).
 5. **Nunca aceitar o que não passa na pergunta lá de cima.** Uma parceria incoerente custa mais confiança do que paga.
+
+## Autoridade: de "página que viraliza" a "mulher que as pessoas escutam"
+
+**O território (uma frase):** a jovem cristã que fala de namoro, noivado e casamento, e de ser mulher, com fé, repertório (história, moda, livros) e vida real.
+
+Autoridade tem três pernas:
+1. **Ponto de vista:** opinião própria, repetida com coerência. Ex.: "forte na ideia, gentil no tom", "o óbvio que ninguém diz".
+2. **Profundidade:** repertório que ninguém mais traz (Bíblia, história da mulher e da moda, livros). O carrossel do Aslan (957 comentários) provou que a audiência dela quer profundidade.
+3. **Prova:** ela vive o que fala (casou nova, segundo ano, a casa virando lar). O Casar nova é a prova.
+
+**O ajuste que mais pesa:** o print de tweet e a frase sem rosto trazem alcance, mas a autoridade se constrói com **o rosto e a voz dela**. Toda semana precisa ter pelo menos um vídeo dela falando (tela verde ou rotina falando).
+
+**O que conta como sucesso agora (em vez de seguidores):** comentários por post, salvamentos, respostas nos stories e mensagens no direct. Seguidor vem como consequência.
+
+**Comunidade engajada, em 3 hábitos:**
+- Responder os comentários na primeira hora depois de postar, com resposta de verdade, e não só emoji.
+- Toda semana, transformar um comentário ou uma pergunta da caixinha em post, citando a seguidora.
+- Dar um nome pra comunidade e usar sempre. Sugestão: **"mulheres que edificam"** (Provérbios 14:1).
+
+**Plano de 30 dias:**
+| Toda semana | Pra quê |
+|---|---|
+| 1 vídeo dela falando (tela verde ou rotina falando) | autoridade |
+| 1 carrossel profundo, com pergunta na legenda | autoridade e salvamentos |
+| 1 episódio do Casar nova ou rotina | conexão |
+| 2 prints de "o óbvio que ninguém diz" | alcance |
+| stories todo dia com caixinha ou enquete | conversa |
+| 1 live por mês (ex.: "perguntas sobre noivado") | comunidade |
